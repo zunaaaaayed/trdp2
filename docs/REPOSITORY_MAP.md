@@ -1,10 +1,13 @@
 # Repository map and retention policy
 
-The entry point for current work is [NEXT_WEEK.md](../NEXT_WEEK.md).
+The weekly summary and next-week plan are in [NEXT_WEEK.md](../NEXT_WEEK.md).
+Detailed weekly results belong in the root README; each experiment README owns
+its plans, methods, outputs and interpretations.
 
 | Location | Role | Retention |
 |---|---|---|
-| `experiments/independent_volume_evaluation/` | Current frozen TV results, candidate cohort and DICOM intake | Active |
+| `experiments/worm_uncertainty/` | Current noise, FBP/SART and uncertainty development | Active |
+| `experiments/independent_volume_evaluation/` | Frozen chest TV results, deferred cohort and DICOM intake | Historical/deferred |
 | `experiments/ordinary_tv_controls/` | Paired-control runner, tests and original selection protocol | Completed controls; reusable guarded tooling |
 | `experiments/limited_angle_generalization/` | Source-bound manifests, generation, verification, baseline workflow | Preserve paths and hashes |
 | `experiments/limited_angle_120/` | Completed historical pilot and diagnostics | Preserve as evidence |
@@ -24,10 +27,15 @@ particular, keep the ordinary-TV selection protocol and its recorded hashes.
 
 Python bytecode and LaTeX auxiliary files can be regenerated and are safe cleanup
 targets when untracked. Compiled CUDA libraries, raw images, checkpoints, successful
-or failed experiment logs, and backup archives are not disposable caches.
+or failed experiment logs, are preserved research evidence. Obsolete backup archives may be deleted after
+member-by-member verification against retained originals, with a cleanup record.
 
 Before deleting or moving a tracked file, check frozen manifests and report links.
 The source inventory includes tracked Python, CUDA/C++, headers, YAML and submodule
 identities. Cosmetic reorganization of those files can invalidate reproducibility.
 No blanket `git clean -xfd` should be used on this research checkout: it would
 remove the ignored datasets and completed results.
+
+The 17 October storage cleanup is recorded in [the deletion inventory](maintenance/cleanup_20261017.json).
+Unused broad upstream download ZIPs are removed; extracted chest inputs, accepted
+reconstructions and the supervisor worm dataset are retained.

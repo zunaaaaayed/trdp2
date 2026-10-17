@@ -1,0 +1,237 @@
+{
+  "baseline": {
+    "kind": "measured_only_limited_gaussian_baselines",
+    "protocol_sha256": "af52e9b8a748655b1dd02ece555e351dbf084a51b7fda1f7345efae47fd60c2b",
+    "inputs_sha256": "f4a1721b4bde49268baa14d35c1532272b6086dc650ec3a2b3b7a8a97f575ab9",
+    "results": [
+      {
+        "case": "span180_sigma0",
+        "span": 180,
+        "sigma": 0.0,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.04695768703450756,
+        "withheld_relative_l2": null,
+        "artifacts": {
+          "arrays.npz": "03047b06f6a4695bdf6347c24cfffddd4f8218154137e649f7f766921cc1b498",
+          "gaussians.npz": "712321b3b7e7004aa0678d1c979d9b6c7e0ec76d991b16f942eb713183fab091"
+        }
+      },
+      {
+        "case": "span120_sigma0",
+        "span": 120,
+        "sigma": 0.0,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.04761468352021798,
+        "withheld_relative_l2": 0.13457856605539767,
+        "artifacts": {
+          "arrays.npz": "6550338c64a469796a46270d4824f5bf4271873d839354be092cf42984424f8b",
+          "gaussians.npz": "d79804b98dd160d9bbb001c6b35924e91fdeab99db7f212ca4e2fcca302e0017"
+        }
+      },
+      {
+        "case": "span90_sigma0",
+        "span": 90,
+        "sigma": 0.0,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.044878170005757216,
+        "withheld_relative_l2": 0.16827710102295593,
+        "artifacts": {
+          "arrays.npz": "80ff5799986c51e42343f8a7989447a7f5cc68032bfff26584a8044e222a5e3e",
+          "gaussians.npz": "0e3ec7e09a313509cf410ea96987eac2b83f51e3b29bf268c9b4ff574b5cceaa"
+        }
+      },
+      {
+        "case": "span180_sigma0.05",
+        "span": 180,
+        "sigma": 0.05,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.04923929277418005,
+        "withheld_relative_l2": null,
+        "artifacts": {
+          "arrays.npz": "f9400a6f2097db705cf053950910a147bff87ac62cb4ad7bab2edbee8abd75a7",
+          "gaussians.npz": "c9a2fe1e7879ba772a265397bea95ff3a8cc6a43421d9efc64f179dc6a27d192"
+        }
+      },
+      {
+        "case": "span120_sigma0.05",
+        "span": 120,
+        "sigma": 0.05,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.04872505513866834,
+        "withheld_relative_l2": 0.13361460456488652,
+        "artifacts": {
+          "arrays.npz": "5605ef9309524e40147d2a038a741d49e83ef27f37e0b65daa021a6846ab09f2",
+          "gaussians.npz": "4f4021f15f89663679a79cf5a2bf9590efa9ab65cc827c74c3f8b9b651cc782b"
+        }
+      },
+      {
+        "case": "span90_sigma0.05",
+        "span": 90,
+        "sigma": 0.05,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.044960099961663634,
+        "withheld_relative_l2": 0.17786600115800305,
+        "artifacts": {
+          "arrays.npz": "a4497aab9772405915e581edd42a65ceb189ac4b73ea9c74d5d3b83375e956e0",
+          "gaussians.npz": "c8f8acd27d2eaac431233b1aedc80a59616a7bf29328f8adc1494b4d9f549a08"
+        }
+      }
+    ],
+    "gpu": "NVIDIA RTX 4000 Ada Generation",
+    "torch": "2.1.2+cu118",
+    "code_sha256": {
+      "limited_gaussian.py": "f3de3a1805dd29ab3857f8f7be77286444ca4ca563aa6305929737690aa5180e",
+      "native_parallel.py": "0c89d3b147dd2bb93b7745082861b31de73d21af9a25f0695f419d2f042f753e",
+      "fit_gaussian_slab.py": "c82a7b04af50dc452d8927a14a8b193c9688df330474a20522b0d3a39afa12ee"
+    }
+  },
+  "posterior": {
+    "kind": "conditional_density_posterior_development",
+    "baseline_report_sha256": "42ece54b7e04290b4ef16cb944487396ec36e3c797f831f325393fe32d3696c3",
+    "results": [
+      {
+        "case": "span180_sigma0.05",
+        "span": 180,
+        "sigma": 0.05,
+        "prior_sd": 10.0,
+        "native_analytic_relative_l2": 0.0008631951113478259,
+        "negative_density_mean_fraction": 0.2833333333333333,
+        "measured_relative_l2": 0.04632811971682963,
+        "withheld_relative_l2": null,
+        "coverage": {
+          "measured_latent_clean": {
+            "coverage95": 0.1378455867294696,
+            "mean_width95": 0.026125760719734617,
+            "rmse": 0.10115640162863328,
+            "mean_sd": 0.00666485734580125
+          },
+          "measured_predictive_noisy": {
+            "coverage95": 0.6831456072086832,
+            "mean_width95": 0.1977996491091881,
+            "rmse": 0.11160233930181043,
+            "mean_sd": 0.05046002137524261
+          },
+          "withheld_latent_clean": null,
+          "withheld_predictive_noisy": null
+        },
+        "arrays_sha256": "939192c93315990975726fc5614cd2a9b88c8759a7013dd930db1d6b760089cb"
+      },
+      {
+        "case": "span120_sigma0.05",
+        "span": 120,
+        "sigma": 0.05,
+        "prior_sd": 10.0,
+        "native_analytic_relative_l2": 0.0008741543011242702,
+        "negative_density_mean_fraction": 0.304,
+        "measured_relative_l2": 0.045788553385237324,
+        "withheld_relative_l2": 0.13234254605365967,
+        "coverage": {
+          "measured_latent_clean": {
+            "coverage95": 0.16181812631643214,
+            "mean_width95": 0.031485010450052385,
+            "rmse": 0.09983733985362292,
+            "mean_sd": 0.008032038011515263
+          },
+          "measured_predictive_noisy": {
+            "coverage95": 0.6873836197686132,
+            "mean_width95": 0.1986201286589402,
+            "rmse": 0.1099264286040877,
+            "mean_sd": 0.050669331228950086
+          },
+          "withheld_latent_clean": {
+            "coverage95": 0.07902432953767656,
+            "mean_width95": 0.05018291974303313,
+            "rmse": 0.29256404929902546,
+            "mean_sd": 0.012802000480333052
+          },
+          "withheld_predictive_noisy": {
+            "coverage95": 0.3065770642772696,
+            "mean_width95": 0.20284430018660377,
+            "rmse": 0.2967632233888127,
+            "mean_sd": 0.05174694580783609
+          }
+        },
+        "arrays_sha256": "8fd2c1ec48bc8ed40731b162ed6da836d08571e629c7e13abf717e1cf174f46d"
+      },
+      {
+        "case": "span90_sigma0.05",
+        "span": 90,
+        "sigma": 0.05,
+        "prior_sd": 10.0,
+        "native_analytic_relative_l2": 0.0007733178031543779,
+        "negative_density_mean_fraction": 0.29733333333333334,
+        "measured_relative_l2": 0.0419922354483588,
+        "withheld_relative_l2": 0.1760536456780621,
+        "coverage": {
+          "measured_latent_clean": {
+            "coverage95": 0.198091180928194,
+            "mean_width95": 0.03737428666159498,
+            "rmse": 0.09136688469165465,
+            "mean_sd": 0.009534431998852943
+          },
+          "measured_predictive_noisy": {
+            "coverage95": 0.7133084831851882,
+            "mean_width95": 0.19969451280937098,
+            "rmse": 0.10208190737154965,
+            "mean_sd": 0.050943413854678286
+          },
+          "withheld_latent_clean": {
+            "coverage95": 0.08920014743826023,
+            "mean_width95": 0.07982588917829642,
+            "rmse": 0.3867327741060185,
+            "mean_sd": 0.02036412143487203
+          },
+          "withheld_predictive_noisy": {
+            "coverage95": 0.24171683663021665,
+            "mean_width95": 0.2131905588215695,
+            "rmse": 0.3901571244760676,
+            "mean_sd": 0.05438634600002737
+          }
+        },
+        "arrays_sha256": "3c18c8a61b0cf41fc8dd8644898cc804ff5a116d5a00d11b8a40ee021e772207"
+      }
+    ],
+    "foreground_threshold_normalized": 0.05,
+    "posterior": "exact linear Gaussian given fitted geometry, zero-mean prior; all amplitudes free",
+    "limitations": [
+      "one development slab and one noise realization",
+      "no voxel ground truth",
+      "geometry fitted on same measurements; plug-in uncertainty omits geometry selection",
+      "physical density normalization unresolved",
+      "no exact posterior at zero noise; clean runs have no posterior",
+      "credible intervals may be overconfident due to plug-in geometry and model mismatch",
+      "latent coverage uses clean projections; predictive coverage adds known measurement noise",
+      "measured predictive coverage is in-sample; only withheld angles test prediction",
+      "Gaussian density posterior allows negative amplitudes; no clipping applied"
+    ],
+    "code_sha256": "c38f2dc3d5d06692e0353091ae14515bebd5c3220cb597add4a98ceffeb97088"
+  },
+  "renderer_sha256": "80f9a30a2ece624c28004055487e8557d381f0df420b2f9610e800819cec0039",
+  "crop": [
+    105,
+    205,
+    105,
+    205
+  ],
+  "source_z": 256,
+  "profile_angle_deg": 144,
+  "mean_scale": [
+    -1.0988632965824232,
+    19.670318603515625
+  ],
+  "sd_scale": [
+    0,
+    0.39690444783853474
+  ],
+  "figures": {
+    "slab_comparison.png": "304825a074ccdae60a086b871acd508b69de24cda22d9705edcf41b1e6a2aec4",
+    "coverage.png": "de3c2c41cce2e59321305538390b7c1314374af18c38bccc56eb328ad8a0350b",
+    "withheld_profile.png": "6278ec0bf49f9b55021f45ed479e05f5310c462381cd148c65851e632d679618"
+  }
+}
