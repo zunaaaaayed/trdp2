@@ -1,8 +1,39 @@
+# Active handoff — worm uncertainty (17 October 2026)
+
+Current work is on `experiment/worm-uncertainty`. See
+[the worm protocol](experiments/worm_uncertainty/README.md) and
+[supervisor clarification](docs/SUPERVISOR_DATASET.md). Parallel-beam synthetic
+sinograms and single-worm deformation provenance are now confirmed. Projection
+normalization and matching density volumes remain unresolved. No GPU run has
+started. The dated Week 4 plan below is retained as history; its unresolved-axis
+questions are superseded by the supervisor clarification.
+
 # Week 4 handoff — independent-volume preparation
 
 Prepared 8 October 2026 for the next reporting week, 10–16 October.
 Research objective: reconstruction generalization across limited-angle acquisition
 configurations and independent volumes, with settings frozen before evaluation.
+
+## Current direction — updated 12 October 2026
+
+The user has designated the dataset supplied by co-supervisor **Ms. Anna-Louise
+Brun** as the dataset to use going forward. Its original archive is
+`~/espaces/travail/trdp2/worm_data.zip`
+with extracted TIFF files in `~/espaces/travail/trdp2/worm_data/`. See
+[the dataset handoff](docs/SUPERVISOR_DATASET.md) for download integrity and intake.
+The previous LIDC-IDRI expansion plan is deferred. Its source records, downloaded
+subject and frozen splits remain historical preparation evidence. The existing
+TV 0.05 selection is evidence for the supplied chest convention; do not assume it
+transfers unchanged to the new data's measurement scale or geometry.
+
+All 144 TIFFs are extracted and audited; each is a finite, nonnegative float64
+array of shape (510, 100, 310). See the dataset README and `array_audit.json`.
+
+Next actions: establish
+projection/volume axes and acquisition geometry, identify any reference volumes
+and independent subjects, document intensity units and provenance, then define a
+new benchmark protocol. Validate tiny inputs before GPU reconstruction. Do not
+interpret a sinogram filename as proof of a specific scanner model or angle range.
 
 ## Completed and frozen
 
@@ -20,7 +51,7 @@ configurations and independent volumes, with settings frozen before evaluation.
   is preserved to avoid breaking existing references.
 - No experiment is queued by this handoff. Start no archived shell queue blindly.
 
-## First milestone: validate an independent-volume input
+## Previous milestone: LIDC-IDRI intake (deferred)
 
 1. **Pilot provenance:** inherited `raw_metadata.py` identifies `0_chest` as
    LIDC-IDRI-0001. Verify that mapping against the supplied reference; it is still

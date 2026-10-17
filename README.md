@@ -22,7 +22,122 @@ benefit nor its novelty has been established. Ordinary-TV controls, boundary
 preservation, independent-volume evaluation, and relevant prior work are essential
 to assessing that hypothesis.
 
-## Current results and status
+## Current dataset direction
+
+As of 12 October 2026, the dataset supplied by co-supervisor **Ms. Anna-Louise Brun**
+is the selected data source for subsequent work. The raw `sino_selected.zip`
+archive and its checksum are retained locally; see the
+[dataset handoff](docs/SUPERVISOR_DATASET.md) for intake status. The earlier LIDC-IDRI
+expansion is deferred. Existing pilot and TV results remain evidence for their
+original data convention and do not establish performance on the new dataset.
+
+## Active work: worm uncertainty — 17 October 2026
+
+Branch: `experiment/worm-uncertainty`. The current objective is uncertainty under
+missing angles and controlled noise. The synthetic parallel-beam TIFFs contain
+(z, angle, detector) = (510, 100, 310), with 1 µm sampling and 100 angles over
+[0°,180°). Files are deformations of **one worm**, not independent specimens.
+Physical projection normalization and matching voxel density targets remain
+unresolved; all current calculations use stored projection units.
+
+Completed CPU development work:
+
+- Reproducible Gaussian-noise preparation with hashes, angle masks and overwrite
+  protection; immutable source TIFFs.
+- Analytic off-centre disk check and one full-angle filtered-backprojection (FBP)
+  slice. This validates the scikit-image path, not the Gaussian/TIGRE backend.
+- 21 paired FBP runs on worm_004, z=255: spans 180°, 120°, 90°; noise standard
+  deviations 0%, 1%, 5% of the development slice RMS (6210.1146 stored units).
+  Noisy conditions each use seeds 0, 1, 2, shared across angular masks.
+- Six CPU tests pass, including withheld-view isolation. Missing views contribute
+  zero on the full angle grid, retaining the original angular quadrature weights.
+
+Seed-zero projection relative L2 errors against clean data:
+
+| Span | Noise sigma / development RMS | Measured views | Withheld views |
+|---|---:|---:|---:|
+| 180° | 0% | 4.28% | — |
+| 120° | 0% | 21.75% | 80.72% |
+| 90° | 0% | 27.62% | 86.32% |
+| 180° | 1% | 4.44% | — |
+| 120° | 1% | 21.78% | 80.72% |
+| 90° | 1% | 27.64% | 86.33% |
+| 180° | 5% | 7.36% | — |
+| 120° | 5% | 22.55% | 80.74% |
+| 90° | 5% | 28.24% | 86.34% |
+
+These are projection discrepancies, **not voxel errors or uncertainty calibration**.
+The large missing-view errors expose the weakness of zero-filled limited-angle
+FBP. Values use the same numerical reprojection operator and one development
+slice. The three-realization standard-deviation maps measure noise response only;
+they do not capture missing-wedge ambiguity or provide posterior intervals.
+
+Local outputs: `output/worm_uncertainty/paired_fbp_20261017/` contains arrays,
+checksummed results and a reconstruction comparison with a shared intensity scale.
+See [the detailed protocol](experiments/worm_uncertainty/README.md).
+
+Reproduce from the repository root (choose a fresh output directory):
+
+```bash
+source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
+conda activate trdp2-r2
+export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
+python -B -m unittest discover -s experiments/worm_uncertainty -p 'test_*.py' -q
+python -B experiments/worm_uncertainty/compare_noise.py \
+  --source ../worm_data/worm_004_gt.tiff \
+  --output output/worm_uncertainty/paired_fbp_repeat
+```
+
+### Reconstruction plots and iterative baseline
+
+![FBP across angular spans and noise strengths](docs/figures/worm_uncertainty/fbp_noise.png)
+
+**FBP:** shrinking angular coverage causes directional streaks and loss of interior
+structure; added noise introduces finer fluctuations. All nine panels share one
+intensity scale. These are reconstructions, not ground-truth images.
+
+![FBP versus nonnegative SART, fixed central crop](docs/figures/worm_uncertainty/sart_comparison.png)
+
+**Iterative baseline:** SART uses only measured views, a zero initializer, 10 fixed
+sweeps, relaxation 0.15, nonnegativity and circular support. The fixed crop
+[105:205,105:205] and shared scale make interior differences visible. FBP has no
+nonnegativity constraint, so this compares complete baselines, not an isolated
+solver change. Neither method uses TV here.
+
+| Span | Noise sigma / RMS | FBP withheld error | SART withheld error |
+|---|---:|---:|---:|
+| 120° | 0% | 80.72% | 14.38% |
+| 120° | 5% | 80.74% | 14.39% |
+| 90° | 0% | 86.32% | 19.49% |
+| 90° | 5% | 86.34% | 19.48% |
+
+Errors are relative L2 against clean withheld projections, seed zero. SART improves
+this development diagnostic substantially; larger missing wedges still leave more
+error. Similar clean/noisy scores do not prove noise robustness: only one slice
+and one realization were compared. At full coverage, SART measured-view errors
+are 3.08% clean and 3.67% at 5% noise, versus FBP 4.28% and 7.36%.
+No voxel ground truth or calibrated uncertainty is available. SART and evaluation
+Radon discretizations differ. Settings were fixed before this run, with no stopping
+or fitting based on withheld values.
+
+Accepted outputs: `output/worm_uncertainty/sart_20261017_v2/`. The first attempt is
+retained; v2 explicitly enforces circular support after each sweep to remove a
+projector warning. Seven tests pass, including withheld-value isolation for SART.
+Figure and input provenance: [plot records](docs/figures/worm_uncertainty/provenance.json).
+
+After the paired FBP command above, reproduce with:
+
+```bash
+python -B experiments/worm_uncertainty/compare_sart.py \
+  --input output/worm_uncertainty/paired_fbp_repeat \
+  --output output/worm_uncertainty/sart_repeat
+```
+
+Next: evaluate uncertainty against appropriate references. Resolve simulator scaling and
+orientation, group related deformations before freezing splits, and separate
+noise sensitivity from reconstruction ambiguity. No GPU training is queued.
+
+## Historical chest results and status
 
 Two development baselines completed 30,000 iterations with 50 views, a 120° span,
 TV weight 0.05, seed zero, and the same chest reference and evaluation projections:

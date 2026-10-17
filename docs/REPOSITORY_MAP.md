@@ -14,6 +14,7 @@ The entry point for current work is [NEXT_WEEK.md](../NEXT_WEEK.md).
 | `data_generator/`, `scripts/`, `test.py`, `environment.yml` | Inherited input/analysis tooling and setup | Still referenced and potentially needed; not assumed obsolete |
 | `README_UPSTREAM.md`, `assets/` | Original usage documentation and linked illustrations | Attribution/reference material |
 | `TRDP2_CODEX_HANDOFF.md` | Historical first-session requirements | Historical specification; current status is in NEXT_WEEK |
+| `../worm_data/`, `../worm_data.zip` | Current supervisor dataset and verified original archive | Outside Git; preserve raw values and intake metadata |
 | `data/`, `output/`, `logs/` | Local raw inputs, experiment products and operational logs | Ignored by Git; valuable research artifacts |
 | `graphify-out/` | Local navigation graph | Regenerable index, not source of truth |
 
