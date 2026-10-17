@@ -26,18 +26,23 @@ postponed. This is a provisional summary; the reporting period remains open.
   density posteriors. Noisy withheld errors are 13.36%/17.79% (120°/90°);
   posterior predictive coverage is only 30.66%/24.17% for nominal 95% intervals.
   This is a failed-calibration baseline; 21 current CPU tests pass.
+- Completed a known-3D control: omitted basis functions leave residual error;
+  matched-target fits converge quickly; adding centre uncertainty improves nominal
+  95% voxel coverage from 41–45% to 95–97% across 30 paired noise draws. This
+  supports a joint centre+density model, without proving worm calibration.
+  Twenty-four current CPU tests pass.
 - Added shared-scale plots and detailed results to the repository and experiment
-  READMEs. Seven CPU tests pass. Retained prior reports and accepted chest results.
+  READMEs. Retained prior reports and accepted chest results.
 - Narrowed local storage to current data and reproducibility evidence; cleanup
   details are recorded separately under `docs/maintenance/`.
 
 ## Plan for the next reporting week
 
-1. Validate the completed limited-angle Gaussian/posterior path on known 3D
-   targets to separate representation and optimization error from uncertainty.
+1. Extend the known-3D diagnosis to separately fixed phantoms, angular offsets
+   and initializations, including withheld-ray coverage and deliberate mismatch.
 2. Check sensitivity to solver budget while keeping noise and optimization
    effects distinct.
-3. Address conditional-posterior undercoverage through geometry uncertainty or
+3. Test joint Gaussian centre+density uncertainty, then widths/rotations or
    an explicit model-error term, using separate calibration cases and evaluating
    interval coverage, width and regional quantitative measurements.
 4. Resolve the worm simulator's projection scaling, rotation convention and

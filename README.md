@@ -457,6 +457,88 @@ conditional uncertainty, then test geometry uncertainty or an explicit model-err
 term on separate calibration cases. Keep these failed-calibration results as a
 baseline. Fix protocol choices before evaluation on new deformations or angles.
 
+### Known 3D phantom: separating three sources of error
+
+A controlled CPU experiment now separates fixed-basis representation error,
+optimization stopping, and omitted **Gaussian-centre uncertainty**. Here geometry
+means the reconstructed Gaussian positions, **not uncertain scanner angles or
+alignment**. Acquisition geometry is exact in this experiment.
+
+The frozen `phantom_3d_protocol_v1.json` specifies three anisotropic 3D Gaussians,
+36 parallel-beam views at 5° spacing, a 12×24 detector, and a 24³ evaluation grid.
+Full/120°/90° acquisitions use 36/24/18 views. Thirty paired Gaussian-noise draws
+have SD 5% of the full clean projection RMS; priors and initialization are fixed
+before evaluation. These are synthetic density units, not calibrated worm units.
+Foreground means truth above 5% of its peak, used only for evaluation.
+
+**Representation control.** Add a fourth component to the truth, then solve
+all-view clean least squares exactly with the original three fixed basis
+functions. Projection relative error remains **11.283%**, with foreground voxel
+RMSE **0.03369**. Restoring the fourth basis function reduces both to numerical
+precision. This demonstrates an omitted-component error that further density
+optimization cannot fix. It does not measure the best possible fit of three
+freely moving/resizing Gaussians.
+
+**Optimization control.** On the matched three-component target, identical starts
+and priors are fitted with budgets of 5 versus 150 function evaluations. All long
+fits stop successfully after 7 evaluations. Foreground voxel RMSE changes:
+
+| Angular span | Budget 5 (stopped early) | Budget 150 (converged) |
+|---|---:|---:|
+| 180° | 1.003e-6 | 1.342e-7 |
+| 120° | 5.789e-7 | 2.182e-7 |
+| 90° | 6.422e-7 | 3.946e-7 |
+
+Lower RMSE is better. Both budgets already yield tiny errors here; this is an easy
+matched-model problem. Successful convergence and tiny residuals on this phantom
+do not establish convergence of the 1,500-Gaussian worm fit. Remaining clean error
+also includes the fixed prior's influence.
+
+**Uncertainty control.** With noisy matched targets, compare an exact density
+posterior at true centres, a conditional density posterior at fitted centres,
+and a local joint centre+density covariance. The latter two use exactly the same
+reconstruction mean; only uncertainty propagation changes. The joint calculation
+retains cross-covariances and uses a Gauss–Newton/Laplace approximation and linear
+voxel propagation, with fixed widths, rotations and component count.
+
+| Span | Known-centre coverage | Fitted-centre density-only coverage | Joint coverage | Density-only / joint width |
+|---|---:|---:|---:|---:|
+| 180° | 96.91% | 44.85% | 95.25% | 0.000635 / 0.001780 |
+| 120° | 93.96% | 43.41% | 95.05% | 0.000784 / 0.002325 |
+| 90° | 96.68% | 40.98% | 96.63% | 0.000921 / 0.003115 |
+
+Coverage is the mean across 30 draws of the foreground fraction inside nominal
+95% **latent voxel-density** intervals. Width is mean interval width in synthetic
+density units. These differ from the worm experiment's withheld-ray predictive
+intervals. Fitted-centre mean voxel RMSE is 0.000502/0.000674/0.000847. All 90 noisy
+fits converge without active bounds; conditional density re-solving changes MAP
+densities by at most 2.13e-13.
+
+![Coverage must be judged with interval width](docs/figures/worm_uncertainty/known_3d_diagnosis_v1/coverage_width.png)
+
+The target is coverage near 95% with useful width. Density-only intervals are too
+narrow after centre fitting; carrying centre uncertainty substantially repairs
+coverage in this controlled setting. Coverage varies across individual draws and
+voxels are correlated, so this table is not 30×foreground independent trials.
+
+![Known truth, fitted density, error and uncertainty](docs/figures/worm_uncertainty/known_3d_diagnosis_v1/slices.png)
+
+The figure fixes the first noise draw, 90° acquisition and central z slice. Truth
+and reconstruction share density limits; both SD panels share limits. Error low
+is good; SD low alone is not. Results and provenance are in the
+[record](docs/figures/worm_uncertainty/known_3d_diagnosis_v1/results.json).
+
+**Decision for the next uncertainty model:** test a joint centre-and-density local
+posterior next, then add widths/rotations under controlled perturbations. Keep the
+failed worm density-only baseline. Before transfer, evaluate on separately fixed
+phantoms, starts and angular offsets, with withheld-ray coverage as well as voxel
+coverage and widths. Include deliberate missing components to test when a
+model-error term or richer representation is needed. Scanner-angle/alignment
+uncertainty remains a separate, untested question. This matched analytic
+synthesis/inference study is a diagnostic, not independent forward-model
+validation, proof of worm calibration, or evidence of generalization across
+independent volumes. No interval tuning used these reported outcomes.
+
 ## Week 3 — ordinary-TV controls (3–9 October 2026)
 
 Two development baselines completed 30,000 iterations with 50 views, a 120° span,
