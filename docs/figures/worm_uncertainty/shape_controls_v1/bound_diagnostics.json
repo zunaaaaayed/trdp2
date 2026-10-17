@@ -1,0 +1,291 @@
+{
+  "note": "Post-run inspection; no fits rerun or bounds changed. Component and XYZ axis indices are zero-based.",
+  "records": [
+    {
+      "phantom": "separated",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 0,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "separated",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 4,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "separated",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 5,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "separated",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 6,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 1,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 2,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 3,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 4,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 5,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 6,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 7,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 81,
+      "noise_repeat": 8,
+      "rotation_bound_component_axis": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 0,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 1,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 2,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 3,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 4,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 5,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 6,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 7,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 8,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "initialization_seed": 193,
+      "noise_repeat": 9,
+      "rotation_bound_component_axis": [
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  ]
+}

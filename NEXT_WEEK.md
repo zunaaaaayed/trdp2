@@ -35,6 +35,16 @@ postponed. This is a provisional summary; the reporting period remains open.
   89.72–96.72% for matched models but only 8.86–29.29% with a missing component;
   centre uncertainty alone does not account for missing structure. All fits
   terminate successfully; 26 CPU tests pass.
+- Restored the omitted component in 200 paired fits: joint voxel coverage
+  returns to 90.26–96.32%. Another 120 fits include learned widths and rotations;
+  full shape covariance helps but 22 fits hit rotation bounds. The difficult
+  case has only 85.47% voxel coverage; boundary and initialization sensitivity
+  must be resolved before worm transfer. Thirty CPU tests pass.
+- Diagnosed rotation bounds and start-centred priors in 240 fits; a 60-fit
+  Cholesky follow-up still exposed local minima. A fixed shared prior and four
+  starts with a 300-evaluation budget produced 30/30 passing stability checks
+  across another 120 fits. Selected voxel coverage is 95.92–97.36%; individual
+  starts can still fail. Thirty-four CPU tests pass.
 - Added shared-scale plots and detailed results to the repository and experiment
   READMEs. Retained prior reports and accepted chest results.
 - Narrowed local storage to current data and reproducibility evidence; cleanup
@@ -42,13 +52,12 @@ postponed. This is a provisional summary; the reporting period remains open.
 
 ## Plan for the next reporting week
 
-1. Restore the omitted component as a representation-repair control, then test
-   uncertain widths/rotations and explicit residual modelling if error remains.
-2. Check sensitivity to solver budget while keeping noise and optimization
-   effects distinct.
-3. Test joint Gaussian centre+density uncertainty, then widths/rotations or
-   an explicit model-error term, using separate calibration cases and evaluating
-   interval coverage, width and regional quantitative measurements.
+1. Validate the audited Cholesky/shared-prior/multistart procedure on fresh fixed
+   cases; test nonlinear propagation and retain failed candidates.
+2. Design a measured-data-only initializer and prior for a small worm slab,
+   and make the full shape covariance calculation scalable.
+3. Transfer only as a diagnostic pilot with withheld-view evaluation and explicit
+   stability checks; calibrated worm uncertainty remains unestablished.
 4. Resolve the worm simulator's projection scaling, rotation convention and
    availability of matching deformed density volumes with Anna-Louise.
 5. Transfer the validated procedure to development worm slices and plan a

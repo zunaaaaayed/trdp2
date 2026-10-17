@@ -681,3 +681,211 @@ Twenty-six CPU tests pass. New checks cover wrapped angular masks, unchanged fit
 and covariance after arbitrarily changing withheld measurements, and the joint
 versus conditional variance ordering. Formatting and static checks pass for all
 27 active scripts. No GPU experiment is required for this stage.
+
+### Component restoration and uncertain Gaussian shape
+
+A paired representation-repair control now restores the previously omitted fourth
+component. It uses exactly the previous four-component truth, acquisition windows,
+noise draws, prior settings and first-three-component initialization perturbations.
+The new fourth component starts near its true centre with its true width: this is
+an oracle capacity control, not an automatic component-discovery method. Both
+phantoms, five windows, ten noise draws and two starts give **200 repair fits**.
+
+| Four-component target | Joint voxel coverage | Voxel RMSE | Withheld predictive coverage |
+|---|---:|---:|---:|
+| Three-component fit (previous) | 8.86–29.29% | 0.03977–0.04758 | 43.87–65.32% |
+| Restored four-component fit | 90.26–96.32% | 0.000656–0.001748 | 94.84–95.44% |
+
+Ranges summarize case means, not confidence intervals. Nominal coverage is 95%;
+RMSE and interval widths are in synthetic density units. All repair fits terminate
+successfully within ten evaluations, without active bounds. This paired control
+supports missing representational structure as a cause of the earlier failure.
+It does not establish that arbitrary worm residuals have the same cause.
+
+![Restoring the missing component reduces error and improves coverage](../../docs/figures/worm_uncertainty/shape_controls_v1/repair.png)
+
+The second stage rotates each of the four true components and learns centres,
+log widths, XYZ Euler rotations and densities jointly. Width bounds are 0.04–0.35;
+Euler-angle bounds are ±1.4 radians. Gaussian priors have SD 0.35 on log widths and
+0.5 radians on rotations, centred on the fixed initialization. Initial widths and
+rotations are perturbed from truth (SD 0.1 and 0.15 respectively), so this is still
+favourable initialization. The two phantoms use 180°/0°, 90°/0° and 90°/120° windows,
+ten noise draws and two starts, giving **120 shape fits**. This stage has rotated
+truth and should not be treated as a same-data comparison to the repair stage.
+
+At each fitted mean, nested local Gaussian covariances include density alone,
+then centres, then log widths, then rotations. Each covariance is the inverse of
+the corresponding principal block of the joint Gauss–Newton precision: excluded
+parameters are held fixed, not marginalized. The complete model retains all
+cross-covariances. First-order propagation gives voxel and ray uncertainty.
+
+| Parameters included in covariance | Voxel coverage across six cases |
+|---|---:|
+| Density only | 14.16–25.05% |
+| Density + centres | 46.38–66.37% |
+| Density + centres + log widths | 66.54–85.03% |
+| All, including rotations | 85.47–96.58% |
+
+![Nested shape uncertainty improves coverage but exposes a difficult case](../../docs/figures/worm_uncertainty/shape_controls_v1/shape_covariance.png)
+
+Means are identical across the four covariance choices in each fit. Improvement
+therefore comes from propagating omitted uncertainty, not improving the mean.
+For example, the separated phantom at 90°/120° has voxel coverage
+15.67% → 53.79% → 73.18% → 94.48%; mean interval width grows from 0.00112 to 0.01041.
+Coverage must be assessed with width; wider alone is not a success criterion.
+
+**A boundary failure remains.** All 120 shape fits report solver success within
+42 evaluations, but 22 fits reach Euler rotation bounds: 4/20 for the separated
+phantom at 90°/0° and 18/20 for the overlapping phantom at 90°/0°. The local
+untruncated covariance ignores these constraints and is not a valid description
+of a constrained posterior near the boundary. For the overlapping case, complete
+voxel coverage is only **85.47%**, withheld latent coverage **82.09%**, and withheld
+predictive coverage **92.64%**. Its two starts yield voxel coverage 91.58% and
+79.37%, showing sensitivity to initialization (and the initialization-centred
+prior). A successful stopping condition does not settle this issue.
+
+No bounds or priors were changed after inspecting these results. The
+[bound inspection](../../docs/figures/worm_uncertainty/shape_controls_v1/bound_diagnostics.json) identifies
+which component/axis hits a limit. The [result record](../../docs/figures/worm_uncertainty/shape_controls_v1/results.json)
+contains the frozen protocol, all case summaries and provenance. Local
+`output/worm_uncertainty/shape_controls_v1/` retains per-fit parameters, convergence
+and metrics, plus first-draw truth/reconstruction volumes.
+
+**Next decision before worm transfer:** retain full shape covariance as the
+controlled baseline, but test the difficult rotated case with an appropriate
+rotation/covariance parameterization or boundary-aware posterior calculation.
+Separate changes to parameterization, prior and initialization so any improvement
+has an identifiable cause. Test nonlinear posterior propagation against the local
+approximation and use new fixed validation cases. Automatic representation
+selection and a possible residual model remain open; these toy controls do not
+justify transferring a calibrated-uncertainty claim to worms.
+
+Reproduce with the research environment activated and the preceding stress-test
+artifacts available (fresh output paths):
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/run_shape_controls.py \
+  --parent output/worm_uncertainty/phantom_stress_v1 \
+  --output output/worm_uncertainty/shape_controls_repeat
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_shape_controls.py \
+  --parent output/worm_uncertainty/phantom_stress_v1 \
+  --input output/worm_uncertainty/shape_controls_repeat \
+  --output output/worm_uncertainty/shape_figures_repeat
+```
+
+The frozen settings are in `shape_protocol_v1.json`. The runner checks parent
+provenance and the exact restoration noise scale; output directories cannot be
+reused. `progress.json` is diagnostic progress, not a resumable checkpoint.
+Thirty CPU tests pass, including all shape derivatives for one and multiple
+components, rotated-ray numerical quadrature, diagonal-model reduction and nested
+covariance ordering. Static/format checks pass for 31 scripts. No GPU is needed.
+
+### Rotation bounds, initialization sensitivity and a stability check
+
+The follow-up separates two confounded choices in the previous shape fit: Euler
+rotation bounds and a prior centred on each optimizer start. A fixed factorial
+protocol tests bounded/unbounded rotations with start-specific/shared priors on
+90°/0° and 90°/120° overlapping targets plus a new phantom at 90°/60°. Ten noise
+draws and two starts give **240 fits**. The shared prior reference uses a separate
+fixed seed, 907; it remains perturbed from synthetic truth. The bounded,
+start-prior control reproduces the preceding experiment.
+
+Removing rotation bounds improves the original difficult case's voxel coverage
+from 85.47% to 91.12%, but creates failures elsewhere: two unbounded fits exhaust
+the 150-evaluation budget. Sharing the prior makes objectives comparable across
+starts, but does not eliminate local minima. These outcomes argue against simply
+removing angle bounds and proceeding with a single fit.
+
+An adaptive **60-fit Cholesky follow-up** represents each covariance as
+`Sigma = L L^T`, with positive diagonals represented in log space. This removes
+Euler coordinate limits and duplicate rotation representations. It also changes
+the shape prior to Gaussian log-diagonal SD 0.35 and raw off-diagonal SD 0.1,
+removes width bounds, and uses Jacobian-based optimizer scaling. Consequently,
+improvement cannot be attributed to parameterization alone. All these choices
+were fixed before that follow-up, without tuning on coverage.
+
+Cholesky coordinates solve the original 90°/0° case stably, but two starts are
+insufficient elsewhere. Some fits terminate at poor local minima, and two exhaust
+the budget. The plot retains these failures rather than displaying only the
+successful first case.
+
+![Factorial controls and the two-start Cholesky follow-up](../../docs/figures/worm_uncertainty/rotation_sensitivity_v1/controls.png)
+
+The final optimizer control keeps that Cholesky model and shared prior fixed,
+uses starts 81, 193, 907 and 421, and raises the budget to 300 evaluations:
+**120 fits**. For each noise draw, the audit selects the two lowest-objective
+converged fits. Selection uses acquired measurements plus the fixed prior only.
+The stability check requires:
+
+- At least two converged candidates, both without active bounds.
+- Relative objective difference at most `1e-5`.
+- Relative acquired-prediction difference at most `1e-4`.
+
+The thresholds were fixed before this optimizer follow-up. Truth, withheld rays
+and their metrics do not participate in selection or in the check. The audit
+returns exit code 2 if any draw fails, so downstream work can be conditional on
+success. Passing checks do not establish global optimality or ensure that
+unmeasured regions agree.
+
+**All 30 draws pass.** Two of the 120 individual fits still exhaust the budget;
+poor converged candidates also remain. The result supports an audited multistart
+procedure, not a claim that initialization sensitivity has disappeared from
+individual fits. Metrics below use the lowest-objective converged fit per draw.
+
+| Case (span/start) | Stability checks | Voxel coverage | Withheld latent coverage | Predictive coverage | Voxel interval width | Voxel RMSE |
+|---|---:|---:|---:|---:|---:|---:|
+| Overlap 90°/0° | 10/10 | 97.36% | 96.80% | 95.71% | 0.01341 | 0.003590 |
+| Overlap 90°/120° | 10/10 | 97.32% | 96.92% | 95.67% | 0.01711 | 0.004252 |
+| New phantom 90°/60° | 10/10 | 95.92% | 96.56% | 94.95% | 0.01049 | 0.003078 |
+
+![Audited multistart coverage, widths and reconstruction error](../../docs/figures/worm_uncertainty/cholesky_multistart_v1/selected_results.png)
+
+Coverage targets 95%; widths and voxel errors use synthetic density units. These
+are means over ten paired noise draws per case, not confidence intervals. The new
+phantom was fixed before the factorial test, then reused during the adaptive
+Cholesky and optimizer follow-ups. It is therefore development evidence, not an
+untouched final validation set. The local Gaussian posterior and linear
+propagation remain approximations. Scanner geometry is exact, component count is
+known, and starts/prior reference are informed by truth.
+
+**Decision before worm transfer:** the concrete rotation-bound failure is avoided
+with positive-definite covariance coordinates; optimizer sensitivity is handled
+by a shared prior, multiple starts, measured-objective selection and an explicit
+agreement check. Retain this procedure as a candidate and keep the failed controls.
+Do not silently accept a single fit or choose a start using withheld performance.
+A worm implementation still needs a measured-data-only initializer/prior, a
+scalable covariance calculation, and fresh validation of interval calibration;
+the toy-model results do not establish calibrated worm uncertainty.
+
+Records: [factorial and two-start follow-up](../../docs/figures/worm_uncertainty/rotation_sensitivity_v1/results.json),
+[audited four-start results](../../docs/figures/worm_uncertainty/cholesky_multistart_v1/results.json).
+The frozen protocols are `rotation_sensitivity_protocol_v1.json`,
+`cholesky_protocol_v1.json` and `multistart_protocol_v1.json`. Local outputs retain
+all candidates, including failures, with objective values, parameters, convergence
+and coverage metrics. Both start/budget changes in the final follow-up are explicit;
+it does not isolate their individual contribution.
+
+Reproduce after activating `trdp2-r2`. The parent shape-control output is required;
+use fresh destinations:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/rotation_sensitivity.py \
+  --output output/worm_uncertainty/rotation_sensitivity_repeat
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/cholesky_sensitivity.py \
+  --output output/worm_uncertainty/cholesky_sensitivity_repeat
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/cholesky_sensitivity.py \
+  --protocol experiments/worm_uncertainty/multistart_protocol_v1.json \
+  --output output/worm_uncertainty/cholesky_multistart_repeat
+OPENBLAS_NUM_THREADS=1 python -B experiments/worm_uncertainty/audit_multistart.py \
+  --input output/worm_uncertainty/cholesky_multistart_repeat \
+  --output output/worm_uncertainty/cholesky_multistart_repeat/stability_gate_audit.json
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_multistart.py \
+  --input output/worm_uncertainty/cholesky_multistart_repeat \
+  --output output/worm_uncertainty/multistart_figures_repeat
+```
+
+Thirty-four CPU tests pass. They include exact reproduction of the original
+bounded objective, Euler/Cholesky agreement for the same physical Gaussian,
+Cholesky feature derivatives, and proof that audit selection ignores truth metrics
+and returns a failing exit code when fewer than two candidates converge. No GPU
+training or worm reconstruction is launched by this study.

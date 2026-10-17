@@ -1,0 +1,291 @@
+{
+  "angles_deg": {
+    "count": 36,
+    "step": 5.0
+  },
+  "detector_shape": [
+    12,
+    24
+  ],
+  "voxel_shape": [
+    24,
+    24,
+    24
+  ],
+  "noise_fraction_full_projection_rms": 0.05,
+  "initialization_position_sd": 0.08,
+  "initialization_density_fraction": 0.6,
+  "position_prior_sd": 0.3,
+  "density_prior_sd": 3.0,
+  "position_bounds": [
+    -0.75,
+    0.75
+  ],
+  "density_bounds": [
+    0.001,
+    3.0
+  ],
+  "foreground_fraction_of_peak": 0.05,
+  "noise_seed": 20261018,
+  "noise_repeats": 10,
+  "initialization_seeds": [
+    81,
+    193
+  ],
+  "budget_nfev": 150,
+  "phantoms": [
+    {
+      "name": "separated",
+      "centres": [
+        [
+          -0.32,
+          0.12,
+          -0.22
+        ],
+        [
+          0.26,
+          -0.24,
+          0.2
+        ],
+        [
+          0.08,
+          0.31,
+          0.04
+        ]
+      ],
+      "scales": [
+        [
+          0.12,
+          0.18,
+          0.1
+        ],
+        [
+          0.18,
+          0.09,
+          0.14
+        ],
+        [
+          0.08,
+          0.13,
+          0.17
+        ]
+      ],
+      "densities": [
+        0.7,
+        0.9,
+        0.45
+      ],
+      "extra": {
+        "centre": [
+          -0.22,
+          -0.28,
+          0.25
+        ],
+        "scale": [
+          0.09,
+          0.08,
+          0.11
+        ],
+        "density": 0.4
+      }
+    },
+    {
+      "name": "overlapping",
+      "centres": [
+        [
+          -0.12,
+          -0.04,
+          -0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.06
+        ],
+        [
+          0.02,
+          0.2,
+          0.16
+        ]
+      ],
+      "scales": [
+        [
+          0.19,
+          0.11,
+          0.16
+        ],
+        [
+          0.14,
+          0.2,
+          0.11
+        ],
+        [
+          0.1,
+          0.09,
+          0.18
+        ]
+      ],
+      "densities": [
+        0.65,
+        0.55,
+        0.6
+      ],
+      "extra": {
+        "centre": [
+          0.25,
+          -0.19,
+          -0.18
+        ],
+        "scale": [
+          0.09,
+          0.11,
+          0.08
+        ],
+        "density": 0.35
+      }
+    },
+    {
+      "name": "validation",
+      "centres": [
+        [
+          -0.18,
+          0.04,
+          -0.14
+        ],
+        [
+          0.12,
+          -0.05,
+          0.08
+        ],
+        [
+          0.03,
+          0.23,
+          0.19
+        ]
+      ],
+      "scales": [
+        [
+          0.16,
+          0.12,
+          0.19
+        ],
+        [
+          0.13,
+          0.18,
+          0.1
+        ],
+        [
+          0.11,
+          0.08,
+          0.16
+        ]
+      ],
+      "densities": [
+        0.72,
+        0.5,
+        0.58
+      ],
+      "extra": {
+        "centre": [
+          0.22,
+          -0.23,
+          -0.12
+        ],
+        "scale": [
+          0.1,
+          0.08,
+          0.12
+        ],
+        "density": 0.38
+      }
+    }
+  ],
+  "log_width_prior_sd": 0.35,
+  "rotation_prior_sd": 0.5,
+  "initialization_log_width_sd": 0.1,
+  "initialization_rotation_sd": 0.15,
+  "width_bounds": [
+    0.04,
+    0.35
+  ],
+  "rotation_bound": 1.4,
+  "truth_rotations": [
+    [
+      0.2,
+      -0.25,
+      0.3
+    ],
+    [
+      -0.3,
+      0.15,
+      -0.2
+    ],
+    [
+      0.15,
+      0.35,
+      -0.25
+    ],
+    [
+      -0.2,
+      -0.3,
+      0.25
+    ]
+  ],
+  "kind": "rotation_bounds_and_prior_initialization_factorial",
+  "shared_prior_seed": 907,
+  "variants": [
+    {
+      "name": "bounded_start_prior",
+      "bounded": true,
+      "shared_prior": false
+    },
+    {
+      "name": "unbounded_start_prior",
+      "bounded": false,
+      "shared_prior": false
+    },
+    {
+      "name": "bounded_shared_prior",
+      "bounded": true,
+      "shared_prior": true
+    },
+    {
+      "name": "unbounded_shared_prior",
+      "bounded": false,
+      "shared_prior": true
+    }
+  ],
+  "cases": [
+    {
+      "name": "overlap_90_0",
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 0,
+      "noise_seed": 20261018
+    },
+    {
+      "name": "overlap_90_120",
+      "phantom": "overlapping",
+      "span": 90,
+      "start": 120,
+      "noise_seed": 20261018
+    },
+    {
+      "name": "validation_90_60",
+      "phantom": "validation",
+      "span": 90,
+      "start": 60,
+      "noise_seed": 20261019
+    }
+  ],
+  "selection": "For shared-prior variants only, choose the lowest measured-data-plus-prior objective across the two starts for each noise draw; no truth/withheld values used.",
+  "parent_report_sha256": "86dcf6603fda675e10b9c4390e8571deeb3060cb55009cf18449146956201ad6",
+  "limitations": [
+    "development diagnosis prompted by earlier failure",
+    "validation case fixed before this run, only one new phantom/window",
+    "same analytic synthesis and inference; truth-perturbed starts and prior reference",
+    "unbounded Euler angles retain periodicity and coordinate singularities",
+    "untruncated local Gaussian covariance is not valid at active bounds",
+    "ten paired noise draws; no prior/bound selection by reported coverage"
+  ]
+}
