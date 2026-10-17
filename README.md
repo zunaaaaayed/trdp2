@@ -36,10 +36,13 @@ archive and its checksum are retained locally; see the
 expansion is deferred. Existing pilot and TV results remain evidence for their
 original data convention and do not establish performance on the new dataset.
 
-## Weeks 4–5 combined — worm uncertainty (progress through 17 October 2026)
+## Weeks 4–5 combined — worm uncertainty (12–23 October 2026)
 
 Weeks 4 and 5 are reported together because the intervening supervisor meeting
-was postponed. This reporting period remains open.
+was postponed. Work began on **12 October 2026**. The report must be sent on
+**22 October 2026**, ahead of the presentation on **23 October 2026**. This
+reporting period remains open; the findings below reflect progress through
+**17 October 2026**.
 
 Branch: `experiment/worm-uncertainty`. The current objective is uncertainty under
 missing angles and controlled noise. The synthetic parallel-beam TIFFs contain
