@@ -589,3 +589,11 @@ Twenty-four current CPU tests pass, including finite-difference checks of ray an
 voxel centre derivatives and an exact representable-target density solve. The
 experiment also checks covariance ordering and artifact integrity. GPU training
 is not required for this diagnostic.
+
+## Code readability and pre-run checks
+
+All active Python files follow the shared [code style guide](../../docs/CODE_STYLE.md).
+Run `make check PYTHON=.venv-style/bin/python` from the repository root before an
+experiment; use `make format-diff` to preview and `make format` to apply formatting
+with the same `PYTHON` argument. These checks do not launch GPU work. Formatting
+preserves historical output reports and their original source hashes.

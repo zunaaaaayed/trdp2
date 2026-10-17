@@ -29,3 +29,6 @@ graphify-out/
 *~
 *.swp
 *.swo
+
+# Local formatting environment
+.venv-style/

@@ -622,6 +622,23 @@ Start with the [next-week handoff](NEXT_WEEK.md) for current priorities and
 - [Initial baseline reproduction](experiments/baseline_chest_50views/README.md)
 - [Research handoff specification](TRDP2_CODEX_HANDOFF.md)
 
+## Code readability before execution
+
+The active worm Python scripts use consistent formatting and basic static checks.
+See [the code style guide](docs/CODE_STYLE.md) for setup, previewing changes and
+formatting on save. With the isolated formatting environment installed:
+
+```bash
+make format-diff PYTHON=.venv-style/bin/python  # preview formatting
+make format PYTHON=.venv-style/bin/python       # apply formatting
+make check PYTHON=.venv-style/bin/python        # check before experiments
+```
+
+GitHub also checks this style on relevant pushes and pull requests. These CPU-only
+checks do not execute experiments; scientific correctness remains covered by the
+experiment tests and diagnostics. Historical result hashes retain their original
+source provenance after formatting.
+
 ## Setup and safe continuation
 
 ```bash

@@ -1,0 +1,2 @@
+# Formatting tools only; separate from the CUDA research environment.
+ruff==0.14.1
