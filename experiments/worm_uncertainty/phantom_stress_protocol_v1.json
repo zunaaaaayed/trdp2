@@ -1,0 +1,184 @@
+{
+  "angles_deg": {
+    "count": 36,
+    "step": 5.0
+  },
+  "detector_shape": [
+    12,
+    24
+  ],
+  "voxel_shape": [
+    24,
+    24,
+    24
+  ],
+  "noise_fraction_full_projection_rms": 0.05,
+  "initialization_position_sd": 0.08,
+  "initialization_density_fraction": 0.6,
+  "position_prior_sd": 0.3,
+  "density_prior_sd": 3.0,
+  "position_bounds": [
+    -0.75,
+    0.75
+  ],
+  "density_bounds": [
+    0.001,
+    3.0
+  ],
+  "foreground_fraction_of_peak": 0.05,
+  "kind": "separate_phantom_joint_uncertainty_stress_test",
+  "noise_seed": 20261018,
+  "noise_repeats": 10,
+  "initialization_seeds": [
+    81,
+    193
+  ],
+  "budget_nfev": 150,
+  "acquisitions": [
+    {
+      "span": 180,
+      "start": 0
+    },
+    {
+      "span": 120,
+      "start": 0
+    },
+    {
+      "span": 120,
+      "start": 60
+    },
+    {
+      "span": 90,
+      "start": 0
+    },
+    {
+      "span": 90,
+      "start": 120
+    }
+  ],
+  "conditions": [
+    "matched",
+    "omitted_component"
+  ],
+  "phantoms": [
+    {
+      "name": "separated",
+      "centres": [
+        [
+          -0.32,
+          0.12,
+          -0.22
+        ],
+        [
+          0.26,
+          -0.24,
+          0.2
+        ],
+        [
+          0.08,
+          0.31,
+          0.04
+        ]
+      ],
+      "scales": [
+        [
+          0.12,
+          0.18,
+          0.1
+        ],
+        [
+          0.18,
+          0.09,
+          0.14
+        ],
+        [
+          0.08,
+          0.13,
+          0.17
+        ]
+      ],
+      "densities": [
+        0.7,
+        0.9,
+        0.45
+      ],
+      "extra": {
+        "centre": [
+          -0.22,
+          -0.28,
+          0.25
+        ],
+        "scale": [
+          0.09,
+          0.08,
+          0.11
+        ],
+        "density": 0.4
+      }
+    },
+    {
+      "name": "overlapping",
+      "centres": [
+        [
+          -0.12,
+          -0.04,
+          -0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.06
+        ],
+        [
+          0.02,
+          0.2,
+          0.16
+        ]
+      ],
+      "scales": [
+        [
+          0.19,
+          0.11,
+          0.16
+        ],
+        [
+          0.14,
+          0.2,
+          0.11
+        ],
+        [
+          0.1,
+          0.09,
+          0.18
+        ]
+      ],
+      "densities": [
+        0.65,
+        0.55,
+        0.6
+      ],
+      "extra": {
+        "centre": [
+          0.25,
+          -0.19,
+          -0.18
+        ],
+        "scale": [
+          0.09,
+          0.11,
+          0.08
+        ],
+        "density": 0.35
+      }
+    }
+  ],
+  "limitations": [
+    "development stress test with two manually specified new phantoms",
+    "same analytic forward model for synthesis and inference",
+    "oracle widths, rotations and component identities; truth-perturbed starts",
+    "two initializations share ten noise draws; not twenty independent noise draws",
+    "full clean projection RMS defines known noise for each phantom/condition",
+    "joint covariance is local Gauss-Newton with linear propagation",
+    "scanner geometry exact; no tuning on reported coverage"
+  ]
+}

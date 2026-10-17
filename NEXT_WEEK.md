@@ -31,6 +31,10 @@ postponed. This is a provisional summary; the reporting period remains open.
   95% voxel coverage from 41–45% to 95–97% across 30 paired noise draws. This
   supports a joint centre+density model, without proving worm calibration.
   Twenty-four current CPU tests pass.
+- Completed 400 separate-phantom/offset/mismatch fits. Joint voxel coverage is
+  89.72–96.72% for matched models but only 8.86–29.29% with a missing component;
+  centre uncertainty alone does not account for missing structure. All fits
+  terminate successfully; 26 CPU tests pass.
 - Added shared-scale plots and detailed results to the repository and experiment
   READMEs. Retained prior reports and accepted chest results.
 - Narrowed local storage to current data and reproducibility evidence; cleanup
@@ -38,8 +42,8 @@ postponed. This is a provisional summary; the reporting period remains open.
 
 ## Plan for the next reporting week
 
-1. Extend the known-3D diagnosis to separately fixed phantoms, angular offsets
-   and initializations, including withheld-ray coverage and deliberate mismatch.
+1. Restore the omitted component as a representation-repair control, then test
+   uncertain widths/rotations and explicit residual modelling if error remains.
 2. Check sensitivity to solver budget while keeping noise and optimization
    effects distinct.
 3. Test joint Gaussian centre+density uncertainty, then widths/rotations or

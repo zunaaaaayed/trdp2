@@ -597,3 +597,87 @@ Run `make check PYTHON=.venv-style/bin/python` from the repository root before a
 experiment; use `make format-diff` to preview and `make format` to apply formatting
 with the same `PYTHON` argument. These checks do not launch GPU work. Formatting
 preserves historical output reports and their original source hashes.
+
+### Separate phantoms, angular offsets and missing structure
+
+The next frozen CPU stress test uses two new manually specified 3D phantoms
+(`separated` and `overlapping`), each with three anisotropic Gaussian components.
+The acquisition windows are span/start = 180°/0°, 120°/0°, 120°/60°, 90°/0° and
+90°/120°. The last wraps across 180°, selecting [120°,180°) and [0°,30°).
+Each condition has ten paired noise draws and two initializations: **400 fits**
+across 20 cases. These new synthetic targets are development stress tests, not
+independent biological subjects or a blinded validation set.
+
+The protocol, `phantom_stress_protocol_v1.json`, was fixed before execution.
+Noise is 5% of each phantom/condition's full clean projection RMS. All angular
+windows share the same noise realization within a draw. The priors, 150-evaluation
+budget, density bounds, initialization perturbation and fixed widths are inherited
+from the earlier control. Initialization centres are perturbed from truth and
+widths/component identities are known: this remains an intentionally favourable
+inverse problem. Acquisition geometry is exact.
+
+For the mismatch condition, a fourth component is added to the truth while the
+fitted model retains three movable components with fixed widths. The density-only
+and joint centre+density approximations share the same fitted mean. Both use only
+acquired measurements; withheld data and truth-based foreground masks are used
+for evaluation. The foreground threshold is 5% of the respective truth peak.
+
+| Condition | Density-only voxel coverage | Joint voxel coverage | Joint withheld latent coverage | Joint withheld predictive coverage |
+|---|---:|---:|---:|---:|
+| Matched models | 30.46–45.36% | 89.72–96.72% | 89.16–96.82% | 94.95–95.43% |
+| Missing component | 1.99–11.40% | 8.86–29.29% | 9.05–22.58% | 43.87–65.32% |
+
+Ranges are across case means, not confidence intervals. Each mean averages ten
+noise draws and two starts; starts share those draws and are not independent
+noise replicates. Coverage targets 95%. Latent intervals are checked against
+clean voxel densities or clean withheld projections. Predictive intervals add
+known measurement-noise variance and are checked against noisy withheld rays.
+Full-angle cases have no withheld views.
+
+![Coverage, width and error across phantoms and acquisition windows](../../docs/figures/worm_uncertainty/phantom_stress_v1/coverage_error.png)
+
+Coverage should be near 95%, not merely high. Narrow intervals are useful only
+when they cover the target reliably. Voxel RMSE should be low. Widths and errors
+use synthetic density units, not calibrated worm units. Joint voxel interval
+widths remain similar under missing-component error, while RMSE rises from
+0.00056–0.00156 (matched) to 0.03977–0.04758 (mismatch): the covariance does not
+capture the missing structure.
+
+Angular orientation also matters. For the matched separated phantom at 90°,
+changing the start from 0° to 120° raises voxel RMSE from 0.00100 to 0.00115 and
+lowers joint voxel coverage from 92.73% to 89.72%, although predictive coverage
+stays near 95%. Added measurement noise can therefore make predictive coverage
+look satisfactory while latent density intervals still under-cover.
+
+All 400 solver runs report successful termination within 15 function evaluations,
+with no active parameter bounds. This reduces concern about a simple iteration
+budget cutoff in these cases; it does not prove global optimization or remove
+model error. Per-draw convergence, optimality, errors and interval metrics are
+retained in `output/worm_uncertainty/phantom_stress_v1/draws.json`; the
+[tracked result record](../../docs/figures/worm_uncertainty/phantom_stress_v1/results.json) contains all case
+summaries, the frozen protocol, source hashes and the draw-file checksum.
+
+**Decision:** joint centre+density uncertainty remains a useful baseline for
+matched representations. It is insufficient for missing structure. Before worm
+transfer, test a representation-repair control that restores the fourth component,
+then test uncertain widths/rotations and an explicit residual model if systematic
+error remains. A residual model must not silently absorb incorrect density or
+scanner conventions. Fix those comparisons before evaluation; do not inflate
+intervals to fit these reported outcomes. Ten draws and two selected phantoms
+leave uncertainty about calibration across shapes and angular configurations.
+These results provide no independent-volume or cone-beam generalization claim.
+
+Reproduce after activating `trdp2-r2`, using fresh destinations:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/stress_3d.py \
+  --output output/worm_uncertainty/phantom_stress_repeat
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_stress_3d.py \
+  --input output/worm_uncertainty/phantom_stress_repeat \
+  --output output/worm_uncertainty/phantom_stress_figures_repeat
+```
+
+Twenty-six CPU tests pass. New checks cover wrapped angular masks, unchanged fits
+and covariance after arbitrarily changing withheld measurements, and the joint
+versus conditional variance ordering. Formatting and static checks pass for all
+27 active scripts. No GPU experiment is required for this stage.
