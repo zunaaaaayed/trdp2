@@ -1,0 +1,225 @@
+{
+  "kind": "measured_only_initialization_fresh_phantoms",
+  "date": "2026-10-19",
+  "angles_deg": {
+    "count": 36,
+    "step": 5
+  },
+  "detector_shape": [
+    12,
+    24
+  ],
+  "voxel_shape": [
+    24,
+    24,
+    24
+  ],
+  "components": 4,
+  "initialization_grid_xy": 9,
+  "initialization_grid_z": 5,
+  "initialization_extent": 0.5,
+  "initialization_width": 0.14,
+  "minimum_centre_distance": 0.12,
+  "noise_sigma": 0.003,
+  "noise_repeats": 10,
+  "noise_seed": 20261019,
+  "initialization_seeds": [
+    0,
+    81,
+    193,
+    421
+  ],
+  "start_centre_sd": 0.04,
+  "start_log_diagonal_sd": 0.1,
+  "start_off_diagonal_sd": 0.01,
+  "start_density_fraction_sd": 0.1,
+  "position_prior_sd": 0.3,
+  "cholesky_log_diagonal_prior_sd": 0.35,
+  "cholesky_off_diagonal_prior_sd": 0.1,
+  "density_prior_sd": 3.0,
+  "position_bounds": [
+    -0.75,
+    0.75
+  ],
+  "density_bounds": [
+    0.001,
+    3.0
+  ],
+  "budget_nfev": 300,
+  "foreground_fraction_of_peak": 0.05,
+  "acquisitions": [
+    {
+      "span": 120,
+      "start": 30
+    },
+    {
+      "span": 90,
+      "start": 75
+    }
+  ],
+  "stability_gate": {
+    "minimum_converged": 2,
+    "relative_objective_gap": 1e-05,
+    "relative_prediction_disagreement": 0.0001
+  },
+  "phantoms": [
+    {
+      "name": "fresh_spread",
+      "centres": [
+        [
+          -0.28,
+          -0.2,
+          0.12
+        ],
+        [
+          0.25,
+          0.16,
+          -0.18
+        ],
+        [
+          -0.05,
+          0.29,
+          0.24
+        ],
+        [
+          0.2,
+          -0.26,
+          -0.08
+        ]
+      ],
+      "scales": [
+        [
+          0.15,
+          0.09,
+          0.18
+        ],
+        [
+          0.1,
+          0.17,
+          0.13
+        ],
+        [
+          0.12,
+          0.08,
+          0.14
+        ],
+        [
+          0.09,
+          0.13,
+          0.1
+        ]
+      ],
+      "rotations": [
+        [
+          0.25,
+          0.15,
+          -0.35
+        ],
+        [
+          -0.2,
+          0.3,
+          0.15
+        ],
+        [
+          0.1,
+          -0.25,
+          0.3
+        ],
+        [
+          -0.3,
+          0.2,
+          -0.1
+        ]
+      ],
+      "densities": [
+        0.75,
+        0.6,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "name": "fresh_cluster",
+      "centres": [
+        [
+          -0.18,
+          -0.07,
+          -0.12
+        ],
+        [
+          0.13,
+          0.1,
+          0.09
+        ],
+        [
+          0.04,
+          0.27,
+          0.2
+        ],
+        [
+          0.24,
+          -0.2,
+          -0.16
+        ]
+      ],
+      "scales": [
+        [
+          0.18,
+          0.12,
+          0.15
+        ],
+        [
+          0.12,
+          0.19,
+          0.11
+        ],
+        [
+          0.1,
+          0.08,
+          0.17
+        ],
+        [
+          0.09,
+          0.12,
+          0.08
+        ]
+      ],
+      "rotations": [
+        [
+          -0.2,
+          0.25,
+          0.2
+        ],
+        [
+          0.3,
+          -0.2,
+          -0.1
+        ],
+        [
+          0.25,
+          0.15,
+          -0.3
+        ],
+        [
+          -0.1,
+          -0.3,
+          0.2
+        ]
+      ],
+      "densities": [
+        0.62,
+        0.55,
+        0.5,
+        0.38
+      ]
+    }
+  ],
+  "limitations": [
+    "two new synthetic targets; four components predeclared, not estimated",
+    "shared prior reference constructed from acquired noisy measurements; covariance conditions on that estimate",
+    "known absolute synthetic noise sigma; not estimated from held-out or clean projections",
+    "same analytic synthesis and inference; noiseless scanner geometry",
+    "dictionary size/width/prior hyperparameters fixed before outcomes",
+    "local Gaussian uncertainty; adaptive research history, no independent-subject claim"
+  ]
+}

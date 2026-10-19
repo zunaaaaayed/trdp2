@@ -1,6 +1,6 @@
-# Combined Weeks 4–5 handoff — updated 17 October 2026
+# Combined Weeks 4–5 handoff — updated 19 October 2026
 
-## Combined Weeks 4–5 summary (progress through 17 October)
+## Combined Weeks 4–5 summary (progress through 19 October)
 
 Weeks 4 and 5 are combined because the intervening supervisor meeting was
 postponed. This is a provisional summary; the reporting period remains open.
@@ -45,6 +45,11 @@ postponed. This is a provisional summary; the reporting period remains open.
   starts with a 300-evaluation budget produced 30/30 passing stability checks
   across another 120 fits. Selected voxel coverage is 95.92–97.36%; individual
   starts can still fail. Thirty-four CPU tests pass.
+- On 19 October, replaced truth-informed starts/prior references with acquired-
+  data dictionary fitting. Two fresh phantoms and two windows passed 37/40 checks
+  initially; 12 fixed extra starts on failed draws brought this to 40/40 across
+  172 fits. Voxel coverage is 95.45–96.22%; this remains conditional synthetic
+  calibration evidence. Thirty-six CPU tests pass.
 - Added shared-scale plots and detailed results to the repository and experiment
   READMEs. Retained prior reports and accepted chest results.
 - Narrowed local storage to current data and reproducibility evidence; cleanup
@@ -54,8 +59,8 @@ postponed. This is a provisional summary; the reporting period remains open.
 
 1. Validate the audited Cholesky/shared-prior/multistart procedure on fresh fixed
    cases; test nonlinear propagation and retain failed candidates.
-2. Design a measured-data-only initializer and prior for a small worm slab,
-   and make the full shape covariance calculation scalable.
+2. Adapt the tested measured-data initializer to a small worm slab with a richer
+   representation and a scalable shape covariance calculation.
 3. Transfer only as a diagnostic pilot with withheld-view evaluation and explicit
    stability checks; calibrated worm uncertainty remains unestablished.
 4. Resolve the worm simulator's projection scaling, rotation convention and

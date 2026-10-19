@@ -889,3 +889,114 @@ bounded objective, Euler/Cholesky agreement for the same physical Gaussian,
 Cholesky feature derivatives, and proof that audit selection ignores truth metrics
 and returns a failing exit code when fewer than two candidates converge. No GPU
 training or worm reconstruction is launched by this study.
+
+### 19 October — initialization and priors from acquired data
+
+The next prerequisite removes truth-derived starting positions, widths and prior
+references. A fixed dictionary contains 405 isotropic Gaussians (9×9×5 centres,
+width 0.14 in normalized coordinates). Greedy residual correlation selects four
+atoms, with a nonnegative density solve after each selection. Only acquired noisy
+projections and their angles enter this calculation. The resulting parameters
+form one shared prior reference for all starts on that acquisition/noise draw.
+Prior widths, the component count and the search grid remain fixed design choices.
+
+Two new four-component phantoms (`fresh_spread`, `fresh_cluster`) are tested at
+120°/30° and 90°/75°, with ten paired noise draws and four optimizer starts:
+**160 initial fits**. Noise SD is a fixed **0.003** in synthetic projection units;
+it is not derived from full-angle clean data or withheld measurements. The fresh
+protocol was fixed before running these cases. Truth is used for synthesis and
+scoring, while withheld views are used only for scoring.
+
+The initial run passes **37/40** stability checks, despite all 160 fits reporting
+successful termination without active bounds. The three failures are on the
+clustered phantom: their relative objective gaps exceed `1e-5`, while acquired
+prediction disagreement remains below `1e-4`. This again shows why solver success
+alone is insufficient. The [initial record](../../docs/figures/worm_uncertainty/measured_init_v1/results.json)
+retains these failures and all initial case metrics.
+
+An explicitly adaptive fallback adds seeds 907, 202, 1123 and 151 only to failed
+checks. It preserves the measured-data prior reference, 300-evaluation budget and
+both agreement thresholds. The extra seed list was fixed before the fallback;
+no truth or withheld metric selects which fits to run or accept. **Twelve extra
+fits** bring the result to **40/40 passing checks**, with 172 total fits and no
+active bounds. The largest final relative objective gap is 1.64e-11 and largest
+acquired-prediction disagreement is 3.13e-7. All candidates remain available.
+
+| Fresh case (span/start) | Initial / final checks | Voxel coverage | Withheld latent coverage | Predictive coverage | Voxel width | Voxel RMSE |
+|---|---:|---:|---:|---:|---:|---:|
+| Spread 120°/30° | 10/10 → 10/10 | 95.45% | 95.85% | 95.30% | 0.00771 | 0.002210 |
+| Spread 90°/75° | 10/10 → 10/10 | 95.80% | 95.04% | 94.81% | 0.01127 | 0.003434 |
+| Cluster 120°/30° | 9/10 → 10/10 | 95.49% | 94.94% | 95.06% | 0.00901 | 0.002766 |
+| Cluster 90°/75° | 8/10 → 10/10 | 96.22% | 96.27% | 94.78% | 0.01523 | 0.004670 |
+
+Metrics average the selected lowest-objective converged fit over ten noise draws.
+Coverage targets 95%; widths and voxel errors are in synthetic density units.
+Width must be judged alongside coverage, and lower RMSE is better. Fallback
+barely changes these aggregate metrics: it supplies corroborating converged fits
+rather than tuning intervals against evaluation results.
+
+![Measured-data-only initialization: coverage and interval widths](../../docs/figures/worm_uncertainty/measured_init_fallback_v1/coverage.png)
+
+![Fresh phantom truth, selected reconstruction, absolute error and SD](../../docs/figures/worm_uncertainty/measured_init_fallback_v1/slices.png)
+
+The slice fixes the spread phantom at 90°/75°, noise draw 0 and the central z
+plane. Truth/reconstruction share density limits; error/SD share limits. Low error
+is good; low SD alone is not proof of accuracy. Coverage elsewhere uses intervals
+of approximately mean ±1.96 SD, not ±1 SD.
+
+**Interpretation and remaining limits.** This supports acquired-data initialization
+and adaptive multistart selection on fresh matched synthetic targets. The prior
+reference is estimated from the same measurements, and local covariance conditions
+on that estimate; it is not a full hierarchical posterior that propagates prior
+estimation uncertainty. The four-component count is predeclared, the forward
+model matches synthesis, and noise is known. The fallback was developed after
+seeing the initial failures, so its final results are adaptive development evidence.
+Two fresh phantoms do not establish general calibration, biological independence,
+or performance under unknown noise and model mismatch.
+
+The next step is a small worm-slab diagnostic using measured-only initialization,
+explicit computational limits, and withheld-view error/coverage checks. Its richer
+representation and scalable covariance calculation still need implementation and
+validation. Retain synthetic checks and failed-run evidence; physical worm density
+scaling and matching voxel ground truth remain unresolved.
+
+[Final results and provenance](../../docs/figures/worm_uncertainty/measured_init_fallback_v1/results.json).
+Protocols: `measured_init_protocol_v1.json` and `measured_fallback_protocol_v1.json`.
+All 36 CPU tests pass, including exact recovery of a dictionary atom, deterministic
+starts and withheld-data isolation. Formatting/static checks pass for 45 scripts.
+
+Run this CPU study from the repository root:
+
+```bash
+source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
+conda activate trdp2-r2
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
+python -B experiments/worm_uncertainty/measured_init_study.py \
+  --output output/worm_uncertainty/measured_init_repeat
+python -B experiments/worm_uncertainty/audit_multistart.py \
+  --input output/worm_uncertainty/measured_init_repeat \
+  --output output/worm_uncertainty/measured_init_repeat/stability_gate_audit.json
+```
+
+The audit deliberately returns exit code 2 when a draw fails. Preserve its report;
+do not loosen the thresholds or automatically continue to a worm experiment.
+The recorded fallback is bound by hashes to the accepted original run and can be
+reproduced with a fresh destination:
+
+```bash
+python -B experiments/worm_uncertainty/measured_init_fallback.py \
+  --input output/worm_uncertainty/measured_init_v1 \
+  --output output/worm_uncertainty/measured_init_fallback_repeat
+python -B experiments/worm_uncertainty/audit_multistart.py \
+  --input output/worm_uncertainty/measured_init_fallback_repeat \
+  --output output/worm_uncertainty/measured_init_fallback_repeat/stability_gate_audit.json
+python -B experiments/worm_uncertainty/plot_measured_init.py \
+  --input output/worm_uncertainty/measured_init_fallback_repeat \
+  --output output/worm_uncertainty/measured_init_figures_repeat
+```
+
+For a different parent run, record a new fallback policy with that parent's report
+and audit hashes before execution. The code verifies regenerated acquired-data
+prior references against the saved originals before adding any candidates. The
+raw parent is preserved and only failed checks receive additional starts.
