@@ -849,6 +849,83 @@ Protocols: `measured_init_protocol_v1.json` and `measured_fallback_protocol_v1.j
 All 36 CPU tests pass, including exact recovery of a dictionary atom, deterministic
 starts and withheld-data isolation. Formatting/static checks pass for 45 scripts.
 
+### 19 October — first measured-only worm shape pilot: stability failure
+
+The measured-only pipeline has now been exercised on actual worm projections,
+using a deliberately small CPU diagnostic. It fits 16 Gaussians (160 parameters)
+to 17 acquired angles in a 120°/0° window, holding out eight other angles. The
+25-angle grid takes every fourth source view; 62 detector samples take every
+fifth pixel. Eight axial planes span source z=224…280 in steps of eight. Sampling
+is by selecting original rays, not averaging detector bins. This differs from
+the earlier contiguous eight-slice, 1,500-Gaussian experiment and is not a direct
+performance comparison.
+
+The normalization is the acquired sampled projection RMS, **6094.0105 stored
+units**. Synthetic Gaussian noise SD 0.05 is added after normalization, with seed
+20261019. Starts and the shared prior reference come only from noisy acquired
+samples; withheld projections are reserved for evaluation. The dictionary uses
+fixed widths (0.16, 0.16, 0.12), with 11×11×3 candidate centres. Four starts have a
+fixed budget of 150 function evaluations each.
+
+**The experiment fails the optimizer stability check.** All four fits exhaust
+that budget and retain density parameters at their lower bound. With no converged
+candidate, the displayed fit is the lowest-objective unfinished candidate, seed
+421. Its maps and covariance are provisional diagnostics; they are not a valid
+calibrated posterior or an accepted reconstruction.
+
+| Diagnostic | Result |
+|---|---:|
+| Converged fits | 0/4 |
+| Acquired clean-projection relative error | 20.51% |
+| Withheld clean-projection relative error | 25.22% |
+| Density-only latent / predictive coverage | 1.52% / 15.91% |
+| Full-shape latent / predictive coverage | 5.93% / 16.79% |
+| Full-shape predictive mean interval width | 0.20486 normalized projection units |
+
+Coverage targets 95% on withheld foreground rays (clean normalized projection
+above 0.05). These very low values are failure diagnostics at an unfinished fit,
+not evidence that the full-shape posterior is calibrated. Clean withheld
+projections test latent intervals; noisy withheld projections test predictive
+intervals. The latter add the known injected noise variance.
+
+![Provisional coverage and widths after the failed stability check](docs/figures/worm_uncertainty/worm_shape_pilot_v1/coverage.png)
+
+![Withheld ray profile and provisional worm density maps](docs/figures/worm_uncertainty/worm_shape_pilot_v1/profile_and_maps.png)
+
+The 144° ray profile at source z=256 is fixed and withheld. Density-map brightness
+shows relative reconstructed values, not accuracy; SD is also in uncalibrated
+relative density units. There is no matching voxel truth for this worm. Confidence
+in fine internal structure or quantitative biological density is not established.
+
+A concrete initialization issue is visible: the nonnegative dictionary solve
+assigns appreciable density to only **5 of 16** components; the other 11 are
+raised to the initializer floor of 0.01. This motivates a more suitable measured-
+data support/grid and width dictionary. It does not isolate the cause of final
+error: incomplete optimization, boundary effects, insufficient or poorly allocated
+representation, and simulation conventions remain possible contributors.
+The local precision condition number is approximately 5.91e9, adding a numerical
+conditioning concern to the already failed convergence check.
+
+The 160×160 covariance occupies 204,800 bytes; query uncertainty is evaluated in
+chunks. This demonstrates a small dense calculation, not scalability to the
+previous 1,500-Gaussian model. The fitting/evaluation portion took about 66 seconds
+on this workstation, excluding source hashing and initialization; runtime is not
+a controlled benchmark.
+
+**Assessment:** the synthetic work has produced a working implementation and
+useful failure checks, but calibrated worm reconstruction has not succeeded.
+Next, compare acquired-data initializers with finer, multiple-width dictionaries
+or measured-only reconstruction support, then separate solver-budget effects from
+component-capacity effects under a fixed evaluation protocol. Keep withheld
+metrics for evaluation rather than using them to select starts or inflate
+intervals. The failed small pilot is preserved as a reference.
+
+[Results and provenance](docs/figures/worm_uncertainty/worm_shape_pilot_v1/results.json).
+The protocol is `worm_shape_protocol_v1.json`; local outputs are in
+`output/worm_uncertainty/worm_shape_pilot_v1/`. Thirty-eight CPU tests pass,
+including sampled physical coordinates, acquired-only normalization and
+anisotropic dictionary consistency. No full GPU training was launched.
+
 ## Week 3 — ordinary-TV controls (3–9 October 2026)
 
 Two development baselines completed 30,000 iterations with 50 views, a 120° span,

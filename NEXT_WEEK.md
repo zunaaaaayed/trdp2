@@ -50,6 +50,11 @@ postponed. This is a provisional summary; the reporting period remains open.
   initially; 12 fixed extra starts on failed draws brought this to 40/40 across
   172 fits. Voxel coverage is 95.45–96.22%; this remains conditional synthetic
   calibration evidence. Thirty-six CPU tests pass.
+- The first measured-only worm shape pilot (16 Gaussians) fails stability:
+  0/4 fits converge within budget; withheld error is 25.22% and provisional
+  predictive coverage 16.79%. Only five dictionary components start appreciably
+  active. This motivates initializer/support and optimization/capacity controls;
+  calibrated worm uncertainty has not succeeded. Thirty-eight CPU tests pass.
 - Added shared-scale plots and detailed results to the repository and experiment
   READMEs. Retained prior reports and accepted chest results.
 - Narrowed local storage to current data and reproducibility evidence; cleanup
@@ -59,8 +64,8 @@ postponed. This is a provisional summary; the reporting period remains open.
 
 1. Validate the audited Cholesky/shared-prior/multistart procedure on fresh fixed
    cases; test nonlinear propagation and retain failed candidates.
-2. Adapt the tested measured-data initializer to a small worm slab with a richer
-   representation and a scalable shape covariance calculation.
+2. Improve the worm initializer using acquired-data support or finer/multiple-
+   width dictionaries; isolate solver-budget and component-capacity effects.
 3. Transfer only as a diagnostic pilot with withheld-view evaluation and explicit
    stability checks; calibrated worm uncertainty remains unestablished.
 4. Resolve the worm simulator's projection scaling, rotation convention and
