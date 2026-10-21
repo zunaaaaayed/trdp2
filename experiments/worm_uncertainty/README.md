@@ -1,7 +1,10 @@
 # Worm uncertainty development
 
-Combined Weeks 4–5 reporting period; development scripts started 17 October 2026. Scope: uncertainty under missing angles and controlled
-additive noise, with held-out deformations of the same synthetic worm. No claim
+Combined Weeks 4–5 work is **closed as of 21 October 2026**. Work began
+12 October; these development scripts started 17 October. The report is due
+22 October and the presentation is on 23 October. Scope: uncertainty under
+missing angles and controlled additive noise, with held-out deformations of the
+same synthetic worm as a planned evaluation target. No claim
 of independent-specimen generalization. Ordinary TV remains a comparator, not
 the new research objective. Old chest experiments and frozen weights are retained.
 
@@ -36,11 +39,23 @@ are deferred until measurement physics is specified.
 
 ## Plan and remaining questions
 
-The preparation, analytic disk check, FBP comparison and SART comparator below
-are complete. The structured phantom comparison is now complete (results below). Next assess
-a principled uncertainty estimator against the known targets. Freeze settings before evaluation on held-out
-deformations; related deformations must be grouped. Resolve simulator projection
-normalization and obtain matching density volumes before physical-density claims.
+Weeks 4–5 completed preparation, analytic projector checks, FBP/SART comparisons,
+Gaussian slab baselines, density/geometry uncertainty controls on known phantoms,
+and the final worm initialization/prior/budget/capacity study. The final study
+completed all 16 fits, but all four settings failed stability. Only two starts
+reported solver success. At 450 evaluations, the 16-component acquired/withheld
+errors are 11.20%/19.84%; 32 components give 8.37%/23.81%. These are provisional
+projection diagnostics; calibrated worm uncertainty has not been demonstrated.
+The final test count is 42. Dated sections below preserve earlier intermediate
+findings and plans; the final controls section records the latest evidence.
+
+Next week, freeze a staged density → centre → full-shape fitting comparison with
+a fixed shared prior. After stable optimization, evaluate reserved angular
+configurations and deformations, and assess coverage with interval width on known
+targets. Related deformations must be grouped; no independent-specimen claim
+follows from this dataset. Simulator projection normalization and matching
+voxelized deformed density targets remain unresolved. Physical-density accuracy
+and representation error cannot yet be established from projection fits alone.
 
 Tests (research environment):
 
@@ -1093,3 +1108,124 @@ Without `--execute`, the pilot prints the protocol. A completed diagnostic proce
 can still fail scientific acceptance: inspect `report.json` → `gate.passed` and
 `fits.json`. The runner preserves maps for diagnosis when no fit converges; it
 does not automatically increase budgets, modify priors, or restart training.
+
+### 21 October — paired worm initialization, budget and capacity controls
+
+The failed 19 October pilot is preserved. The new CPU study reuses its exact
+saved normalized projections, injected noise, eight sampled axial planes and
+120° acquisition mask, verified by SHA-256. This is a development diagnostic on
+one worm, one window and one noise draw; it is not independent validation.
+
+The replacement initializer uses a fixed full-field 21×21×3 centre grid and
+three transverse widths (0.04, 0.08, 0.16), retaining axial width 0.12. Greedy
+nonnegative fitting sees only acquired noisy rays; minimum centre spacing is
+0.04. The 3,969-atom dictionary occupies about 268 MB, with derivative
+intermediates computed in chunks of 64 atoms. This is a small CPU reference,
+not a demonstrated scalable alternative to the native GPU reconstruction.
+
+The frozen protocol compares new starts with the old prior (16 components,
+150 evaluations); new starts with a matching acquired-data prior (16/150);
+the same latter starts/prior with a larger budget (16/450); and more components
+(32/450). All arms retain four seeds, data, noise variance, solver tolerances
+and acceptance thresholds. The component-count comparison also changes the
+prior dimension. Grid spacing, width choices and separation change together,
+so this does not isolate which dictionary design choice helps.
+
+For the old-prior arm, deterministic nearest-centre assignment matches component
+labels. Seed 0 gives a paired unperturbed prior comparison; label reordering
+means the other seeds' perturbations differ between old- and new-prior arms.
+The 16-component 150-versus-450 budget comparison uses identical initial
+parameters and priors for every seed. Start selection uses acquired-data
+objectives only. If no candidate converges, the lowest unfinished objective is
+retained solely for provisional diagnosis. A passing gate additionally requires
+two converged starts, objective/prediction agreement, and no active bounds.
+
+No new uncertainty intervals are computed in this study: optimization must be
+resolved before interpreting local covariance as a posterior. Lower clean
+projection error is better, but it does not establish voxel accuracy or
+calibration. Matching voxel truth and physical projection scaling remain
+unresolved.
+
+Reproduce the controls on a CPU workstation with the preserved parent outputs
+available. Use fresh output directories; the runner intentionally refuses to
+replace an existing run. Full GPU training is not required.
+
+```bash
+cd ~/espaces/travail/trdp2/r2_gaussian
+source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
+conda activate trdp2-r2
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
+python -B experiments/worm_uncertainty/worm_fit_controls.py \
+  --parent output/worm_uncertainty/worm_shape_pilot_v1 \
+  --output output/worm_uncertainty/worm_fit_controls_repeat --execute
+python -B experiments/worm_uncertainty/plot_worm_fit_controls.py \
+  --input output/worm_uncertainty/worm_fit_controls_repeat \
+  --output output/worm_uncertainty/worm_fit_controls_figures_repeat
+```
+
+Without `--execute`, the runner prints its protocol and writes nothing. During
+execution, `fits.json` is checkpointed after each start; `report.json` appears
+only after all 16 fits finish. A completed process is not scientific acceptance:
+inspect each row's `gate.passed`. Output archives are local/gitignored; the
+tracked compact results and figures provide the reviewable evidence.
+
+The new initializer assigns appreciable starting density to **16/16** components
+(the old initializer: **5/16**). Its acquired noisy-data relative residual falls
+from **37.15% to 23.02%**. With 32 components, **31/32** are appreciably active and
+the realized residual is **21.38%**, including the density floor. “Active” here
+means starting density strictly above 0.01; it is not a solver bound diagnostic.
+
+Increasing the 16-component budget from 150 to 450 produces two converged starts,
+but their relative objective gap is **5.19%** and acquired-prediction disagreement
+is **5.48%**. Acceptance thresholds remain **0.001%** and **0.01%**, respectively.
+The other two starts are unfinished. Thus neither solver success for one start
+nor improvement in projection error establishes a stable reconstruction.
+
+| Setting | Solver budget | Converged starts | Acquired clean error ↓ | Withheld clean error ↓ | Stability |
+|---|---:|---:|---:|---:|---|
+| Preserved old initializer/prior, 16 Gaussians | 150 | 0/4 | 20.51% | 25.22% | Fail |
+| New initializer, old prior, 16 Gaussians | 150 | 0/4 | 11.34% | 20.93% | Fail |
+| New initializer/prior, 16 Gaussians | 150 | 0/4 | 11.34% | 23.12% | Fail |
+| New initializer/prior, 16 Gaussians | 450 | 2/4 | 11.20% | 19.84% | Fail |
+| New initializer/prior, 32 Gaussians | 450 | 0/4 | 8.37% | 23.81% | Fail |
+
+Errors are relative L2 over all rays in the indicated clean evaluation set,
+not foreground-only coverage measures. Each row uses its predeclared acquired-
+objective selection rule; none is selected by withheld error. All four new
+settings fail acceptance, and only 2 of the 16 new starts report solver success.
+The four 32-component objectives range from approximately 32,119 to 87,962,
+with every start exhausting its 450-evaluation budget.
+
+**Interpretation:** better initialization substantially improves the provisional
+fit. More iterations permit some solver termination but leave distinct solutions.
+Increasing component count reduces acquired error while worsening withheld error
+relative to 16 components at the same budget. This is a warning against equating
+training fit with missing-view generalization, not proof of a capacity optimum:
+none of these settings passes stability, and the capacity comparison also changes
+the prior dimension. Representation error cannot yet be separated cleanly from
+incomplete optimization. These sparse-sampling results are not directly comparable
+to the earlier 1,500-Gaussian contiguous-slab baseline.
+
+![Projection error and failed optimization acceptance checks](../../docs/figures/worm_uncertainty/worm_fit_controls_v1/fit_controls.png)
+
+![Fixed withheld profile, with clean reference](../../docs/figures/worm_uncertainty/worm_fit_controls_v1/withheld_profile.png)
+
+The profile uses the same preselected 144° view and source z=256 as the parent
+pilot. Closeness to the black reference is better; projection intensity itself
+is not a quality score. No error bars or calibration claims are inferred from
+this single noise realization.
+
+**Next:** freeze a staged density → centre → full-shape optimization comparison
+under a fixed shared prior, retaining the same data and withheld-only evaluation.
+Evaluate both optimization agreement and missing-view error before adding new
+posterior intervals. Physical projection scaling, matching deformed voxel truth,
+and deformation-separated evaluation remain outstanding. The Weeks 4–5 evidence includes these failed worm checks alongside the
+controlled-phantom results; calibrated worm uncertainty remains unresolved.
+
+[Compact results and provenance](../../docs/figures/worm_uncertainty/worm_fit_controls_v1/results.json).
+Protocol: `experiments/worm_uncertainty/worm_fit_controls_protocol_v1.json`;
+local full outputs: `output/worm_uncertainty/worm_fit_controls_v1/`.
+Checks: **42 CPU tests passed**, all **51 experiment Python files** pass the pinned
+formatter/linter, saved parent/artifact hashes are verified, and the default dry
+run writes no output. All 16 fits finished; no GPU experiment was launched.

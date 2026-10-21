@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-21",
+  "kind": "paired_worm_fit_controls",
+  "parent_report_sha256": "c858dfd123e1674d739512077b3d51a53bae7f9bc3c80c245e4eac504d7c2231",
+  "grid_xy": 21,
+  "widths_xy": [
+    0.04,
+    0.08,
+    0.16
+  ],
+  "minimum_centre_distance": 0.04,
+  "dictionary_chunk": 64,
+  "arms": [
+    {
+      "name": "new_start_old_prior_16_150",
+      "components": 16,
+      "budget_nfev": 150,
+      "prior": "parent"
+    },
+    {
+      "name": "new_start_new_prior_16_150",
+      "components": 16,
+      "budget_nfev": 150,
+      "prior": "initializer"
+    },
+    {
+      "name": "new_start_new_prior_16_450",
+      "components": 16,
+      "budget_nfev": 450,
+      "prior": "initializer"
+    },
+    {
+      "name": "new_start_new_prior_32_450",
+      "components": 32,
+      "budget_nfev": 450,
+      "prior": "initializer"
+    }
+  ],
+  "selection": "Lowest acquired-data objective among converged fits; otherwise provisional lowest unfinished objective. No withheld tuning.",
+  "limitations": [
+    "Dictionary choice is informed by the failed development pilot; not untouched validation.",
+    "New initializer changes grid, widths and centre spacing together.",
+    "Old-prior arm uses deterministic centre matching to assign component labels.",
+    "Capacity comparison changes parameter count and prior dimension.",
+    "No posterior intervals computed until optimization is resolved."
+  ]
+}

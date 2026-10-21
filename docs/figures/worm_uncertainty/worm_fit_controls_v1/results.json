@@ -1,0 +1,400 @@
+{
+  "protocol": {
+    "date": "2026-10-21",
+    "kind": "paired_worm_fit_controls",
+    "parent_report_sha256": "c858dfd123e1674d739512077b3d51a53bae7f9bc3c80c245e4eac504d7c2231",
+    "grid_xy": 21,
+    "widths_xy": [
+      0.04,
+      0.08,
+      0.16
+    ],
+    "minimum_centre_distance": 0.04,
+    "dictionary_chunk": 64,
+    "arms": [
+      {
+        "name": "new_start_old_prior_16_150",
+        "components": 16,
+        "budget_nfev": 150,
+        "prior": "parent"
+      },
+      {
+        "name": "new_start_new_prior_16_150",
+        "components": 16,
+        "budget_nfev": 150,
+        "prior": "initializer"
+      },
+      {
+        "name": "new_start_new_prior_16_450",
+        "components": 16,
+        "budget_nfev": 450,
+        "prior": "initializer"
+      },
+      {
+        "name": "new_start_new_prior_32_450",
+        "components": 32,
+        "budget_nfev": 450,
+        "prior": "initializer"
+      }
+    ],
+    "selection": "Lowest acquired-data objective among converged fits; otherwise provisional lowest unfinished objective. No withheld tuning.",
+    "limitations": [
+      "Dictionary choice is informed by the failed development pilot; not untouched validation.",
+      "New initializer changes grid, widths and centre spacing together.",
+      "Old-prior arm uses deterministic centre matching to assign component labels.",
+      "Capacity comparison changes parameter count and prior dimension.",
+      "No posterior intervals computed until optimization is resolved."
+    ]
+  },
+  "initializers": {
+    "16": {
+      "selected_indices": [
+        3370,
+        2048,
+        2109,
+        729,
+        602,
+        718,
+        597,
+        668,
+        591,
+        790,
+        533,
+        850,
+        658,
+        780,
+        664,
+        785
+      ],
+      "acquired_relative_residual": 0.23016798511382763,
+      "density_clipped": false,
+      "dictionary_atoms": 3969,
+      "dictionary_bytes": 267732864,
+      "active_densities": 16,
+      "realized_relative_residual": 0.23016798511382763
+    },
+    "32": {
+      "selected_indices": [
+        3370,
+        2048,
+        2109,
+        729,
+        602,
+        718,
+        597,
+        668,
+        591,
+        790,
+        533,
+        850,
+        658,
+        780,
+        664,
+        785,
+        793,
+        593,
+        600,
+        536,
+        654,
+        719,
+        598,
+        731,
+        789,
+        657,
+        846,
+        666,
+        723,
+        784,
+        659,
+        663
+      ],
+      "acquired_relative_residual": 0.21376092127800636,
+      "density_clipped": true,
+      "dictionary_atoms": 3969,
+      "dictionary_bytes": 267732864,
+      "active_densities": 31,
+      "realized_relative_residual": 0.21381042348967977
+    }
+  },
+  "rows": [
+    {
+      "arm": {
+        "name": "new_start_old_prior_16_150",
+        "components": 16,
+        "budget_nfev": 150,
+        "prior": "parent"
+      },
+      "gate": {
+        "passed": false,
+        "converged_candidates": 0,
+        "selected_seed": 421
+      },
+      "selected_objective": 51920.464217813744,
+      "measured_relative_l2": 0.11336017113789162,
+      "withheld_relative_l2": 0.2092518789603325
+    },
+    {
+      "arm": {
+        "name": "new_start_new_prior_16_150",
+        "components": 16,
+        "budget_nfev": 150,
+        "prior": "initializer"
+      },
+      "gate": {
+        "passed": false,
+        "converged_candidates": 0,
+        "selected_seed": 421
+      },
+      "selected_objective": 51542.882665867524,
+      "measured_relative_l2": 0.11342640980465973,
+      "withheld_relative_l2": 0.23120390952749761
+    },
+    {
+      "arm": {
+        "name": "new_start_new_prior_16_450",
+        "components": 16,
+        "budget_nfev": 450,
+        "prior": "initializer"
+      },
+      "gate": {
+        "passed": false,
+        "converged_candidates": 2,
+        "selected_seed": 421,
+        "relative_objective_gap": 0.05187049536044697,
+        "relative_prediction_disagreement": 0.05480067249316337
+      },
+      "selected_objective": 50399.333790231496,
+      "measured_relative_l2": 0.11196603303035403,
+      "withheld_relative_l2": 0.1984491986240145
+    },
+    {
+      "arm": {
+        "name": "new_start_new_prior_32_450",
+        "components": 32,
+        "budget_nfev": 450,
+        "prior": "initializer"
+      },
+      "gate": {
+        "passed": false,
+        "converged_candidates": 0,
+        "selected_seed": 421
+      },
+      "selected_objective": 32118.591032943925,
+      "measured_relative_l2": 0.08368378701102626,
+      "withheld_relative_l2": 0.23809620708935034
+    }
+  ],
+  "elapsed_seconds": 863.5640300700001,
+  "parent_report_sha256": "c858dfd123e1674d739512077b3d51a53bae7f9bc3c80c245e4eac504d7c2231",
+  "code_sha256": "ddcdd0c2ed71f4506cc4f13336380375e83eab25071b3050147647d949f8966d",
+  "protocol_sha256": "d92c3bbff9d483306354f91c7cfb98bc5acd0c4e323e3742e9fd9be2aebc4ffb",
+  "dependencies_sha256": {
+    "cholesky_gaussian.py": "e12ef25db08bf430dba800d77add3a0a8bf61221f9e78f06e1b7b97e9cedeb84",
+    "shape_gaussian.py": "7156e095a89facba0633505ffc042440b95b90aa31aea8f1ba5778a0e203681c",
+    "rotation_sensitivity.py": "3b79e075e22ad6251329adb23588318de62b90e32c3970d327d65f65ee51da22",
+    "stress_3d.py": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f",
+    "measured_initializer.py": "b63a972932a00a2325e2243e23ee5e107fcd09cb3a4a7a710c5a25d826be6ffd",
+    "diagnose_3d.py": "7d9572014ebf0b7f9a52b96e497c47e6ea6e9b69d6a59008fe8c88eecda21970",
+    "prepare.py": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509"
+  },
+  "artifacts_sha256": {
+    "fits.json": "c7659af028d2f512a03d09ee55a8fdbcdfeb5c2eafc62d622e0b2820d30bf2e6",
+    "references.npz": "47abbe66aa9feb8bb7d6858645e2ee57b1e44e69950fd5877a01c07d0f879a8c",
+    "predictions.npz": "3cb573f45f279db6738a8c438491772bc627bd3aa9e9cf7a56abf9d88cf8ff9d"
+  },
+  "claim": "One development worm/noise/window; failed gates prohibit calibrated-posterior claims. Capacity changes also change prior dimension.",
+  "fit_diagnostics": [
+    {
+      "arm": "new_start_old_prior_16_150",
+      "seed": 0,
+      "objective": 52662.06695459904,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 240.39166927764836,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_old_prior_16_150",
+      "seed": 81,
+      "objective": 53250.95294929725,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 3991.484484313742,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_old_prior_16_150",
+      "seed": 193,
+      "objective": 58212.31014667528,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 4431.759541923731,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_old_prior_16_150",
+      "seed": 421,
+      "objective": 51920.464217813744,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 593.553090476491,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_16_150",
+      "seed": 0,
+      "objective": 53913.81531652348,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 466.9733015301996,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_16_150",
+      "seed": 81,
+      "objective": 60478.84166028434,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 802.2835730918134,
+      "active_indices": [
+        157
+      ]
+    },
+    {
+      "arm": "new_start_new_prior_16_150",
+      "seed": 193,
+      "objective": 56454.239635132755,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 108.584414786509,
+      "active_indices": [
+        144
+      ]
+    },
+    {
+      "arm": "new_start_new_prior_16_150",
+      "seed": 421,
+      "objective": 51542.882665867524,
+      "converged": false,
+      "nfev": 150,
+      "optimality": 12244.399981594068,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_16_450",
+      "seed": 0,
+      "objective": 53013.57219976732,
+      "converged": true,
+      "nfev": 315,
+      "optimality": 0.6930585397681804,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_16_450",
+      "seed": 81,
+      "objective": 60100.02856268658,
+      "converged": false,
+      "nfev": 450,
+      "optimality": 30.954556985169788,
+      "active_indices": [
+        1,
+        157
+      ]
+    },
+    {
+      "arm": "new_start_new_prior_16_450",
+      "seed": 193,
+      "objective": 56248.484618228584,
+      "converged": false,
+      "nfev": 450,
+      "optimality": 1123.765819797266,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_16_450",
+      "seed": 421,
+      "objective": 50399.333790231496,
+      "converged": true,
+      "nfev": 359,
+      "optimality": 0.8904482590880337,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_32_450",
+      "seed": 0,
+      "objective": 87961.73002163626,
+      "converged": false,
+      "nfev": 450,
+      "optimality": 16950.423805032176,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_32_450",
+      "seed": 81,
+      "objective": 47203.74682769399,
+      "converged": false,
+      "nfev": 450,
+      "optimality": 5076.130330238478,
+      "active_indices": []
+    },
+    {
+      "arm": "new_start_new_prior_32_450",
+      "seed": 193,
+      "objective": 32426.62170054324,
+      "converged": false,
+      "nfev": 450,
+      "optimality": 193.5994775668338,
+      "active_indices": [
+        288,
+        289,
+        302
+      ]
+    },
+    {
+      "arm": "new_start_new_prior_32_450",
+      "seed": 421,
+      "objective": 32118.591032943925,
+      "converged": false,
+      "nfev": 450,
+      "optimality": 4005.988145072736,
+      "active_indices": []
+    }
+  ],
+  "parent_baseline": {
+    "gate": {
+      "passed": false,
+      "converged_candidates": 0,
+      "selected_seed": 421
+    },
+    "measured_relative_l2": 0.2050676895256809,
+    "withheld_relative_l2": 0.25220668201487256,
+    "initializer": {
+      "selected_indices": [
+        214,
+        182,
+        180,
+        213,
+        215,
+        181,
+        65,
+        96,
+        299,
+        98,
+        330,
+        63,
+        297,
+        332,
+        216,
+        97
+      ],
+      "acquired_relative_residual": 0.37149705176714065,
+      "density_clipped": true
+    }
+  },
+  "report_sha256": "0b29bee61931391fbacb12aee7065c164f7c970d9f03edec1a0c2f27bbd34a0e",
+  "plot_code_sha256": "34cb004d67e82e6ed5b020049c55e7954a9c5f9b36124e8d737cf48037e41e2f",
+  "figure_sha256": {
+    "fit_controls.png": "f55da2e17f2b4fa1122dd49bf41e46e1ca91f7f8026b426208c5beafb2323b41",
+    "withheld_profile.png": "b852e68e7687c3bea248ac60b6cda52c254c00447935f4be2d782ab071d05eda"
+  }
+}
