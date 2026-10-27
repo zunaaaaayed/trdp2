@@ -1229,3 +1229,44 @@ local full outputs: `output/worm_uncertainty/worm_fit_controls_v1/`.
 Checks: **42 CPU tests passed**, all **51 experiment Python files** pass the pinned
 formatter/linter, saved parent/artifact hashes are verified, and the default dry
 run writes no output. All 16 fits finished; no GPU experiment was launched.
+
+## Week 6: bounded densities and staged fitting (week started 24 October 2026)
+
+The frozen protocol is `worm_staged_protocol_v1.json`; `worm_staged.py` executes
+it and refuses an existing output directory. `staged_density.py` provides a bounded
+linear least-squares density solve at fixed centres and Cholesky shapes. Its
+augmented system uses acquired noisy projections divided by sigma=0.05 and an
+identity divided by the existing density prior SD=10. Bounds remain [0.001,100].
+The ridge term makes this conditional problem strictly convex, even when the
+projection basis is rank deficient. It does not make the geometry problem convex.
+KKT signs at lower/upper bounds and the scaled residual are checked explicitly.
+
+The first diagnostic re-solves densities at each of the four saved 16-component,
+450-evaluation geometry snapshots. Geometry prior terms are constant in this
+comparison; density-audit costs include data and density-prior terms only.
+
+The main paired comparison preserves the previous input hashes, initializer,
+shared prior and seeds [0,81,193,421]:
+
+- Joint: 450 nonlinear function evaluations maximum.
+- Staged: density solve, 50 centre-only evaluations, density solve, 50 full-geometry
+  evaluations, density solve, then 350 joint evaluations. Each block must decrease
+  the same objective. Shape parameters stay fixed during the centre block and
+  densities stay fixed within geometry blocks.
+
+Only final joint solver termination counts toward convergence. Selection uses the
+acquired-data objective, with the existing two-candidate stability gate unchanged.
+Withheld clean projections are evaluated after selection. Equal nonlinear caps do
+not imply equal computational work: runtime, projection/Jacobian calls and density
+solver iterations are recorded. No uncertainty intervals or transfer tests are
+launched unless optimization evidence supports the next step.
+
+```bash
+python experiments/worm_uncertainty/worm_staged.py \
+  --output output/worm_uncertainty/worm_staged_v1 --execute
+```
+
+This is a development optimization control on one worm, one acquisition and one
+noise draw. The reference normalization still uses acquired noiseless synthetic
+projections, as in the preserved parent experiment. It is not a new deployment
+normalization or an independent validation result.
