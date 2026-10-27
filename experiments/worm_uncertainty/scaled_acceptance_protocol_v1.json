@@ -1,0 +1,55 @@
+{
+  "phantom_seeds": [
+    27101,
+    27102
+  ],
+  "shapes": [
+    "moderate",
+    "elongated"
+  ],
+  "offsets_degrees": [
+    14.4,
+    72.0
+  ],
+  "noise_seeds": [
+    null,
+    20261101,
+    20261102,
+    20261103
+  ],
+  "relative_noise_sd": 0.05,
+  "start_seed": 193,
+  "thresholds": {
+    "bound_tolerance": 1e-08,
+    "normalized_gradient": 1e-06,
+    "relative_predicted_decrease": 1e-08,
+    "prior_scaled_correction_inf": 0.001
+  },
+  "budgets": {
+    "partial": 10,
+    "final": 300,
+    "polish": 300,
+    "oracle": 600
+  },
+  "old_rule": {
+    "gtol": 1e-06,
+    "xtol": 1e-14,
+    "projected_gradient_tolerance": 1e-06
+  },
+  "validation": {
+    "max_relative_objective_gain": 1e-06,
+    "max_acquired_prediction_change": 0.0001,
+    "max_density_change": 0.001,
+    "require_initial_rejections": true
+  },
+  "base_protocol_sha256": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550",
+  "expected_cases": 32,
+  "expected_fits": 128,
+  "decision": "Accept for further exploratory known-phantom posterior comparisons only if no accepted initial/partial/final checkpoint changes beyond frozen polish limits, all deliberately perturbed initial controls are rejected, and at least one final fit per case is accepted. Multistart agreement and active bounds remain separate requirements. No automatic worm adoption.",
+  "limitations": [
+    "Fresh synthetic five-component phantoms and noise seeds, still oracle geometry priors.",
+    "Numerical acceptance is neither low error nor global optimality.",
+    "Thresholds are fixed before fresh-case outcomes. A failure is reported without retuning.",
+    "Density change relative to polishing is evaluation-only; no truth/withheld input enters the rule."
+  ]
+}

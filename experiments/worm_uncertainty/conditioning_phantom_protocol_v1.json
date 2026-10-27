@@ -1,0 +1,27 @@
+{
+  "week_start": "2026-10-24",
+  "base_protocol_sha256": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550",
+  "spans": [
+    180,
+    120
+  ],
+  "start_seeds": [
+    0,
+    81
+  ],
+  "relative_noise_sd": 0.05,
+  "noise_seed": 20261027,
+  "additional_nfev": 300,
+  "gtol": 1e-06,
+  "xtol": 1e-14,
+  "projected_gradient_tolerance": 1e-06,
+  "design": "Four fixed centres/densities; widths (0.08,0.08,0.12) versus (0.008,0.8,0.12), same covariance determinant. Exact and perturbed starts; clean and noisy observations. Same truth-based geometry prior within each shape.",
+  "limitations": [
+    "16 development fits; one noise draw, one perturbation, two designed shapes.",
+    "Shape change alters support, sampling and angular signal strength as well as conditioning; not an isolated causal manipulation of numerical condition number.",
+    "Oracle geometry priors and starts are not deployable initialization.",
+    "Noise SD is 5% of acquired clean RMS for each shape/window; absolute noise differs. Clean fits retain the same positive likelihood scale.",
+    "Voxel errors are on a fixed sampled field only, not continuous full-space error.",
+    "Exact truth is not a stationary point of the zero-mean density-regularized objective."
+  ]
+}

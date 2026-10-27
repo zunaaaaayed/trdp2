@@ -1,0 +1,29 @@
+{
+  "parent_report_sha256": "9777a7fbdc15b93de40d36e8e0d3297d5ba126022e242a47f56e5ef71902a4b5",
+  "eligibility_summary_sha256": "a365d3bd032f4aca7935444cc088b32024ee2805358e79884c41cf4a475e1669",
+  "samples": 1024,
+  "sample_seed": 2026102701,
+  "query_sobol_power": 11,
+  "query_seed": 2026102702,
+  "foreground_fraction": 0.05,
+  "centre_selection": "Lowest acquired regularized objective among final and independent truth-start candidates after both pass local and unchanged multistart/bound checks.",
+  "covariance": "Gauss-Newton inverse precision J.T J / sigma^2 + prior precision; conditional density block versus all 50 parameters.",
+  "methods": [
+    "density_linear",
+    "density_nonlinear",
+    "joint_linear",
+    "joint_nonlinear"
+  ],
+  "interval": "Pointwise empirical 2.5/97.5 percentiles; same 1024 iid normal draws for linear/nonlinear propagation within each model.",
+  "evaluation": "2048 fixed scrambled Sobol volume points in [-1,1]^2 x [-.16,.16]; foreground truth >= 5% of queried truth maximum. Projection query uses original z[::2],detector[::4], all original angles; acquired and withheld metrics separate. Latent clean projection intervals only.",
+  "bounds": "Untruncated Gaussian diagnostic: retain all samples, never clip/reject; report per-parameter and any-bound violation fractions; flag >1% any-bound violations as approximation concern without removing cases.",
+  "monte_carlo": "Compare metrics from first and second 512 samples; density linear/nonlinear must agree to roundoff.",
+  "designated_visual_case": "27101_elongated_72.0_20261101",
+  "limitations": [
+    "One mode local Gaussian approximation, not exact posterior sampling.",
+    "Truth-based geometry prior and matched model; report noisy 23/24 and clean 8/8 eligibility separately.",
+    "Only three noise draws per configuration; correlated query points are not independent trials.",
+    "Coverage and width must be reported together with error and bound diagnostics.",
+    "Numerical eligibility does not certify covariance validity, unimodality or calibration."
+  ]
+}
