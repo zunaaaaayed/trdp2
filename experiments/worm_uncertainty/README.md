@@ -1229,3 +1229,633 @@ local full outputs: `output/worm_uncertainty/worm_fit_controls_v1/`.
 Checks: **42 CPU tests passed**, all **51 experiment Python files** pass the pinned
 formatter/linter, saved parent/artifact hashes are verified, and the default dry
 run writes no output. All 16 fits finished; no GPU experiment was launched.
+
+## Week 6: bounded densities and staged fitting (week started 24 October 2026)
+
+The frozen protocol is `worm_staged_protocol_v1.json`; `worm_staged.py` executes
+it and refuses an existing output directory. `staged_density.py` provides a bounded
+linear least-squares density solve at fixed centres and Cholesky shapes. Its
+augmented system uses acquired noisy projections divided by sigma=0.05 and an
+identity divided by the existing density prior SD=10. Bounds remain [0.001,100].
+The ridge term makes this conditional problem strictly convex, even when the
+projection basis is rank deficient. It does not make the geometry problem convex.
+KKT signs at lower/upper bounds and the scaled residual are checked explicitly.
+
+The first diagnostic re-solves densities at each of the four saved 16-component,
+450-evaluation geometry snapshots. Geometry prior terms are constant in this
+comparison; density-audit costs include data and density-prior terms only.
+
+The main paired comparison preserves the previous input hashes, initializer,
+shared prior and seeds [0,81,193,421]:
+
+- Joint: 450 nonlinear function evaluations maximum.
+- Staged: density solve, 50 centre-only evaluations, density solve, 50 full-geometry
+  evaluations, density solve, then 350 joint evaluations. Each block must decrease
+  the same objective. Shape parameters stay fixed during the centre block and
+  densities stay fixed within geometry blocks.
+
+Only final joint solver termination counts toward convergence. Selection uses the
+acquired-data objective, with the existing two-candidate stability gate unchanged.
+Withheld clean projections are evaluated after selection. Equal nonlinear caps do
+not imply equal computational work: runtime, projection/Jacobian calls and density
+solver iterations are recorded. No uncertainty intervals or transfer tests are
+launched unless optimization evidence supports the next step.
+
+```bash
+python experiments/worm_uncertainty/worm_staged.py \
+  --output output/worm_uncertainty/worm_staged_v1 --execute
+```
+
+This is a development optimization control on one worm, one acquisition and one
+noise draw. The reference normalization still uses acquired noiseless synthetic
+projections, as in the preserved parent experiment. It is not a new deployment
+normalization or an independent validation result.
+
+The initial audit on 27 October passed all four conditional KKT checks (relative
+residuals below 3.3e-15). At the two solver-converged parent geometries (seeds 0 and
+421), the density improvement is at roundoff. The largest improvement is 0.771
+out of 55,910.57 (0.00138%), at unfinished seed 193. Seed 81 has one active lower
+density bound. These are conditional results at distinct fixed geometries;
+density solutions across geometries need not agree. All eight paired fits finished on 27 October (329.98 seconds total); saved log:
+`logs/worm_uncertainty/worm_staged_v1.log`.
+
+Inspect the completed log:
+
+```bash
+tail -n 60 logs/worm_uncertainty/worm_staged_v1.log
+```
+
+The final `report.json` and the comparison below are complete. To regenerate the
+comparison and compact hash-linked summary, choose a fresh output directory:
+
+```bash
+python experiments/worm_uncertainty/plot_worm_staged.py \
+  --input output/worm_uncertainty/worm_staged_v1 \
+  --output /tmp/worm_staged_v1_figures
+```
+
+### Completed paired comparison — 27 October 2026
+
+| Arm | Terminations | Selected seed | Data term | Prior term | Total objective | Acquired L2 (%) ↓ | Withheld L2 (%) ↓ | Runtime (s) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Joint 450 | 2/4 | 421 | 49,938.03 | 461.30 | 50,399.33 | 11.20 | 19.84 | 182.76 |
+| Staged 50+50+350 | 3/4 | 81 | 46,559.99 | 447.26 | 47,007.25 | 10.71 | 24.40 | 146.74 |
+
+![Joint/staged comparison](../../docs/figures/worm_uncertainty/worm_staged_v1/comparison.png)
+
+Lower errors and objectives are better; solver terminations alone are insufficient.
+Both gates fail: relative objective gaps are 5.187% and 2.610% (required ≤0.001%),
+and acquired prediction disagreements are 5.480% and 6.159% (required ≤0.01%).
+The selected pairs have no active bounds. Staging improves the selected objective
+by 6.73%, but withheld error rises by 4.56 percentage points (22.95% relative).
+This single development comparison does not establish a generalization benefit.
+The methods used 1,574 versus 1,448 projection/Jacobian calls; the staged arm also
+performs three conditional density solves per start. Timing is one execution,
+not a repeated performance benchmark.
+
+All five successful final solver exits have SciPy status 2 (`ftol`), rather than
+meeting `gtol`. Reported optimality is 0.693/0.890 for the two joint exits and
+4.043/0.591/0.827 for the staged exits. Seed 193 exhausts its budget in both arms;
+joint seed 81 also exhausts its budget. These diagnostics make a stationarity
+check and controlled continuation more informative than treating solver success
+as proof that optimization is resolved. Multistart agreement and global optimality
+remain distinct questions, and the present data do not separate geometry error
+from representation limits.
+
+Verification: all eight candidates are finite; artifact, source, parent, input
+and reference hashes match; every stage decreases the unchanged shared objective.
+All four joint results reproduce the previous 16-component/450-budget fits exactly
+(parameters and objectives). The plot was generated and visually checked. Full
+fits/traces remain in `output/worm_uncertainty/worm_staged_v1/`; the versionable
+[summary](../../docs/figures/worm_uncertainty/worm_staged_v1/summary.json) links to the
+report hash. No posterior or transfer run was launched.
+
+Next proposed control: inspect residuals and fitted shapes, then continue the same
+saved candidates with a frozen acquired-only convergence criterion and budget.
+Keep priors, data, bounds and component count unchanged; do not select continuation
+settings or candidates using withheld errors. Reassess the unchanged stability
+gate before posterior estimation or new-acquisition transfer.
+
+### Fixed stationarity continuation — completed
+
+`worm_stationarity_protocol_v1.json` freezes eight saved candidates and up to 600
+additional evaluations each. `worm_stationarity.py` checks parent/artifact/input/
+reference hashes before execution and saves the acquired-only initial audit,
+per-candidate before/after diagnostics, provenance and final report. Existing
+experiment code and outputs are preserved. No density reinitialization is applied.
+
+The continued objective is unchanged. `ftol=None` disables the previous stopping
+condition; `gtol=1e-6` and `xtol=1e-14` retain gradient and tiny-step stops. For the
+half sum-of-squares objective F, the explicit stationarity diagnostic is
+`||p - clip(p - grad(F), lower, upper)||_inf <= 1e-6`. This respects feasible
+bound directions. It depends on the frozen parameter units and is not a global
+optimality guarantee. A step-tolerance exit or budget exhaustion does not count
+as stationary unless this explicit check passes. `solver_success` is recorded
+separately. The previous pairwise objective/prediction gate and bound exclusion
+remain unchanged, but candidate eligibility now requires stationarity; counts
+must not be described as the same convergence definition as the parent report.
+
+Before continuation, acquired residual RMS / sigma ranges from 2.350 to 2.659;
+maximum principal-axis ratio per fit ranges from 73.26 to 237.94. Principal SDs
+across all components range from 0.00255 to 1.686 model units. These geometric
+extremes warrant inspection, not automatic rejection or physical-density claims.
+Projected-gradient norms range from 0.591 to 1123.77, all above the frozen target.
+A noise-normalized residual of one is a descriptive noise-scale reference, not
+an acceptance test for fitted residuals.
+
+![Before-continuation diagnostics](../../docs/figures/worm_uncertainty/worm_stationarity_audit_v1/initial_audit.png)
+
+The [audit summary](../../docs/figures/worm_uncertainty/worm_stationarity_audit_v1/summary.json)
+contains all eight geometry/residual diagnostics and the initial-audit hash.
+The plot was generated and visually checked. Tests verify the gradient against
+finite differences, objective accounting and rejection of an unfinished fit;
+all 47 CPU tests pass. Formatting/lint checks also pass.
+
+The CPU experiment completed all eight fits. Inspect the saved log with:
+
+```bash
+tail -n 60 logs/worm_uncertainty/worm_stationarity_v1.log
+```
+
+Completion is recorded by `output/worm_uncertainty/worm_stationarity_v1/report.json`.
+Do not restart the same output directory. Withheld data enter only final evaluation,
+after selection. There is no automatic budget escalation or posterior computation.
+
+### Continuation outcome and numerical audit
+
+All eight continuations are complete; artifact/source hashes and monotonic objective
+checks pass. Aggregate fitting time is 239.27 seconds. Seven exits are `xtol`
+(status 3), and joint seed 81 exhausts 600 evaluations. No candidate passes the
+frozen projected-gradient threshold. The provisionally selected seeds remain joint
+421 and staged 81, with acquired/withheld relative errors 11.20%/19.84% and
+10.71%/24.40%. Selection is provisional because no candidate is stationary under
+the predeclared rule. Neither gate passes.
+
+Joint seeds 81/193 improve their objectives by 15.288%/5.914%; staged seed 193
+improves by 0.2764%. The other five reductions are below 0.0000003%. The seven
+tiny-step exits retain projected gradients between 0.000859 and 0.006772, above
+the 1e-6 threshold. Thus objective stagnation and the absolute gradient criterion
+do not agree here; this does not justify silently changing the criterion.
+
+`worm_numerical_audit.py` performs a read-only acquired-data diagnostic on these
+saved fits. It uses one seeded random and one negative-gradient direction in
+prior-SD coordinates, central differences at five step sizes from 1e-3 to 1e-7,
+and a bounded linearized least-squares step tested at fractions 1, 0.1, 0.01,
+0.001. Derivative probes may leave parameter bounds; they are derivative checks,
+not accepted reconstruction updates. Trial updates respect bounds and never
+replace saved fits. All linear step solvers report success.
+
+At step 1e-6, the maximum relative directional Jacobian discrepancy is 1.459e-8.
+This is encouraging evidence for the tested directions, not exhaustive Jacobian
+verification. Prior-scaled Jacobian condition numbers are 2,864–6,730. For seven
+fits, the best tested objective reductions are no larger than 2.62e-10 (some
+trials slightly increase it); the budget-limited joint seed 81 gives 0.000872.
+Finite-difference agreement plus these tiny local reductions suggest that blindly
+increasing the budget is unlikely to resolve multistart disagreement. They do not
+exclude negative-curvature escape directions, other parameterizations or different
+basins. We have not proved a numerical floor or global optimality.
+
+![Completed continuation](../../docs/figures/worm_uncertainty/worm_stationarity_results_v1/continuation.png)
+
+The [combined summary](../../docs/figures/worm_uncertainty/worm_stationarity_results_v1/summary.json)
+records continuation diagnostics, local trials and source report hashes. Full
+numerical output is `output/worm_uncertainty/worm_numerical_audit_v1/report.json`.
+All original outputs and failed gates are preserved. No uncertainty intervals or
+new deformation/acquisition experiments were run.
+
+Next proposed experiment: use a known Gaussian phantom with shape scales spanning
+those observed here, compare derivative/stationarity behavior against a moderate-
+shape control, and measure reconstruction error under exact and perturbed starts.
+This isolates numerical conditioning from unknown worm structure before changing
+stopping rules or adding a new shape prior. Keep any revised rule separate from
+the frozen development gate and validate it on fresh known cases.
+
+### Known-phantom shape control — completed
+
+`conditioning_phantom_protocol_v1.json` freezes 16 fits: two shapes × two angular
+spans (180°,120°, both starting at 0°) × clean/noisy observations × exact/perturbed
+starts. Four identical centres and amplitudes are used in both shapes. Principal
+SDs change from (0.08,0.08,0.12) to (0.008,0.8,0.12), with fixed rotations and equal
+covariance determinants. Integrated component densities are thus unchanged.
+This changes support and sampling sensitivity, not only numerical conditioning.
+
+Sampling uses 25 angles at 7.2° spacing, 129 detector positions in [-1,1], and nine
+axial positions in [-0.16,0.16]. The limited case uses the first 17 views. Noise is
+one seeded Gaussian draw with SD=5% of acquired clean RMS per shape/window. Clean
+fits keep this likelihood scale but receive no added noise. Noiseless targets and
+noise arrays are saved. A shared truth-based geometry prior is used within each
+shape; density prior mean remains zero with SD=10. Exact truth therefore need not
+minimize the regularized objective. Perturbed starts use the previous fixed
+perturbation scales and seed 81; this is an oracle diagnostic, not a fair estimate
+of deployable initialization performance.
+
+Each fit has a fixed maximum of 300 evaluations, ftol disabled, xtol=1e-14,
+gtol=1e-6 and the same explicit projected-gradient threshold 1e-6. All 16 finished
+in 16.93 seconds of aggregate fitting time on the CPU. No acceptance thresholds
+were changed after observing results. All initial-to-final objectives decreased;
+source/input/artifact hashes and the 16 unique case identities were verified.
+
+| Shape / span | Clean exact full-space L2 (%) ↓ | Noisy exact full-space L2 (%) ↓ | Stationary clean / 2 | Stationary noisy / 2 |
+|---|---:|---:|---:|---:|
+| Moderate / 180° | <0.001 | 0.321 | 1 | 0 |
+| Moderate / 120° | <0.001 | 0.403 | 1 | 0 |
+| Elongated / 180° | 0.0263 | 8.825 | 2 | 0 |
+| Elongated / 120° | 1.239 | 24.738 | 1 | 0 |
+
+Values use the exact-start fit; perturbed-start errors agree at the shown precision.
+For every pair, predictions over all 25 sampled angles differ by less than 4.2e-9
+relative L2. This is agreement between two oracle starts, not a proof of uniqueness.
+Both noisy moderate cases reconstruct accurately while failing stationarity, so
+an unscaled absolute gradient criterion alone is a poor accuracy classifier here.
+The criterion remains frozen and all historic worm gate failures are retained.
+
+`gaussian_l2.py` integrates pairwise products of the Gaussian mixtures analytically
+in all of R³. `plot_conditioning_phantom.py` reports this error in addition to the
+runner's fixed-grid voxel error, avoiding truncation and undersampling of thin
+components in the headline metric. Closed-form single-Gaussian, amplitude and
+translation identities pass. Near-zero squared differences can lose floating-point
+precision, so the very small moderate clean errors are reported only as <0.001%.
+
+![Shape control](../../docs/figures/worm_uncertainty/conditioning_phantom_v1/comparison.png)
+
+In the elongated noisy 120° case, withheld projection error is 2.262% but full-space
+density error is 24.738% (sampled-grid voxel error 24.350%). Projection agreement
+cannot substitute for volumetric accuracy. Even clean elongated 120° data give
+1.239% density error under the unchanged regularized objective, showing bias is
+possible without added noise or representation mismatch. A noise or shape-prior
+causal claim requires further controlled comparisons; this one draw does not
+establish uncertainty coverage or a benefit from geometry regularization.
+
+Full outputs are in `output/worm_uncertainty/conditioning_phantom_v1/`; the
+[compact summary](../../docs/figures/worm_uncertainty/conditioning_phantom_v1/summary.json)
+records protocol, metrics and report/code hashes. Both READMEs and the plot were
+updated. The completed run is not still training.
+
+Next proposed controls: repeat fixed noise draws and angular offsets; separate
+prior bias by a declared density-prior comparison on these known phantoms. Any new
+stationarity rule should be dimension-aware and validated on independent known
+cases, with its results reported separately from the original frozen rule. No
+new worm shape prior or posterior-calibration claim is justified yet.
+
+### Paired noise, offset and density-prior replication
+
+`phantom_replication_protocol_v1.json` freezes 144 fits: the same two phantoms,
+three 120° windows starting at 0°,28.8°,57.6°, five fresh noise seeds plus clean
+controls, density-prior SDs 10 and 100, and starts 0/81. Each window contains 17
+of the same 25 angles; detector and axial sampling are unchanged. SD=100 reduces
+the density penalty by 100 times while preserving its zero mean. Geometry priors,
+parameter bounds and all convergence settings remain fixed. No prior is selected
+using withheld or ground-truth errors.
+
+The prior arms use exactly the same observations and starts. Noise is generated
+on the whole projection stack before masking, preserving standardized noise on
+shared rays across offsets. Absolute sigma remains 5% of each window's acquired
+clean RMS; this convention changes absolute noise across windows and shapes.
+Noise seeds are 20261028–20261032. These are fresh noise draws of the same designed
+objects, not independent anatomy samples. The exact-start series is primary;
+the perturbed start diagnoses initialization agreement and is not another sample
+for error bars. All failed stationarity cases remain in the error summaries.
+
+`plot_phantom_replication.py` reports five-draw means and observed min–max ranges,
+not confidence intervals, alongside clean controls. Full-space Gaussian density
+L2 is the primary error; withheld projection L2 is secondary. The two metrics
+must not be treated as interchangeable. Five draws and correlated overlapping
+windows do not establish broad generalization or uncertainty coverage.
+
+The runner is `phantom_replication.py`, outputs are in
+`output/worm_uncertainty/phantom_replication_v1/`, and its log is
+`logs/worm_uncertainty/phantom_replication_v1.log`. It refuses existing output
+directories. Tests verify equal window sizes, wrapping and paired noise identity.
+
+#### Replication results — all 144 fits complete
+
+Aggregate fitting time was 172.64 seconds. Source/artifact hashes, all finite
+parameters and monotonic objective changes pass verification. For every prior
+pair, input key, sigma, initial centres, densities, principal widths and acquired
+residual RMS match exactly. All 144 case identities are unique. There are 31
+SciPy gradient exits and 113 tiny-step exits, with no budget exhaustion; 32 fits
+pass the separate projected-gradient criterion. These two definitions need not
+coincide. Failed stationarity cases are retained in all error summaries.
+
+| Start | Moderate noisy mean %, SD 10 / 100 | Elongated noisy mean %, SD 10 / 100 | Elongated clean %, SD 10 / 100 |
+|---|---:|---:|---:|
+| 0° | 0.470 / 0.470 | 23.958 / 24.375 | 1.2391 / 0.01296 |
+| 28.8° | 0.465 / 0.465 | 16.816 / 16.986 | 0.3941 / 0.00402 |
+| 57.6° | 0.482 / 0.482 | 15.262 / 15.333 | 0.1647 / 0.00167 |
+
+These are full-space density L2 errors, lower is better. Noisy means use five
+noise draws at exact start 0, as declared before execution. Across all 72 paired
+initializations, density-error differences are at most 2.681e-7 relative units
+(0.00002681 percentage points). This is agreement of two oracle starts, not proof
+of uniqueness. Moderate errors are insensitive to the prior comparison, while
+elongated errors depend strongly on the angular window.
+
+For the elongated phantom, weakening the density penalty cuts clean bias by
+roughly 96–99 times but worsens noisy density error in all 15 paired draw/window
+comparisons. This result distinguishes prior bias from noise sensitivity; it does
+not establish that either prior is optimal. Window overlap and shared standardized
+noise mean these 15 comparisons are not independent. Absolute noise also changes
+with acquired clean RMS across windows, as specified by the protocol.
+
+At SD 10, elongated noisy density min–max ranges are 20.09–29.01%, 12.44–21.20%,
+and 9.21–25.23% for starts 0°,28.8°,57.6°. Corresponding mean withheld projection
+errors are only 2.65%,3.02%,7.74%, further demonstrating that projection accuracy
+does not determine volumetric accuracy. Neither this replication nor the original
+shape control measures posterior coverage.
+
+![Noise/offset/prior replication](../../docs/figures/worm_uncertainty/phantom_replication_v1/comparison.png)
+
+The [summary](../../docs/figures/worm_uncertainty/phantom_replication_v1/summary.json)
+includes all rows, paired prior changes, protocol and report/code hashes. Error
+bars are observed min–max ranges, not confidence intervals. Some moderate clean
+analytic errors are dominated by subtractive floating-point cancellation; the plot
+floors zero at 1e-8 percent for logarithmic display, and these cases should simply
+be read as <0.001%. The plot was visually checked. No reconstruction remains
+running from this batch.
+
+Next: characterize which coupled density/shape directions are weakly constrained
+by the acquired data on these known phantoms. Compare their changes in acquired
+projections, omitted projections and exact density. This can guide a joint
+uncertainty model without treating a narrow density-only posterior or a new shape
+prior as a verified solution. Preserve the current failed worm gates and report
+any numerical acceptance redesign as a separate validation study.
+
+### Coupled weak-direction audit — completed
+
+`phantom_weak_directions.py` audits every noisy exact-start SD=10 fit from the
+replication (30 cases, including failed stationarity checks). It computes the
+smallest right singular direction of the acquired Jacobian, whitened by noise SD
+and scaled by parameter prior SD, in either the four-density subspace or all 40
+parameters. The SVD includes data curvature only, not prior curvature. Both signs
+are evaluated at prior-coordinate radii 0.001,0.01,0.1, capped at 80% of the feasible
+bound distance when necessary. No direction is selected using truth or withheld
+measurements; omitted views are evaluated afterwards. The original fits remain
+unchanged. All 360 finite probes were retained without skipped cases.
+
+| Shape / mode | Median density change at radius 0.1 | Acquired change RMS / sigma | Withheld change | Relative acquired linearization error |
+|---|---:|---:|---:|---:|
+| Moderate / density | 21.47% | 2.762 | 17.16% | ~8.5e-16 |
+| Moderate / joint | 1.401% | 0.06924 | 1.093% | 0.0881 |
+| Elongated / density | 20.47% | 1.040 | 16.81% | ~2.1e-15 |
+| Elongated / joint | 2.034% | 0.006216 | 0.1108% | 0.999998 |
+
+Each entry is a median over 15 cases × two signs. Cases/signs are correlated;
+these are descriptive summaries, not independent-sample statistics. Density and
+projection changes are relative to the fitted model, not errors against truth.
+A common radius in prior units is not a common magnitude of physical density
+change. The enlarged joint space permits smaller data singular values by
+construction, so that fact alone is not a new discovery or uncertainty result.
+
+![Weak-direction sensitivity](../../docs/figures/worm_uncertainty/phantom_weak_directions_v2/sensitivity.png)
+
+The elongated joint direction admits much smaller acquired changes than the
+observed density change would suggest. Its near-zero linear prediction is a poor
+relative approximation to finite changes, consistent with higher-order terms
+becoming important along a near-null direction. Absolute projection differences
+are still tiny; large relative linearization error alone does not establish a
+large image error or invalidate every local Gaussian approximation. Density-only
+probes confirm exact linearity up to numerical precision.
+
+This supports studying joint density/geometry uncertainty and comparing linear
+with nonlinear propagation, subject to numerical validation. It does not certify
+posterior coverage, select a new prior or resolve independent-worm generalization.
+A data-only flat direction can still be constrained by the prior; this audit must
+not be interpreted as sampling the posterior or measuring its interval width.
+
+Outputs: `output/worm_uncertainty/phantom_weak_directions_v2/report.json`; the
+[compact summary](../../docs/figures/worm_uncertainty/phantom_weak_directions_v2/summary.json)
+links to its report hash. The pre-format diagnostic v1 is preserved; the formatted
+v2 reproducibility run matches every numerical probe exactly. New tests check
+nonmutation, feasible step sizes and density-linearity/analytic amplitude changes.
+All 52 CPU tests and format/lint checks pass. The plot was visually checked.
+
+Next: validate a separately named, dimension-aware numerical acceptance diagnostic
+on fresh known cases, without relabeling old failures; then freeze a density-only
+versus joint uncertainty comparison with linear and nonlinear propagation. Require
+known-truth coverage plus interval width and reconstruction error before any worm
+calibration claim. No further training or posterior sampling is running now.
+
+### Frozen scale-aware numerical validation
+
+`scaled_acceptance_protocol_v1.json` defines a new local rule before fresh-case
+outcomes are inspected. For the full data-plus-prior residual r and Jacobian J,
+let A=J diag(prior_SD). Its three requirements are:
+
+1. The largest feasible KKT gradient component, divided by its A-column norm and
+   max(1,||r||), is ≤1e-6.
+2. The bounded linearized least-squares correction has infinity norm ≤1e-3 in
+   prior-SD coordinates.
+3. Its predicted decrease in the sum-of-squares objective, divided by
+   max(1,objective), is ≤1e-8.
+
+The linear step solver must succeed. Bounds within 1e-8 prior-SD units are treated
+as active for KKT signs and are recorded separately. Active bounds can be locally
+optimal but remain excluded from the downstream untruncated-posterior eligibility
+check. Tests cover exact positive/unfinished controls, active-bound KKT signs,
+positive diagonal parameter-unit invariance, and a weak direction whose large
+correction would be hidden by a tiny residual. Invariance is not claimed for
+nonlinear reparameterization or arbitrary changes to likelihood weighting.
+
+The 32 fresh cases use two new five-component phantom seeds (27101,27102),
+moderate/elongated matched-volume variants, offsets 14.4°/72°, and clean data plus
+three fresh noise seeds (20261101–20261103). All use 120° acquisition. These are
+four designed geometries, not 32 independent anatomies. Geometry priors remain
+truth-based; density prior mean remains zero. Fresh small 3D rotations and
+component-specific widths differ from the earlier four-component examples.
+
+For each case, the acquired-only rule is checked at initial, 10-evaluation,
+additional-300-evaluation, additional-300-polish and independent truth-start
+(up to 600 evaluations) checkpoints. Thresholds are not retuned. The initial and
+partial points provide deliberately unfinished controls. Validation compares each
+initial/partial/final checkpoint against its own polished result. Stability limits
+are relative objective gain ≤1e-6, acquired-prediction change ≤1e-4 and exact density
+change ≤1e-3. The last metric is validation-only and never enters acceptance.
+
+The frozen rule is judged to pass this numerical validation only if every initial
+control is rejected, no accepted checkpoint violates a polishing limit, and every
+case has at least one accepted final or independent truth-start candidate. This
+does not prove global optimality or certify a posterior. The old two-start
+objective/prediction agreement thresholds and active-bound exclusion are assessed
+separately, without changing historical worm results.
+
+Runner: `validate_scaled_acceptance.py`; output:
+`output/worm_uncertainty/scaled_acceptance_v1/`; log:
+`logs/worm_uncertainty/scaled_acceptance_v1.log`. No posterior is launched by this
+runner. A failed or inconclusive validation is reported without automatic retries
+or threshold adjustment.
+
+#### Fresh-case validation outcome — completed
+
+All 32 cases (128 optimizer fits plus 32 initial checkpoints) completed, with
+144.06 seconds aggregate fitting time. Input/source/artifact hashes, unique case/
+stage identities, finite parameters and decreasing objectives passed verification.
+No thresholds were adjusted after seeing outcomes.
+
+| Stage | Original absolute-gradient acceptance | New scale-aware acceptance |
+|---|---:|---:|
+| Initial | 0/32 | 0/32 |
+| Partial (10 evaluations) | 2/32 | 8/32 |
+| Final | 9/32 | 32/32 |
+| Polished | 9/32 | 32/32 |
+| Independent truth start | 7/32 | 32/32 |
+
+Across 96 initial/partial/final checkpoint checks, 40 were accepted and stable
+under polishing, zero were accepted but unstable, 55 were rejected and unstable,
+and one partial checkpoint was rejected despite satisfying the polish limits.
+This is a conservative false rejection relative to this local polishing benchmark;
+there were no such final-checkpoint rejections. Polishing is not a ground-truth
+certificate of global optimality. Maximum final-to-polish relative objective gain
+is 5.581e-16, acquired-prediction change 4.080e-10 and exact density change 6.437e-7.
+These pass the predeclared 1e-6/1e-4/1e-3 validation limits. Some near-zero analytic
+density differences approach subtractive floating-point resolution.
+
+The frozen local validation decision is **pass**: all initial negative controls
+are rejected, no accepted checkpoint violates the polishing limits, and all cases
+have accepted final candidates. This supports a practical local numerical rule
+for further controlled studies. It does not imply that every numerically accepted
+reconstruction is accurate, globally optimal or suitable for an untruncated local
+posterior. Parameter-unit invariance does not remove sensitivity to the prior
+coordinates or likelihood model.
+
+The independent final-versus-truth-start comparison retains the original
+relative-objective threshold 1e-5, acquired-prediction threshold 1e-4 and active-
+bound exclusion, alongside the newly validated local rule. **31/32 cases pass.**
+The failure is `27102_elongated_72.0_20261102`: objective gap 0.00139449 (0.1394%),
+acquired prediction disagreement 0.000678814 (0.0679%), no active bounds, and
+polished-versus-oracle density disagreement 72.96%. Final and truth-start density
+errors are 75.79% and 41.43%, respectively. This is retained as an unresolved
+distinct-solution case; a locally adequate optimizer does not establish uniqueness.
+
+![Scale-aware validation](../../docs/figures/worm_uncertainty/scaled_acceptance_v1/validation.png)
+
+Counts are not an accuracy ranking. Green markers mean numerical acceptance only;
+the density-error panel deliberately shows that large reconstruction errors can
+remain. Zero/near-zero objective gains are displayed at a 1e-16 log-axis floor.
+The [summary](../../docs/figures/worm_uncertainty/scaled_acceptance_v1/summary.json)
+contains all cases, stage counts, decision, protocol and independent-start checks.
+The plot was visually checked. All 55 CPU tests and formatting/lint checks pass.
+
+Next: freeze a density-only versus joint posterior comparison with linear versus
+nonlinear propagation on the 31 eligible known-phantom cases. Keep the one failed
+case in the cohort accounting and analyze it separately; do not silently report
+coverage as if all 32 were eligible. Report interval width, known density error,
+coverage, finite-sample limits and the oracle-prior qualification together. Do not
+relabel historical worm gate failures or transfer this rule to worms without an
+explicitly separate assessment. This validation preceded the posterior comparison reported below.
+
+### Controlled local Gaussian posterior comparison — completed
+
+`posterior_comparison_protocol_v1.json` freezes the parent/eligibility hashes,
+1,024 draws, random/query seeds and one designated slice. `posterior_comparison.py`
+recomputes local acceptance and the unchanged independent-start/bounds checks,
+then selects the lowest acquired objective among eligible final/oracle candidates.
+The excluded case remains `27102_elongated_72.0_20261102`. All 8 clean and 23/24
+noisy cases are evaluated; conditioning on this numerical selection is explicit.
+
+`posterior_local.py` uses Cholesky factors in prior-scaled coordinates to compute
+C=(JᵀJ/sigma² + prior precision)⁻¹. The joint model has 50 parameters; the conditional
+model retains the five density coordinates while fixing fitted geometry. This is
+Gauss–Newton curvature, omitting residual second derivatives. It is not an exact
+posterior or the full observed Hessian. The same sampled parameters feed linear
+and nonlinear evaluation within each model. Nonlinear propagation changes the
+forward evaluation, not the sampled parameter distribution. The target model has
+bounds, while this initial local Gaussian is untruncated; violations are counted
+and retained as diagnostics, with no silent clipping/rejection.
+
+Queries are 2,048 fixed scrambled Sobol points in [-1,1]² × [-0.16,0.16]. The common
+truth-based foreground mask is ≥5% of queried truth maximum (265–317 points for
+moderate and 198–203 for elongated cases). Coverage is pointwise spatial coverage,
+not simultaneous region coverage or independent repeated-sample coverage. Projection
+queries use the original 25 angles and a fixed detector/axial subset; acquired and
+withheld foreground coverage are separate. They concern latent clean projections,
+not future noisy observations. No observation noise is added to propagated draws.
+
+Empirical 2.5/97.5 percentiles define intervals. Widths below are average widths
+divided by each case's queried truth peak. Errors are foreground relative L2 of
+the sample mean and differ from the earlier analytic whole-space fit metric.
+Primary summaries average case-level metrics over noisy cases, never pooled
+voxels. The oracle geometry prior, few noise replicates, cohort selection and
+query mask limit what these numbers establish.
+
+| Noisy group | Method | Density coverage % | Width / truth peak % | Mean error % ↓ | Withheld latent coverage % |
+|---|---|---:|---:|---:|---:|
+| Moderate, n=12 | Density only | 22.75 | 0.120 | 0.724 | 24.18 |
+| Moderate, n=12 | Joint linear | 93.34 | 0.807 | 0.722 | 93.30 |
+| Moderate, n=12 | Joint nonlinear | 94.25 | 0.887 | 0.764 | 94.23 |
+| Elongated, n=11 | Density only | 3.82 | 0.183 | 19.33 | 22.44 |
+| Elongated, n=11 | Joint linear | 94.66 | 33.87 | 19.25 | 96.10 |
+| Elongated, n=11 | Joint nonlinear | 95.36 | 28.65 | 24.02 | 55.68 |
+
+The density-only nonlinear result equals its linear counterpart to roundoff; it is
+omitted from the plotted/table duplicate but retained in all raw records. Joint
+geometry uncertainty addresses major missing variability. For moderate shapes,
+coverage approaches the nominal 95% with narrow intervals. For elongated shapes,
+intervals are much wider and mean error remains high; nonlinear propagation worsens
+the mean error. Mean coverage near 95% is insufficient to call the approximation
+calibrated. Individual elongated joint nonlinear density coverages range from
+82.32% to 100%.
+
+![Coverage/width/error](../../docs/figures/worm_uncertainty/posterior_comparison_v1/coverage_width_error.png)
+
+Acquired latent projection coverage is 40.32/92.42/92.68% for moderate density-only/
+joint-linear/joint-nonlinear and 51.05/96.52/28.18% for elongated cases. The latter
+nonlinear projection failure occurs despite wider withheld intervals: width/queried
+projection peak grows from 1.87% (linear) to 8.04% (nonlinear), while coverage falls
+from 96.10% to 55.68%. Nonlinear evaluation of a local Gaussian is not equivalent
+to sampling the bounded nonlinear posterior, and its consistency with measured
+projections must be checked directly.
+
+![Projection consistency](../../docs/figures/worm_uncertainty/posterior_comparison_v1/projection_coverage.png)
+
+All 15 elongated cases (four clean, eleven noisy) exceed the predeclared 1% bound-
+violation flag: 3.81–19.73% of joint draws violate a parameter bound, including
+negative component amplitudes. Moderate joint draws and all conditional-density
+draws have zero observed violations. These unphysical draws were retained so the
+approximation failure remains visible. No calibrated constrained-posterior claim
+is made. Bound violations and nonlinear likelihood error may both matter; this
+comparison does not isolate their individual contributions.
+
+Clean controls are reported separately. Moderate density coverage is 100% for all
+methods. Elongated clean density-only coverage averages 57.87%, while both joint
+methods cover 100% with broad intervals (linear/nonlinear widths 41.54/32.07% of
+queried peak). These controls use the same positive likelihood sigma without
+injected noise and are not a noisy calibration sample.
+
+![Fixed slice](../../docs/figures/worm_uncertainty/posterior_comparison_v1/designated_slice.png)
+
+The predeclared slice is `27101_elongated_72.0_20261101`, z=0, on a 65² display grid.
+Truth/fit/means share display limits [0,truth slice maximum]; values outside that
+range are display-clipped only. Absolute errors share a color scale. The SD panel
+has its own scale and explicitly cautions that low SD is not evidence of accuracy.
+Thin structures can be undersampled in this illustration; statistical metrics
+use the frozen Sobol queries instead.
+
+Monte Carlo checks compare the first and second 512 draws: foreground coverage
+can differ by up to 5.56 percentage points and width by up to 6.67% relative. The
+maximum casewise median difference between sampled linear SD and exact propagated
+SD is 3.36% (moderate) and 1.48% (elongated). This limits interpretation of small
+linear/nonlinear differences; split halves are a sensitivity check, not a formal
+confidence interval. The major density-only undercoverage is much larger.
+
+Verification: all hashes and 31/32 eligibility accounting pass; covariance
+matrices are symmetric positive semidefinite and joint density marginal variance
+is no smaller than the conditional covariance within numerical tolerance. Density
+linear/nonlinear propagation agrees within 9.33e-15 in reported metrics. All metrics
+are finite and widths nonnegative. Tests check covariance-factor orientation
+against direct inversion, the variance inequality, optimized evaluator agreement,
+density linearity and mask-based interval evaluation. All 58 CPU tests and
+format/lint checks pass. The completed run took 114.75 seconds.
+
+Full records/covariances/queries/visual arrays are in
+`output/worm_uncertainty/posterior_comparison_v1/`; the
+[summary](../../docs/figures/worm_uncertainty/posterior_comparison_v1/summary.json)
+contains per-case metrics, exclusions, bound violations and protocol/report/code
+hashes. Nothing from this comparison is still running, and historical worm gates
+remain unchanged.
+
+Next proposed diagnostic: evaluate the exact bounded nonlinear target density at
+the reproducible local Gaussian draws, assess weight concentration and likelihood
+consistency, and decide whether a correction is usable or constrained nonlinear
+sampling is needed. Do not treat clipping, rejection or reweighting as a verified
+calibration fix. Keep the excluded distinct-solution case visible, and verify
+coverage/width/mean error again on known cases before worm transfer.
