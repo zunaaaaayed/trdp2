@@ -46,8 +46,14 @@ Weeks 4–5 development control. Withheld views remain evaluation-only.
 
 Stable fitting is the prerequisite for a new angular configuration and deformation
 test. Neither a smaller training residual nor a narrow uncertainty map establishes
-missing-view accuracy or calibrated uncertainty. Results will be added here as
-experiments finish; this entry records the plan, not a successful outcome.
+missing-view accuracy or calibrated uncertainty. The [first density audit](docs/results/worm_uncertainty/worm_density_audit_v1.json) (27 October) passed its optimality checks at all four
+saved geometries. Density-only re-optimization changes the data-plus-density-prior
+objective by approximately 0, 0.00000026, 0.771 and 0 for seeds 0, 81, 193 and 421;
+the largest relative decrease is only 0.00138%. The two previously converged fits
+already have optimal conditional densities to numerical precision. This supports
+investigating geometry optimization and representation limits, without resolving
+which dominates. The paired joint/staged experiment is running on branch
+`experiment/week6-staged-density`; its stability and held-out results are pending.
 
 ## Weeks 4–5 combined — worm uncertainty (work completed 12–21 October 2026)
 

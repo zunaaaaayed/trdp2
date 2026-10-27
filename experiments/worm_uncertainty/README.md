@@ -1270,3 +1270,27 @@ This is a development optimization control on one worm, one acquisition and one
 noise draw. The reference normalization still uses acquired noiseless synthetic
 projections, as in the preserved parent experiment. It is not a new deployment
 normalization or an independent validation result.
+
+The initial audit on 27 October passed all four conditional KKT checks (relative
+residuals below 3.3e-15). At the two solver-converged parent geometries (seeds 0 and
+421), the density improvement is at roundoff. The largest improvement is 0.771
+out of 55,910.57 (0.00138%), at unfinished seed 193. Seed 81 has one active lower
+density bound. These are conditional results at distinct fixed geometries;
+density solutions across geometries need not agree. The paired fits are running
+in tmux session `trdp2-week6-density`; log:
+`logs/worm_uncertainty/worm_staged_v1.log`.
+
+Monitor without changing the experiment:
+
+```bash
+tail -f logs/worm_uncertainty/worm_staged_v1.log
+```
+
+Once `output/worm_uncertainty/worm_staged_v1/report.json` exists, generate the
+comparison and compact, hash-linked summary:
+
+```bash
+python experiments/worm_uncertainty/plot_worm_staged.py \
+  --input output/worm_uncertainty/worm_staged_v1 \
+  --output docs/figures/worm_uncertainty/worm_staged_v1
+```
