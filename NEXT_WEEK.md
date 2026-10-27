@@ -30,7 +30,7 @@ presentation on **23 October**.
   completed; 42 CPU tests and formatting/lint checks for 51 experiment Python
   files pass. Prior chest results and accepted historical artifacts are retained.
 
-## Plan for the next reporting week
+## Plan for the next reporting week — started 24 October 2026
 
 1. Freeze and test staged density → centre → full-shape optimization under a
    fixed shared prior. Retain convergence, active-bound and multistart agreement

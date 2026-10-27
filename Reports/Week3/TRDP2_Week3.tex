@@ -15,10 +15,9 @@
 \captionsetup{font=small,labelfont=bf}
 \setlist{nosep,leftmargin=*}
 \newcommand{\Rtwo}{R\textsuperscript{2}-Gaussian}
-\title{\vspace{-1.3cm}\large\bfseries TRDP2: Limited-Angle 3D CT Reconstruction with \Rtwo\\[4pt]
-\normalsize Week 3: Ordinary-TV Controls and Generalization Preparation}
+\title{\vspace{-1.3cm}\huge\bfseries Ordinary-TV Controls and Generalization Preparation for Limited-Angle 3D CT Reconstruction} 
 \author{\normalsize Md Zunayedul Islam \qquad Biswarup Mukherjee}
-\date{\small Weekly Progress Report: 3--9 October 2026\\Evidence cutoff: 8 October 2026}
+\date{\small TRDP2 Week 3 | 3--9 October 2026}
 \begin{document}
 \maketitle
 \vspace{-1em}
@@ -53,7 +52,7 @@ We retained the original \Rtwo\ training implementation and its existing data lo
 
 The implemented loss retains its existing weighting conventions:
 \begin{equation}
-\mathcal L=\mathcal L_1+
+\mathcal L=(1-\lambda_{\mathrm{DSSIM}})\mathcal L_1+
 \lambda_{\mathrm{DSSIM}}\mathcal L_{\mathrm{DSSIM}}+
 \lambda_{\mathrm{TV}}\mathcal L_{\mathrm{TV}},\qquad
 \lambda_{\mathrm{DSSIM}}=0.25.
@@ -94,11 +93,11 @@ Start & TV weight & PSNR (dB) & SSIM & MAE & RMSE & Boundary MAE\\
 \midrule
 0$^\circ$ & 0.025 & 30.766 & 0.8986 & 0.01408 & 0.02895 & 0.03833\\
 0$^\circ$ & 0.05 & \textbf{30.913} & \textbf{0.9010} & 0.01370 & 0.02847 & 0.03880\\
-0$^\circ$ & 0.1 & 30.782 & 0.8989 & 0.01395 & 0.02890 & 0.04060\\
+0$^\circ$ & 0.1 & 30.782 & 0.8989 & 0.01414 & 0.02890 & 0.04060\\
 \midrule
 90$^\circ$ & 0.025 & 28.538 & 0.8602 & 0.01760 & 0.03742 & 0.05611\\
 90$^\circ$ & 0.05 & \textbf{28.591} & \textbf{0.8624} & 0.01725 & 0.03719 & 0.05654\\
-90$^\circ$ & 0.1 & 28.448 & 0.8602 & 0.01755 & 0.03781 & 0.05823\\
+90$^\circ$ & 0.1 & 28.448 & 0.8602 & 0.01759 & 0.03781 & 0.05823\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -106,7 +105,7 @@ Start & TV weight & PSNR (dB) & SSIM & MAE & RMSE & Boundary MAE\\
 Mean PSNR across orientations was 29.652, 29.752, and 29.615 dB for TV 0.025, 0.05, and 0.1, respectively. The original weight 0.05 was the only eligible choice under the recorded rule. Lower TV reduced boundary MAE by approximately 1.2\% and 0.7\%, but lowered SSIM at both orientations. Higher TV increased boundary MAE by approximately 4.6\% and 3.0\%, and reduced both PSNR and SSIM. Therefore, \textbf{0.05 is frozen as the ordinary-TV reference} for the next stage.
 
 \begin{figure}[H]
-\centering\includegraphics[width=\linewidth]{tv_tradeoff.pdf}
+\centering\includegraphics[width=\linewidth]{week3/tv_tradeoff.pdf}
 \caption{The three-weight development comparison. The dotted line marks the retained weight 0.05. Lower TV modestly improves the boundary metric while worsening global structure/accuracy. Higher TV offers no improvement in these metrics. Two orientations of one volume are paired development cases, not independent subjects.}
 \end{figure}
 
@@ -114,7 +113,7 @@ Mean PSNR across orientations was 29.652, 29.752, and 29.615 dB for TV 0.025, 0.
 At the selected weight, rotating the acquisition reduced PSNR by 2.321 dB, increased RMSE by about 31\%, and increased boundary MAE by about 46\%. This corresponds to approximately 1.71 times the voxel MSE. The gap remains under all three TV weights; this small scalar-weight search does not explain away the acquisition dependence observed in the pilot.
 
 \begin{figure}[H]
-\centering\includegraphics[width=.94\linewidth]{slice_errors.png}
+\centering\includegraphics[width=.94\linewidth]{week3/slice_errors.pdf}
 \caption{Identical reference slice (array axis 2, index 128) and absolute errors for all TV weights at each orientation. Reference display window: [0,1]; all error panels: [0,0.15], with larger errors saturated. Only display values are saturated; numerical metrics are unclipped. The rotated case retains stronger structured boundary errors. This is a fixed central slice, not an optimized or anatomically selected example.}
 \end{figure}
 
@@ -122,7 +121,7 @@ The boundary-gradient error $G_B$ at start 0$^\circ$ was 7.821, 7.990, and 8.418
 
 \subsection{Optimization progress and projection diagnostics}
 \begin{figure}[H]
-\centering\includegraphics[width=\linewidth]{convergence.pdf}
+\centering\includegraphics[width=\linewidth]{week3/convergence.pdf}
 \caption{Saved volume PSNR evaluations from iteration 5,000 onward. Curves are shown at the logged evaluation iterations without smoothing. Final selection always uses iteration 30,000. Diminishing gains at later iterations provide no evidence that simply extending these runs would close the orientation gap.}
 \end{figure}
 
@@ -149,12 +148,6 @@ Next steps are to:
 \end{enumerate}
 Geometry-dependent regularization remains a research hypothesis. This week's evidence neither demonstrates its benefit nor verifies novelty relative to existing geometry-conditioned reconstruction methods.
 
-\section{Status and reproducibility}
-The working research repository is \url{https://github.com/zunaaaaayed/trdp2}; the original method remains credited to \Rtwo\ \cite{r2,upstream}. At the evidence cutoff, commit \texttt{ba3e2b8} records fresh-attempt support, frozen TV results, candidate-cohort metadata, header auditing, and tests. The two relevant control/intake test suites passed 10 tests. Earlier backend, manifest, and baseline checks are retained in their respective records.
-
-All six reported reconstructions use the fixed final iteration. Two interrupted TV 0.1 attempts are preserved but excluded from analysis. The accepted start-0$^\circ$ TV 0.1 run completed on \texttt{cheonech}; the accepted start-90$^\circ$ run is explicitly named \texttt{\_\_chani\_20261008}. Restarts use original initializer bytes and full iteration budgets, not unverified checkpoint continuation. The completed jobs include final checkpoints, finite volume checks, process completion records, and hashes. The final accepted job completed on 8 October at 13:55 Paris time.
-
-Small results and protocols are versioned; raw images, checkpoints, and full logs remain on university storage. The earlier 7 October transfer archive predates these completed controls and is not a complete backup of the current state. Report figures are generated from the saved metrics and completed volumes by the accompanying \texttt{make\_figures.py}. No GPU experiment is needed to compile this report on Overleaf.
 
 \begin{thebibliography}{9}\small
 \bibitem{r2} R. Zha, T. J. Lin, Y. Cai, J. Cao, Y. Zhang, and H. Li. R$^2$-Gaussian: Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction. \emph{NeurIPS}, 2024. \url{https://arxiv.org/abs/2405.20693}.

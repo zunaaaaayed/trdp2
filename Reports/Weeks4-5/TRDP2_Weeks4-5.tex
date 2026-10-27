@@ -1,0 +1,292 @@
+% Overleaf: select XeLaTeX (or LuaLaTeX).
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX\errmessage{Select XeLaTeX or LuaLaTeX for Times New Roman}\fi
+\IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{}
+\usepackage{fontspec}
+% Local preview can supply licensed font files; Overleaf uses the installed font.
+\ifdefined\LocalTimesPath
+\setmainfont{Times}[Path=\LocalTimesPath,Extension=.TTF,UprightFont=*,BoldFont=*bd,ItalicFont=*i,BoldItalicFont=*bi]
+\else\setmainfont{Times New Roman}\fi
+\usepackage{amsmath,amssymb,booktabs,graphicx,tabularx,array,enumitem}
+\usepackage{caption,microtype,placeins,float}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\graphicspath{{figures/}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlist{nosep,leftmargin=*}
+\captionsetup{font=small,labelfont=bf,skip=5pt}
+\renewcommand{\arraystretch}{1.12}
+\newcommand{\Rtwo}{R\textsuperscript{2}-Gaussian}
+\newcommand{\degree}{\ensuremath{^{\circ}}}
+\newcommand{\fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{#1}\caption{#3}\end{figure}}
+\title{\vspace{-1.1cm}\LARGE\bfseries Uncertainty-Aware 3D Gaussian Reconstruction for Limited-Angle CT}
+\author{\normalsize Md Zunayedul Islam \qquad Biswarup Mukherjee}
+\date{\small TRDP2 Weeks 4-5 | 12-23 October 2026}
+\begin{document}
+\raggedbottom
+\maketitle\vspace{-1.2em}
+\begin{abstract}
+Limited-angle CT leaves parts of the object weakly constrained, so a reconstruction can fit the measured projections while remaining inaccurate in missing views. We investigated uncertainty-aware 3D Gaussian reconstruction using synthetic parallel-beam worm data. We prepared controlled Gaussian noise, separated acquired and withheld views, and implemented classical and Gaussian reconstruction baselines. A conditional posterior over Gaussian densities gave only 30.66\% and 24.17\% predictive coverage for nominal 95\% intervals at 120\degree{} and 90\degree{}. We then used known 3D phantoms to separate representation error, incomplete optimization and omitted geometry uncertainty. Joint density and geometry uncertainty improved coverage on matched phantoms, but did not explain missing components. With acquired-data initialization and additional optimizer starts, all 40 phantom stability checks passed, with voxel coverage of 95.45--96.22\%. On the worm, better initialization reduced projection error, but all four final settings failed stability checks. Increasing from 16 to 32 components reduced acquired error from 11.20\% to 8.37\%, while withheld error increased from 19.84\% to 23.81\%. These results show why measured-view fitting and local uncertainty must be evaluated together. Reliable missing-view reconstruction and calibrated worm uncertainty remain unresolved.
+\end{abstract}
+
+\section{Introduction}
+Limited-angle computed tomography reconstructs an object from projections collected over an incomplete angular range. The missing wedge removes information about some structures and directions, making the reconstruction sensitive to noise, prior assumptions and acquisition orientation \cite{kak}. This is especially important for quantitative imaging: a plausible outer shape does not guarantee correct internal density.
+
+We investigated whether a 3D Gaussian representation could provide both a reconstruction and an estimate of its uncertainty. We adapted the Gaussian CT representation of \Rtwo{} \cite{r2} to parallel-beam worm projections, introduced controlled noise and withheld-view evaluation, and implemented conditional density and joint geometry--density uncertainty models. We also designed known-phantom experiments to identify whether failures came from insufficient representation, incomplete optimization or omitted parameter uncertainty. Our aim was to establish which assumptions support useful uncertainty estimates before extending the method across angular configurations and worm deformations.
+
+\section{Dataset and measurement preparation}
+We used a dataset provided by Ms. Anna-Louise Brun containing 144 noiseless synthetic parallel-beam projection stacks. Each stack represents a different deformation of the same worm model. We audited all TIFFs for shape, data type, finite values and duplicates, then selected \texttt{worm\_004\_gt.tiff} for the reconstruction experiments. The available ground truth consists of clean projections, without matching deformed voxel-density volumes.
+\begin{table}[H]\centering\small
+\caption{Properties of the synthetic worm projection dataset.}
+\begin{tabularx}{\linewidth}{lX}\toprule
+Property & Value\\\midrule
+Files and type & 144 TIFF stacks; float64\\
+Stored axes & $(z,\mathrm{angle},\mathrm{detector})=(510,100,310)$\\
+Acquisition & Parallel beam; synthetic and initially noiseless\\
+Angles & $0,1.8,\ldots,178.2$ degrees; 180 degrees excluded\\
+Sampling & 1 micrometre along axial and detector directions\\
+Audit & No nonfinite or negative values; no byte-identical duplicates\\
+Shape variation & Different deformations of one worm model\\\bottomrule
+\end{tabularx}\end{table}
+
+We kept the source TIFFs unchanged and arranged the selected arrays as angle--axial position--detector position for projection fitting. We extracted one axial slice for the classical comparisons and eight contiguous planes for the native Gaussian slab experiments. The later small-model study used eight more widely spaced planes and subsampled angles and detector positions to make full geometry covariance feasible on the CPU. These sampling schemes are compared separately.
+
+To measure sensitivity to noise, we generated
+\begin{equation}
+y_{\mathrm{noisy}}=y_{\mathrm{clean}}+\epsilon,\qquad\epsilon\sim\mathcal N(0,\sigma^2 I).
+\end{equation}
+We tested noise SDs of 0, 1\% and 5\% of a fixed signal RMS in the initial slice comparisons, then used 5\% for the worm uncertainty experiments. Within each comparison, we reused the same noise realization across angular masks so that differences reflected the acquired angles rather than a different noise sample. This is a controlled additive-noise model, not a calibrated model of scanner noise.
+
+We formed full-angle, 120\degree{} and 90\degree{} acquisitions, with additional angular offsets in the phantom tests. Only acquired noisy rays entered initialization and fitting. Withheld clean projections measured missing-view reconstruction error; withheld noisy projections tested predictive intervals. We did not use withheld errors to choose optimizer starts or stopping points.
+
+The slice and contiguous-slab experiments used development RMS values 6210.1146 and 6180.27545 in stored projection units. The final sparse study used RMS 6094.01050 from its acquired clean development rays, followed by normalized noise SD 0.05. These scales were fixed within each study. Because clean development data helped define them, the results are development comparisons rather than blind test-set measurements.
+
+Density in mg/cm$^3$ converts to g/cm$^3$ by division by 1000, but this does not by itself calibrate projection values. The projection integration convention and path-length scaling remain unresolved. We therefore fitted stored or normalized projections and did not interpret reconstructed amplitudes as calibrated physical densities.
+
+\section{Tools and computing resources}
+We implemented the experiments in Python using NumPy and SciPy for arrays, least-squares optimization and covariance calculations \cite{numpy,scipy}. We used scikit-image for classical tomography \cite{skimage}, PyTorch with CUDA for native Gaussian reconstruction \cite{pytorch}, and Matplotlib for plots \cite{matplotlib}. Our code extends \Rtwo{} \cite{r2} and is available at \url{https://github.com/zunaaaaayed/trdp2}.
+
+\begin{table}[H]\centering\small
+\caption{Computing resources used on CREMI. Storage is the total project footprint measured on 21 October.}
+\begin{tabularx}{\linewidth}{lX}\toprule
+Resource & Configuration\\\midrule
+CPU & Intel Core Ultra 9 285\\
+GPU for native reconstruction & NVIDIA RTX 4000 Ada Generation\\
+Research environment & Python 3.9.23; PyTorch 2.1.2+cu118; CUDA 11.8\\
+Total CREMI storage & 40.30 GiB, approximately 43.27 GB\\\bottomrule
+\end{tabularx}\end{table}
+The native slab reconstruction used the GPU, while the smaller phantom and full-shape uncertainty studies ran on the CPU. We kept the initial full-shape worm model small because a dense covariance grows quadratically with parameter count. Its 16 Gaussians give 160 parameters, compared with 15,000 parameters if all positions, shapes and amplitudes of the 1,500-Gaussian slab model were included.
+
+\section{Experimental design and evaluation}
+\subsection{What is reconstructed, and what is uncertain?}
+We represent the density field as a sum of $K$ anisotropic Gaussians, following the CT representation in \Rtwo{} \cite{r2}:
+\begin{equation}
+f_p(x)=\sum_{k=1}^K a_k\exp\!\left[-\tfrac12(x-c_k)^\top\Sigma_k^{-1}(x-c_k)\right].
+\end{equation}
+Each component has amplitude $a_k$, centre $c_k$ and covariance $\Sigma_k$, which controls its width and orientation. Integrating the field along parallel rays predicts the measurements. We studied uncertainty in the amplitudes first, then added uncertainty in centres, widths and orientations. Here geometry refers to the reconstructed Gaussians; scanner angles and detector alignment were fixed.
+
+\subsection{Conditional and joint Bayesian uncertainty}
+Bayesian inference combines a likelihood, which measures agreement with the projections, with a prior that constrains the unknown parameters. The posterior then describes uncertainty conditional on these assumptions \cite{rasmussen}. With fixed Gaussian geometry, the projection model is linear in amplitudes: $y=B a+\epsilon$. For Gaussian noise and prior $a\sim\mathcal N(0,\tau^2I)$, standard Gaussian conditioning gives \cite{rasmussen}
+\begin{equation}
+C_a=\left(B_A^\top B_A/\sigma^2+I/\tau^2\right)^{-1},\qquad
+\bar a=C_a B_A^\top y_A/\sigma^2,\label{eq:linear}
+\end{equation}
+where $A$ denotes acquired rays. We used this exact conditional posterior as our first density-uncertainty model. It treats the fitted geometry as fixed and allows signed amplitudes, so it does not enforce nonnegative physical density.
+
+For joint density and geometry inference, we fitted the parameters with a maximum a posteriori objective:
+\begin{equation}
+\hat p=\arg\min_p\left\{\|F_A(p)-y_A\|^2/\sigma^2+\|D^{-1}(p-p_0)\|^2\right\}.
+\end{equation}
+Here $F_A$ predicts the acquired projections, $p_0$ is the prior mean and diagonal $D$ contains prior SDs. We used a local Gaussian posterior with Gauss--Newton curvature, a form of Laplace approximation \cite{laplace}:
+\begin{equation}
+C_p\approx\left(J_A^\top J_A/\sigma^2+D^{-2}\right)^{-1},\qquad s_g^2\approx j_g C_p j_g^\top.\label{eq:local}
+\end{equation}
+The Jacobian $J_A$ measures how the acquired projections change with the parameters; $j_g$ gives the corresponding change in a voxel value or a ray prediction. This first-order propagation retains parameter interactions when the full covariance is used. The approximation describes one local solution and omits residual-weighted second derivatives. It cannot automatically represent multiple solutions or missing Gaussian components.
+
+We evaluated clean density or projection values with latent intervals $\bar g\pm1.96s_g$. For noisy withheld projections, we added the known noise variance, giving intervals $\bar g\pm1.96\sqrt{s_g^2+\sigma^2}$. These are nominal 95\% intervals under the assumed model. Coverage is the fraction of reference values inside an interval; mean width measures its precision. We report both in the experiments below.
+
+\subsection{Initialization and Gaussian covariance parameterization}
+For acquired-data initialization, we built a dictionary of Gaussian projection patterns on a fixed centre and width grid. We greedily selected patterns that explained the acquired residual and refitted their amplitudes with nonnegative least squares \cite{lawson}. This gave centres, widths and amplitudes without using true object geometry. The resulting estimate also supplied a shared geometry-prior reference for the later multistart studies; amplitude priors remained centred at zero.
+
+To learn valid Gaussian shapes, we used the Cholesky form $\Sigma=LL^\top$, a standard factorization of positive-definite matrices \cite{golub}. We represented the diagonal of $L$ in log space so that it stayed positive. This avoided explicit Euler rotation bounds, although it also changed the prior expressed in those coordinates. We ran multiple optimizer starts to detect different fitted solutions, using acquired-data objectives to compare them. The corresponding stability results are reported with each experiment.
+\FloatBarrier
+
+\section{Experiments and results}
+\subsection{Parallel-beam validation and classical reconstruction baselines}
+We first checked axes, angular masks and reconstruction scaling before introducing uncertainty inference. An off-centre analytic disk passed the CPU tests: projection discrepancy 1.88\%, centroid error 0.030 pixels, and reconstructed interior mean 1.00035 for expected value 1.
+
+FBP filters each projection before backprojecting it into the image \cite{kak}. SART instead updates the image by redistributing projection residuals, making it a useful iterative baseline \cite{sart}. We ran 21 paired FBP slice reconstructions at 180\degree{}, 120\degree{} and 90\degree{}, with noise levels 0\%, 1\% and 5\%; noisy conditions used three seeds. Six accepted SART reconstructions used the same slice and clean/5\% settings. SART used ten sweeps, relaxation 0.15, zero initialization, nonnegativity and circular support. Missing FBP views contribute zero on the full angular grid; quadrature is not renormalized to the observed wedge. We measured projection error as $E=\|\hat y-y_{\mathrm{clean}}\|_2/\|y_{\mathrm{clean}}\|_2$ on the withheld rays. Lower values indicate better reconstruction of missing views.
+\begin{table}[H]\centering\small
+\caption{Clean single-slice withheld error. Lower is better. These classical baselines do not share the later 3D Gaussian budgets.}
+\begin{tabular}{crr}\toprule
+Span & FBP error (\%) & SART error (\%)\\\midrule
+120\degree & 80.72 & 14.38\\90\degree & 86.32 & 19.49\\\bottomrule
+\end{tabular}\end{table}
+SART reduced the clean withheld error to 14.38\% at 120\degree{} and 19.49\% at 90\degree{}, compared with 80.72\% and 86.32\% for FBP. This made SART a stronger iterative reference for the supplied projections. We could not confirm voxel-density accuracy because the worm data contain no matching volume reference.
+\fig{sart_comparison.png}{.94}{FBP and nonnegative SART on the same worm slice. Maps use common display settings. Better projection agreement does not verify voxel density.}
+Separately, the native parallel Gaussian implementation was checked against analytic Gaussian integrals and gradients. Maximum projection discrepancy was 0.0212\%, voxel discrepancy 0.1083\%, and density-gradient relative error 0.00202\%, with finite gradients. These checks supported the implementation of our parallel Gaussian projector, while leaving physical calibration against the simulator unresolved.
+
+\subsection{Reconstruction bias and uncertainty under repeated noise}
+We reconstructed repeated noisy measurements to test whether the resulting variability map captured actual error. A $64\times64$ structured phantom with known truth allowed us to compare reconstruction variability with error. We ran 63 fixed-budget SART reconstructions: three clean controls and 20 noise draws per span, with noise SD 5\% of clean full sinogram RMS.
+\begin{table}[H]\centering\small
+\caption{Known-target SART foreground results over 20 noise draws. RMSE and SD use synthetic density units.}
+\begin{tabular}{crrrr}\toprule
+Span & Noisy RMSE & Bias RMSE & Mean noise SD & Bias$^2$/MSE\\\midrule
+180\degree & 0.1119 & 0.0460 & 0.1033 & 16.9\%\\
+120\degree & 0.1272 & 0.0918 & 0.0889 & 52.1\%\\
+90\degree & 0.1510 & 0.1280 & 0.0808 & 71.8\%\\\bottomrule
+\end{tabular}\end{table}
+We computed empirical bias as the difference between the mean reconstruction and the known target, and noise SD as the sample variation across the 20 reconstructions. As angular coverage shrank, error and bias increased while noise SD decreased. At 90\degree{}, squared bias explained 71.8\% of foreground MSE. Variability-only uncertainty therefore fails for this solver and budget. This is not a universal trend: fewer views also give fewer per-view updates within a sweep.
+\fig{phantom_bias.png}{1}{Known truth, reconstructed mean, empirical bias and noise SD. Bias and noise SD share a scale. Low variability can coexist with systematic error.}
+
+\textbf{Linear Gaussian reference.} We used a $24\times24$ phantom and explicit projection matrix in Eq.~\eqref{eq:linear}, with pixels as parameters. Three prior SDs (0.3, 1 and 3) were sensitivity probes, with 50 paired noise draws. For prior SD 1, foreground coverage/width changed from 96.79\%/0.6557 at 180\degree{} to 99.28\%/1.7764 at 90\degree{}. The phantom range was about 0--1.2, so the latter intervals were broad. High coverage alone was therefore not enough; useful uncertainty also requires informative interval widths \cite{gneiting}. A 200-object prior-predictive check gave 94.84--95.11\% coverage. This verifies the assumed linear model, not worm calibration.
+\fig{linear_bayes_coverage.png}{.88}{Exact linear reference. The dashed line marks nominal 95\% coverage. High coverage must be read with interval width and prior choice.}
+\FloatBarrier
+
+\subsection{Gaussian slab reconstruction and conditional density uncertainty}
+We next fitted the worm sinograms with native 3D Gaussians and tested whether amplitude uncertainty alone could explain the remaining errors. A full-angle pilot used eight contiguous planes $z=252,\ldots,259$, 1,500 Gaussians and 300 updates. Projection discrepancy fell from 38.38\% to 6.85\%. This was an integration pilot, not a converged or voxel-validated solution.
+\fig{gaussian_slab.png}{1}{Full-angle slab pilot: initialization, fitted reconstruction and history. Brightness is relative density. Better projection fitting does not verify internal voxel values.}
+The frozen comparison used 1,000 updates, 1,500 components, no densification and optimizer seed zero. It included clean and 5\% noise at three spans, all starting at 0\degree{}. Noisy cases shared seed 1701. Only acquired views entered initialization and fitting; the final iteration was fixed.
+\begin{table}[H]\centering\small
+\caption{Native Gaussian slab errors against clean projections. Full-angle cases have no withheld views. A frozen development normalization is used.}
+\begin{tabular}{ccrr}\toprule
+Span & Noise & Acquired error (\%) & Withheld error (\%)\\\midrule
+180\degree & 0\% & 4.70 & ---\\120\degree & 0\% & 4.76 & 13.46\\90\degree & 0\% & 4.49 & 16.83\\
+180\degree & 5\% & 4.92 & ---\\120\degree & 5\% & 4.87 & 13.36\\90\degree & 5\% & 4.50 & 17.79\\\bottomrule
+\end{tabular}\end{table}
+We obtained similar acquired errors across spans, around 4.5--4.9\%, while withheld error increased as views were removed. The noisy 90\degree{} case had 17.79\% withheld error despite only 4.50\% acquired error. This gap showed that fitting measured views was insufficient to recover the missing angular information. Equal updates are not equal passes through measured views. This is not a matched method comparison with single-slice SART.
+
+For each noisy fit, we froze centres, widths, rotations and count and inferred all 1,500 amplitudes using Eq.~\eqref{eq:linear}, with prior SD 10 and noise SD 0.05. Analytic/native projections differed by at most 0.0875\%. However, 28.3--30.4\% of posterior mean amplitudes were negative because this density posterior is unconstrained.
+\begin{table}[H]\centering\small
+\caption{Density-only posterior on withheld foreground rays. Target coverage is 95\%; width is in normalized projection units.}
+\begin{tabular}{crrrrr}\toprule
+Span & Native error & Posterior error & Latent coverage & Predictive coverage & Width\\\midrule
+120\degree & 13.36\% & 13.23\% & 7.90\% & 30.66\% & 0.2028\\
+90\degree & 17.79\% & 17.61\% & 8.92\% & 24.17\% & 0.2132\\\bottomrule
+\end{tabular}\end{table}
+We evaluated interval coverage on withheld foreground rays with clean normalized projection above 0.05. Latent intervals were checked against clean rays and predictive intervals against noisy rays. Although the posterior mean slightly reduced withheld error, both coverage values remained far below the nominal 95\% target, even with predictive widths around 0.2. The low coverage indicates that the posterior was too confident on this development slab. Full-angle measured foreground latent coverage was only 13.78\%, so missing-angle extrapolation was not the only concern. We did not widen intervals to fit withheld results.
+\fig{worm_slab_density.png}{1}{Fitted slab density and conditional SD. Brightness is not accuracy, and low SD is not proof of correctness. No matching voxel truth is available.}
+\fig{worm_conditional_coverage.png}{.94}{The density-only posterior is overconfident. Both latent and noisy predictive coverage lie far below nominal 95\%.}
+\FloatBarrier
+
+\subsection{Representation error and joint uncertainty on known 3D phantoms}
+To understand the worm failure, we designed separate tests for representation error, optimization stopping and omitted Gaussian-geometry uncertainty using known 3D targets.
+
+The first control used three anisotropic Gaussians, 36 parallel views, a $12\times24$ detector and $24^3$ query grid. Adding a fourth truth component while retaining the original three fixed basis functions left 11.283\% projection error after an exact clean density least-squares solve. Restoring the fourth basis reduced error to numerical precision. This diagnoses a fixed-basis error, not the best possible fit of freely moving/resizing Gaussians. On the easy matched target, all long fits with budget 150 terminated after 7 evaluations; even budget 5 already gave tiny errors.
+
+Across 30 paired noise draws, we evaluated foreground voxels above 5\% of the true density peak. The fitted-centre density-only and joint centre+density approximations used the same reconstruction mean. Changing uncertainty propagation gave Table~\ref{tab:centre}.
+\begin{table}[H]\centering\small
+\caption{Nominal 95\% foreground voxel intervals. Joint covariance retains centre--density interactions.}\label{tab:centre}
+\begin{tabular}{crrrr}\toprule
+Span & Known-centre coverage & Fitted-centre density only & Joint coverage & Joint width\\\midrule
+180\degree & 96.91\% & 44.85\% & 95.25\% & 0.001780\\
+120\degree & 93.96\% & 43.41\% & 95.05\% & 0.002325\\
+90\degree & 96.68\% & 40.98\% & 96.63\% & 0.003115\\\bottomrule
+\end{tabular}\end{table}
+The density-only coverage of 40.98--44.85\% showed that fixing fitted centres made the intervals too narrow. Including centre uncertainty increased coverage to 95.05--96.63\%, close to the 95\% target, with wider intervals. This improvement came from uncertainty propagation rather than a different reconstructed mean.
+\fig{known_3d_coverage.png}{.92}{Density-only intervals after centre fitting are too narrow. Joint propagation repairs coverage in this matched case, with wider intervals.}
+
+\textbf{Separate shapes, offsets and mismatch.} Two new phantoms (separated and overlapping) used five span/start windows: 180\degree{}/0\degree{}, 120\degree{}/0\degree{}, 120\degree{}/60\degree{}, 90\degree{}/0\degree{} and 90\degree{}/120\degree{}. Ten noise draws and two starts gave 400 fits across matched and missing-component conditions. All terminated within 15 evaluations, without active bounds. Starts were perturbed from truth and widths were known, so this was favourable initialization.
+\begin{table}[H]\centering\small
+\caption{Joint uncertainty under matched, omitted and restored structure. Ranges summarize case means, not confidence intervals. Voxel RMSE uses synthetic units.}
+\begin{tabular}{lrrr}\toprule
+Condition & Voxel coverage & Voxel RMSE & Predictive coverage\\\midrule
+Matched targets & 89.72--96.72\% & 0.00056--0.00156 & 94.95--95.43\%\\
+Fourth component omitted & 8.86--29.29\% & 0.03977--0.04758 & 43.87--65.32\%\\
+Fourth component restored & 90.26--96.32\% & 0.000656--0.001748 & 94.84--95.44\%\\\bottomrule
+\end{tabular}\end{table}
+We then restored the omitted component in 200 paired fits using the same truth and noise. The restored component started near its true position with its true width: an oracle capacity control, not automatic discovery. Coverage recovered, supporting missing structure as the cause of this controlled failure. Joint covariance alone did not account for omitted structure.
+
+\subsection{Gaussian shape uncertainty and optimization sensitivity}
+Because the worm widths and orientations are unknown, we ran another 120 fits that learned all Gaussian parameters on rotated four-component truths. We compared nested covariance choices at the same fitted mean. Excluded parameters were held fixed; the full covariance retained all parameter interactions.
+\begin{table}[H]\centering\small
+\caption{Voxel coverage as more parameters enter the covariance. The target is 95\%; larger uncertainty models also produce wider intervals.}
+\begin{tabular}{lr}\toprule
+Uncertain parameters & Coverage across six cases\\\midrule
+Densities & 14.16--25.05\%\\Densities and centres & 46.38--66.37\%\\
+Densities, centres and log widths & 66.54--85.03\%\\All, including rotations & 85.47--96.58\%\\\bottomrule
+\end{tabular}\end{table}
+\fig{shape_coverage.png}{1}{Width and rotation uncertainty improve coverage at the same fitted mean. The overlapping difficult case still under-covers.}
+All 120 fits reported success, but 22 hit Euler rotation bounds. For the overlapping 90\degree{}/0\degree{} case, voxel coverage was 85.47\%, with 91.58\% versus 79.37\% for its two starts. An untruncated Gaussian cannot describe the constrained posterior correctly near an active bound.
+
+We used a 240-fit factorial control to separate bounded/unbounded rotations from start-specific/shared prior references. Removing bounds alone did not solve sensitivity and produced two budget failures. We followed this with 60 Cholesky fits, which improved the original difficult case but left failures elsewhere. It also changed the shape prior, removed width bounds and changed optimizer scaling, so the effect cannot be attributed to coordinates alone.
+
+We then kept the Cholesky model and shared prior fixed and ran 120 fits with four starts and budget 300. We required two converged starts without active bounds, relative objective gap at most $10^{-5}$ and acquired-prediction disagreement at most $10^{-4}$. All 30 draw-level checks passed, although two individual fits were unfinished. Selected voxel coverage was 95.92--97.36\%, and predictive coverage 94.95--95.71\%. This supports auditing agreement across starts. Truth-informed starting/prior geometry and reused development cases still limit transfer claims.
+\FloatBarrier
+
+\subsection{Data-driven initialization on separate phantom configurations}
+To initialize without true object geometry, we constructed a dictionary of 405 Gaussians on a $9\times9\times5$ grid with width 0.14. Greedy residual fitting and a nonnegative solve selected four components using acquired noisy rays only. This estimate supplied one shared prior reference and four deterministic starts around it.
+
+Two fresh matched four-component phantoms used span/start 120\degree{}/30\degree{} and 90\degree{}/75\degree{}, ten noise draws and fixed noise SD 0.003. All initial 160 fits reported convergence, but only 37/40 draw-level checks passed. An adaptive fallback added four prelisted starts only to the three failed draws: 12 extra fits. Data, prior, budget and thresholds were unchanged. All 40 checks then passed.
+\begin{table}[H]\centering\small
+\caption{Acquired-data initialization results, averaged over ten draws per case. Voxel coverage target: 95\%. Width and RMSE use synthetic density units.}
+\begin{tabular}{lrrrr}\toprule
+Case, span/start & Final checks & Voxel coverage & Voxel width & Voxel RMSE\\\midrule
+Spread, 120\degree{}/30\degree & 10/10 & 95.45\% & 0.00771 & 0.002210\\
+Spread, 90\degree{}/75\degree & 10/10 & 95.80\% & 0.01127 & 0.003434\\
+Cluster, 120\degree{}/30\degree & 10/10 & 95.49\% & 0.00901 & 0.002766\\
+Cluster, 90\degree{}/75\degree & 10/10 & 96.22\% & 0.01523 & 0.004670\\\bottomrule
+\end{tabular}\end{table}
+\fig{measured_init_coverage.png}{.94}{Near-nominal coverage on the matched fresh phantoms with acquired-data initialization. The harder window has wider intervals; error and width remain part of the assessment.}
+\fig{measured_init_slices.png}{1}{Fixed central slice of the spread phantom, 90\degree{}/75\degree{}, draw 0. Truth/reconstruction share density limits; error/SD share another scale. Low SD alone does not establish accuracy.}
+This removes direct access to true starting geometry. However, we still assumed the component count, forward model and noise level were known. Covariance conditions on a prior reference estimated from the same measurements, without propagating uncertainty in that estimate. Fallback followed observed failures; these are adaptive development results, not untouched validation.
+
+\subsection{Worm reconstruction: initialization, optimization budget and model capacity}
+We applied acquired-data initialization to a small worm model to test full geometry uncertainty before attempting a larger posterior. Eight sampled planes $z=224,232,\ldots,280$, 25 angles and 62 detector positions give 17 acquired and 8 withheld angles for a 120\degree{} window. We used point samples without bin averaging. The sampling differs from the earlier contiguous slab, so these errors are evaluated within this smaller study.
+
+The initial 16-component model used four starts with budget 150. None converged, and only five components had appreciable starting density. Provisional acquired/withheld errors were 20.51\%/25.22\%. Full-shape predictive coverage was 16.79\%, versus 15.91\% for density-only covariance. Since optimization failed, these are failure diagnostics rather than calibrated-posterior evidence.
+
+The final protocol reused the saved inputs and noise exactly. A $21\times21\times3$ grid with transverse widths 0.04, 0.08 and 0.16 activated all 16 components. Its acquired noisy-data initialization residual fell from 37.15\% to 23.02\%. We fixed four settings, each with four starts: new starts/old prior, new starts/new prior, larger budget, and larger count. The 16-component budget comparison uses identical starts and priors. Old-prior labels are matched by centre distance; only the unperturbed start is exactly paired across the prior change because matching reorders seeded perturbations. Capacity also changes prior dimension.
+\begin{table}[H]\centering\small
+\caption{Final sparse worm controls. First row: preserved earlier pilot; other rows: 16 new fits. All settings fail stability. Lower clean-projection error is better.}
+\begin{tabular}{lrrrrr}\toprule
+Setting & $K$ & Budget & Converged & Acquired error & Withheld error\\\midrule
+Old start / old prior & 16 & 150 & 0/4 & 20.51\% & 25.22\%\\
+New start / old prior & 16 & 150 & 0/4 & 11.34\% & 20.93\%\\
+New start / new prior & 16 & 150 & 0/4 & 11.34\% & 23.12\%\\
+New start / new prior & 16 & 450 & 2/4 & 11.20\% & 19.84\%\\
+New start / new prior & 32 & 450 & 0/4 & 8.37\% & 23.81\%\\\bottomrule
+\end{tabular}\end{table}
+\fig{worm_fit_controls.png}{1}{Final error and stability checks. Every setting fails acceptance. More components improve acquired fit without improving withheld error in this comparison.}
+\fig{worm_withheld_profile.png}{.92}{Fixed withheld profile at 144\degree{}, source $z=256$. Closer agreement with the black clean reference is better. Intensity itself is not an accuracy scale.}
+Only two of the 16 new fits reported convergence. Their objective gap was 5.19\% and acquired-prediction disagreement 5.48\%, above the fixed 0.001\% and 0.01\% thresholds. All 32-component starts exhausted the budget. We selected candidates using acquired objectives only. The improved acquired fit therefore did not establish stable optimization or reliable prediction of the missing views.
+
+Our new initializer improved the provisional fit, but increasing the iteration budget did not produce agreeing solutions. Increasing the component count reduced acquired error while worsening withheld error relative to 16 components at the same budget. This does not prove 16 is optimal: optimization is unresolved and prior dimension changes. No new posterior intervals were computed for the final four settings. Representation and optimization errors remain entangled.
+\FloatBarrier
+
+\section{Limitations}
+\begin{enumerate}
+\item \textbf{Reference data and units.} Worm voxel truth and physical projection scaling are unavailable. Accurate internal mass density in g/cm$^3$ has not been demonstrated.
+\item \textbf{Generalization.} Files deform one synthetic worm. Independent-specimen, cone-beam and cross-scanner generalization remain untested. Most worm studies use one development file and noise draw. Follow-ups reuse development evidence.
+\item \textbf{Model assumptions.} Additive noise is known. Real noise, acquisition-angle/alignment uncertainty and simulator mismatch are not inferred. Matched Gaussian phantoms are easier than the worm.
+\item \textbf{Posterior approximation.} Local Gaussian/first-order propagation may miss nonlinear effects, multiple modes, constraints and missing components. The acquired-data prior reference is treated as fixed. Signed posteriors and oracle component restoration are diagnostic controls, not final physical models.
+\item \textbf{Optimization and capacity.} All final worm settings fail stability. Better measured fit does not identify a correct solution. Some controls also change priors, bounds or scaling, limiting causal attribution.
+\item \textbf{Evidence and computing.} Coverage over a few phantoms is not a population guarantee. Correlated rays, voxels and starts are not independent subjects. Dense covariance is feasible only for small models here; native-scale geometry uncertainty remains an implementation task.
+\end{enumerate}
+
+\section{Proposed next step}
+Our next step is to stabilize the 16-component worm fit. We propose comparing direct joint optimization against staged \emph{density, then centres, then full shape} fitting under one fixed shared prior. We will use identical inputs, record the total optimization budget and retain the same stability thresholds. Candidates will be selected by acquired objective before we test the resulting procedure on new cases.
+
+Once fitting is stable, we will vary angular span and offset and evaluate reserved worm deformations. We will also test coverage, interval width and nonlinear propagation on known 3D targets, including deliberate representation mismatch. Quantitative density evaluation will require the simulator convention and matching deformed voxel-density references. A model-error term may be considered if residuals remain, but should not hide an incorrect forward model or be tuned on these same withheld results.
+
+Our results support joint density and geometry uncertainty on the tested matched phantoms. On the worm, the main remaining task is to obtain a stable reconstruction whose uncertainty remains informative in the missing views.
+
+\begin{thebibliography}{13}\small\raggedright
+\bibitem{kak} A. C. Kak and M. Slaney. \emph{Principles of Computerized Tomographic Imaging}. IEEE Press, 1988. Author-hosted edition: \url{https://www.slaney.org/pct/}.
+\bibitem{r2} R. Zha, T. J. Lin, Y. Cai, J. Cao, Y. Zhang and H. Li. R$^2$-Gaussian: Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction. \emph{NeurIPS 37}, 2024. \href{https://doi.org/10.52202/079017-1427}{doi:10.52202/079017-1427}.
+\bibitem{numpy} C. R. Harris et al. Array programming with NumPy. \emph{Nature} 585:357--362, 2020. \href{https://doi.org/10.1038/s41586-020-2649-2}{doi:10.1038/s41586-020-2649-2}.
+\bibitem{scipy} P. Virtanen et al. SciPy 1.0: fundamental algorithms for scientific computing in Python. \emph{Nature Methods} 17:261--272, 2020. \href{https://doi.org/10.1038/s41592-019-0686-2}{doi:10.1038/s41592-019-0686-2}.
+\bibitem{skimage} S. van der Walt et al. scikit-image: image processing in Python. \emph{PeerJ} 2:e453, 2014. \href{https://doi.org/10.7717/peerj.453}{doi:10.7717/peerj.453}.
+\bibitem{pytorch} A. Paszke et al. PyTorch: An Imperative Style, High-Performance Deep Learning Library. \emph{NeurIPS 32}, 2019. \href{https://proceedings.neurips.cc/paper/2019/hash/bdbca288fee7f92f2bfa9f7012727740-Abstract.html}{Official proceedings}.
+\bibitem{matplotlib} J. D. Hunter. Matplotlib: A 2D Graphics Environment. \emph{Computing in Science \& Engineering} 9(3):90--95, 2007. \href{https://doi.org/10.1109/MCSE.2007.55}{doi:10.1109/MCSE.2007.55}.
+\bibitem{rasmussen} C. E. Rasmussen and C. K. I. Williams. \emph{Gaussian Processes for Machine Learning}. MIT Press, 2006. Chapter 2 and Appendix A. \url{https://gaussianprocess.org/gpml/chapters/}.
+\bibitem{laplace} E. Daxberger, A. Kristiadi, A. Immer, R. Eschenhagen, M. Bauer and P. Hennig. Laplace Redux---Effortless Bayesian Deep Learning. \emph{NeurIPS 34}, 2021. \href{https://proceedings.neurips.cc/paper_files/paper/2021/hash/a7c9585703d275249f30a088cebba0ad-Abstract.html}{Official proceedings}.
+\bibitem{lawson} C. L. Lawson and R. J. Hanson. \emph{Solving Least Squares Problems}. SIAM, 1995. \href{https://doi.org/10.1137/1.9781611971217}{doi:10.1137/1.9781611971217}.
+\bibitem{golub} G. H. Golub and C. F. Van Loan. \emph{Matrix Computations}. 4th edition, Johns Hopkins University Press, 2013. \url{https://www.press.jhu.edu/books/title/10678/matrix-computations}.
+\bibitem{sart} A. H. Andersen and A. C. Kak. Simultaneous Algebraic Reconstruction Technique (SART): A Superior Implementation of the ART Algorithm. \emph{Ultrasonic Imaging} 6(1):81--94, 1984. \href{https://doi.org/10.1177/016173468400600107}{doi:10.1177/016173468400600107}.
+\bibitem{gneiting} T. Gneiting, F. Balabdaoui and A. E. Raftery. Probabilistic forecasts, calibration and sharpness. \emph{Journal of the Royal Statistical Society B} 69(2):243--268, 2007. \href{https://doi.org/10.1111/j.1467-9868.2007.00587.x}{doi:10.1111/j.1467-9868.2007.00587.x}.
+\end{thebibliography}
+\end{document}

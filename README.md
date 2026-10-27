@@ -30,11 +30,24 @@ and plots; experiment READMEs own their plans, findings, outputs and interpretat
 ## Current dataset direction
 
 As of 12 October 2026, the dataset supplied by co-supervisor **Ms. Anna-Louise Brun**
-is the selected data source for subsequent work. The raw `sino_selected.zip`
-archive and its checksum are retained locally; see the
+is the selected data source for subsequent work. The extracted TIFFs and recorded source checksum are retained locally; see the
 [dataset handoff](docs/SUPERVISOR_DATASET.md) for intake status. The earlier LIDC-IDRI
 expansion is deferred. Existing pilot and TV results remain evidence for their
 original data convention and do not establish performance on the new dataset.
+
+## Week 6 — optimization controls (started 24 October 2026)
+
+This reporting week began on **24 October 2026**. Following the
+[paper review](docs/literature/missing_wedge_papers_20261027.md), the first experiment
+will test a bounded density solve at fixed Gaussian geometry, followed by staged
+density → centre → full-shape optimization. The acquired data, 16-component
+representation, noise draw, bounds and shared prior remain frozen from the final
+Weeks 4–5 development control. Withheld views remain evaluation-only.
+
+Stable fitting is the prerequisite for a new angular configuration and deformation
+test. Neither a smaller training residual nor a narrow uncertainty map establishes
+missing-view accuracy or calibrated uncertainty. Results will be added here as
+experiments finish; this entry records the plan, not a successful outcome.
 
 ## Weeks 4–5 combined — worm uncertainty (work completed 12–21 October 2026)
 
@@ -44,6 +57,12 @@ was postponed. Work began on **12 October 2026**. The report must be sent on
 **Experimental work for Weeks 4–5 is closed as of 21 October 2026.**
 The dated entries below preserve the development history; the closing assessment
 records the final findings and next-week priorities.
+
+The [combined Weeks 4–5 report](Reports/Weeks4-5/README.md) is available as a
+[PDF](Reports/Weeks4-5/TRDP2_Weeks4-5.pdf) and an
+[Overleaf source ZIP](Reports/Weeks4-5/TRDP2_Weeks4-5_Overleaf.zip). It includes the
+final experiments, resource/storage snapshot, limitations and verified inline
+references; compile the source with XeLaTeX for Times New Roman.
 
 Branch: `experiment/worm-uncertainty`. The current objective is uncertainty under
 missing angles and controlled noise. The synthetic parallel-beam TIFFs contain
@@ -1137,6 +1156,7 @@ No earlier weekly report is reconstructed from unverified numbers.
 Start with the [next-week handoff](NEXT_WEEK.md) for current priorities and
 [repository map](docs/REPOSITORY_MAP.md) for active versus historical material.
 
+- [Missing-wedge paper review and proposed next comparisons (27 October)](docs/literature/missing_wedge_papers_20261027.md)
 - [Historical workstation-transfer snapshot](experiments/ordinary_tv_controls/HANDOFF.md)
 - [Generalization protocol and split rules](experiments/limited_angle_generalization/protocol.md)
 - [Benchmark preparation and verification](experiments/limited_angle_generalization/README.md)
