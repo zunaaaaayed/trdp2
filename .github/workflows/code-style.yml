@@ -2,14 +2,14 @@ name: Python readability
 on:
   push:
     paths:
-      - 'experiments/worm_uncertainty/**.py'
+      - 'experiments/worm_uncertainty/**/*.py'
       - 'pyproject.toml'
       - 'requirements-dev.txt'
       - 'Makefile'
       - '.github/workflows/code-style.yml'
   pull_request:
     paths:
-      - 'experiments/worm_uncertainty/**.py'
+      - 'experiments/worm_uncertainty/**/*.py'
       - 'pyproject.toml'
       - 'requirements-dev.txt'
       - 'Makefile'

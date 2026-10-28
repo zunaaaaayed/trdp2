@@ -38,4 +38,4 @@ Publisher browser access failed for several links; DeepDeWedge was read through
 PMC, ICE-TIDE through arXiv, and ICECREAM through the publisher's indexed full text.
 No cryo-ET-specific CTF or noise mechanism is imported into the synthetic worm
 likelihood. The concrete design is the
-[completion protocol](../../experiments/worm_uncertainty/COMPLETION_PROTOCOL.md).
+[completion protocol](../../experiments/worm_uncertainty/notes/COMPLETION_PROTOCOL.md).

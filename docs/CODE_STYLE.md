@@ -1,6 +1,6 @@
 # Readable Python before experiments
 
-The active `experiments/worm_uncertainty/*.py` scripts use Ruff 0.14.1 to
+The active `experiments/worm_uncertainty/**/*.py` scripts use Ruff 0.14.1 to
 standardize four-space indentation, quotes, line wrapping and multiline statements.
 Basic lint checks catch syntax problems and undefined names without importing
 CUDA libraries or running experiments. `.editorconfig` supplies shared editor
@@ -24,7 +24,7 @@ returns a nonzero exit code. To enforce the check before a command, join them wi
 
 ```bash
 make check PYTHON=.venv-style/bin/python && \
-  python -B experiments/worm_uncertainty/diagnose_3d.py \
+  python -B -m experiments.worm_uncertainty.studies.diagnose_3d \
     --output output/worm_uncertainty/known_3d_checked_repeat
 ```
 

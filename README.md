@@ -35,9 +35,13 @@ is the selected data source for subsequent work. The extracted TIFFs and recorde
 expansion is deferred. Existing pilot and TV results remain evidence for their
 original data convention and do not establish performance on the new dataset.
 
+The worm experiment files are organized into `core`, `data`, `studies`, `plots`,
+`tests`, `protocols` and `notes`; see the [directory guide](experiments/worm_uncertainty/README.md#file-organization)
+for current module commands and preserved historical provenance.
+
 ## Week 6 — nonlinear inference audit and completion preparation (28 October)
 
-The focused [nonlinear posterior audit](experiments/worm_uncertainty/NONLINEAR_POSTERIOR.md)
+The focused [nonlinear posterior audit](experiments/worm_uncertainty/notes/NONLINEAR_POSTERIOR.md)
 is complete. We tested the **actual bounded nonlinear target**, not just coverage
 from a propagated local covariance, on four declared noisy phantom cases. The
 existing truth-based geometry priors and fixed simulated noise scales are retained.
@@ -74,7 +78,7 @@ sampler that handles curvature; simply clipping samples or extending the stuck
 random walk is not supported. These four truth-prior phantom cases do not validate
 worm uncertainty, unseen modes, model mismatch or independent-specimen transfer.
 
-In parallel we prepared a [supervised completion protocol](experiments/worm_uncertainty/COMPLETION_PROTOCOL.md)
+In parallel we prepared a [supervised completion protocol](experiments/worm_uncertainty/notes/COMPLETION_PROTOCOL.md)
 and tested mask/noise/split infrastructure. The manifest reserves whole deformation
 blocks:96 train/24 validation/24 reserved, with a16/4/4-file first pilot. Numeric-ID
 proximity is only a grouping proxy, not verified deformation genealogy. Normalization
@@ -88,7 +92,7 @@ likelihood evidence. Matched acquired-input sampling remains an integration prer
 
 See the [primary-method follow-up](docs/literature/completion_direction_20261028.md),
 [per-case audit summary](docs/figures/worm_uncertainty/nonlinear_posterior_v1/summary.json)
-and [current continuation commands](experiments/worm_uncertainty/CONTINUATION.md).
+and [current continuation commands](experiments/worm_uncertainty/notes/CONTINUATION.md).
 Restoration accuracy, inference validity and robustness remain separate research questions.
 
 ## Week 6 — optimization controls (started 24 October 2026)
@@ -432,8 +436,8 @@ Reproduce from the repository root (choose a fresh output directory):
 source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
 conda activate trdp2-r2
 export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
-python -B -m unittest discover -s experiments/worm_uncertainty -p 'test_*.py' -q
-python -B experiments/worm_uncertainty/compare_noise.py \
+python -B -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py' -q
+python -B -m experiments.worm_uncertainty.studies.compare_noise \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/paired_fbp_repeat
 ```
@@ -494,7 +498,7 @@ Figure and input provenance: [plot records](docs/figures/worm_uncertainty/proven
 After the paired FBP command above, reproduce with:
 
 ```bash
-python -B experiments/worm_uncertainty/compare_sart.py \
+python -B -m experiments.worm_uncertainty.studies.compare_sart \
   --input output/worm_uncertainty/paired_fbp_repeat \
   --output output/worm_uncertainty/sart_repeat
 ```
@@ -546,7 +550,7 @@ Nine current CPU tests pass, including a test that detects constant biased
 reconstructions with zero ensemble variance.
 
 ```bash
-python -B experiments/worm_uncertainty/phantom_variability.py \
+python -B -m experiments.worm_uncertainty.studies.phantom_variability \
   --output output/worm_uncertainty/phantom_variability_repeat
 ```
 
@@ -615,7 +619,7 @@ Twelve current tests pass, including a scalar posterior check, preservation of
 prior variance in an unmeasured direction, and covariance growth after view removal.
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/bayes_linear.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.bayes_linear \
   --output output/worm_uncertainty/bayes_linear_repeat
 ```
 
@@ -669,9 +673,9 @@ exact-resume optimizer checkpoint. Fifteen current CPU tests pass.
 On a GPU workstation, after environment activation, use fresh destinations:
 
 ```bash
-python -B experiments/worm_uncertainty/native_parallel.py \
+python -B -m experiments.worm_uncertainty.core.native_parallel \
   --output output/worm_uncertainty/native_parallel_repeat
-python -B experiments/worm_uncertainty/fit_gaussian_slab.py \
+python -B -m experiments.worm_uncertainty.studies.fit_gaussian_slab \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/gaussian_slab_repeat --execute
 ```
@@ -683,7 +687,7 @@ positions, shapes and model count will initially remain outside that approximati
 
 ### Limited-angle Gaussian baselines and conditional density posterior
 
-The fixed [development protocol](experiments/worm_uncertainty/slab_protocol_v1.json)
+The fixed [development protocol](experiments/worm_uncertainty/protocols/slab_protocol_v1.json)
 was recorded before execution: the same eight-slice slab, 1,500 Gaussians, 1,000
 updates, seed zero and no densification. Angular spans are 180°, 120° and 90°,
 all starting at 0°. Clean and 5% Gaussian-noise cases share settings; noisy cases
@@ -782,13 +786,13 @@ posterior algebra and latent-versus-predictive interval checks.
 Reproduce after the environment activation above, using fresh destinations:
 
 ```bash
-python -B experiments/worm_uncertainty/limited_gaussian.py \
+python -B -m experiments.worm_uncertainty.studies.limited_gaussian \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/limited_gaussian_repeat --execute
-python -B experiments/worm_uncertainty/conditional_density.py \
+python -B -m experiments.worm_uncertainty.studies.conditional_density \
   --input output/worm_uncertainty/limited_gaussian_repeat \
   --output output/worm_uncertainty/conditional_density_repeat --execute
-python -B experiments/worm_uncertainty/plot_conditional_density.py \
+python -B -m experiments.worm_uncertainty.plots.plot_conditional_density \
   --baseline output/worm_uncertainty/limited_gaussian_repeat \
   --posterior output/worm_uncertainty/conditional_density_repeat \
   --output output/worm_uncertainty/conditional_figures_repeat
@@ -1356,7 +1360,7 @@ and deformation-separated evaluation remain outstanding. The Weeks 4–5 evidenc
 controlled-phantom results; calibrated worm uncertainty remains unresolved.
 
 [Compact results and provenance](docs/figures/worm_uncertainty/worm_fit_controls_v1/results.json).
-Protocol: `experiments/worm_uncertainty/worm_fit_controls_protocol_v1.json`;
+Protocol: `experiments/worm_uncertainty/protocols/worm_fit_controls_protocol_v1.json`;
 local full outputs: `output/worm_uncertainty/worm_fit_controls_v1/`.
 Checks: **42 CPU tests passed**, all **51 experiment Python files** pass the pinned
 formatter/linter, saved parent/artifact hashes are verified, and the default dry
@@ -1472,7 +1476,7 @@ No earlier weekly report is reconstructed from unverified numbers.
 
 ## Project guide
 
-Start with the [current continuation](experiments/worm_uncertainty/CONTINUATION.md) for active priorities and
+Start with the [current continuation](experiments/worm_uncertainty/notes/CONTINUATION.md) for active priorities and
 [repository map](docs/REPOSITORY_MAP.md) for active versus historical material.
 
 - [Missing-wedge paper review and proposed next comparisons (27 October)](docs/literature/missing_wedge_papers_20261027.md)
@@ -1482,7 +1486,7 @@ Start with the [current continuation](experiments/worm_uncertainty/CONTINUATION.
 - [Guarded single-case workflow](experiments/limited_angle_generalization/workflow.md)
 - [Ordinary-TV controls and selection rule](experiments/ordinary_tv_controls/README.md)
 - [Independent-volume data research and intake plan](experiments/ordinary_tv_controls/independent_volumes.md)
-- [Saved results and transfer inventory](experiments/ordinary_tv_controls/session_20261007/)
+- [Saved results and transfer inventory](experiments/ordinary_tv_controls/session_20261007)
 - [Historical limited-angle pilot](experiments/limited_angle_120/README.md)
 - [Initial baseline reproduction](experiments/baseline_chest_50views/README.md)
 - [Research handoff specification](TRDP2_CODEX_HANDOFF.md)
@@ -1515,7 +1519,7 @@ The verified university stack used Python 3.9.23, PyTorch 2.1.2+cu118, CUDA 11.8
 NumPy 1.24.4, Open3D 0.18, and an RTX 4000 Ada GPU. The local Conda environment is
 named `trdp2-r2`. Native extensions and TIGRE must be checked on a new computer;
 copied compiled binaries are not assumed portable. Follow the
-[current continuation](experiments/worm_uncertainty/CONTINUATION.md) before GPU execution.
+[current continuation](experiments/worm_uncertainty/notes/CONTINUATION.md) before GPU execution.
 The Python package remains named `r2_gaussian` to preserve the verified baseline.
 
 After activating the research environment:

@@ -1,5 +1,44 @@
 # Worm uncertainty development
 
+
+## File organization
+
+Organization verified on 28 October: **71 CPU tests**, all **51 executable module
+help commands**, local documentation links, exact completion-array comparison and
+format/lint checks pass. Eighty-four relocated Python files retain matching ASTs
+after import/path normalization; two verification entry points additionally check
+the preserved Git snapshot. No scientific experiment was rerun for this move.
+
+Run commands from the repository root using `python -m`, as shown below.
+
+| Folder | Contents |
+|---|---|
+| `core/` | Gaussian representations, shared optimization and inference calculations |
+| `data/` | Noise preparation and completion inputs/masks |
+| `studies/` | Experiment runners, diagnostics and saved-result verification |
+| `plots/` | Figure generators |
+| `tests/` | CPU scientific and resource-path checks |
+| `protocols/` | Frozen experiment JSON protocols and completion split manifest |
+| `notes/` | Current continuation, nonlinear audit interpretation and completion plan |
+
+Start with [current continuation](notes/CONTINUATION.md),
+[posterior findings](notes/NONLINEAR_POSTERIOR.md) and
+[completion protocol](notes/COMPLETION_PROTOCOL.md).
+
+```bash
+python -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py'
+python -m experiments.worm_uncertainty.studies.verify_nonlinear_audit
+```
+
+`layout.py` resolves resource basenames across these folders; `file_layout.json`
+maps every relocated file and its pre-organization hash. The audit's exact source
+is preserved in commit `c6d1b17`. Historical source verification checks that Git
+snapshot when current import/path edits change source bytes. Saved protocols,
+result hashes and scientific exclusions are retained under their original meanings.
+New runs hash current files. Frozen report JSON and published TeX/PDF reports retain
+their historical source paths; use the layout map to locate the corresponding file.
+
+
 Combined Weeks 4–5 work is **closed as of 21 October 2026**. Work began
 12 October; these development scripts started 17 October. The report is due
 22 October and the presentation is on 23 October. Scope: uncertainty under
@@ -21,7 +60,7 @@ voxelized density references. Full-angle reconstructions are not exact ground tr
 
 ## Preparation contract
 
-`prepare.py` reads a single axial sinogram without editing source files. It saves
+`data/prepare.py` reads a single axial sinogram without editing source files. It saves
 clean and noisy full-angle arrays plus a measured-view mask. Reconstruction must
 use only masked noisy rows. Clean withheld rows are evaluation-only; they must
 never enter initialization, fitting, early stopping or hyperparameter selection
@@ -60,14 +99,14 @@ and representation error cannot yet be established from projection fits alone.
 Tests (research environment):
 
 ```bash
-python -B -m unittest discover -s experiments/worm_uncertainty -p 'test_*.py' -v
+python -B -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py' -v
 ```
 
 No GPU job or training queue is launched by this preparation layer.
 
 ## CPU FBP diagnostic — 17 October 2026
 
-`check_fbp.py` validates scikit-image against continuous off-centre disk chord
+`studies/check_fbp.py` validates scikit-image against continuous off-centre disk chord
 lengths, then reconstructs worm_004 slice 255 with all 100 clean views. This is a
 separate classical CPU baseline, not validation of the Gaussian/TIGRE backend.
 Disk forward relative L2 error: 0.01876; thresholded disk centroid error: 0.03014
@@ -91,7 +130,7 @@ Reproduce with a fresh output directory:
 source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
 conda activate trdp2-r2
 export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
-python -B experiments/worm_uncertainty/check_fbp.py \
+python -B -m experiments.worm_uncertainty.studies.check_fbp \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/fbp_smoke_repeat
 ```
@@ -101,7 +140,7 @@ uncertainty-calibration claims await the appropriate references.
 
 ## Paired FBP pilot completed
 
-`compare_noise.py` completed 21 reconstructions on worm_004 z=255: full/120/90
+`studies/compare_noise.py` completed 21 reconstructions on worm_004 z=255: full/120/90
 degree spans with clean data and 1%/5% Gaussian noise, three noisy realizations.
 Noise realizations are shared across spans. Missing projections are zero-filled
 on the full angle grid to preserve angular quadrature rather than renormalizing
@@ -115,7 +154,7 @@ from withheld angles of a final evaluation case. No clipping is performed.
 
 ## Iterative comparator and README figures
 
-`compare_sart.py` adds a fixed 10-sweep nonnegative SART comparator with circular
+`studies/compare_sart.py` adds a fixed 10-sweep nonnegative SART comparator with circular
 support. It verifies the paired FBP input checksum and uses measured noisy views
 only. No withheld-data stopping or tuning. Six seed-zero cases completed; accepted
 outputs are `output/worm_uncertainty/sart_20261017_v2/`. The earlier attempt is
@@ -181,11 +220,11 @@ From repository root, choose fresh output destinations:
 source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
 conda activate trdp2-r2
 export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
-python -B -m unittest discover -s experiments/worm_uncertainty -p 'test_*.py' -q
-python -B experiments/worm_uncertainty/compare_noise.py \
+python -B -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py' -q
+python -B -m experiments.worm_uncertainty.studies.compare_noise \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/paired_fbp_repeat
-python -B experiments/worm_uncertainty/compare_sart.py \
+python -B -m experiments.worm_uncertainty.studies.compare_sart \
   --input output/worm_uncertainty/paired_fbp_repeat \
   --output output/worm_uncertainty/sart_repeat
 ```
@@ -238,7 +277,7 @@ Nine current CPU tests pass, including a test that detects constant biased
 reconstructions with zero ensemble variance.
 
 ```bash
-python -B experiments/worm_uncertainty/phantom_variability.py \
+python -B -m experiments.worm_uncertainty.studies.phantom_variability \
   --output output/worm_uncertainty/phantom_variability_repeat
 ```
 
@@ -323,7 +362,7 @@ Twelve current tests pass, including a scalar posterior check, preservation of
 prior variance in an unmeasured direction, and covariance growth after view removal.
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/bayes_linear.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.bayes_linear \
   --output output/worm_uncertainty/bayes_linear_repeat
 ```
 
@@ -377,9 +416,9 @@ exact-resume optimizer checkpoint. Fifteen current CPU tests pass.
 On a GPU workstation, after environment activation, use fresh destinations:
 
 ```bash
-python -B experiments/worm_uncertainty/native_parallel.py \
+python -B -m experiments.worm_uncertainty.core.native_parallel \
   --output output/worm_uncertainty/native_parallel_repeat
-python -B experiments/worm_uncertainty/fit_gaussian_slab.py \
+python -B -m experiments.worm_uncertainty.studies.fit_gaussian_slab \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/gaussian_slab_repeat --execute
 ```
@@ -391,7 +430,7 @@ positions, shapes and model count will initially remain outside that approximati
 
 ## Limited-angle Gaussian baselines and conditional density posterior
 
-The fixed [development protocol](slab_protocol_v1.json)
+The fixed [development protocol](protocols/slab_protocol_v1.json)
 was recorded before execution: the same eight-slice slab, 1,500 Gaussians, 1,000
 updates, seed zero and no densification. Angular spans are 180°, 120° and 90°,
 all starting at 0°. Clean and 5% Gaussian-noise cases share settings; noisy cases
@@ -490,13 +529,13 @@ posterior algebra and latent-versus-predictive interval checks.
 Reproduce after the environment activation above, using fresh destinations:
 
 ```bash
-python -B experiments/worm_uncertainty/limited_gaussian.py \
+python -B -m experiments.worm_uncertainty.studies.limited_gaussian \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/limited_gaussian_repeat --execute
-python -B experiments/worm_uncertainty/conditional_density.py \
+python -B -m experiments.worm_uncertainty.studies.conditional_density \
   --input output/worm_uncertainty/limited_gaussian_repeat \
   --output output/worm_uncertainty/conditional_density_repeat --execute
-python -B experiments/worm_uncertainty/plot_conditional_density.py \
+python -B -m experiments.worm_uncertainty.plots.plot_conditional_density \
   --baseline output/worm_uncertainty/limited_gaussian_repeat \
   --posterior output/worm_uncertainty/conditional_density_repeat \
   --output output/worm_uncertainty/conditional_figures_repeat
@@ -514,7 +553,7 @@ optimization stopping, and omitted **Gaussian-centre uncertainty**. Here geometr
 means the reconstructed Gaussian positions, **not uncertain scanner angles or
 alignment**. Acquisition geometry is exact in this experiment.
 
-The frozen `phantom_3d_protocol_v1.json` specifies three anisotropic 3D Gaussians,
+The frozen `protocols/phantom_3d_protocol_v1.json` specifies three anisotropic 3D Gaussians,
 36 parallel-beam views at 5° spacing, a 12×24 detector, and a 24³ evaluation grid.
 Full/120°/90° acquisitions use 36/24/18 views. Thirty paired Gaussian-noise draws
 have SD 5% of the full clean projection RMS; priors and initialization are fixed
@@ -592,12 +631,12 @@ independent volumes. No interval tuning used these reported outcomes.
 Reproduce this CPU study after activating `trdp2-r2` (fresh destinations):
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/diagnose_3d.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.diagnose_3d \
   --output output/worm_uncertainty/known_3d_diagnosis_repeat
-MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_diagnose_3d.py \
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B -m experiments.worm_uncertainty.plots.plot_diagnose_3d \
   --input output/worm_uncertainty/known_3d_diagnosis_repeat \
   --output output/worm_uncertainty/known_3d_figures_repeat
-python -B -m unittest discover -s experiments/worm_uncertainty -p 'test_*.py' -q
+python -B -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py' -q
 ```
 
 Twenty-four current CPU tests pass, including finite-difference checks of ray and
@@ -623,7 +662,7 @@ Each condition has ten paired noise draws and two initializations: **400 fits**
 across 20 cases. These new synthetic targets are development stress tests, not
 independent biological subjects or a blinded validation set.
 
-The protocol, `phantom_stress_protocol_v1.json`, was fixed before execution.
+The protocol, `protocols/phantom_stress_protocol_v1.json`, was fixed before execution.
 Noise is 5% of each phantom/condition's full clean projection RMS. All angular
 windows share the same noise realization within a draw. The priors, 150-evaluation
 budget, density bounds, initialization perturbation and fixed widths are inherited
@@ -685,9 +724,9 @@ These results provide no independent-volume or cone-beam generalization claim.
 Reproduce after activating `trdp2-r2`, using fresh destinations:
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/stress_3d.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.stress_3d \
   --output output/worm_uncertainty/phantom_stress_repeat
-MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_stress_3d.py \
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B -m experiments.worm_uncertainty.plots.plot_stress_3d \
   --input output/worm_uncertainty/phantom_stress_repeat \
   --output output/worm_uncertainty/phantom_stress_figures_repeat
 ```
@@ -779,16 +818,16 @@ Reproduce with the research environment activated and the preceding stress-test
 artifacts available (fresh output paths):
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/run_shape_controls.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.run_shape_controls \
   --parent output/worm_uncertainty/phantom_stress_v1 \
   --output output/worm_uncertainty/shape_controls_repeat
-MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_shape_controls.py \
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B -m experiments.worm_uncertainty.plots.plot_shape_controls \
   --parent output/worm_uncertainty/phantom_stress_v1 \
   --input output/worm_uncertainty/shape_controls_repeat \
   --output output/worm_uncertainty/shape_figures_repeat
 ```
 
-The frozen settings are in `shape_protocol_v1.json`. The runner checks parent
+The frozen settings are in `protocols/shape_protocol_v1.json`. The runner checks parent
 provenance and the exact restoration noise scale; output directories cannot be
 reused. `progress.json` is diagnostic progress, not a resumable checkpoint.
 Thirty CPU tests pass, including all shape derivatives for one and multiple
@@ -874,8 +913,8 @@ the toy-model results do not establish calibrated worm uncertainty.
 
 Records: [factorial and two-start follow-up](../../docs/figures/worm_uncertainty/rotation_sensitivity_v1/results.json),
 [audited four-start results](../../docs/figures/worm_uncertainty/cholesky_multistart_v1/results.json).
-The frozen protocols are `rotation_sensitivity_protocol_v1.json`,
-`cholesky_protocol_v1.json` and `multistart_protocol_v1.json`. Local outputs retain
+The frozen protocols are `protocols/rotation_sensitivity_protocol_v1.json`,
+`protocols/cholesky_protocol_v1.json` and `protocols/multistart_protocol_v1.json`. Local outputs retain
 all candidates, including failures, with objective values, parameters, convergence
 and coverage metrics. Both start/budget changes in the final follow-up are explicit;
 it does not isolate their individual contribution.
@@ -884,17 +923,17 @@ Reproduce after activating `trdp2-r2`. The parent shape-control output is requir
 use fresh destinations:
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/rotation_sensitivity.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.rotation_sensitivity \
   --output output/worm_uncertainty/rotation_sensitivity_repeat
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/cholesky_sensitivity.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.cholesky_sensitivity \
   --output output/worm_uncertainty/cholesky_sensitivity_repeat
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/cholesky_sensitivity.py \
-  --protocol experiments/worm_uncertainty/multistart_protocol_v1.json \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.cholesky_sensitivity \
+  --protocol experiments/worm_uncertainty/protocols/multistart_protocol_v1.json \
   --output output/worm_uncertainty/cholesky_multistart_repeat
-OPENBLAS_NUM_THREADS=1 python -B experiments/worm_uncertainty/audit_multistart.py \
+OPENBLAS_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.audit_multistart \
   --input output/worm_uncertainty/cholesky_multistart_repeat \
   --output output/worm_uncertainty/cholesky_multistart_repeat/stability_gate_audit.json
-MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_multistart.py \
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B -m experiments.worm_uncertainty.plots.plot_multistart \
   --input output/worm_uncertainty/cholesky_multistart_repeat \
   --output output/worm_uncertainty/multistart_figures_repeat
 ```
@@ -976,7 +1015,7 @@ validation. Retain synthetic checks and failed-run evidence; physical worm densi
 scaling and matching voxel ground truth remain unresolved.
 
 [Final results and provenance](../../docs/figures/worm_uncertainty/measured_init_fallback_v1/results.json).
-Protocols: `measured_init_protocol_v1.json` and `measured_fallback_protocol_v1.json`.
+Protocols: `protocols/measured_init_protocol_v1.json` and `protocols/measured_fallback_protocol_v1.json`.
 All 36 CPU tests pass, including exact recovery of a dictionary atom, deterministic
 starts and withheld-data isolation. Formatting/static checks pass for 45 scripts.
 
@@ -987,9 +1026,9 @@ source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
 conda activate trdp2-r2
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
-python -B experiments/worm_uncertainty/measured_init_study.py \
+python -B -m experiments.worm_uncertainty.studies.measured_init_study \
   --output output/worm_uncertainty/measured_init_repeat
-python -B experiments/worm_uncertainty/audit_multistart.py \
+python -B -m experiments.worm_uncertainty.studies.audit_multistart \
   --input output/worm_uncertainty/measured_init_repeat \
   --output output/worm_uncertainty/measured_init_repeat/stability_gate_audit.json
 ```
@@ -1000,13 +1039,13 @@ The recorded fallback is bound by hashes to the accepted original run and can be
 reproduced with a fresh destination:
 
 ```bash
-python -B experiments/worm_uncertainty/measured_init_fallback.py \
+python -B -m experiments.worm_uncertainty.studies.measured_init_fallback \
   --input output/worm_uncertainty/measured_init_v1 \
   --output output/worm_uncertainty/measured_init_fallback_repeat
-python -B experiments/worm_uncertainty/audit_multistart.py \
+python -B -m experiments.worm_uncertainty.studies.audit_multistart \
   --input output/worm_uncertainty/measured_init_fallback_repeat \
   --output output/worm_uncertainty/measured_init_fallback_repeat/stability_gate_audit.json
-python -B experiments/worm_uncertainty/plot_measured_init.py \
+python -B -m experiments.worm_uncertainty.plots.plot_measured_init \
   --input output/worm_uncertainty/measured_init_fallback_repeat \
   --output output/worm_uncertainty/measured_init_figures_repeat
 ```
@@ -1088,7 +1127,7 @@ metrics for evaluation rather than using them to select starts or inflate
 intervals. The failed small pilot is preserved as a reference.
 
 [Results and provenance](../../docs/figures/worm_uncertainty/worm_shape_pilot_v1/results.json).
-The protocol is `worm_shape_protocol_v1.json`; local outputs are in
+The protocol is `protocols/worm_shape_protocol_v1.json`; local outputs are in
 `output/worm_uncertainty/worm_shape_pilot_v1/`. Thirty-eight CPU tests pass,
 including sampled physical coordinates, acquired-only normalization and
 anisotropic dictionary consistency. No full GPU training was launched.
@@ -1096,10 +1135,10 @@ anisotropic dictionary consistency. No full GPU training was launched.
 Reproduce the CPU pilot with a fresh output path after activating `trdp2-r2`:
 
 ```bash
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B experiments/worm_uncertainty/worm_shape_pilot.py \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m experiments.worm_uncertainty.studies.worm_shape_pilot \
   --source ../worm_data/worm_004_gt.tiff \
   --output output/worm_uncertainty/worm_shape_repeat --execute
-MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B experiments/worm_uncertainty/plot_worm_shape_pilot.py \
+MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib python -B -m experiments.worm_uncertainty.plots.plot_worm_shape_pilot \
   --input output/worm_uncertainty/worm_shape_repeat \
   --output output/worm_uncertainty/worm_shape_figures_repeat
 ```
@@ -1156,10 +1195,10 @@ source ~/espaces/travail/trdp2/tools/miniforge3/etc/profile.d/conda.sh
 conda activate trdp2-r2
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 export MPLCONFIGDIR=/tmp/cache-mdzislam/matplotlib
-python -B experiments/worm_uncertainty/worm_fit_controls.py \
+python -B -m experiments.worm_uncertainty.studies.worm_fit_controls \
   --parent output/worm_uncertainty/worm_shape_pilot_v1 \
   --output output/worm_uncertainty/worm_fit_controls_repeat --execute
-python -B experiments/worm_uncertainty/plot_worm_fit_controls.py \
+python -B -m experiments.worm_uncertainty.plots.plot_worm_fit_controls \
   --input output/worm_uncertainty/worm_fit_controls_repeat \
   --output output/worm_uncertainty/worm_fit_controls_figures_repeat
 ```
@@ -1224,7 +1263,7 @@ and deformation-separated evaluation remain outstanding. The Weeks 4–5 evidenc
 controlled-phantom results; calibrated worm uncertainty remains unresolved.
 
 [Compact results and provenance](../../docs/figures/worm_uncertainty/worm_fit_controls_v1/results.json).
-Protocol: `experiments/worm_uncertainty/worm_fit_controls_protocol_v1.json`;
+Protocol: `experiments/worm_uncertainty/protocols/worm_fit_controls_protocol_v1.json`;
 local full outputs: `output/worm_uncertainty/worm_fit_controls_v1/`.
 Checks: **42 CPU tests passed**, all **51 experiment Python files** pass the pinned
 formatter/linter, saved parent/artifact hashes are verified, and the default dry
@@ -1232,8 +1271,8 @@ run writes no output. All 16 fits finished; no GPU experiment was launched.
 
 ## Week 6: bounded densities and staged fitting (week started 24 October 2026)
 
-The frozen protocol is `worm_staged_protocol_v1.json`; `worm_staged.py` executes
-it and refuses an existing output directory. `staged_density.py` provides a bounded
+The frozen protocol is `protocols/worm_staged_protocol_v1.json`; `studies/worm_staged.py` executes
+it and refuses an existing output directory. `core/staged_density.py` provides a bounded
 linear least-squares density solve at fixed centres and Cholesky shapes. Its
 augmented system uses acquired noisy projections divided by sigma=0.05 and an
 identity divided by the existing density prior SD=10. Bounds remain [0.001,100].
@@ -1262,7 +1301,7 @@ solver iterations are recorded. No uncertainty intervals or transfer tests are
 launched unless optimization evidence supports the next step.
 
 ```bash
-python experiments/worm_uncertainty/worm_staged.py \
+python -m experiments.worm_uncertainty.studies.worm_staged \
   --output output/worm_uncertainty/worm_staged_v1 --execute
 ```
 
@@ -1289,7 +1328,7 @@ The final `report.json` and the comparison below are complete. To regenerate the
 comparison and compact hash-linked summary, choose a fresh output directory:
 
 ```bash
-python experiments/worm_uncertainty/plot_worm_staged.py \
+python -m experiments.worm_uncertainty.plots.plot_worm_staged \
   --input output/worm_uncertainty/worm_staged_v1 \
   --output /tmp/worm_staged_v1_figures
 ```
@@ -1338,8 +1377,8 @@ gate before posterior estimation or new-acquisition transfer.
 
 ### Fixed stationarity continuation — completed
 
-`worm_stationarity_protocol_v1.json` freezes eight saved candidates and up to 600
-additional evaluations each. `worm_stationarity.py` checks parent/artifact/input/
+`protocols/worm_stationarity_protocol_v1.json` freezes eight saved candidates and up to 600
+additional evaluations each. `studies/worm_stationarity.py` checks parent/artifact/input/
 reference hashes before execution and saves the acquired-only initial audit,
 per-candidate before/after diagnostics, provenance and final report. Existing
 experiment code and outputs are preserved. No density reinitialization is applied.
@@ -1397,7 +1436,7 @@ tiny-step exits retain projected gradients between 0.000859 and 0.006772, above
 the 1e-6 threshold. Thus objective stagnation and the absolute gradient criterion
 do not agree here; this does not justify silently changing the criterion.
 
-`worm_numerical_audit.py` performs a read-only acquired-data diagnostic on these
+`studies/worm_numerical_audit.py` performs a read-only acquired-data diagnostic on these
 saved fits. It uses one seeded random and one negative-gradient direction in
 prior-SD coordinates, central differences at five step sizes from 1e-3 to 1e-7,
 and a bounded linearized least-squares step tested at fractions 1, 0.1, 0.01,
@@ -1432,7 +1471,7 @@ the frozen development gate and validate it on fresh known cases.
 
 ### Known-phantom shape control — completed
 
-`conditioning_phantom_protocol_v1.json` freezes 16 fits: two shapes × two angular
+`protocols/conditioning_phantom_protocol_v1.json` freezes 16 fits: two shapes × two angular
 spans (180°,120°, both starting at 0°) × clean/noisy observations × exact/perturbed
 starts. Four identical centres and amplitudes are used in both shapes. Principal
 SDs change from (0.08,0.08,0.12) to (0.008,0.8,0.12), with fixed rotations and equal
@@ -1469,8 +1508,8 @@ Both noisy moderate cases reconstruct accurately while failing stationarity, so
 an unscaled absolute gradient criterion alone is a poor accuracy classifier here.
 The criterion remains frozen and all historic worm gate failures are retained.
 
-`gaussian_l2.py` integrates pairwise products of the Gaussian mixtures analytically
-in all of R³. `plot_conditioning_phantom.py` reports this error in addition to the
+`core/gaussian_l2.py` integrates pairwise products of the Gaussian mixtures analytically
+in all of R³. `plots/plot_conditioning_phantom.py` reports this error in addition to the
 runner's fixed-grid voxel error, avoiding truncation and undersampling of thin
 components in the headline metric. Closed-form single-Gaussian, amplitude and
 translation identities pass. Near-zero squared differences can lose floating-point
@@ -1499,7 +1538,7 @@ new worm shape prior or posterior-calibration claim is justified yet.
 
 ### Paired noise, offset and density-prior replication
 
-`phantom_replication_protocol_v1.json` freezes 144 fits: the same two phantoms,
+`protocols/phantom_replication_protocol_v1.json` freezes 144 fits: the same two phantoms,
 three 120° windows starting at 0°,28.8°,57.6°, five fresh noise seeds plus clean
 controls, density-prior SDs 10 and 100, and starts 0/81. Each window contains 17
 of the same 25 angles; detector and axial sampling are unchanged. SD=100 reduces
@@ -1516,13 +1555,13 @@ objects, not independent anatomy samples. The exact-start series is primary;
 the perturbed start diagnoses initialization agreement and is not another sample
 for error bars. All failed stationarity cases remain in the error summaries.
 
-`plot_phantom_replication.py` reports five-draw means and observed min–max ranges,
+`plots/plot_phantom_replication.py` reports five-draw means and observed min–max ranges,
 not confidence intervals, alongside clean controls. Full-space Gaussian density
 L2 is the primary error; withheld projection L2 is secondary. The two metrics
 must not be treated as interchangeable. Five draws and correlated overlapping
 windows do not establish broad generalization or uncertainty coverage.
 
-The runner is `phantom_replication.py`, outputs are in
+The runner is `studies/phantom_replication.py`, outputs are in
 `output/worm_uncertainty/phantom_replication_v1/`, and its log is
 `logs/worm_uncertainty/phantom_replication_v1.log`. It refuses existing output
 directories. Tests verify equal window sizes, wrapping and paired noise identity.
@@ -1582,7 +1621,7 @@ any numerical acceptance redesign as a separate validation study.
 
 ### Coupled weak-direction audit — completed
 
-`phantom_weak_directions.py` audits every noisy exact-start SD=10 fit from the
+`studies/phantom_weak_directions.py` audits every noisy exact-start SD=10 fit from the
 replication (30 cases, including failed stationarity checks). It computes the
 smallest right singular direction of the acquired Jacobian, whitened by noise SD
 and scaled by parameter prior SD, in either the four-density subspace or all 40
@@ -1637,7 +1676,7 @@ calibration claim. No further training or posterior sampling is running now.
 
 ### Frozen scale-aware numerical validation
 
-`scaled_acceptance_protocol_v1.json` defines a new local rule before fresh-case
+`protocols/scaled_acceptance_protocol_v1.json` defines a new local rule before fresh-case
 outcomes are inspected. For the full data-plus-prior residual r and Jacobian J,
 let A=J diag(prior_SD). Its three requirements are:
 
@@ -1678,7 +1717,7 @@ does not prove global optimality or certify a posterior. The old two-start
 objective/prediction agreement thresholds and active-bound exclusion are assessed
 separately, without changing historical worm results.
 
-Runner: `validate_scaled_acceptance.py`; output:
+Runner: `studies/validate_scaled_acceptance.py`; output:
 `output/worm_uncertainty/scaled_acceptance_v1/`; log:
 `logs/worm_uncertainty/scaled_acceptance_v1.log`. No posterior is launched by this
 runner. A failed or inconclusive validation is reported without automatic retries
@@ -1745,14 +1784,14 @@ explicitly separate assessment. This validation preceded the posterior compariso
 
 ### Controlled local Gaussian posterior comparison — completed
 
-`posterior_comparison_protocol_v1.json` freezes the parent/eligibility hashes,
-1,024 draws, random/query seeds and one designated slice. `posterior_comparison.py`
+`protocols/posterior_comparison_protocol_v1.json` freezes the parent/eligibility hashes,
+1,024 draws, random/query seeds and one designated slice. `studies/posterior_comparison.py`
 recomputes local acceptance and the unchanged independent-start/bounds checks,
 then selects the lowest acquired objective among eligible final/oracle candidates.
 The excluded case remains `27102_elongated_72.0_20261102`. All 8 clean and 23/24
 noisy cases are evaluated; conditioning on this numerical selection is explicit.
 
-`posterior_local.py` uses Cholesky factors in prior-scaled coordinates to compute
+`core/posterior_local.py` uses Cholesky factors in prior-scaled coordinates to compute
 C=(JᵀJ/sigma² + prior precision)⁻¹. The joint model has 50 parameters; the conditional
 model retains the five density coordinates while fixing fitted geometry. This is
 Gauss–Newton curvature, omitting residual second derivatives. It is not an exact
@@ -1865,14 +1904,14 @@ coverage/width/mean error again on known cases before worm transfer.
 
 Completed the next diagnostic proposed above. The exact target, frozen protocol,
 per-case results, failed importance correction and failed reference feasibility
-are detailed in [NONLINEAR_POSTERIOR.md](NONLINEAR_POSTERIOR.md). All four joint
+are detailed in [NONLINEAR_POSTERIOR.md](notes/NONLINEAR_POSTERIOR.md). All four joint
 corrections fail (ESS11.10/94.64/3.93/1.01 out of2048); the conditional-density
 control has uniform weights. Two four-chain bounded tests respect support but
 fail mixing. This replaces the pending-audit plan, without changing old results.
 
-The [completion protocol](COMPLETION_PROTOCOL.md) freezes population/acquisition
+The [completion protocol](notes/COMPLETION_PROTOCOL.md) freezes population/acquisition
 separation, scale, noise, small-model budgets and initialization-only integration
-rules. `completion_data.py` supplies masked inputs and detector-reversal-aware
+rules. `data/completion_data.py` supplies masked inputs and detector-reversal-aware
 interpolation. The accepted development smoke is `output/worm_uncertainty/completion_data_v2`;
 v1 is retained and differs only in a style fix (arrays verified identical).
 The [compact result](../../docs/results/worm_uncertainty/completion_data_v2.json)
@@ -1880,5 +1919,5 @@ records7x100x310 input shape,67 acquired views and20.56% withheld interpolation
 error on worm_004 slice256. No reserved target was read and no learned benefit is
 claimed. The trainer and matched-initialization adapter remain to be implemented.
 
-[Continuation](CONTINUATION.md) lists exact verification commands, remaining
+[Continuation](notes/CONTINUATION.md) lists exact verification commands, remaining
 scientific questions and bounded next steps. No experiment remains running.

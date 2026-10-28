@@ -2,7 +2,7 @@
 required-version = "==0.14.1"
 target-version = "py39"
 line-length = 100
-include = ["experiments/worm_uncertainty/*.py"]
+include = ["experiments/worm_uncertainty/**/*.py"]
 
 [tool.ruff.lint]
 # Basic syntax, ambiguous statements, and undefined names; no scientific rewrites.

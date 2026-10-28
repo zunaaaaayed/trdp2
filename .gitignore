@@ -32,3 +32,8 @@ graphify-out/
 
 # Local formatting environment
 .venv-style/
+
+# This data/ directory contains Python input preparation code, not raw scans.
+!experiments/worm_uncertainty/data/
+experiments/worm_uncertainty/data/*
+!experiments/worm_uncertainty/data/*.py
