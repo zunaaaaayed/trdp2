@@ -1,0 +1,2036 @@
+{
+  "report": {
+    "selection": {
+      "selected_arm": "geometry",
+      "checkpoints": {
+        "mask": "6636632e0a1b80c9589b6e651e9682fdef17b0a5e2ca39eb732e270f9bfe2a2a",
+        "geometry": "051b712324471633707a4d5dbd7f1a8b9f6c269a5560064ef8a6e58d2dd5b014"
+      },
+      "files_improved": 4,
+      "relative_improvement": 0.3003538451172434,
+      "integration_approved_by_frozen_rule": true,
+      "familiar": {
+        "zero_fill": {
+          "relative_l2": 1.0,
+          "mse": 1.0279440681791883,
+          "per_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "relative_l2": 1.0,
+              "mse": 1.0727443386170434
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "relative_l2": 1.0,
+              "mse": 1.0522427149359093
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "relative_l2": 1.0,
+              "mse": 0.7739178044253093
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "relative_l2": 1.0,
+              "mse": 1.2128714147384914
+            }
+          ],
+          "per_mask_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0738998500695627
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0703683637575105
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0669758005664913
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.064131979675188
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0684968284570922
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0796807839077092
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.080900756081348
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0775003464214454
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0494452876851879
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0512434433995501
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0548846653875876
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0538471506664002
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0452716674944103
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0499574254505575
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.0564508817887923
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.0568411976147896
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 0.7763070105178256
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 0.790787738340684
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 0.8002853213406119
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 0.8017578176822865
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 0.762744115762367
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 0.7546075082924639
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 0.7518219050785495
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 0.753031018387686
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.169765812163822
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.126364131002478
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.117815942851176
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.1182703961193614
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.1905054584268784
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.2383275726882752
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 1.0,
+              "mse": 1.3516553116435748
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 1.0,
+              "mse": 1.390266693012365
+            }
+          ],
+          "maximum_measured_change": 0.0
+        },
+        "interpolation": {
+          "relative_l2": 0.39288444286572755,
+          "mse": 0.17439608257339073,
+          "per_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "relative_l2": 0.38590107732628987,
+              "mse": 0.16964448451293554
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "relative_l2": 0.4901931245515796,
+              "mse": 0.2732943523895289
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "relative_l2": 0.36329970174681875,
+              "mse": 0.10824071366370845
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "relative_l2": 0.33214386783822203,
+              "mse": 0.14640477972738997
+            }
+          ],
+          "per_mask_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.40581987778803963,
+              "mse": 0.17686032275595348
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.28659665884859836,
+              "mse": 0.08791753653509735
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.38311564291929645,
+              "mse": 0.1566081428367088
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.2187419309345566,
+              "mse": 0.05091662138708076
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.4113078092522673,
+              "mse": 0.18076200421464336
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.375674370719804,
+              "mse": 0.15237668008033872
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.5534500235455003,
+              "mse": 0.33108739067617776
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.45250230460225627,
+              "mse": 0.22062717761748413
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.48888425542350034,
+              "mse": 0.2508256253826115
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.3391964014061403,
+              "mse": 0.12094997204721669
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.4531488451172183,
+              "mse": 0.2166141057454473
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.2729304646409583,
+              "mse": 0.07850216870410405
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.5501456598579839,
+              "mse": 0.31636218112927916
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.47211269066240413,
+              "mse": 0.234025422860676
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.7515578489650412,
+              "mse": 0.5967248712690831
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.5935688303393903,
+              "mse": 0.3723504719778136
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.3561936080354105,
+              "mse": 0.09849308746806396
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.2595452803693101,
+              "mse": 0.05327042953463263
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.3474311588864393,
+              "mse": 0.09660116881755083
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.20211083879806704,
+              "mse": 0.032750837655127076
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.3915585354605852,
+              "mse": 0.11694246846429672
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.3698406084141583,
+              "mse": 0.10321678127185166
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.5387825792831876,
+              "mse": 0.21824387555847233
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.4409350047273918,
+              "mse": 0.14640706053967237
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.3317115607407747,
+              "mse": 0.1287123263619991
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.2385447663109517,
+              "mse": 0.06409418019860205
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.3305310299153705,
+              "mse": 0.12212224323815946
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.19424155795587542,
+              "mse": 0.042192099198770046
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.3629804312928692,
+              "mse": 0.15685480083751027
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.32506402673573875,
+              "mse": 0.13084989088859292
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.47515757423230665,
+              "mse": 0.3051695999963662
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.39891999552188934,
+              "mse": 0.2212430970991196
+            }
+          ],
+          "maximum_measured_change": 0.0
+        },
+        "mask": {
+          "relative_l2": 0.2751000325298172,
+          "mse": 0.07743979891012535,
+          "per_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "relative_l2": 0.25105920387363434,
+              "mse": 0.06857885505654601
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "relative_l2": 0.28832136126870755,
+              "mse": 0.08868472019041959
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "relative_l2": 0.3071389231023155,
+              "mse": 0.07382967452136222
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "relative_l2": 0.25388064187461135,
+              "mse": 0.0786659458721736
+            }
+          ],
+          "per_mask_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.31476062388958354,
+              "mse": 0.10639582259807964
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.25591622872206793,
+              "mse": 0.0701017595423048
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.2593329703640137,
+              "mse": 0.07175795251674873
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.26269361114218287,
+              "mse": 0.07343354871298222
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.22069108031098106,
+              "mse": 0.052040660335873144
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.20589115401621721,
+              "mse": 0.045768928743526185
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.24548543389404978,
+              "mse": 0.06513842846671514
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.24370252864997852,
+              "mse": 0.06399373953613828
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.3701517338731938,
+              "mse": 0.14378691898032964
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.2912319289864274,
+              "mse": 0.08916230222492684
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.2778385871737469,
+              "mse": 0.08143106277902785
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.27819565004439234,
+              "mse": 0.0815602025267005
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.2572286438530354,
+              "mse": 0.06916204641100628
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.2523844493677614,
+              "mse": 0.06688009388697076
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.29464565536680964,
+              "mse": 0.0917169054926554
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.2848942414842935,
+              "mse": 0.0857782292217395
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.37558302654857634,
+              "mse": 0.10950789293404771
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.29635036470926984,
+              "mse": 0.06944977751264021
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.31073839088033384,
+              "mse": 0.07727422821069431
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.30964377655189523,
+              "mse": 0.07687195295913922
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.2746099324440099,
+              "mse": 0.05751900285490958
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.2654826983197646,
+              "mse": 0.053185539413085174
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.3152248458814355,
+              "mse": 0.07470606429740531
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.30947834948323877,
+              "mse": 0.07212293798897625
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.2868424093039118,
+              "mse": 0.09624665565731813
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.26596260663476196,
+              "mse": 0.07967461496204374
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.2721132806766665,
+              "mse": 0.0827693941191263
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.2669623250973928,
+              "mse": 0.07969788204733215
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.22132304881950762,
+              "mse": 0.05831559072808868
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.20401999535095755,
+              "mse": 0.05154434316421786
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.2533944147550906,
+              "mse": 0.08678807018669416
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.26042705435860214,
+              "mse": 0.09429101611256771
+            }
+          ],
+          "maximum_measured_change": 0.0
+        },
+        "geometry": {
+          "relative_l2": 0.27488008976426037,
+          "mse": 0.0769161492593647,
+          "per_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "relative_l2": 0.2436336211837946,
+              "mse": 0.06459063395512386
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "relative_l2": 0.2793396347193042,
+              "mse": 0.08323168880914159
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "relative_l2": 0.31987624382792,
+              "mse": 0.07978902728603902
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "relative_l2": 0.2566708593260225,
+              "mse": 0.08005324698715431
+            }
+          ],
+          "per_mask_file": [
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.31255542794238084,
+              "mse": 0.10491023806953459
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.24984508268091232,
+              "mse": 0.06681513912434218
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.25295608678857656,
+              "mse": 0.06827234778302435
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.24799798110190588,
+              "mse": 0.06544730768876338
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.22218665085442324,
+              "mse": 0.05274838443416553
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.2129391274678796,
+              "mse": 0.04895604352906595
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.22804265257616643,
+              "mse": 0.05621056993058628
+            },
+            {
+              "file": "worm_153_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.22254596005811184,
+              "mse": 0.053365041081508684
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.35995570069587696,
+              "mse": 0.1359746387623705
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.29625349535944806,
+              "mse": 0.09226357240774544
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.26986709176480905,
+              "mse": 0.07682540119689812
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.271830864854509,
+              "mse": 0.0778708937724022
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.2614595738453559,
+              "mse": 0.07145593014051861
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.25512191272510565,
+              "mse": 0.0683387788123385
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.26830764644235655,
+              "mse": 0.07605283528124514
+            },
+            {
+              "file": "worm_204_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.25192079206697243,
+              "mse": 0.06707146009961411
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.38302311844957476,
+              "mse": 0.11388944689384596
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.32397765231110304,
+              "mse": 0.08300228237860896
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.3079669455066895,
+              "mse": 0.0759019725341539
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.3214439843770986,
+              "mse": 0.08284261675686877
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.3012400366459934,
+              "mse": 0.06921564167632292
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.2912054661677765,
+              "mse": 0.06399118722059614
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.3225160909557055,
+              "mse": 0.07820198011850438
+            },
+            {
+              "file": "worm_3579_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.30763665620941877,
+              "mse": 0.07126709070941116
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 120,
+              "relative_l2": 0.28956593416588267,
+              "mse": 0.09808302708590926
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 0,
+              "span": 144,
+              "relative_l2": 0.27730609909009685,
+              "mse": 0.08661590652997035
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 120,
+              "relative_l2": 0.2720084277117489,
+              "mse": 0.08270561961831749
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 36,
+              "span": 144,
+              "relative_l2": 0.2672527068425295,
+              "mse": 0.0798713551887367
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 120,
+              "relative_l2": 0.22688213012560318,
+              "mse": 0.06128186488043729
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 72,
+              "span": 144,
+              "relative_l2": 0.21793317215134664,
+              "mse": 0.058814204016082346
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 120,
+              "relative_l2": 0.2502110514275748,
+              "mse": 0.08462115157566306
+            },
+            {
+              "file": "worm_4047_gt.tiff",
+              "start": 108,
+              "span": 144,
+              "relative_l2": 0.2522073530933978,
+              "mse": 0.08843284700211802
+            }
+          ],
+          "maximum_measured_change": 0.0
+        }
+      },
+      "training": {
+        "mask": {
+          "best_epoch": 20,
+          "updates": 2560,
+          "completed_epochs": 20,
+          "duration_seconds": 27.212703449999935,
+          "parameters": 5809,
+          "peak_torch_allocated_bytes": 71753216,
+          "time_limit_exit": false
+        },
+        "geometry": {
+          "best_epoch": 19,
+          "updates": 2560,
+          "completed_epochs": 20,
+          "duration_seconds": 23.773352910000085,
+          "parameters": 5809,
+          "peak_torch_allocated_bytes": 71804416,
+          "time_limit_exit": false
+        }
+      }
+    },
+    "selection_sha256": "bf8af94c4116d7e66302fe2d0dd7a40e595be8d0cb4d1fc08edab606ebaae0be",
+    "shifts": {
+      "zero_fill": {
+        "relative_l2": 1.0,
+        "mse": 1.0299805479989603,
+        "per_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "relative_l2": 1.0,
+            "mse": 1.0760629997847917
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "relative_l2": 1.0,
+            "mse": 1.0547860350423188
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "relative_l2": 1.0,
+            "mse": 0.7773366888305672
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "relative_l2": 1.0,
+            "mse": 1.2117364683381635
+          }
+        ],
+        "per_mask_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 1.0715672204418234
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 1.0795969799197291
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.0779983404447362
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.0775035552150716
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.073648902902598
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 1.0569101201355338
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 1.0521953912015403
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.0549315195620932
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.0570624610090171
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.0528306833034093
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 0.8029948142515889
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 0.7563994579830116
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 0.768470065195556
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 0.7849741257784081
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 0.7738449809442711
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 1.1227201454809737
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 1.0,
+            "mse": 1.2917590385744846
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.2363270108455569
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.1828435091595964
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 1.0,
+            "mse": 1.2250326376302065
+          }
+        ],
+        "maximum_measured_change": 0.0
+      },
+      "interpolation": {
+        "relative_l2": 0.5089946362201713,
+        "mse": 0.2799116743923911,
+        "per_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "relative_l2": 0.49370718731816166,
+            "mse": 0.2678713106581572
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "relative_l2": 0.642754633370876,
+            "mse": 0.4455836025698612
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "relative_l2": 0.46914470455498536,
+            "mse": 0.1743553583112746
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "relative_l2": 0.43037201963666183,
+            "mse": 0.23183642603027152
+          }
+        ],
+        "per_mask_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.3606912859787468,
+            "mse": 0.1394089706100824
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.4919591886193406,
+            "mse": 0.26128821025961896
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.5683459356179246,
+            "mse": 0.3482119004662877
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.5107598199445733,
+            "mse": 0.28109437964806583
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.5367797064302228,
+            "mse": 0.30935309230673125
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.4635984090478904,
+            "mse": 0.22715480621573314
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.6826431898935841,
+            "mse": 0.4903248670298189
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.7289445413683313,
+            "mse": 0.5605485645568004
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.6204587834820992,
+            "mse": 0.40693638637264257
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.7181282430624756,
+            "mse": 0.5429533886743109
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.3315292934838047,
+            "mse": 0.08825850299332949
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.4797210406278092,
+            "mse": 0.17407192945182204
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.5332948978671679,
+            "mse": 0.21855553629644928
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.4834452912956839,
+            "mse": 0.18346364218939157
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.5177329995004609,
+            "mse": 0.20742718062538057
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.30420284810656634,
+            "mse": 0.10389581808840782
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.4421164558913259,
+            "mse": 0.25249621305885944
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.48105414715188494,
+            "mse": 0.28610225691119445
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.43905177206283047,
+            "mse": 0.22801255428133793
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.48543487497070176,
+            "mse": 0.2886752878115581
+          }
+        ],
+        "maximum_measured_change": 0.0
+      },
+      "mask": {
+        "relative_l2": 0.49526695175536983,
+        "mse": 0.2903271007993883,
+        "per_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "relative_l2": 0.4710026978635887,
+            "mse": 0.2819594311143496
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "relative_l2": 0.5427313210462332,
+            "mse": 0.3575176776639865
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "relative_l2": 0.5261163345149419,
+            "mse": 0.24357742232082907
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "relative_l2": 0.44121745359671527,
+            "mse": 0.27825387209838787
+          }
+        ],
+        "per_mask_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.2836190373307345,
+            "mse": 0.0861966082535616
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.27606658967995357,
+            "mse": 0.0822790676190877
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.5699239666469407,
+            "mse": 0.35014822827808456
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.4144374888563486,
+            "mse": 0.18507032130086334
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.8109664068039663,
+            "mse": 0.706102930120151
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.3050238618673308,
+            "mse": 0.09833444863533172
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.32558542107398164,
+            "mse": 0.11153888408315915
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.7486646012890584,
+            "mse": 0.5912877297151762
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.516246173555251,
+            "mse": 0.28171783456842403
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.8181365474455442,
+            "mse": 0.7047094913178414
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.30259861404023114,
+            "mse": 0.07352695990108175
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.33641059334823475,
+            "mse": 0.08560330550531778
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.6884264721017658,
+            "mse": 0.36420179222440713
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.5018723112094833,
+            "mse": 0.19771599906492107
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.8012736818749948,
+            "mse": 0.4968390549084177
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.28685922234108474,
+            "mse": 0.09238663496711967
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.2886817813406106,
+            "mse": 0.10765154373086747
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.482422633554237,
+            "mse": 0.2877323601000835
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.37015598698911656,
+            "mse": 0.16206784125104345
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.7779676437585273,
+            "mse": 0.7414309804428252
+          }
+        ],
+        "maximum_measured_change": 0.0
+      },
+      "geometry": {
+        "relative_l2": 0.5091063468270083,
+        "mse": 0.2980393365514691,
+        "per_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "relative_l2": 0.491998022164842,
+            "mse": 0.2980436299956364
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "relative_l2": 0.5077949204865422,
+            "mse": 0.3045097807876581
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "relative_l2": 0.5450011163952707,
+            "mse": 0.2548554605681787
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "relative_l2": 0.49163132826137834,
+            "mse": 0.3347484748544032
+          }
+        ],
+        "per_mask_file": [
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.2968077275572909,
+            "mse": 0.09439952905127282
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.2727566323786774,
+            "mse": 0.08031789179244195
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.657564957835466,
+            "mse": 0.4661175067495866
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.49340329870860306,
+            "mse": 0.26231480885849867
+          },
+          {
+            "file": "worm_153_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.7394574943441731,
+            "mse": 0.587068413526382
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.3231802946049744,
+            "mse": 0.11038950893411495
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.29875070536585846,
+            "mse": 0.0939105261747262
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.6706933371813719,
+            "mse": 0.47453937340441626
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.5145153367287507,
+            "mse": 0.27983195059271326
+          },
+          {
+            "file": "worm_204_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.7318349285517552,
+            "mse": 0.5638775448323197
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.3386284716826711,
+            "mse": 0.09207880654697705
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.35968996766184064,
+            "mse": 0.09786059648912301
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.7263925958595712,
+            "mse": 0.4054803122652059
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.5322587081347527,
+            "mse": 0.2223826457727386
+          },
+          {
+            "file": "worm_3579_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.7680358386375181,
+            "mse": 0.456474941766849
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 120,
+            "relative_l2": 0.30291353889270184,
+            "mse": 0.1030169968234427
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 120,
+            "relative_l2": 0.2820496831507999,
+            "mse": 0.10276204573593367
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 0,
+            "span": 90,
+            "relative_l2": 0.6616327239103356,
+            "mse": 0.5412118681957658
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 18,
+            "span": 90,
+            "relative_l2": 0.4821327637685842,
+            "mse": 0.2749543416375441
+          },
+          {
+            "file": "worm_4047_gt.tiff",
+            "start": 90,
+            "span": 90,
+            "relative_l2": 0.7294279315844706,
+            "mse": 0.6517971218793294
+          }
+        ],
+        "maximum_measured_change": 0.0
+      }
+    },
+    "elapsed_seconds": 74.44277919800015,
+    "peak_process_rss_kib": 1324328,
+    "reserved_evaluated": false,
+    "claim": "deterministic supervised sparse completion on four validation deformations; no posterior calibration",
+    "artifacts_sha256": {
+      "provenance.json": "a596f99bb4c132aee70638d3fa800142cedc47e121364238322b4def17966934",
+      "inputs.npz": "699ba20099b518bd2c77be1f782f924af6c167c7fcbc331d36061353747d3317",
+      "mask_best.pt": "6636632e0a1b80c9589b6e651e9682fdef17b0a5e2ca39eb732e270f9bfe2a2a",
+      "context.json": "2542725ce66c26b4aedf02a78acf38033211b6cfbad045a2c6204ea35bf3730c",
+      "protocol.json": "ec095e96d41af1f0fca19e280a865fc478964946963a232017da48b6064e5c9f",
+      "geometry_history.json": "107f7112d0c6bfa925dd82a597075eaf0e2866623810cb9e3a8f45d2a4259928",
+      "shifts.npz": "2621014a2cabdc8381cbc5440b226afec6755c4b9a5681735b460573ca721880",
+      "geometry_best.pt": "051b712324471633707a4d5dbd7f1a8b9f6c269a5560064ef8a6e58d2dd5b014",
+      "familiar.npz": "ea8a66c706a4732e51c5b01f58b67d4f8dcc8e543e4d07270b3d77dc2ae3e0a9",
+      "mask_history.json": "7004df531fa950f3f66539b1d572b8e3c46907d23f512673bea20a14bd10d4ec",
+      "selection.json": "bf8af94c4116d7e66302fe2d0dd7a40e595be8d0cb4d1fc08edab606ebaae0be"
+    }
+  },
+  "protocol": {
+    "version": 2,
+    "kind": "matched_sparse_supervised_completion",
+    "base_commit": "8ba48b5586d1e6ae173bd58c0cd4e0ccf9abf9d5",
+    "manifest_sha256": "9770a98ed544a2fd4cd6445a03e07d1552de6c8a6779728515780c5572189840",
+    "sampling_protocol_sha256": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550",
+    "sampling": {
+      "source_shape": [
+        510,
+        100,
+        310
+      ],
+      "angle_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96
+      ],
+      "detector_indices": [
+        2,
+        7,
+        12,
+        17,
+        22,
+        27,
+        32,
+        37,
+        42,
+        47,
+        52,
+        57,
+        62,
+        67,
+        72,
+        77,
+        82,
+        87,
+        92,
+        97,
+        102,
+        107,
+        112,
+        117,
+        122,
+        127,
+        132,
+        137,
+        142,
+        147,
+        152,
+        157,
+        162,
+        167,
+        172,
+        177,
+        182,
+        187,
+        192,
+        197,
+        202,
+        207,
+        212,
+        217,
+        222,
+        227,
+        232,
+        237,
+        242,
+        247,
+        252,
+        257,
+        262,
+        267,
+        272,
+        277,
+        282,
+        287,
+        292,
+        297,
+        302,
+        307
+      ],
+      "z_indices": [
+        224,
+        232,
+        240,
+        248,
+        256,
+        264,
+        272,
+        280
+      ]
+    },
+    "normalization": {
+      "value": 6180.275452553537,
+      "provenance": "slab_protocol_v1.json: RMS of full-angle worm_004 development slab, frozen before this split; never recompute from reserved clean targets"
+    },
+    "noise_sd": 0.05,
+    "seeds": {
+      "training": 2026102803,
+      "validation": 2026102804,
+      "reserved": 2026102805
+    },
+    "subsets": {
+      "train": [
+        "worm_004_gt.tiff",
+        "worm_012_gt.tiff",
+        "worm_082_gt.tiff",
+        "worm_087_gt.tiff",
+        "worm_332_gt.tiff",
+        "worm_333_gt.tiff",
+        "worm_1670_gt.tiff",
+        "worm_1803_gt.tiff",
+        "worm_2700_gt.tiff",
+        "worm_2779_gt.tiff",
+        "worm_4831_gt.tiff",
+        "worm_5053_gt.tiff",
+        "worm_6710_gt.tiff",
+        "worm_6720_gt.tiff",
+        "worm_8621_gt.tiff",
+        "worm_8654_gt.tiff"
+      ],
+      "validation": [
+        "worm_153_gt.tiff",
+        "worm_204_gt.tiff",
+        "worm_3579_gt.tiff",
+        "worm_4047_gt.tiff"
+      ],
+      "reserved": [
+        "worm_1038_gt.tiff",
+        "worm_1044_gt.tiff",
+        "worm_5839_gt.tiff",
+        "worm_5988_gt.tiff"
+      ]
+    },
+    "familiar_masks": [
+      [
+        0,
+        120
+      ],
+      [
+        0,
+        144
+      ],
+      [
+        36,
+        120
+      ],
+      [
+        36,
+        144
+      ],
+      [
+        72,
+        120
+      ],
+      [
+        72,
+        144
+      ],
+      [
+        108,
+        120
+      ],
+      [
+        108,
+        144
+      ]
+    ],
+    "shift_masks": [
+      [
+        18,
+        120
+      ],
+      [
+        90,
+        120
+      ],
+      [
+        0,
+        90
+      ],
+      [
+        18,
+        90
+      ],
+      [
+        90,
+        90
+      ]
+    ],
+    "model": {
+      "channels": [
+        7,
+        16,
+        16,
+        16,
+        1
+      ],
+      "dilations": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "kernel": 3,
+      "receptive_field": 31,
+      "parameters": 5809,
+      "padding": "zero; no ordinary angular circular padding",
+      "activation": "ReLU after first three convolutions; linear output"
+    },
+    "arms": [
+      "mask",
+      "geometry"
+    ],
+    "training": {
+      "epochs": 20,
+      "batch_size": 8,
+      "learning_rate": 0.001,
+      "optimizer": "Adam",
+      "max_seconds_per_arm": 1200,
+      "selection": "lowest mean across four files of mean across eight familiar masks of missing-ray relative L2, pooled over eight slices per file/mask; first epoch wins exact ties",
+      "loss": "mean squared error on missing clean rays only"
+    },
+    "integration_gate": {
+      "minimum_mean_relative_improvement": 0.05,
+      "minimum_files_improved": 3,
+      "require_mean_mse_not_worse": true,
+      "selection": "choose learned arm by familiar validation relative L2 only, mask arm wins exact tie"
+    },
+    "integration": {
+      "file": "worm_153_gt.tiff",
+      "start": 0,
+      "span": 120,
+      "components": 16,
+      "seeds": [
+        0,
+        81,
+        193,
+        421
+      ],
+      "budget_nfev": 450,
+      "cpu_seconds_cap": 600,
+      "prior": "baseline acquired-only multiscale initializer shared by all arms",
+      "selection": "existing converged-candidate acquired-objective rule; failures retained"
+    },
+    "reserved_policy": "No reserved files opened in first training/validation phase. Evaluate unseen masks on validation only after checkpoint selection.json is saved. Reserved grid requires separately recorded assessment budget and frozen adapter.",
+    "input_contract": "Same 25x62 point-sampled grid for all arms. Noise is generated at100x310 per file/z/epoch before sparse selection; no extra acquired pixels enter model or initializer. Coordinates use historical pixel centres, spacing2/310. Completion preserves measured float64 values; neural tensors are float32. Acquired arrays for Gaussian arms are shared float64 copies.",
+    "limitations": [
+      "One synthetic organism, provisional numeric-ID grouping; no genealogical independence.",
+      "Fixed development scale differs from historical per-case acquired-RMS scaling; old reconstruction errors are not paired controls.",
+      "No physical density, voxel truth, Bayesian calibration or test-time adaptation claim."
+    ]
+  },
+  "source_report_sha256": "ec398b1f17a975c7161b3c8a55381a4f01ba649ad41f9c32a19ce48acba4cec9",
+  "plot_code_sha256": "c962361a418b02f68d07e1faad145fc77b18ded4f484a79510c77077c8716f1a",
+  "example": {
+    "file": "worm_153_gt.tiff",
+    "z": 256,
+    "start": 0,
+    "span": 120,
+    "projection_display_limits": [
+      0,
+      3.485311254994327
+    ],
+    "absolute_error_limits": [
+      0,
+      2.0541439594984485
+    ]
+  },
+  "artifact_note": "Original mask key collided with mask-arm predictions; acquisition masks recovered from frozen protocol. Metrics verified unchanged; repair record retained."
+}

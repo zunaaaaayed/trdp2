@@ -1,0 +1,136 @@
+{
+  "source": "output/worm_uncertainty/langevin_feasibility_v1/report.json",
+  "source_sha256": "32d5aabd7a92c451765706651476c2bdecc3804b8c20b33c8e6f7fd35516ac7b",
+  "report": {
+    "tuning": [
+      {
+        "step": 0.01,
+        "acceptance": 1.0,
+        "mean_squared_jump": 0.004960457354144499,
+        "invalid_proposals": 0,
+        "completed_steps": 120
+      },
+      {
+        "step": 0.03,
+        "acceptance": 0.925,
+        "mean_squared_jump": 0.04147830702465091,
+        "invalid_proposals": 0,
+        "completed_steps": 120
+      },
+      {
+        "step": 0.1,
+        "acceptance": 0.35,
+        "mean_squared_jump": 0.17487534550778777,
+        "invalid_proposals": 0,
+        "completed_steps": 120
+      }
+    ],
+    "selected_step": 0.1,
+    "rows": [
+      {
+        "case": "27101_moderate_14.4_20261101",
+        "step": 0.1,
+        "chains": [
+          {
+            "acceptance": 0.9514285714285714,
+            "mean_squared_jump": 0.48283214595772894,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          },
+          {
+            "acceptance": 0.9714285714285714,
+            "mean_squared_jump": 0.4890885535763133,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          },
+          {
+            "acceptance": 0.9657142857142857,
+            "mean_squared_jump": 0.4830696445354494,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          },
+          {
+            "acceptance": 0.9414285714285714,
+            "mean_squared_jump": 0.47581108764524355,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          }
+        ],
+        "diagnostics": {
+          "constant_variables": 0,
+          "maximum_rank_folded_rhat": 2.438142951061549,
+          "minimum_bulk_ess": 4.90894676644001,
+          "minimum_tail_ess": 10.923374711076738,
+          "passed": false
+        },
+        "all_bounds_valid": true,
+        "passed": false,
+        "elapsed_seconds": 83.22192322200044,
+        "status": "FAILED convergence: no posterior interval claim"
+      },
+      {
+        "case": "27101_elongated_72.0_20261101",
+        "step": 0.1,
+        "chains": [
+          {
+            "acceptance": 0.07,
+            "mean_squared_jump": 0.03514769779142545,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          },
+          {
+            "acceptance": 0.14142857142857143,
+            "mean_squared_jump": 0.06791509351789389,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          },
+          {
+            "acceptance": 0.0,
+            "mean_squared_jump": 0.0,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          },
+          {
+            "acceptance": 0.0,
+            "mean_squared_jump": 0.0,
+            "invalid_proposals": 0,
+            "completed_steps": 700
+          }
+        ],
+        "diagnostics": {
+          "constant_variables": 0,
+          "maximum_rank_folded_rhat": 5.946565603126404,
+          "minimum_bulk_ess": 4.129850318375364,
+          "minimum_tail_ess": 0.0,
+          "passed": false
+        },
+        "all_bounds_valid": true,
+        "passed": false,
+        "elapsed_seconds": 73.55450276800002,
+        "status": "FAILED convergence: no posterior interval claim"
+      }
+    ],
+    "elapsed_seconds": 167.72517817900007,
+    "completed": true,
+    "scientific_claim": "one bounded feasibility; failure pauses sampler expansion",
+    "artifacts_sha256": {
+      "provenance.json": "af2e20abfb4430fe215dfaaced664014c104fb5d38959048ad45ac149579bbff",
+      "cases.json": "751588159db2afcc51030df5e29409c62cc137a2962d0c043ba65e12edb761b0",
+      "tuning_0.01.npz": "0804519822caf7138f9ab22fb125576658e8e0fce3dc6038af638c7e9bf7759e",
+      "27101_elongated_72.0_20261101_chain0.npz": "484b77a1c43294a1a19799500ab0148766162b1938f253e70f42dba1adeaacd4",
+      "27101_moderate_14.4_20261101_chain3.npz": "acccace810efa9cf253696a413f30833c16fab829670f97e6df579aa6c7a0110",
+      "27101_elongated_72.0_20261101_chain1.npz": "2782afb7db1bf35c409b16c67c545f05f815ac1d0189f2f07b4fd826edd55903",
+      "27101_moderate_14.4_20261101_outputs.npz": "5c8bb85202ce2e8f4ad514f9761864463bec41f7cdc589a303b223cb914fa263",
+      "tuning_0.1.npz": "b573ed41c96e2db0048039396b0bd8609d7312ca7ff31221b46fbb37ea487bbe",
+      "protocol.json": "bb8b8b403ddae4339cdb55dd05d86afebecf666f68df94ae76d12cfcf60431ba",
+      "27101_elongated_72.0_20261101_chain3.npz": "a4887f51263bed79c3d504811f8dacbd7bfa3abb47709b5ebb905378e670cdac",
+      "tuning_0.03.npz": "36422e68fb06075b315cdb8413a92f722382675d51e2b7868e597c7762a12190",
+      "27101_moderate_14.4_20261101_chain2.npz": "868049c15e80e6108d170c9cf02237f9148170e5509858fc499e81656a1fc4e6",
+      "frozen_settings.json": "4cbb7a310c47272c0dd22c4bc9e6433b7c45f5f4fe5d47f4d0df5a0ae4eb83a8",
+      "27101_elongated_72.0_20261101_outputs.npz": "89b4cffde8b86ceefc08fca107791acc98dacc1e7f272dbb97abe7e535bdd094",
+      "27101_moderate_14.4_20261101_chain1.npz": "022909338f80c1e118ec548f3709a8380de0cd5bf6a8794ac1d3a4865862d75d",
+      "27101_moderate_14.4_20261101_chain0.npz": "6cff69fc1834eccb20649ce38c1fc93f0c062d45a49dd0bc94373b82b0bc0945",
+      "27101_elongated_72.0_20261101_chain2.npz": "5ba02e6586c78532d2ec88fe3dd255854c52d22641c9fe45d6f1b904e1f6f01a"
+    }
+  }
+}

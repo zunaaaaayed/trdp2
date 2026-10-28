@@ -1,0 +1,175 @@
+{
+  "source": "output/worm_uncertainty/completion_refinement_v2_retry1/report.json",
+  "source_sha256": "359f503cd2b344d0a2bff175f6a9557824e3f4e4d648fd32ea624a9a972e45fa",
+  "report": {
+    "rows": [
+      {
+        "arm": "acquired",
+        "metrics": {
+          "acquired": 0.10473813803771845,
+          "withheld": 0.24142198883109284
+        },
+        "gate": {
+          "passed": false,
+          "converged_candidates": 0,
+          "selected_seed": 0
+        },
+        "numerical": {
+          "accepted": false,
+          "normalized_gradient": 0.023548771914497734,
+          "relative_predicted_decrease": 0.005970785684564215,
+          "prior_scaled_correction_inf": 2.580505055708852,
+          "step_solver_success": true,
+          "step_solver_optimality": 1.9905268544562205e-09,
+          "active_indices": [],
+          "objective": 48139.14397669904
+        },
+        "selected_seed": 0,
+        "completed_fits": 4
+      },
+      {
+        "arm": "interpolation",
+        "metrics": {
+          "acquired": 0.10497002092112849,
+          "withheld": 0.14957280847485094
+        },
+        "gate": {
+          "passed": false,
+          "converged_candidates": 0,
+          "selected_seed": 193
+        },
+        "numerical": {
+          "accepted": false,
+          "normalized_gradient": 0.016848243110218458,
+          "relative_predicted_decrease": 0.005765516371444797,
+          "prior_scaled_correction_inf": 3.845614878119767,
+          "step_solver_success": true,
+          "step_solver_optimality": 5.0851576283150735e-09,
+          "active_indices": [],
+          "objective": 48067.17659168453
+        },
+        "selected_seed": 193,
+        "completed_fits": 4
+      },
+      {
+        "arm": "learned",
+        "metrics": {
+          "acquired": 0.09946432302096117,
+          "withheld": 0.1823774708751518
+        },
+        "gate": {
+          "passed": false,
+          "converged_candidates": 1,
+          "selected_seed": 81
+        },
+        "numerical": {
+          "accepted": false,
+          "normalized_gradient": 1.191559292993664e-06,
+          "relative_predicted_decrease": 4.643247392336802e-10,
+          "prior_scaled_correction_inf": 0.0012360968564247175,
+          "step_solver_success": true,
+          "step_solver_optimality": 9.231726494363102e-12,
+          "active_indices": [],
+          "objective": 44297.83180724803
+        },
+        "selected_seed": 81,
+        "completed_fits": 3
+      }
+    ],
+    "completion_before": {
+      "interpolation": 0.40581987778803963,
+      "learned": 0.31255542794238084
+    },
+    "initializers": {
+      "acquired": {
+        "selected_indices": [
+          3055,
+          1668,
+          1796,
+          288,
+          402,
+          416,
+          467,
+          222,
+          477,
+          284,
+          537,
+          340,
+          286,
+          475,
+          535,
+          343
+        ],
+        "acquired_relative_residual": 0.2454658073017732,
+        "density_clipped": false,
+        "dictionary_atoms": 3969,
+        "dictionary_bytes": 267732864,
+        "active_densities": 16,
+        "realized_relative_residual": 0.24546580730177317
+      },
+      "interpolation": {
+        "selected_indices": [
+          3055,
+          1796,
+          1671,
+          1599,
+          1860,
+          479,
+          405,
+          284,
+          467,
+          219,
+          602,
+          415,
+          341,
+          402,
+          350,
+          471
+        ],
+        "acquired_relative_residual": 0.2798387036065165,
+        "density_clipped": false,
+        "dictionary_atoms": 3969,
+        "dictionary_bytes": 393724800,
+        "active_densities": 16,
+        "realized_relative_residual": 0.2798387036065165
+      },
+      "learned": {
+        "selected_indices": [
+          3055,
+          1796,
+          2991,
+          284,
+          415,
+          404,
+          474,
+          479,
+          350,
+          599,
+          340,
+          408,
+          219,
+          535,
+          286,
+          280
+        ],
+        "acquired_relative_residual": 0.2408413379420361,
+        "density_clipped": false,
+        "dictionary_atoms": 3969,
+        "dictionary_bytes": 393724800,
+        "active_densities": 16,
+        "realized_relative_residual": 0.2408413379420361
+      }
+    },
+    "budget_stop": true,
+    "elapsed_seconds": 577.7733709970003,
+    "peak_rss_kib": 849000,
+    "claim": "one familiar validation case; selection by acquired objective; failed stability/local checks retained; no uncertainty claim",
+    "artifacts_sha256": {
+      "inputs.npz": "a74e90c10f9e3f5adf86aa66336dcdee22f6ab54e379431465bbffe0bbd87002",
+      "predictions.npz": "2eb9fdd1888e60e02a5840f5a95b8e8f9c237fc54d39fe0d5aa05dae1a2e9aa2",
+      "fits.json": "857f719aa79386ffa8823908ad8924afbd0eaa753bfce39e797aa7ee9380ea22",
+      "protocol.json": "0e2ef4121870d34883c2162f28c3a5f7c5c2f245c5c2c325b5617a3bc7978da7",
+      "runtime_estimate.json": "144259b7cb6e98cccb45d8410e78ed899758c5e2995980ab8e3c97eb52e855e3"
+    }
+  }
+}

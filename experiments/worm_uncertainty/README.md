@@ -1,6 +1,38 @@
 # Worm uncertainty development
 
 
+## Current matched-input pilot — 28 October
+
+The [amended protocol](notes/COMPLETION_MATCHED_V2.md) fixes input sampling and
+angular context before training. The [completed results](notes/COMPLETION_RESULTS_V2.md)
+include per-file and per-mask errors, plots, selection rules, runtime and failures.
+Familiar missing-ray error improved from 39.29% (interpolation) to 27.49%
+(validation-selected geometry CNN). Unseen-mask error did not improve: 50.90%
+versus 50.91%; narrow-span transfer remains unresolved. Both 5,809-parameter arms
+finished 20 epochs. Reserved outcomes remain untouched.
+
+The initialization-only Gaussian feasibility stopped at its 600-second guard after
+11/12 planned fits (577.77 s). Withheld errors were 24.14% acquired-only,
+14.96% interpolation-initialized and 18.24% learned-initialized. The learned
+advantage over interpolation did not survive refinement. **All acceptance checks
+failed**, and start counts differ 4/4/3, so this is provisional evidence, not a
+validated ranking. No budget extension or reserved integration was launched.
+
+The independent fixed-metric Langevin feasibility failed mixing on both diagnostic
+phantoms within its bounded run; no posterior-calibration claim follows. Tests now
+include exact acquired-input identity, sparse-grid angular dependency, artifact
+mask recovery, shared Gaussian likelihood/prior contracts, scalar sampling controls
+and rank/folded diagnostics. **81 CPU tests pass.**
+
+```bash
+python -m experiments.worm_uncertainty.studies.verify_matched_completion
+python -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py'
+```
+
+Training and fit artifacts remain under ignored `output/worm_uncertainty`; compact
+reports and figures are under `docs/figures/worm_uncertainty/completion_matched_v2`.
+The historical organization checks below describe that earlier milestone.
+
 ## File organization
 
 Organization verified on 28 October: **71 CPU tests**, all **51 executable module
@@ -1905,7 +1937,7 @@ coverage/width/mean error again on known cases before worm transfer.
 Completed the next diagnostic proposed above. The exact target, frozen protocol,
 per-case results, failed importance correction and failed reference feasibility
 are detailed in [NONLINEAR_POSTERIOR.md](notes/NONLINEAR_POSTERIOR.md). All four joint
-corrections fail (ESS11.10/94.64/3.93/1.01 out of2048); the conditional-density
+corrections fail (ESS11.10/94.64/3.93/1.01 out of 2048); the conditional-density
 control has uniform weights. Two four-chain bounded tests respect support but
 fail mixing. This replaces the pending-audit plan, without changing old results.
 

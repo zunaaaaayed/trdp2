@@ -1,0 +1,15 @@
+{
+ "tuning_case": "27101_elongated_14.4_20261102",
+ "evaluation_cases": ["27101_moderate_14.4_20261101", "27101_elongated_72.0_20261101"],
+ "step_candidates": [0.01, 0.03, 0.1],
+ "tuning_steps": 120,
+ "tuning_rule": "Largest mean accepted squared jump in affine coordinates among proposals with acceptance between 0.3 and 0.9; if none, smallest step. Acquired target only. Save frozen settings before evaluation.",
+ "chains": 4,
+ "warmup": 200,
+ "draws": 500,
+ "seed": 2026102806,
+ "max_seconds": 600,
+ "target": "Same original bounded nonlinear likelihood and prior as nonlinear_posterior_v1. Fixed invertible Gauss-Newton affine coordinates per case; constant determinant cancels. Gradient drift with full forward/reverse Metropolis ratio. Reject out-of-bound proposals, never clip.",
+ "diagnostics": "Maximum rank/folded split Rhat <=1.01, min bulk and 5/95 tail ESS>=400 over all whitened coordinates, log target and mean foreground density/acquired/withheld projections. Withheld summaries evaluation only. No interval claims on failure.",
+ "scope": "One further feasibility run only, one CPU thread, deadline checked every transition. Separate tuning case, no evaluation retuning or automatic extension."
+}

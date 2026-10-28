@@ -39,6 +39,56 @@ The worm experiment files are organized into `core`, `data`, `studies`, `plots`,
 `tests`, `protocols` and `notes`; see the [directory guide](experiments/worm_uncertainty/README.md#file-organization)
 for current module commands and preserved historical provenance.
 
+## Week 6 — matched-input restoration pilot (28 October)
+
+The [frozen matched-input protocol](experiments/worm_uncertainty/notes/COMPLETION_MATCHED_V2.md)
+and [results and interpretation](experiments/worm_uncertainty/notes/COMPLETION_RESULTS_V2.md)
+now cover a completed supervised completion pilot. All methods use exactly the
+Gaussian study's 25 angles × 62 detector samples on eight axial planes, shared
+noise and fixed development normalization. No reserved outcomes were evaluated.
+
+| Missing-projection relative L2 (lower is better) | Interpolation | Mask CNN | Geometry CNN |
+|---|---:|---:|---:|
+| Familiar validation acquisitions | 39.29% | 27.51% | **27.49%** |
+| Unseen validation acquisitions | 50.90% | **49.53%** | 50.91% |
+
+Each 5,809-parameter arm completed 20 epochs / 2,560 updates in under 30 GPU seconds
+on liet. Familiar-validation selection chose the geometry arm and passed the frozen
+initialization-pilot gate: all four validation deformations improved over
+interpolation. Its tiny advantage over mask-only does **not** establish a geometry
+conditioning benefit. New starts at 120° improved, but unseen 90° spans often
+worsened; narrow-span generalization remains unresolved. The original 16/4/4 subset
+and 96/24/24 deformation roles are unchanged. One organism, one seed and
+validation-selected checkpoints limit the claim.
+
+![Matched completion validation](docs/figures/worm_uncertainty/completion_matched_v2/validation_comparison.png)
+
+*Lower errors are better. Familiar-mask improvement does not extend uniformly to
+new acquisition spans. Slices are pooled within deformations, not independent trials.*
+
+![Matched completion example](docs/figures/worm_uncertainty/completion_matched_v2/fixed_example.png)
+
+*Fixed worm153 example: common intensity/error scales, explicit acquired mask.
+Smaller absolute errors are better; predictions preserve measured values exactly.*
+
+The initialization-only Gaussian feasibility stopped at its 600-second guard after
+11/12 planned fits (577.77 s). Withheld errors were 24.14% acquired-only,
+14.96% interpolation-initialized and 18.24% learned-initialized. The learned
+advantage over interpolation did not survive refinement. **All acceptance checks
+failed**, and start counts differ 4/4/3, so this is provisional evidence, not a
+validated ranking. No budget extension or reserved integration was launched.
+
+The independent bounded Langevin feasibility study finished in 167.73 CPU seconds
+and failed mixing on both phantom cases (maximum Rhat 2.44 / 5.95; minimum bulk
+ESS 4.91 / 4.13). No posterior intervals are validated and sampler expansion is
+paused. The original importance and random-walk failures remain preserved.
+
+A saved-array metadata collision stopped the first integration attempt before
+fitting. The reader now reconstructs historical masks from frozen identities;
+new artifacts use an unambiguous key. Original artifacts remain intact, all saved
+metrics reproduce exactly, and a regression test covers the repair. See the
+[result note](experiments/worm_uncertainty/notes/COMPLETION_RESULTS_V2.md) for provenance.
+
 ## Week 6 — nonlinear inference audit and completion preparation (28 October)
 
 The focused [nonlinear posterior audit](experiments/worm_uncertainty/notes/NONLINEAR_POSTERIOR.md)
