@@ -1859,3 +1859,26 @@ consistency, and decide whether a correction is usable or constrained nonlinear
 sampling is needed. Do not treat clipping, rejection or reweighting as a verified
 calibration fix. Keep the excluded distinct-solution case visible, and verify
 coverage/width/mean error again on known cases before worm transfer.
+
+
+## Bounded nonlinear audit and completion preparation — 28 October 2026
+
+Completed the next diagnostic proposed above. The exact target, frozen protocol,
+per-case results, failed importance correction and failed reference feasibility
+are detailed in [NONLINEAR_POSTERIOR.md](NONLINEAR_POSTERIOR.md). All four joint
+corrections fail (ESS11.10/94.64/3.93/1.01 out of2048); the conditional-density
+control has uniform weights. Two four-chain bounded tests respect support but
+fail mixing. This replaces the pending-audit plan, without changing old results.
+
+The [completion protocol](COMPLETION_PROTOCOL.md) freezes population/acquisition
+separation, scale, noise, small-model budgets and initialization-only integration
+rules. `completion_data.py` supplies masked inputs and detector-reversal-aware
+interpolation. The accepted development smoke is `output/worm_uncertainty/completion_data_v2`;
+v1 is retained and differs only in a style fix (arrays verified identical).
+The [compact result](../../docs/results/worm_uncertainty/completion_data_v2.json)
+records7x100x310 input shape,67 acquired views and20.56% withheld interpolation
+error on worm_004 slice256. No reserved target was read and no learned benefit is
+claimed. The trainer and matched-initialization adapter remain to be implemented.
+
+[Continuation](CONTINUATION.md) lists exact verification commands, remaining
+scientific questions and bounded next steps. No experiment remains running.

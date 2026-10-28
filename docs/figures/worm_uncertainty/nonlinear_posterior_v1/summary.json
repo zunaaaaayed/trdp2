@@ -1,0 +1,2176 @@
+{
+  "audit": {
+    "provenance": {
+      "protocol_sha256": "3b1f524c37ac151251d7ac6b898385ec7885ec95c834c8cc6d353fbc5c84ff13",
+      "sources": {
+        "audit_nonlinear_posterior.py": "a6f29489d4b48af95ebd31ecc328aa3b9ad4d9c4ac66c087b1723df2b75921ae",
+        "nonlinear_target.py": "921a03d35fcdcbaba08f4c81b575980a9712e8246afd91f061a6549d8cfe793f",
+        "posterior_local.py": "79917f65d53cb153e7288c1f351d4dc7d1a89a79e37818d265d7cf24c7821a33",
+        "cholesky_gaussian.py": "e12ef25db08bf430dba800d77add3a0a8bf61221f9e78f06e1b7b97e9cedeb84",
+        "staged_density.py": "d6a69d2e8be93bac973888b3c7f0791f47abb9bf86d7ae5a1fc4fec0805bfb37",
+        "shape_gaussian.py": "7156e095a89facba0633505ffc042440b95b90aa31aea8f1ba5778a0e203681c",
+        "rotation_sensitivity.py": "3b79e075e22ad6251329adb23588318de62b90e32c3970d327d65f65ee51da22",
+        "stress_3d.py": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f",
+        "prepare.py": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509"
+      },
+      "parents": {
+        "output/worm_uncertainty/scaled_acceptance_v1/report.json": "9777a7fbdc15b93de40d36e8e0d3297d5ba126022e242a47f56e5ef71902a4b5",
+        "output/worm_uncertainty/posterior_comparison_v1/report.json": "3dad0e80e4a52face65e9b79faeca5ef7ac6c224b60f5bf607b691a9ce4e54b6"
+      },
+      "host": "liet",
+      "python": "3.9.23",
+      "numpy": "1.24.4"
+    },
+    "protocol": {
+      "parent_report_sha256": "9777a7fbdc15b93de40d36e8e0d3297d5ba126022e242a47f56e5ef71902a4b5",
+      "cases": [
+        "27101_moderate_14.4_20261101",
+        "27101_moderate_72.0_20261101",
+        "27101_elongated_14.4_20261101",
+        "27101_elongated_72.0_20261101"
+      ],
+      "samples": 2048,
+      "seed": 2026102701,
+      "budgets": [
+        512,
+        1024,
+        2048
+      ],
+      "importance_adequacy": {
+        "minimum_ess": 400,
+        "minimum_ess_fraction": 0.2,
+        "maximum_weight": 0.02,
+        "maximum_batch_mean_sd_difference": 0.2,
+        "maximum_batch_width_relative_difference": 0.2
+      },
+      "adequacy_rationale": "Exploratory 95% intervals require at least ten effective draws per 2.5% tail (ESS 400), no single draw exceeding tail probability, and stable disjoint half-batch summaries. These necessary screens do not certify tail ESS or unseen-mode coverage. Report failed corrections as diagnostics only.",
+      "reference_cases": [
+        "27101_moderate_14.4_20261101",
+        "27101_elongated_72.0_20261101"
+      ],
+      "reference": {
+        "chains": 4,
+        "warmup": 300,
+        "draws": 700,
+        "step": 0.3365828278447966,
+        "seed": 2026102801,
+        "max_seconds": 600,
+        "minimum_ess": 400,
+        "maximum_split_rhat": 1.01
+      },
+      "reference_design": "If any joint importance screen fails: bounded symmetric random-walk Metropolis in fixed local Gaussian coordinates, step 2.38/sqrt(50), no adaptation. Reject outside bounds; constant affine Jacobian cancels. Four starts: selected MAP, alternative accepted fit, and two feasible local perturbations. A short feasibility experiment, not a promised converged reference. Diagnose all 50 whitened coordinates, log target and sampled density/projection summaries. No truth/withheld tuning.",
+      "evaluation": "Reuse frozen Sobol and projection queries, foreground 5% truth peak. Density and acquired/withheld latent intervals; proper 95% interval score (lower better), mean relative L2, width and coverage. Weighted outputs remain labelled unreliable if adequacy fails. No noisy predictive coverage claim.",
+      "exclusion": "Preserve 27102_elongated_72.0_20261102 exclusion; no re-selection by truth or withheld outcomes.",
+      "budget": "One CPU thread, four proposal cases plus two short reference cases, <=600 seconds reference sampling; no GPU training. Fresh destination required."
+    },
+    "rows": [
+      {
+        "case": "27101_moderate_14.4_20261101",
+        "objective": 19581.453002620543,
+        "methods": {
+          "density": {
+            "valid_fraction": 1.0,
+            "importance": {
+              "ess": 2048.0000000009304,
+              "ess_fraction": 1.0000000000004543,
+              "maximum_weight": 0.0004882812500061795
+            },
+            "adequate": true,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 511.9999999997658,
+                "ess_fraction": 0.9999999999995426,
+                "maximum_weight": 0.0019531250000182857
+              },
+              "1024": {
+                "ess": 1023.9999999998913,
+                "ess_fraction": 0.9999999999998939,
+                "maximum_weight": 0.0009765625000089746
+              },
+              "2048": {
+                "ess": 2048.0000000009304,
+                "ess_fraction": 1.0000000000004543,
+                "maximum_weight": 0.0004882812500061795
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 1023.9999999998913,
+                "ess_fraction": 0.9999999999998939,
+                "maximum_weight": 0.0009765625000089746
+              },
+              {
+                "ess": 1024.0000000003279,
+                "ess_fraction": 1.0000000000003202,
+                "maximum_weight": 0.0009765625000125273
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.21132075471698114,
+                  "width": 0.003956272405445476,
+                  "relative_l2": 0.007254306109357902,
+                  "interval_score": 0.15790558601368007,
+                  "mean": 0.7851254801798649
+                },
+                "acquired": {
+                  "coverage": 0.3333333333333333,
+                  "width": 0.0015553410328696669,
+                  "relative_l2": 0.0029705612850488747,
+                  "interval_score": 0.031029865682314053,
+                  "mean": 0.4684173590488833
+                },
+                "withheld": {
+                  "coverage": 0.22705314009661837,
+                  "width": 0.0014866053913700692,
+                  "relative_l2": 0.005775170205721532,
+                  "interval_score": 0.05736412981499719,
+                  "mean": 0.38243009238364734
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.21509433962264152,
+                  "width": 0.003983828151753895,
+                  "relative_l2": 0.007246772267178416,
+                  "interval_score": 0.1566318745156208,
+                  "mean": 0.7851049304911949
+                },
+                "acquired": {
+                  "coverage": 0.3370473537604457,
+                  "width": 0.0015707650971359122,
+                  "relative_l2": 0.0029642588506463238,
+                  "interval_score": 0.030641776282114477,
+                  "mean": 0.46840530723418156
+                },
+                "withheld": {
+                  "coverage": 0.22383252818035426,
+                  "width": 0.0014836373239952936,
+                  "relative_l2": 0.005767346226444069,
+                  "interval_score": 0.05728543973465105,
+                  "mean": 0.3824202589571736
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.07212372692591953,
+              0.0704827170569982,
+              0.07021981684372097
+            ],
+            "batch_width_relative_difference": 0.009867908269779558,
+            "top10_weight": 0.004882812500048472,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              2.5832455665545123e-15,
+              2.616193610018541e-15,
+              2.6449958749413416e-15
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              2.5832455665545123e-15,
+              2.616193610018541e-15,
+              2.6449958749413416e-15
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.21509433962264152,
+                "width": 0.003962894082873,
+                "relative_l2": 0.007250490261946563,
+                "interval_score": 0.15732451001318776,
+                "mean": 0.7851152053355303
+              },
+              "acquired": {
+                "coverage": 0.33519034354688954,
+                "width": 0.0015596419890939652,
+                "relative_l2": 0.0029673511415330162,
+                "interval_score": 0.030878825439291047,
+                "mean": 0.4684113331415326
+              },
+              "withheld": {
+                "coverage": 0.22705314009661837,
+                "width": 0.0014850674313497568,
+                "relative_l2": 0.005771227447433862,
+                "interval_score": 0.057325289623709336,
+                "mean": 0.3824251756704106
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.21509433962264152,
+                "width": 0.003962894082872996,
+                "relative_l2": 0.007250490261946546,
+                "interval_score": 0.15732451001318726,
+                "mean": 0.7851152053355303
+              },
+              "acquired": {
+                "coverage": 0.33519034354688954,
+                "width": 0.001559641989093963,
+                "relative_l2": 0.002967351141533009,
+                "interval_score": 0.03087882543929098,
+                "mean": 0.4684113331415326
+              },
+              "withheld": {
+                "coverage": 0.22705314009661837,
+                "width": 0.0014850674313497587,
+                "relative_l2": 0.0057712274474338516,
+                "interval_score": 0.0573252896237092,
+                "mean": 0.3824251756704106
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.21509433962264152,
+                "width": 0.003962894082872996,
+                "relative_l2": 0.007250490261946546,
+                "interval_score": 0.15732451001318726,
+                "mean": 0.7851152053355303
+              },
+              "acquired": {
+                "coverage": 0.33519034354688954,
+                "width": 0.001559641989093963,
+                "relative_l2": 0.002967351141533009,
+                "interval_score": 0.03087882543929098,
+                "mean": 0.4684113331415326
+              },
+              "withheld": {
+                "coverage": 0.22705314009661837,
+                "width": 0.0014850674313497587,
+                "relative_l2": 0.0057712274474338516,
+                "interval_score": 0.0573252896237092,
+                "mean": 0.3824251756704106
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.21509433962264152,
+                "width": 0.003962894082872996,
+                "relative_l2": 0.00725049026194666,
+                "interval_score": 0.15732451001318726,
+                "mean": 0.7851152053355307
+              },
+              "acquired": {
+                "coverage": 0.33519034354688954,
+                "width": 0.001559641989093963,
+                "relative_l2": 0.0029673511415330527,
+                "interval_score": 0.03087882543929098,
+                "mean": 0.46841133314153277
+              },
+              "withheld": {
+                "coverage": 0.22705314009661837,
+                "width": 0.0014850674313497587,
+                "relative_l2": 0.005771227447433944,
+                "interval_score": 0.0573252896237092,
+                "mean": 0.3824251756704108
+              }
+            },
+            "weighted_status": "exploratory adequate screens only"
+          },
+          "joint": {
+            "valid_fraction": 1.0,
+            "importance": {
+              "ess": 11.097770766498211,
+              "ess_fraction": 0.005418833382079205,
+              "maximum_weight": 0.28399875857411705
+            },
+            "adequate": false,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 51.821670799524256,
+                "ess_fraction": 0.10121420078032081,
+                "maximum_weight": 0.08769561218769092
+              },
+              "1024": {
+                "ess": 4.570469090797956,
+                "ess_fraction": 0.004463348721482379,
+                "maximum_weight": 0.4638908138206248
+              },
+              "2048": {
+                "ess": 11.097770766498211,
+                "ess_fraction": 0.005418833382079205,
+                "maximum_weight": 0.28399875857411705
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 4.570469090797956,
+                "ess_fraction": 0.004463348721482379,
+                "maximum_weight": 0.4638908138206248
+              },
+              {
+                "ess": 18.55833013944887,
+                "ess_fraction": 0.018123369276805537,
+                "maximum_weight": 0.209334969521713
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.8339622641509434,
+                  "width": 0.021097882790600476,
+                  "relative_l2": 0.00770522976689132,
+                  "interval_score": 0.03905409805513926,
+                  "mean": 0.7849398491485962
+                },
+                "acquired": {
+                  "coverage": 0.7901578458681523,
+                  "width": 0.004656336444903071,
+                  "relative_l2": 0.0030718682318447875,
+                  "interval_score": 0.010462346109849845,
+                  "mean": 0.4683805235659489
+                },
+                "withheld": {
+                  "coverage": 0.8099838969404187,
+                  "width": 0.007401812585378869,
+                  "relative_l2": 0.006269443778640283,
+                  "interval_score": 0.015520753872668526,
+                  "mean": 0.3824098181367828
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.8754716981132076,
+                  "width": 0.02279219570580906,
+                  "relative_l2": 0.007582034814870967,
+                  "interval_score": 0.03608873294170527,
+                  "mean": 0.7850739216406254
+                },
+                "acquired": {
+                  "coverage": 0.840297121634169,
+                  "width": 0.005104133493562509,
+                  "relative_l2": 0.0030256897456863757,
+                  "interval_score": 0.009322832745330011,
+                  "mean": 0.46843617644724933
+                },
+                "withheld": {
+                  "coverage": 0.8454106280193237,
+                  "width": 0.008004991462779483,
+                  "relative_l2": 0.006072947311422984,
+                  "interval_score": 0.013808486988408593,
+                  "mean": 0.38248218419636215
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.43938998013095765,
+              0.35252952920966246,
+              0.495284531858372
+            ],
+            "batch_width_relative_difference": 0.091757272238438,
+            "top10_weight": 0.4768640574994628,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              0.031702790124828656,
+              0.14966134949249055,
+              0.36961413997970577
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              0.031702790124828656,
+              0.14966134949249055,
+              0.36961413997970577
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.8943396226415095,
+                "width": 0.023999928715295427,
+                "relative_l2": 0.0072455054499742195,
+                "interval_score": 0.032433293285522906,
+                "mean": 0.7851239380886791
+              },
+              "acquired": {
+                "coverage": 0.8802228412256268,
+                "width": 0.005445840691757984,
+                "relative_l2": 0.002982746800928195,
+                "interval_score": 0.008326095681996286,
+                "mean": 0.46842056295613693
+              },
+              "withheld": {
+                "coverage": 0.8679549114331723,
+                "width": 0.008436907095087886,
+                "relative_l2": 0.005765164979221581,
+                "interval_score": 0.011938803208422864,
+                "mean": 0.3824322152147371
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.9169811320754717,
+                "width": 0.029787604402096785,
+                "relative_l2": 0.007502734116118738,
+                "interval_score": 0.0362119443299603,
+                "mean": 0.7865507397574596
+              },
+              "acquired": {
+                "coverage": 0.9052924791086351,
+                "width": 0.009072360410355378,
+                "relative_l2": 0.003919317745923393,
+                "interval_score": 0.011352761273491784,
+                "mean": 0.46927219673393833
+              },
+              "withheld": {
+                "coverage": 0.9162640901771336,
+                "width": 0.011039710150354647,
+                "relative_l2": 0.005965449709291702,
+                "interval_score": 0.012993161062647602,
+                "mean": 0.3831335646791909
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.9169811320754717,
+                "width": 0.029787604402096785,
+                "relative_l2": 0.007502734116118738,
+                "interval_score": 0.0362119443299603,
+                "mean": 0.7865507397574596
+              },
+              "acquired": {
+                "coverage": 0.9052924791086351,
+                "width": 0.009072360410355378,
+                "relative_l2": 0.003919317745923393,
+                "interval_score": 0.011352761273491784,
+                "mean": 0.46927219673393833
+              },
+              "withheld": {
+                "coverage": 0.9162640901771336,
+                "width": 0.011039710150354647,
+                "relative_l2": 0.005965449709291702,
+                "interval_score": 0.012993161062647602,
+                "mean": 0.3831335646791909
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.8528301886792453,
+                "width": 0.021973379249794308,
+                "relative_l2": 0.007486963086861716,
+                "interval_score": 0.037311167555197956,
+                "mean": 0.7849918410730415
+              },
+              "acquired": {
+                "coverage": 0.8217270194986073,
+                "width": 0.004933022326707358,
+                "relative_l2": 0.002988853147160638,
+                "interval_score": 0.009646745008779052,
+                "mean": 0.4684021051771799
+              },
+              "withheld": {
+                "coverage": 0.8244766505636071,
+                "width": 0.007696045993133856,
+                "relative_l2": 0.0061035486899787056,
+                "interval_score": 0.014177484569779245,
+                "mean": 0.38243788094552994
+              }
+            },
+            "weighted_status": "FAILED: diagnostic only, not reliable corrected intervals"
+          }
+        }
+      },
+      {
+        "case": "27101_moderate_72.0_20261101",
+        "objective": 19567.863634802095,
+        "methods": {
+          "density": {
+            "valid_fraction": 1.0,
+            "importance": {
+              "ess": 2047.9999999983147,
+              "ess_fraction": 0.9999999999991771,
+              "maximum_weight": 0.0004882812500639111
+            },
+            "adequate": true,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 512.0000000005552,
+                "ess_fraction": 1.0000000000010845,
+                "maximum_weight": 0.0019531250001923687
+              },
+              "1024": {
+                "ess": 1024.0000000008226,
+                "ess_fraction": 1.0000000000008034,
+                "maximum_weight": 0.0009765625001191087
+              },
+              "2048": {
+                "ess": 2047.9999999983147,
+                "ess_fraction": 0.9999999999991771,
+                "maximum_weight": 0.0004882812500639111
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 1024.0000000008226,
+                "ess_fraction": 1.0000000000008034,
+                "maximum_weight": 0.0009765625001191087
+              },
+              {
+                "ess": 1024.0000000005061,
+                "ess_fraction": 1.0000000000004943,
+                "maximum_weight": 0.0009765625001262141
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.2,
+                  "width": 0.003865494245633504,
+                  "relative_l2": 0.008404846899435143,
+                  "interval_score": 0.18100869941052034,
+                  "mean": 0.7848184677256477
+                },
+                "acquired": {
+                  "coverage": 0.3559190031152648,
+                  "width": 0.001281230491108958,
+                  "relative_l2": 0.0031408106673650616,
+                  "interval_score": 0.026108230474031675,
+                  "mean": 0.3917679417886357
+                },
+                "withheld": {
+                  "coverage": 0.18357487922705315,
+                  "width": 0.001940846671871392,
+                  "relative_l2": 0.005137449695970429,
+                  "interval_score": 0.07711400962471822,
+                  "mean": 0.5762492824939353
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.19245283018867926,
+                  "width": 0.003818882650759101,
+                  "relative_l2": 0.008405884231082838,
+                  "interval_score": 0.18184346810366347,
+                  "mean": 0.7848417895859883
+                },
+                "acquired": {
+                  "coverage": 0.3582554517133956,
+                  "width": 0.0012879416790660288,
+                  "relative_l2": 0.003143237910059122,
+                  "interval_score": 0.02614170127136159,
+                  "mean": 0.39177969766228965
+                },
+                "withheld": {
+                  "coverage": 0.18115942028985507,
+                  "width": 0.0019098582763086888,
+                  "relative_l2": 0.005138635030742476,
+                  "interval_score": 0.07752146411330782,
+                  "mean": 0.5762664920536159
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.08201578586077186,
+              0.08245529892388731,
+              0.0818320949131628
+            ],
+            "batch_width_relative_difference": 0.016094920789685017,
+            "top10_weight": 0.004882812500531641,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              2.5392555256749527e-15,
+              2.565977232742211e-15,
+              2.590426526048791e-15
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              2.5392555256749527e-15,
+              2.565977232742211e-15,
+              2.590426526048791e-15
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.19245283018867926,
+                "width": 0.00382989941840892,
+                "relative_l2": 0.008405316278353508,
+                "interval_score": 0.18162994702000143,
+                "mean": 0.7848301286558185
+              },
+              "acquired": {
+                "coverage": 0.3590342679127726,
+                "width": 0.0012818943269083923,
+                "relative_l2": 0.0031419507801639544,
+                "interval_score": 0.02615533854330573,
+                "mean": 0.39177381972546305
+              },
+              "withheld": {
+                "coverage": 0.18357487922705315,
+                "width": 0.0019232450622902613,
+                "relative_l2": 0.005138003223848406,
+                "interval_score": 0.07734773203555027,
+                "mean": 0.576257887273776
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.19245283018867926,
+                "width": 0.0038298994184089163,
+                "relative_l2": 0.008405316278353517,
+                "interval_score": 0.1816299470200017,
+                "mean": 0.7848301286558185
+              },
+              "acquired": {
+                "coverage": 0.3590342679127726,
+                "width": 0.001281894326908392,
+                "relative_l2": 0.0031419507801639466,
+                "interval_score": 0.026155338543305692,
+                "mean": 0.391773819725463
+              },
+              "withheld": {
+                "coverage": 0.18357487922705315,
+                "width": 0.0019232450622902648,
+                "relative_l2": 0.0051380032238484055,
+                "interval_score": 0.07734773203555012,
+                "mean": 0.576257887273776
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.19245283018867926,
+                "width": 0.0038298994184089163,
+                "relative_l2": 0.008405316278353517,
+                "interval_score": 0.1816299470200017,
+                "mean": 0.7848301286558185
+              },
+              "acquired": {
+                "coverage": 0.3590342679127726,
+                "width": 0.001281894326908392,
+                "relative_l2": 0.0031419507801639466,
+                "interval_score": 0.026155338543305692,
+                "mean": 0.391773819725463
+              },
+              "withheld": {
+                "coverage": 0.18357487922705315,
+                "width": 0.0019232450622902648,
+                "relative_l2": 0.0051380032238484055,
+                "interval_score": 0.07734773203555012,
+                "mean": 0.576257887273776
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.19245283018867926,
+                "width": 0.0038298994184089163,
+                "relative_l2": 0.008405316278356932,
+                "interval_score": 0.1816299470200017,
+                "mean": 0.7848301286558186
+              },
+              "acquired": {
+                "coverage": 0.3590342679127726,
+                "width": 0.001281894326908392,
+                "relative_l2": 0.0031419507801640294,
+                "interval_score": 0.026155338543305692,
+                "mean": 0.391773819725463
+              },
+              "withheld": {
+                "coverage": 0.18357487922705315,
+                "width": 0.0019232450622902648,
+                "relative_l2": 0.005138003223852096,
+                "interval_score": 0.07734773203555012,
+                "mean": 0.5762578872737759
+              }
+            },
+            "weighted_status": "exploratory adequate screens only"
+          },
+          "joint": {
+            "valid_fraction": 1.0,
+            "importance": {
+              "ess": 94.63726673662305,
+              "ess_fraction": 0.04620960289874172,
+              "maximum_weight": 0.04568989122653322
+            },
+            "adequate": false,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 34.493551396089316,
+                "ess_fraction": 0.06737021757048695,
+                "maximum_weight": 0.12404045373118779
+              },
+              "1024": {
+                "ess": 51.26452792442504,
+                "ess_fraction": 0.05006301555119633,
+                "maximum_weight": 0.07233239949274918
+              },
+              "2048": {
+                "ess": 94.63726673662305,
+                "ess_fraction": 0.04620960289874172,
+                "maximum_weight": 0.04568989122653322
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 51.26452792442504,
+                "ess_fraction": 0.05006301555119633,
+                "maximum_weight": 0.07233239949274918
+              },
+              {
+                "ess": 44.21152032783342,
+                "ess_fraction": 0.04317531282014982,
+                "maximum_weight": 0.08958671236501992
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.8981132075471698,
+                  "width": 0.025157377876795676,
+                  "relative_l2": 0.00799495801701699,
+                  "interval_score": 0.03529301841851059,
+                  "mean": 0.7847630058914855
+                },
+                "acquired": {
+                  "coverage": 0.8465732087227414,
+                  "width": 0.004216656938541678,
+                  "relative_l2": 0.0031107823907028428,
+                  "interval_score": 0.007700247282455091,
+                  "mean": 0.39178074635693516
+                },
+                "withheld": {
+                  "coverage": 0.9202898550724637,
+                  "width": 0.011436728108354036,
+                  "relative_l2": 0.004800068020195432,
+                  "interval_score": 0.013880308434089435,
+                  "mean": 0.5762665950427652
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.8716981132075472,
+                  "width": 0.024978672011122298,
+                  "relative_l2": 0.008903031834841429,
+                  "interval_score": 0.03771402846501567,
+                  "mean": 0.7847886187126433
+                },
+                "acquired": {
+                  "coverage": 0.8411214953271028,
+                  "width": 0.004269285445125483,
+                  "relative_l2": 0.0032043476812403993,
+                  "interval_score": 0.007963812831850714,
+                  "mean": 0.3917790986280238
+                },
+                "withheld": {
+                  "coverage": 0.9154589371980676,
+                  "width": 0.011349737838982481,
+                  "relative_l2": 0.00529002015892759,
+                  "interval_score": 0.014608565631095187,
+                  "mean": 0.5762670685796378
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.06698071054847624,
+              0.010128684437572436,
+              0.0018142570511923389
+            ],
+            "batch_width_relative_difference": 0.01240369170667454,
+            "top10_weight": 0.2597615724736173,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              0.03685807221109047,
+              0.15754608092771644,
+              0.3603582581635509
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              0.03685807221109047,
+              0.15754608092771644,
+              0.3603582581635509
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.9207547169811321,
+                "width": 0.0269375095031164,
+                "relative_l2": 0.008437869029443684,
+                "interval_score": 0.03246803427894986,
+                "mean": 0.7848173143361189
+              },
+              "acquired": {
+                "coverage": 0.8730529595015576,
+                "width": 0.004446746161301577,
+                "relative_l2": 0.003153107526042271,
+                "interval_score": 0.007372067958561424,
+                "mean": 0.3917760470378211
+              },
+              "withheld": {
+                "coverage": 0.9396135265700483,
+                "width": 0.012221936040423771,
+                "relative_l2": 0.005144386719800433,
+                "interval_score": 0.013985060352540922,
+                "mean": 0.5762510139134589
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.9358490566037736,
+                "width": 0.03214279927492728,
+                "relative_l2": 0.008992031474234025,
+                "interval_score": 0.03739364340332308,
+                "mean": 0.7862571501367015
+              },
+              "acquired": {
+                "coverage": 0.8901869158878505,
+                "width": 0.0074355387640114255,
+                "relative_l2": 0.00413875587167097,
+                "interval_score": 0.01017440178359991,
+                "mean": 0.3924850773982702
+              },
+              "withheld": {
+                "coverage": 0.966183574879227,
+                "width": 0.015279370157899718,
+                "relative_l2": 0.005528818828883428,
+                "interval_score": 0.016111745724155073,
+                "mean": 0.5772837553285314
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.9358490566037736,
+                "width": 0.03214279927492728,
+                "relative_l2": 0.008992031474234025,
+                "interval_score": 0.03739364340332308,
+                "mean": 0.7862571501367015
+              },
+              "acquired": {
+                "coverage": 0.8901869158878505,
+                "width": 0.0074355387640114255,
+                "relative_l2": 0.00413875587167097,
+                "interval_score": 0.01017440178359991,
+                "mean": 0.3924850773982702
+              },
+              "withheld": {
+                "coverage": 0.966183574879227,
+                "width": 0.015279370157899718,
+                "relative_l2": 0.005528818828883428,
+                "interval_score": 0.016111745724155073,
+                "mean": 0.5772837553285314
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.8981132075471698,
+                "width": 0.02557807614158787,
+                "relative_l2": 0.008427468902082458,
+                "interval_score": 0.036639498769972016,
+                "mean": 0.7847760686212342
+              },
+              "acquired": {
+                "coverage": 0.8559190031152648,
+                "width": 0.004335110774682383,
+                "relative_l2": 0.0031492663087499245,
+                "interval_score": 0.007506677191215392,
+                "mean": 0.3917799060029056
+              },
+              "withheld": {
+                "coverage": 0.9202898550724637,
+                "width": 0.011619257808422916,
+                "relative_l2": 0.005025854999273794,
+                "interval_score": 0.014081495572471885,
+                "mean": 0.5762668365501006
+              }
+            },
+            "weighted_status": "FAILED: diagnostic only, not reliable corrected intervals"
+          }
+        }
+      },
+      {
+        "case": "27101_elongated_14.4_20261101",
+        "objective": 19595.33632337089,
+        "methods": {
+          "density": {
+            "valid_fraction": 1.0,
+            "importance": {
+              "ess": 2047.99999999802,
+              "ess_fraction": 0.9999999999990332,
+              "maximum_weight": 0.0004882812504680323
+            },
+            "adequate": true,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 512.0000000003915,
+                "ess_fraction": 1.0000000000007647,
+                "maximum_weight": 0.0019531250018692495
+              },
+              "1024": {
+                "ess": 1024.000000001001,
+                "ess_fraction": 1.0000000000009774,
+                "maximum_weight": 0.0009765625009397856
+              },
+              "2048": {
+                "ess": 2047.99999999802,
+                "ess_fraction": 0.9999999999990332,
+                "maximum_weight": 0.0004882812504680323
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 1024.000000001001,
+                "ess_fraction": 1.0000000000009774,
+                "maximum_weight": 0.0009765625009397856
+              },
+              {
+                "ess": 1024.0000000000332,
+                "ess_fraction": 1.0000000000000324,
+                "maximum_weight": 0.000976562500817217
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.010101010101010102,
+                  "width": 0.0043229980943154354,
+                  "relative_l2": 0.08590708048877638,
+                  "interval_score": 2.001367242451633,
+                  "mean": 0.7112330830857861
+                },
+                "acquired": {
+                  "coverage": 0.537052456286428,
+                  "width": 0.0006281924921614541,
+                  "relative_l2": 0.002499439101916737,
+                  "interval_score": 0.006825883799283727,
+                  "mean": 0.2320833878254293
+                },
+                "withheld": {
+                  "coverage": 0.3303886925795053,
+                  "width": 0.0007607642604580525,
+                  "relative_l2": 0.03927970587165416,
+                  "interval_score": 0.07205490522972904,
+                  "mean": 0.21408589158966723
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.010101010101010102,
+                  "width": 0.004107707333359777,
+                  "relative_l2": 0.08591038760114839,
+                  "interval_score": 2.005575092439274,
+                  "mean": 0.7112294385915644
+                },
+                "acquired": {
+                  "coverage": 0.5187343880099917,
+                  "width": 0.0006084536625828289,
+                  "relative_l2": 0.0024980729334607397,
+                  "interval_score": 0.0070562695410314605,
+                  "mean": 0.23208179030228138
+                },
+                "withheld": {
+                  "coverage": 0.3250883392226148,
+                  "width": 0.0007236010632593519,
+                  "relative_l2": 0.03928195887058377,
+                  "interval_score": 0.07249099551600796,
+                  "mean": 0.21408506307244046
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.013577793835697785,
+              0.01814441477872381,
+              0.007870924705812275
+            ],
+            "batch_width_relative_difference": 0.05107301228884844,
+            "top10_weight": 0.004882812503690003,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              2.5995113589326768e-15,
+              2.6792921742968743e-15,
+              2.7490941598469708e-15
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              2.5995113589326768e-15,
+              2.6792921742968743e-15,
+              2.7490941598469708e-15
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.010101010101010102,
+                "width": 0.004236956366085761,
+                "relative_l2": 0.08590873216899311,
+                "interval_score": 2.0029994143193535,
+                "mean": 0.711231260838696
+              },
+              "acquired": {
+                "coverage": 0.5295587010824313,
+                "width": 0.0006173549196813681,
+                "relative_l2": 0.0024987323184662734,
+                "interval_score": 0.006936153781151507,
+                "mean": 0.23208258906386584
+              },
+              "withheld": {
+                "coverage": 0.3303886925795053,
+                "width": 0.0007414716757235453,
+                "relative_l2": 0.03928083136109061,
+                "interval_score": 0.07231071356077436,
+                "mean": 0.21408547733106414
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.010101010101010102,
+                "width": 0.004236956366085795,
+                "relative_l2": 0.08590873216899697,
+                "interval_score": 2.0029994143196115,
+                "mean": 0.7112312608387029
+              },
+              "acquired": {
+                "coverage": 0.5295587010824313,
+                "width": 0.0006173549196813676,
+                "relative_l2": 0.0024987323184662642,
+                "interval_score": 0.006936153781151519,
+                "mean": 0.23208258906386584
+              },
+              "withheld": {
+                "coverage": 0.3303886925795053,
+                "width": 0.0007414716757235449,
+                "relative_l2": 0.03928083136109062,
+                "interval_score": 0.07231071356077441,
+                "mean": 0.21408547733106414
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.010101010101010102,
+                "width": 0.004236956366085795,
+                "relative_l2": 0.08590873216899697,
+                "interval_score": 2.0029994143196115,
+                "mean": 0.7112312608387029
+              },
+              "acquired": {
+                "coverage": 0.5295587010824313,
+                "width": 0.0006173549196813676,
+                "relative_l2": 0.0024987323184662642,
+                "interval_score": 0.006936153781151519,
+                "mean": 0.23208258906386584
+              },
+              "withheld": {
+                "coverage": 0.3303886925795053,
+                "width": 0.0007414716757235449,
+                "relative_l2": 0.03928083136109062,
+                "interval_score": 0.07231071356077441,
+                "mean": 0.21408547733106414
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.010101010101010102,
+                "width": 0.004236956366085795,
+                "relative_l2": 0.08590873216901695,
+                "interval_score": 2.0029994143196115,
+                "mean": 0.7112312608386759
+              },
+              "acquired": {
+                "coverage": 0.5295587010824313,
+                "width": 0.0006173549196813676,
+                "relative_l2": 0.002498732318438599,
+                "interval_score": 0.006936153781151519,
+                "mean": 0.2320825890638555
+              },
+              "withheld": {
+                "coverage": 0.3303886925795053,
+                "width": 0.0007414716757235449,
+                "relative_l2": 0.03928083136111398,
+                "interval_score": 0.07231071356077441,
+                "mean": 0.21408547733105404
+              }
+            },
+            "weighted_status": "exploratory adequate screens only"
+          },
+          "joint": {
+            "valid_fraction": 0.93408203125,
+            "importance": {
+              "ess": 3.934436429467889,
+              "ess_fraction": 0.0019211115378261177,
+              "maximum_weight": 0.4439363371349088
+            },
+            "adequate": false,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 1.462803586040599,
+                "ess_fraction": 0.002857038253985545,
+                "maximum_weight": 0.8061884075604245
+              },
+              "1024": {
+                "ess": 3.042021098345188,
+                "ess_fraction": 0.0029707237288527227,
+                "maximum_weight": 0.5103371074440485
+              },
+              "2048": {
+                "ess": 3.934436429467889,
+                "ess_fraction": 0.0019211115378261177,
+                "maximum_weight": 0.4439363371349088
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 3.042021098345188,
+                "ess_fraction": 0.0029707237288527227,
+                "maximum_weight": 0.5103371074440485
+              },
+              {
+                "ess": 3.1263278517147017,
+                "ess_fraction": 0.0030530545426901384,
+                "maximum_weight": 0.4871712043704886
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.3787878787878788,
+                  "width": 0.0610407577341162,
+                  "relative_l2": 0.08990033037545112,
+                  "interval_score": 1.2184845102400002,
+                  "mean": 0.7112248414120182
+                },
+                "acquired": {
+                  "coverage": 0.8043297252289758,
+                  "width": 0.0011501685296269092,
+                  "relative_l2": 0.002784511418509705,
+                  "interval_score": 0.004759726151053269,
+                  "mean": 0.2320763216351579
+                },
+                "withheld": {
+                  "coverage": 0.4575971731448763,
+                  "width": 0.002732168026149284,
+                  "relative_l2": 0.03955461323381758,
+                  "interval_score": 0.05530016144498088,
+                  "mean": 0.2142708134382838
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.3838383838383838,
+                  "width": 0.07074703178418898,
+                  "relative_l2": 0.09052032458114795,
+                  "interval_score": 0.9170902165045333,
+                  "mean": 0.7114734334915713
+                },
+                "acquired": {
+                  "coverage": 0.7452123230641132,
+                  "width": 0.0010676363601658117,
+                  "relative_l2": 0.0029076435790324037,
+                  "interval_score": 0.004797201603072472,
+                  "mean": 0.23195302522909395
+                },
+                "withheld": {
+                  "coverage": 0.5865724381625441,
+                  "width": 0.0037069021684153344,
+                  "relative_l2": 0.0404005432051943,
+                  "interval_score": 0.03590271517708706,
+                  "mean": 0.21389574032073302
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.13518076811346752,
+              1.0338554353216864,
+              1.2160569912273647
+            ],
+            "batch_width_relative_difference": 0.3027561783963307,
+            "top10_weight": 0.9834044506833126,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              0.9119609653163163,
+              3.355518278257748,
+              8.705089712441612
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              0.8421918226996745,
+              2.5338068391346518,
+              4.112152448226244
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.9747474747474747,
+                "width": 0.5263430571394014,
+                "relative_l2": 0.08642584558996838,
+                "interval_score": 0.5594107852521782,
+                "mean": 0.7112435325067838
+              },
+              "acquired": {
+                "coverage": 0.9766860949208993,
+                "width": 0.001993992294032518,
+                "relative_l2": 0.0025049041315075085,
+                "interval_score": 0.002408884800923446,
+                "mean": 0.23208272463676144
+              },
+              "withheld": {
+                "coverage": 0.9840989399293286,
+                "width": 0.020414746073974768,
+                "relative_l2": 0.040590092938904206,
+                "interval_score": 0.023014169649468088,
+                "mean": 0.2140399209072211
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.9696969696969697,
+                "width": 0.48660750330890107,
+                "relative_l2": 0.1385918512443066,
+                "interval_score": 0.5659349261627571,
+                "mean": 0.6615799331567123
+              },
+              "acquired": {
+                "coverage": 0.3463780183180683,
+                "width": 0.07787920555123437,
+                "relative_l2": 0.0648431807125771,
+                "interval_score": 0.08972166846289507,
+                "mean": 0.21638295970602156
+              },
+              "withheld": {
+                "coverage": 0.6731448763250883,
+                "width": 0.10814605146785704,
+                "relative_l2": 0.14076452494579697,
+                "interval_score": 0.12766070178853392,
+                "mean": 0.1944023517983795
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.9696969696969697,
+                "width": 0.43693337904629087,
+                "relative_l2": 0.12679890529279234,
+                "interval_score": 0.5150560816069351,
+                "mean": 0.6719779230223664
+              },
+              "acquired": {
+                "coverage": 0.3630308076602831,
+                "width": 0.04472289429492619,
+                "relative_l2": 0.048977407183742744,
+                "interval_score": 0.05551361081675128,
+                "mean": 0.22035465746310617
+              },
+              "withheld": {
+                "coverage": 0.6890459363957597,
+                "width": 0.06591857802908967,
+                "relative_l2": 0.115485400429913,
+                "interval_score": 0.0845572088884094,
+                "mean": 0.1993895123689007
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.42424242424242425,
+                "width": 0.07049631707560561,
+                "relative_l2": 0.08963250975762346,
+                "interval_score": 1.0641258932317648,
+                "mean": 0.7112571861216902
+              },
+              "acquired": {
+                "coverage": 0.855120732722731,
+                "width": 0.0013385568289516882,
+                "relative_l2": 0.0027275903029794595,
+                "interval_score": 0.004296909578489905,
+                "mean": 0.23206027934424947
+              },
+              "withheld": {
+                "coverage": 0.607773851590106,
+                "width": 0.003571135280870264,
+                "relative_l2": 0.03934949901188093,
+                "interval_score": 0.039831612479961115,
+                "mean": 0.21422201208019256
+              }
+            },
+            "weighted_status": "FAILED: diagnostic only, not reliable corrected intervals"
+          }
+        }
+      },
+      {
+        "case": "27101_elongated_72.0_20261101",
+        "objective": 19596.26868421626,
+        "methods": {
+          "density": {
+            "valid_fraction": 1.0,
+            "importance": {
+              "ess": 2047.9999999976708,
+              "ess_fraction": 0.9999999999988627,
+              "maximum_weight": 0.0004882812509103451
+            },
+            "adequate": true,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 512.0000000008499,
+                "ess_fraction": 1.00000000000166,
+                "maximum_weight": 0.001953125002856904
+              },
+              "1024": {
+                "ess": 1024.0000000003606,
+                "ess_fraction": 1.0000000000003522,
+                "maximum_weight": 0.0009765625018190822
+              },
+              "2048": {
+                "ess": 2047.9999999976708,
+                "ess_fraction": 0.9999999999988627,
+                "maximum_weight": 0.0004882812509103451
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 1024.0000000003606,
+                "ess_fraction": 1.0000000000003522,
+                "maximum_weight": 0.0009765625018190822
+              },
+              {
+                "ess": 1024.0000000003242,
+                "ess_fraction": 1.0000000000003166,
+                "maximum_weight": 0.0009765625016467756
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.045454545454545456,
+                  "width": 0.005566485661161376,
+                  "relative_l2": 0.13639833653912045,
+                  "interval_score": 3.434222312054315,
+                  "mean": 0.7039606692622037
+                },
+                "acquired": {
+                  "coverage": 0.5963229416466826,
+                  "width": 0.0005271698679212753,
+                  "relative_l2": 0.0024159100211056453,
+                  "interval_score": 0.005624396903593913,
+                  "mean": 0.19966443015476515
+                },
+                "withheld": {
+                  "coverage": 0.20348837209302326,
+                  "width": 0.001375189368376251,
+                  "relative_l2": 0.07059893801259844,
+                  "interval_score": 0.20831213039492102,
+                  "mean": 0.2907524135094893
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.045454545454545456,
+                  "width": 0.005749898912105441,
+                  "relative_l2": 0.1363990864982342,
+                  "interval_score": 3.430818145404687,
+                  "mean": 0.7039738485514367
+                },
+                "acquired": {
+                  "coverage": 0.6075139888089528,
+                  "width": 0.0005448342308014336,
+                  "relative_l2": 0.002415396969557673,
+                  "interval_score": 0.005495158363821072,
+                  "mean": 0.199667832375715
+                },
+                "withheld": {
+                  "coverage": 0.20736434108527133,
+                  "width": 0.001414713731361178,
+                  "relative_l2": 0.07060728271703004,
+                  "interval_score": 0.20779815361874646,
+                  "mean": 0.29075813004333945
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              0.03925422825179257,
+              0.0453404609091691,
+              0.035242641645396804
+            ],
+            "batch_width_relative_difference": 0.03295577489154269,
+            "top10_weight": 0.004882812507477196,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              2.535719838549553e-15,
+              2.609815453673758e-15,
+              2.685281605349094e-15
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              2.535719838549553e-15,
+              2.609815453673758e-15,
+              2.685281605349094e-15
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.045454545454545456,
+                "width": 0.005638887812956633,
+                "relative_l2": 0.13639870889117423,
+                "interval_score": 3.4328978123641365,
+                "mean": 0.7039672589069582
+              },
+              "acquired": {
+                "coverage": 0.5987210231814548,
+                "width": 0.0005343947603716431,
+                "relative_l2": 0.0024156230911085617,
+                "interval_score": 0.005566525823578987,
+                "mean": 0.19966613126525942
+              },
+              "withheld": {
+                "coverage": 0.2054263565891473,
+                "width": 0.0013909649499567699,
+                "relative_l2": 0.07060310524771111,
+                "interval_score": 0.20812202131524216,
+                "mean": 0.2907552717764762
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.045454545454545456,
+                "width": 0.005638887812956573,
+                "relative_l2": 0.1363987088911751,
+                "interval_score": 3.4328978123642253,
+                "mean": 0.7039672589069523
+              },
+              "acquired": {
+                "coverage": 0.5987210231814548,
+                "width": 0.0005343947603716432,
+                "relative_l2": 0.002415623091108571,
+                "interval_score": 0.005566525823579016,
+                "mean": 0.19966613126525942
+              },
+              "withheld": {
+                "coverage": 0.2054263565891473,
+                "width": 0.0013909649499567723,
+                "relative_l2": 0.07060310524771114,
+                "interval_score": 0.20812202131524213,
+                "mean": 0.2907552717764762
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.045454545454545456,
+                "width": 0.005638887812956573,
+                "relative_l2": 0.1363987088911751,
+                "interval_score": 3.4328978123642253,
+                "mean": 0.7039672589069523
+              },
+              "acquired": {
+                "coverage": 0.5987210231814548,
+                "width": 0.0005343947603716432,
+                "relative_l2": 0.002415623091108571,
+                "interval_score": 0.005566525823579016,
+                "mean": 0.19966613126525942
+              },
+              "withheld": {
+                "coverage": 0.2054263565891473,
+                "width": 0.0013909649499567723,
+                "relative_l2": 0.07060310524771114,
+                "interval_score": 0.20812202131524213,
+                "mean": 0.2907552717764762
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.045454545454545456,
+                "width": 0.005638887812956573,
+                "relative_l2": 0.13639870889124459,
+                "interval_score": 3.4328978123642253,
+                "mean": 0.7039672589068209
+              },
+              "acquired": {
+                "coverage": 0.5987210231814548,
+                "width": 0.0005343947603716432,
+                "relative_l2": 0.0024156230911076097,
+                "interval_score": 0.005566525823579016,
+                "mean": 0.19966613126524024
+              },
+              "withheld": {
+                "coverage": 0.2054263565891473,
+                "width": 0.0013909649499567723,
+                "relative_l2": 0.07060310524768652,
+                "interval_score": 0.20812202131524213,
+                "mean": 0.29075527177641464
+              }
+            },
+            "weighted_status": "exploratory adequate screens only"
+          },
+          "joint": {
+            "valid_fraction": 0.84814453125,
+            "importance": {
+              "ess": 1.0116818927602986,
+              "ess_fraction": 0.0004939852991993646,
+              "maximum_weight": 0.9941927752991799
+            },
+            "adequate": false,
+            "budget_diagnostics": {
+              "512": {
+                "ess": 1.0085888006435524,
+                "ess_fraction": 0.0019699000012569383,
+                "maximum_weight": 0.9957238841703759
+              },
+              "1024": {
+                "ess": 1.0000025216011417,
+                "ess_fraction": 0.000976564962501115,
+                "maximum_weight": 0.9999987392010316
+              },
+              "2048": {
+                "ess": 1.0116818927602986,
+                "ess_fraction": 0.0004939852991993646,
+                "maximum_weight": 0.9941927752991799
+              }
+            },
+            "batch_weights": [
+              {
+                "ess": 1.0000025216011417,
+                "ess_fraction": 0.000976564962501115,
+                "maximum_weight": 0.9999987392010316
+              },
+              {
+                "ess": 1.0116818800037644,
+                "ess_fraction": 0.0009879705859411761,
+                "maximum_weight": 0.9941927815671849
+              }
+            ],
+            "batch_metrics": [
+              {
+                "density": {
+                  "coverage": 0.0,
+                  "width": 0.0,
+                  "relative_l2": 0.28005430908992063,
+                  "interval_score": 6.099695493848359,
+                  "mean": 0.6829170312156099
+                },
+                "acquired": {
+                  "coverage": 0.0,
+                  "width": 0.0,
+                  "relative_l2": 0.004682176637036986,
+                  "interval_score": 0.028924221349606635,
+                  "mean": 0.19919608888092338
+                },
+                "withheld": {
+                  "coverage": 0.0,
+                  "width": 0.0,
+                  "relative_l2": 0.1934943403802333,
+                  "interval_score": 0.4598094031025204,
+                  "mean": 0.2946471904021464
+                }
+              },
+              {
+                "density": {
+                  "coverage": 0.0,
+                  "width": 0.0,
+                  "relative_l2": 0.22779046009745674,
+                  "interval_score": 5.2458776094623945,
+                  "mean": 0.6981453567402598
+                },
+                "acquired": {
+                  "coverage": 0.0,
+                  "width": 0.0,
+                  "relative_l2": 0.0035832271867974543,
+                  "interval_score": 0.01973828214081777,
+                  "mean": 0.19942511887184677
+                },
+                "withheld": {
+                  "coverage": 0.0,
+                  "width": 0.0,
+                  "relative_l2": 0.10473414963963006,
+                  "interval_score": 0.3233034217916775,
+                  "mean": 0.2914122729008849
+                }
+              }
+            ],
+            "batch_mean_sd_difference": [
+              9.48095106069745,
+              40.40986108940079,
+              15.086170102916507
+            ],
+            "batch_width_relative_difference": 0.0,
+            "top10_weight": 1.0000000000003768,
+            "nonlinear_discrepancy_sigma_quantiles": [
+              1.9529088700762056,
+              6.824859797799008,
+              17.901953838157006
+            ],
+            "nonlinear_valid_discrepancy_sigma_quantiles": [
+              1.6482704031517237,
+              3.756119362492694,
+              5.794613368405864
+            ],
+            "local_linear": {
+              "density": {
+                "coverage": 0.9494949494949495,
+                "width": 1.1463968868410837,
+                "relative_l2": 0.13518382156509537,
+                "interval_score": 1.1593921147141866,
+                "mean": 0.7042664368688797
+              },
+              "acquired": {
+                "coverage": 0.9800159872102319,
+                "width": 0.0015731805180263325,
+                "relative_l2": 0.0024061355398981603,
+                "interval_score": 0.0017859061198070188,
+                "mean": 0.19966389338233456
+              },
+              "withheld": {
+                "coverage": 0.9631782945736435,
+                "width": 0.05411692000309379,
+                "relative_l2": 0.06949495122246825,
+                "interval_score": 0.05530503958811193,
+                "mean": 0.29076548088773707
+              }
+            },
+            "local_nonlinear": {
+              "density": {
+                "coverage": 0.9494949494949495,
+                "width": 1.0681265358088214,
+                "relative_l2": 0.26253478273696185,
+                "interval_score": 1.1075255725423612,
+                "mean": 0.585206699690422
+              },
+              "acquired": {
+                "coverage": 0.1278976818545164,
+                "width": 0.12910356814049934,
+                "relative_l2": 0.14497585335297178,
+                "interval_score": 0.2024596071282728,
+                "mean": 0.16997873119001244
+              },
+              "withheld": {
+                "coverage": 0.4728682170542636,
+                "width": 0.3059494245955953,
+                "relative_l2": 0.22291094232586725,
+                "interval_score": 0.36850600410505996,
+                "mean": 0.23368609417799424
+              }
+            },
+            "truncated_gaussian": {
+              "density": {
+                "coverage": 0.9444444444444444,
+                "width": 0.8801811779284688,
+                "relative_l2": 0.2260342692739971,
+                "interval_score": 0.9176014408578114,
+                "mean": 0.6207529538078712
+              },
+              "acquired": {
+                "coverage": 0.13509192645883294,
+                "width": 0.052674739009673635,
+                "relative_l2": 0.09257441815626342,
+                "interval_score": 0.11870799708370339,
+                "mean": 0.18101163755945432
+              },
+              "withheld": {
+                "coverage": 0.5038759689922481,
+                "width": 0.14036291787448765,
+                "relative_l2": 0.15323660967890335,
+                "interval_score": 0.19265707025653694,
+                "mean": 0.2558312330162463
+              }
+            },
+            "weighted": {
+              "density": {
+                "coverage": 0.0,
+                "width": 0.0,
+                "relative_l2": 0.2277904601847021,
+                "interval_score": 5.2458776094623945,
+                "mean": 0.6981453566442491
+              },
+              "acquired": {
+                "coverage": 0.0,
+                "width": 0.0,
+                "relative_l2": 0.0035832271848462317,
+                "interval_score": 0.01973828214081777,
+                "mean": 0.19942511887040276
+              },
+              "withheld": {
+                "coverage": 0.0,
+                "width": 0.0,
+                "relative_l2": 0.10473415004508785,
+                "interval_score": 0.3233034217916775,
+                "mean": 0.29141227292128014
+              }
+            },
+            "weighted_status": "FAILED: diagnostic only, not reliable corrected intervals"
+          }
+        }
+      }
+    ],
+    "elapsed_seconds": 72.4332746959999,
+    "reference_needed": true
+  },
+  "reference": {
+    "rows": [
+      {
+        "case": "27101_moderate_14.4_20261101",
+        "acceptance_rates": [
+          0.084,
+          0.152,
+          0.126,
+          0.11
+        ],
+        "diagnostics": {
+          "maximum_split_rhat": 2.264887737423585,
+          "minimum_ess": 5.032486842759799,
+          "split_rhat": [
+            1.7885099157693525,
+            1.4421068047162395,
+            1.4085326463987415,
+            1.565889727116803,
+            1.301845697659908,
+            1.6833706038705518,
+            1.732098105740329,
+            1.6307265205458739,
+            1.487042286665325,
+            1.3335944305404657,
+            1.7561467988853554,
+            1.3366580229970808,
+            1.3554300453383041,
+            1.2884162862002209,
+            1.5676542514211464,
+            1.4251486249084713,
+            1.1566692723719325,
+            1.1753135252704023,
+            1.193863271737999,
+            1.8477462256927368,
+            1.9153050362945803,
+            1.6917039656068447,
+            1.5046647521182759,
+            1.7677477493738734,
+            1.3408969851796722,
+            1.5915547096929226,
+            1.3183512219364855,
+            1.40837327116148,
+            1.7895301734256497,
+            1.3474920241836492,
+            1.3153211678205456,
+            1.3755324400584146,
+            1.4499618919717419,
+            1.2141313402555858,
+            1.2094465451427294,
+            1.5911357087310156,
+            1.1831325605207168,
+            1.9018692373988262,
+            1.5596241396956199,
+            1.5219062681110436,
+            1.398348312824148,
+            1.4820222556102816,
+            1.5988297206164677,
+            1.457995519123445,
+            1.8654933103223634,
+            1.2912914679732153,
+            1.3863834154756791,
+            1.2301077156779987,
+            2.264887737423585,
+            1.2486004213585078,
+            1.2969249114982353,
+            1.4081486352334704,
+            1.2815370474400405,
+            1.5384129844259966
+          ],
+          "ess": [
+            6.000519526696314,
+            8.375962519053372,
+            9.090140279137119,
+            7.076728733452556,
+            10.627428241565944,
+            6.401304306432483,
+            6.182839901006028,
+            6.582700544465515,
+            7.987740991135581,
+            9.71817041901236,
+            6.181410579063105,
+            9.809257674192416,
+            9.767565167727486,
+            10.449556748831448,
+            7.431655455255604,
+            8.374721774501754,
+            25.7318100115661,
+            19.052278837009748,
+            20.830570386690983,
+            5.783227492392006,
+            5.628032076967603,
+            6.301098491365357,
+            7.528217799833579,
+            6.157417604844481,
+            9.874088153658226,
+            7.109226986574265,
+            9.934499816274927,
+            8.817074730567812,
+            5.931342747479738,
+            9.784120755171788,
+            10.822567751183387,
+            9.357324241654924,
+            9.654019746071647,
+            13.378024967095087,
+            15.502887084074864,
+            6.8643258702953345,
+            19.746465736090386,
+            5.656839126990575,
+            7.3019315697082146,
+            7.228905917806559,
+            8.552202421545609,
+            7.886452500960555,
+            6.9483674788977545,
+            7.961741383365963,
+            5.770927741605452,
+            11.966709951329776,
+            9.662947536404785,
+            12.655630391509476,
+            5.032486842759799,
+            14.121214936228235,
+            11.451923712687334,
+            8.496714264116154,
+            11.722778549766131,
+            7.304505713084316
+          ]
+        },
+        "passed": false,
+        "status": "FAILED mixing screens: not a validated reference posterior",
+        "metrics": {
+          "density": {
+            "coverage": 0.8075471698113208,
+            "width": 0.020964606305168044,
+            "relative_l2": 0.007740720584946268,
+            "interval_score": 0.04525242194468812,
+            "mean": 0.7850002906071541
+          },
+          "acquired": {
+            "coverage": 0.787372330547818,
+            "width": 0.004839980951416648,
+            "relative_l2": 0.0031999029670374247,
+            "interval_score": 0.011723366896609189,
+            "mean": 0.4683176098864026
+          },
+          "withheld": {
+            "coverage": 0.785829307568438,
+            "width": 0.007500678458014408,
+            "relative_l2": 0.00600289770336353,
+            "interval_score": 0.01602043570149093,
+            "mean": 0.38233812348061175
+          }
+        },
+        "chain_metrics": [
+          {
+            "density": {
+              "coverage": 0.6,
+              "width": 0.01498379810858128,
+              "relative_l2": 0.008975007159984411,
+              "interval_score": 0.09407523348342756,
+              "mean": 0.7848047471224397
+            },
+            "acquired": {
+              "coverage": 0.5998142989786444,
+              "width": 0.0035181641626275025,
+              "relative_l2": 0.003481921651361488,
+              "interval_score": 0.02189656033359729,
+              "mean": 0.46824430325070227
+            },
+            "withheld": {
+              "coverage": 0.5636070853462157,
+              "width": 0.00545481399860228,
+              "relative_l2": 0.007134483396823619,
+              "interval_score": 0.032324933067842364,
+              "mean": 0.38222317738407124
+            }
+          },
+          {
+            "density": {
+              "coverage": 0.6981132075471698,
+              "width": 0.017441450267952865,
+              "relative_l2": 0.008276505385194668,
+              "interval_score": 0.06023614354829537,
+              "mean": 0.7849210786066916
+            },
+            "acquired": {
+              "coverage": 0.6935933147632312,
+              "width": 0.004112127761536045,
+              "relative_l2": 0.0033024899557822364,
+              "interval_score": 0.01465754120002573,
+              "mean": 0.46828144955709033
+            },
+            "withheld": {
+              "coverage": 0.7037037037037037,
+              "width": 0.006020994726411078,
+              "relative_l2": 0.006296429954613086,
+              "interval_score": 0.02155542602539181,
+              "mean": 0.3822934902447647
+            }
+          },
+          {
+            "density": {
+              "coverage": 0.6377358490566037,
+              "width": 0.016026029450660062,
+              "relative_l2": 0.00882048253364676,
+              "interval_score": 0.08720468830027288,
+              "mean": 0.7852625347909901
+            },
+            "acquired": {
+              "coverage": 0.6778087279480037,
+              "width": 0.004147096737667149,
+              "relative_l2": 0.003519520386263989,
+              "interval_score": 0.0173720611277909,
+              "mean": 0.4684501031544004
+            },
+            "withheld": {
+              "coverage": 0.605475040257649,
+              "width": 0.005612293195841527,
+              "relative_l2": 0.007012458479883278,
+              "interval_score": 0.0320027504040408,
+              "mean": 0.382468830440261
+            }
+          },
+          {
+            "density": {
+              "coverage": 0.7094339622641509,
+              "width": 0.01616299036300022,
+              "relative_l2": 0.007475752248377772,
+              "interval_score": 0.05409380086955677,
+              "mean": 0.7850128019084951
+            },
+            "acquired": {
+              "coverage": 0.6267409470752089,
+              "width": 0.003642889230939654,
+              "relative_l2": 0.003295638997457099,
+              "interval_score": 0.0191677920482557,
+              "mean": 0.4682945835834174
+            },
+            "withheld": {
+              "coverage": 0.6988727858293076,
+              "width": 0.00551135105780543,
+              "relative_l2": 0.005925697994311106,
+              "interval_score": 0.01948646972209014,
+              "mean": 0.3823669958533502
+            }
+          }
+        ],
+        "bounds_violations": 0
+      },
+      {
+        "case": "27101_elongated_72.0_20261101",
+        "acceptance_rates": [
+          0.0,
+          0.0,
+          0.008,
+          0.004
+        ],
+        "diagnostics": {
+          "maximum_split_rhat": 23.86106549815453,
+          "minimum_ess": 4.0129264948513645,
+          "split_rhat": [
+            6.829506376561495,
+            11.35055231709452,
+            2.686960320128017,
+            1.8330344597509585,
+            2.523471729690358,
+            11.908178699111534,
+            2.429372373505335,
+            8.813208918278084,
+            3.0525204818512637,
+            15.405099323047528,
+            17.579260790225735,
+            4.268978187662629,
+            7.095983094295154,
+            8.319397085719169,
+            8.458717649204832,
+            8.389402436666623,
+            2.5130928645293844,
+            4.782247156542457,
+            5.816258848744597,
+            5.593475278250142,
+            2.634993211191316,
+            2.5976773631810426,
+            5.312914938527892,
+            23.86106549815453,
+            9.477790465223924,
+            6.344602376133539,
+            3.988569363874633,
+            12.259241251470364,
+            2.8281472055026766,
+            7.733999168789436,
+            4.961236624826288,
+            9.459387432032807,
+            2.528119930598848,
+            14.7871862446997,
+            6.263647666338167,
+            5.564329130441081,
+            1.8432033443156386,
+            4.150904920564211,
+            9.156391860682264,
+            6.922398342903714,
+            2.7886328404327623,
+            1.8177251827548786,
+            7.001364732720837,
+            2.9832705419350978,
+            12.51688763305914,
+            5.817956473496038,
+            1.2556864489261896,
+            3.959234868113581,
+            1.2634978877551284,
+            1.4425284366092668,
+            11.33901833692787,
+            4.537322505008111,
+            3.1863337855757172,
+            4.300199253475743
+          ],
+          "ess": [
+            4.096523033360411,
+            4.037267244233017,
+            4.654550685457617,
+            5.719000768332282,
+            4.799304201573201,
+            4.034331922984641,
+            4.837770438554012,
+            4.058319211074339,
+            4.49880427809261,
+            4.023670115051878,
+            4.018866714088467,
+            4.255475787880668,
+            4.090440270514969,
+            4.064779266597058,
+            4.06289299926115,
+            4.066032420498754,
+            4.799210890492646,
+            4.202797329788242,
+            4.135145546149023,
+            4.150016722435772,
+            4.693278393458492,
+            4.76167443996294,
+            4.159770814857889,
+            4.0129264948513645,
+            4.051061231977025,
+            4.108517720185101,
+            4.283719022952961,
+            4.033290705348007,
+            4.598014894595916,
+            4.079073258973795,
+            4.185333525121315,
+            4.051320252970075,
+            4.75443571950525,
+            4.025496424757621,
+            4.116682069280738,
+            4.141481786562118,
+            5.831012404886981,
+            4.2692718658211986,
+            4.054371896663558,
+            4.09667575986873,
+            4.600788236943673,
+            5.810688171721662,
+            4.093627732550935,
+            4.515892532898895,
+            4.0338665336889035,
+            4.136737122542937,
+            11.88304201370658,
+            4.280736384585523,
+            11.230036333982465,
+            8.1066109857688,
+            4.037331583775529,
+            4.211716696445297,
+            4.453862054724061,
+            4.242792594514557
+          ]
+        },
+        "passed": false,
+        "status": "FAILED mixing screens: not a validated reference posterior",
+        "metrics": {
+          "density": {
+            "coverage": 0.25757575757575757,
+            "width": 0.13809600497514013,
+            "relative_l2": 0.1564220361302766,
+            "interval_score": 2.252861021480713,
+            "mean": 0.696630319419777
+          },
+          "acquired": {
+            "coverage": 0.486810551558753,
+            "width": 0.0005284936308658052,
+            "relative_l2": 0.002558034254559489,
+            "interval_score": 0.007056507198219511,
+            "mean": 0.19959102210548063
+          },
+          "withheld": {
+            "coverage": 0.40891472868217055,
+            "width": 0.012884926307470979,
+            "relative_l2": 0.09401278141995834,
+            "interval_score": 0.12076850268959258,
+            "mean": 0.2916457226260837
+          }
+        },
+        "chain_metrics": [
+          {
+            "density": {
+              "coverage": 0.0,
+              "width": 0.0,
+              "relative_l2": 0.1363988737858187,
+              "interval_score": 3.5382417972216706,
+              "mean": 0.7039670548905023
+            },
+            "acquired": {
+              "coverage": 0.0,
+              "width": 0.0,
+              "relative_l2": 0.0024156658735904044,
+              "interval_score": 0.01251084702551081,
+              "mean": 0.1996663141953942
+            },
+            "withheld": {
+              "coverage": 0.0,
+              "width": 0.0,
+              "relative_l2": 0.07060374108058293,
+              "interval_score": 0.23211892721091149,
+              "mean": 0.2907549702240708
+            }
+          },
+          {
+            "density": {
+              "coverage": 0.0,
+              "width": 0.0,
+              "relative_l2": 0.13639888180978987,
+              "interval_score": 3.5382419813268053,
+              "mean": 0.7039670500136439
+            },
+            "acquired": {
+              "coverage": 0.0,
+              "width": 0.0,
+              "relative_l2": 0.002415665877508522,
+              "interval_score": 0.012510847079101908,
+              "mean": 0.19966631419479242
+            },
+            "withheld": {
+              "coverage": 0.0,
+              "width": 0.0,
+              "relative_l2": 0.07060374256775388,
+              "interval_score": 0.23211894135645356,
+              "mean": 0.29075497005009854
+            }
+          },
+          {
+            "density": {
+              "coverage": 0.10606060606060606,
+              "width": 0.05400533785192822,
+              "relative_l2": 0.23573460305624425,
+              "interval_score": 4.451178229226446,
+              "mean": 0.6891756446083003
+            },
+            "acquired": {
+              "coverage": 0.2454036770583533,
+              "width": 0.00042492692190134146,
+              "relative_l2": 0.0037045164446958124,
+              "interval_score": 0.014263327467835585,
+              "mean": 0.19942034724663096
+            },
+            "withheld": {
+              "coverage": 0.12403100775193798,
+              "width": 0.004598749954894559,
+              "relative_l2": 0.17410561963378027,
+              "interval_score": 0.34306582735237207,
+              "mean": 0.2927031641609127
+            }
+          },
+          {
+            "density": {
+              "coverage": 0.1111111111111111,
+              "width": 0.031346746930595894,
+              "relative_l2": 0.18852319972887033,
+              "interval_score": 4.020398479571009,
+              "mean": 0.6894115281666605
+            },
+            "acquired": {
+              "coverage": 0.17905675459632295,
+              "width": 0.0001301454783860818,
+              "relative_l2": 0.0025949967187649044,
+              "interval_score": 0.011392419212352777,
+              "mean": 0.19961111278510482
+            },
+            "withheld": {
+              "coverage": 0.09108527131782945,
+              "width": 0.002812910713409582,
+              "relative_l2": 0.1271923559286345,
+              "interval_score": 0.2938110325142024,
+              "mean": 0.29236978606925274
+            }
+          }
+        ],
+        "bounds_violations": 0
+      }
+    ],
+    "elapsed_seconds": 27.584440952000023
+  },
+  "source_artifacts_sha256": {
+    "provenance.json": "1b9871236806c998319fc932054ecacc1f656139ce71b0052d8a38b6ce6a5a3e",
+    "report.json": "102a13b5b3c41e7f0f5a9718dbbc815cb37702758cc07575108c5364dc6a531e",
+    "27101_moderate_14.4_20261101_reference.npz": "7b91a1d604cf80022bf1c19857d4a49634664db9604ee3c011d7b3f4cc9f0179",
+    "audit_cases.json": "157fda9926dd7dc28b54b8c69d39c213eca18a0f187a82072eaeb08cd6693c97",
+    "27101_elongated_14.4_20261101_joint.npz": "dfbaaf4398100e2616b713020d2b82f3ae8745372b1cddacf7acd9d2e2b1faeb",
+    "27101_moderate_14.4_20261101_density.npz": "ceddc6d1b5d0cd28d24a93946a895d0f5c0aee162c87a259c0b5b07271455f71",
+    "27101_moderate_72.0_20261101_joint.npz": "e1c3aec2a9b6a319671781d55ec130e3d0cdfb5a8145b6c2ae288f389fc204fd",
+    "reference.json": "008a5a38c1880c30dd0e48e590aeaa0a7d72c636e827ac1689f089f06cf785aa",
+    "27101_moderate_72.0_20261101_density.npz": "6bc1fcd27c24045ce2ad4e8599dee54f78d1d6b2ac6a1e29a6b5d2928d67a7c6",
+    "27101_elongated_72.0_20261101_density.npz": "cf06f8417716e84500ce4922c4e5e53c5da8f9a8442a40c72f745274852622f4",
+    "protocol.json": "3b1f524c37ac151251d7ac6b898385ec7885ec95c834c8cc6d353fbc5c84ff13",
+    "27101_elongated_72.0_20261101_joint.npz": "ad753e149706e5fc5ab85accb02795bba1443a3c9937a039514f882b5d49d36a",
+    "27101_moderate_14.4_20261101_joint.npz": "cd3b2d1bdcda7c1f591d9f3aaa58a1c9d561fe7084458f7ca5193f538ec9baa9",
+    "27101_elongated_72.0_20261101_reference.npz": "7f5a702c49a4a28b2c0730308544a15ca0a44c28f9494a0d727544463283ac15",
+    "27101_elongated_14.4_20261101_density.npz": "cc9ce5d934694fea477274b411a45ec1536a0e9f165146482ca286e989a5f5fb"
+  },
+  "plot_code_sha256": "260d80c7a53d47538014d4a6dc05b48b16ff1467ff398a2b8912b4ef132908a1"
+}

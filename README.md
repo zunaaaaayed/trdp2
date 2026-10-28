@@ -35,6 +35,62 @@ is the selected data source for subsequent work. The extracted TIFFs and recorde
 expansion is deferred. Existing pilot and TV results remain evidence for their
 original data convention and do not establish performance on the new dataset.
 
+## Week 6 — nonlinear inference audit and completion preparation (28 October)
+
+The focused [nonlinear posterior audit](experiments/worm_uncertainty/NONLINEAR_POSTERIOR.md)
+is complete. We tested the **actual bounded nonlinear target**, not just coverage
+from a propagated local covariance, on four declared noisy phantom cases. The
+existing truth-based geometry priors and fixed simulated noise scales are retained.
+
+| Joint proposal | Valid draws | Effective samples / 2,048 | Largest weight | Importance correction |
+|---|---:|---:|---:|---|
+| Moderate, start14.4° |100%|11.10|28.40%|Fail|
+| Moderate, start72° |100%|94.64|4.57%|Fail|
+| Elongated, start14.4° |93.41%|3.93|44.39%|Fail|
+| Elongated, start72° |84.81%|1.01|99.42%|Fail|
+
+Higher effective sample size and lower concentration are better. Predeclared
+screens require ESS≥400 and≥20% of draws, maximum weight≤2%, and batch stability.
+All joint corrections fail. Density-only weights are uniform (ESS≈2048), as
+expected for the conditional linear model; this verifies the calculation but
+does not resolve omitted geometry uncertainty. Original first1024 draws and
+covariances were reproduced exactly. No historical outcome or exclusion changed.
+
+![Joint proposal adequacy: all corrections fail](docs/figures/worm_uncertainty/nonlinear_posterior_v1/importance_diagnostics.png)
+
+Bounds alone do not explain failure: moderate proposals stay valid but still have
+concentrated weights. Elongated draws depart strongly from local predictions even
+inside bounds. Bound-valid truncation leaves acquired latent coverage only36.3%
+and13.5% at14.4°/72°. A constrained four-chain feasibility run also fails mixing:
+maximum split Rhat2.265/23.861 and minimum ESS5.03/4.01 for moderate14.4/elongated72.
+It respects bounds but is **not a validated reference posterior**. Weighted and
+short-chain intervals are diagnostic failures, not calibrated corrections.
+
+![Coverage, width and proper interval score must be read together](docs/figures/worm_uncertainty/nonlinear_posterior_v1/withheld_diagnostics.png)
+
+The audit plus feasibility run took100.62s on one CPU thread on liet, with peak
+RSS~544MiB. The next inference task is a separately tuned, target-preserving
+sampler that handles curvature; simply clipping samples or extending the stuck
+random walk is not supported. These four truth-prior phantom cases do not validate
+worm uncertainty, unseen modes, model mismatch or independent-specimen transfer.
+
+In parallel we prepared a [supervised completion protocol](experiments/worm_uncertainty/COMPLETION_PROTOCOL.md)
+and tested mask/noise/split infrastructure. The manifest reserves whole deformation
+blocks:96 train/24 validation/24 reserved, with a16/4/4-file first pilot. Numeric-ID
+proximity is only a grouping proxy, not verified deformation genealogy. Normalization
+is frozen from worm_004 development data. Reserved acquisitions separate new starts,
+new span and combined shifts; no reserved pixel arrays were opened this session.
+A one-slice development interpolation smoke gives20.56% withheld error, **not a
+transfer result or a comparable Gaussian-reconstruction benchmark**. No network
+was trained. Completion will initialize a scene; refinement must retain the same
+acquired observations, prior reference and budget. Predicted rays are not independent
+likelihood evidence. Matched acquired-input sampling remains an integration prerequisite.
+
+See the [primary-method follow-up](docs/literature/completion_direction_20261028.md),
+[per-case audit summary](docs/figures/worm_uncertainty/nonlinear_posterior_v1/summary.json)
+and [current continuation commands](experiments/worm_uncertainty/CONTINUATION.md).
+Restoration accuracy, inference validity and robustness remain separate research questions.
+
 ## Week 6 — optimization controls (started 24 October 2026)
 
 This reporting week began on **24 October 2026**. Following the
@@ -1416,7 +1472,7 @@ No earlier weekly report is reconstructed from unverified numbers.
 
 ## Project guide
 
-Start with the [next-week handoff](NEXT_WEEK.md) for current priorities and
+Start with the [current continuation](experiments/worm_uncertainty/CONTINUATION.md) for active priorities and
 [repository map](docs/REPOSITORY_MAP.md) for active versus historical material.
 
 - [Missing-wedge paper review and proposed next comparisons (27 October)](docs/literature/missing_wedge_papers_20261027.md)
@@ -1459,7 +1515,7 @@ The verified university stack used Python 3.9.23, PyTorch 2.1.2+cu118, CUDA 11.8
 NumPy 1.24.4, Open3D 0.18, and an RTX 4000 Ada GPU. The local Conda environment is
 named `trdp2-r2`. Native extensions and TIGRE must be checked on a new computer;
 copied compiled binaries are not assumed portable. Follow the
-[current handoff](NEXT_WEEK.md) before GPU execution.
+[current continuation](experiments/worm_uncertainty/CONTINUATION.md) before GPU execution.
 The Python package remains named `r2_gaussian` to preserve the verified baseline.
 
 After activating the research environment:

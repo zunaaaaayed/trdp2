@@ -1,0 +1,15 @@
+{
+  "parent_report_sha256": "9777a7fbdc15b93de40d36e8e0d3297d5ba126022e242a47f56e5ef71902a4b5",
+  "cases": ["27101_moderate_14.4_20261101", "27101_moderate_72.0_20261101", "27101_elongated_14.4_20261101", "27101_elongated_72.0_20261101"],
+  "samples": 2048,
+  "seed": 2026102701,
+  "budgets": [512, 1024, 2048],
+  "importance_adequacy": {"minimum_ess": 400, "minimum_ess_fraction": 0.2, "maximum_weight": 0.02, "maximum_batch_mean_sd_difference": 0.2, "maximum_batch_width_relative_difference": 0.2},
+  "adequacy_rationale": "Exploratory 95% intervals require at least ten effective draws per 2.5% tail (ESS 400), no single draw exceeding tail probability, and stable disjoint half-batch summaries. These necessary screens do not certify tail ESS or unseen-mode coverage. Report failed corrections as diagnostics only.",
+  "reference_cases": ["27101_moderate_14.4_20261101", "27101_elongated_72.0_20261101"],
+  "reference": {"chains": 4, "warmup": 300, "draws": 700, "step": 0.3365828278447966, "seed": 2026102801, "max_seconds": 600, "minimum_ess": 400, "maximum_split_rhat": 1.01},
+  "reference_design": "If any joint importance screen fails: bounded symmetric random-walk Metropolis in fixed local Gaussian coordinates, step 2.38/sqrt(50), no adaptation. Reject outside bounds; constant affine Jacobian cancels. Four starts: selected MAP, alternative accepted fit, and two feasible local perturbations. A short feasibility experiment, not a promised converged reference. Diagnose all 50 whitened coordinates, log target and sampled density/projection summaries. No truth/withheld tuning.",
+  "evaluation": "Reuse frozen Sobol and projection queries, foreground 5% truth peak. Density and acquired/withheld latent intervals; proper 95% interval score (lower better), mean relative L2, width and coverage. Weighted outputs remain labelled unreliable if adequacy fails. No noisy predictive coverage claim.",
+  "exclusion": "Preserve 27102_elongated_72.0_20261102 exclusion; no re-selection by truth or withheld outcomes.",
+  "budget": "One CPU thread, four proposal cases plus two short reference cases, <=600 seconds reference sampling; no GPU training. Fresh destination required."
+}

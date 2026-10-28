@@ -1,0 +1,19 @@
+{
+  "status": "data smoke passed; no neural training",
+  "roles": {
+    "train": 96,
+    "validation": 24,
+    "reserved": 24
+  },
+  "input_shape": [
+    7,
+    100,
+    310
+  ],
+  "acquired_angles": 67,
+  "development_interpolation_withheld_relative_l2": 0.2055619847234234,
+  "manifest_sha256": "9770a98ed544a2fd4cd6445a03e07d1552de6c8a6779728515780c5572189840",
+  "code_sha256": "4704becf5d9ce337950cbeb23a75eac77f95aae93a32f5b7a3641452d3276fee",
+  "source_sha256": "ba884c78bf659acc12df3390c9d6e69e16ddfb3187d5ba3607492790c69fd01d",
+  "reserved_pixels_read": false
+}
