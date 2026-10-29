@@ -39,6 +39,74 @@ The worm experiment files are organized into `core`, `data`, `studies`, `plots`,
 `tests`, `protocols` and `notes`; see the [directory guide](experiments/worm_uncertainty/README.md#file-organization)
 for current module commands and preserved historical provenance.
 
+## Week 6 — acquisition diversity and empirical error risk (28–29 October)
+
+The [frozen v3 design](experiments/worm_uncertainty/notes/ACQUISITION_DIVERSITY_V3.md)
+and [completed results](experiments/worm_uncertainty/notes/ACQUISITION_DIVERSITY_RESULTS_V3.md)
+use all 96 training deformations, 12 validation deformations for selection and 12
+for a later frozen development audit. Three paired seeds share architecture,
+initialization, example/noise schedules and 1,000-update budgets. A trains on
+restricted masks; B broadens masks with geometry channels; C broadens masks with
+geometry channels ablated. Actual mask hashes enforce acquisition separation.
+The 24 reserved files remain sealed; the audit group has historical exposure.
+
+| Missing clean-ray relative L2 ↓ | Interpolation | A: restricted | B: broad + geometry | C: broad + mask |
+|---|---:|---:|---:|---:|
+| Narrow selection acquisitions |63.79%|62.65%|**41.99%**|43.79%|
+| Narrow audit acquisitions |73.13%|65.89%|**41.05%**|42.80%|
+| Audit held orientations |59.92%|44.22%|**34.99%**|37.46%|
+| Audit held retained-angle counts |56.64%|40.33%|**34.24%**|35.72%|
+| Audit severe 72° extrapolation |84.46%|88.35%|49.42%|**48.78%**|
+
+Broader acquisition training improves narrow restoration beyond interpolation and
+restricted training, and the gain persists in the development audit. B improves
+all 12 audit deformations in every seed on the primary narrow group. Geometry
+conditioning adds a modest benefit, but does not win on every group. Familiar
+acquisitions still favor A (28.80% versus B's 31.40%). The larger-model condition
+was not met because training loss was still improving; capacity remains untested.
+
+![Acquisition diversity results](docs/figures/worm_uncertainty/acquisition_diversity_v3/grouped_errors.png)
+
+*Lower errors are better. Shared axes compare groups; error bars show three-seed
+variation, not confidence intervals for independent organisms.*
+
+![Sinogram, Fourier and FBP views](docs/figures/worm_uncertainty/acquisition_diversity_v3/fixed_views.png)
+
+*Fixed audit example with common scales across methods. Fourier panels map detector
+transforms into frequency directions. Clean sparse-grid FBP is a surrogate, not
+original voxel truth; improved sinograms do not prove correct 3D morphology.*
+
+Three-model disagreement provides a useful empirical error-risk ranking. At 50%
+retention, absolute clean-ray error is 0.1222 using disagreement, versus 0.1878 using
+angular distance and 0.2135 with random ranking; the advantage holds in all 12 audit
+files. A labeled post-audit tie-order sensitivity check retains the result. This
+is not a calibrated posterior or confidence interval, and clear failures remain:
+
+![Disagreement failure and ranking](docs/figures/worm_uncertainty/acquisition_diversity_v3/disagreement_failure.png)
+
+*An explicitly selected 72° extrapolation failure has error 3.688 but model SD
+0.030: the networks agree on a wrong peak. Smaller disagreement cannot certify accuracy.*
+
+The new Gaussian diagnostic completed two cases × three initializers × two starts.
+All 12 fits failed numerical acceptance. Refined withheld errors for acquired-only,
+interpolation and learned initialization were 25.96/26.31/27.13% on worm153 and
+19.06/25.38/25.22% on worm327. No accepted reconstruction benefit is established.
+The historical missing fit was appended separately; its failed conclusions remain.
+
+![Gaussian initialization and refinement](docs/figures/worm_uncertainty/acquisition_diversity_v3/gaussian_stages.png)
+
+*Lower withheld error is better. In the first case, a learned completion advantage
+survives Gaussian conversion but disappears during refinement. Equal starts fix
+accounting, while failed acceptance keeps the comparison exploratory.*
+
+Recorded workflow phases used 24.83 minutes of the 100-minute GPU ceiling, and
+Gaussian work used 8.63 minutes on one CPU thread. Peak training allocation was
+420 MiB on the 20 GiB RTX 4000 Ada. The sampler remains paused. One organism,
+provisional genealogy, absent voxel truth and unresolved projection scaling limit
+claims. See the [continuation](experiments/worm_uncertainty/notes/CONTINUATION.md)
+for exact verification/reproduction commands and the proposed single-case objective
+path diagnostic. The completed milestone is saved on `experiment/worm-uncertainty`.
+
 ## Week 6 — matched-input restoration pilot (28 October)
 
 The [frozen matched-input protocol](experiments/worm_uncertainty/notes/COMPLETION_MATCHED_V2.md)

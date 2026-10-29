@@ -1,0 +1,9 @@
+{
+  "batch_size": 256,
+  "updates": 1000,
+  "validation_frequency": 200,
+  "precision": "float32",
+  "profile_sha256": "02fbe831b19df3722da8f09a8cbd0d2e704ec9650f0183811541e39a6f7a27a0",
+  "estimated_training_seconds_per_seed": 144.3392175000099,
+  "maximum_seconds_per_seed": 390
+}

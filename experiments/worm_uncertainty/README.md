@@ -1,7 +1,40 @@
 # Worm uncertainty development
 
 
-## Current matched-input pilot — 28 October
+## Completed acquisition diversity experiment — v3, 29 October
+
+The [frozen protocol](notes/ACQUISITION_DIVERSITY_V3.md) and
+[results with plots](notes/ACQUISITION_DIVERSITY_RESULTS_V3.md) cover nine completed
+training runs, the frozen development audit, seed-disagreement analysis and the
+balanced Gaussian diagnostic. All 96 training files were used; selection and audit
+have 12 validation files each. The 24 reserved files remain sealed.
+
+Narrow audit errors: interpolation **73.13%**, restricted A **65.89%**, broad geometry
+B **41.05%**, broad mask-only C **42.80%**. B's improvement persists on held orientations
+and angle counts. Geometry has a modest, nonuniform benefit; familiar acquisitions
+favor A. Larger capacity was skipped under the prospective rule.
+
+Disagreement ranks missing-ray error better than angular distance in all 12 audit
+files at 50% retention, but a plotted false-reassurance case shows error 3.688 with
+model SD 0.030. This is an empirical ranking, not posterior calibration.
+
+All 12 balanced Gaussian fits failed numerical acceptance. Learned initialization
+did not establish an accepted reconstruction benefit. The old missing learned/421
+fit was appended separately, preserving its original 11-fit report and failures.
+No sampler was launched. **93 CPU tests and formatting/lint across 121 files pass**,
+along with artifact/metric verification and documentation links. The user authorized committing and pushing this completed milestone on 29 October.
+
+```bash
+python -m experiments.worm_uncertainty.studies.verify_acquisition_diversity
+python -m unittest discover -s experiments/worm_uncertainty/tests -t . -p 'test_*.py'
+```
+
+Raw arrays/checkpoints: `output/worm_uncertainty/acquisition_diversity_v3/` (ignored).
+Compact CSV/JSON and sinogram, Fourier, FBP, Gaussian and risk plots:
+`docs/figures/worm_uncertainty/acquisition_diversity_v3/`.
+See [continuation](notes/CONTINUATION.md) for exact phase commands and resource limits.
+
+## Historical matched-input pilot — v2, 28 October
 
 The [amended protocol](notes/COMPLETION_MATCHED_V2.md) fixes input sampling and
 angular context before training. The [completed results](notes/COMPLETION_RESULTS_V2.md)
