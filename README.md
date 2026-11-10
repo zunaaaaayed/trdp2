@@ -41,6 +41,12 @@ for current module commands and preserved historical provenance.
 
 ## Week 6 — acquisition diversity and empirical error risk (28–29 October)
 
+The **TRDP2 Week 6 report (24–30 October 2026)** is available as an eight-page
+[PDF](Reports/Week6/TRDP2_Week6.pdf) and [Overleaf-ready TeX](Reports/Week6/TRDP2_Week6.tex).
+It covers optimization controls, the nonlinear posterior audit, acquisition-diverse
+completion, empirical error-risk ranking and the final Gaussian comparison.
+Use XeLaTeX; the report folder contains only the TeX, PDF and its figures.
+
 The [frozen v3 design](experiments/worm_uncertainty/notes/ACQUISITION_DIVERSITY_V3.md)
 and [completed results](experiments/worm_uncertainty/notes/ACQUISITION_DIVERSITY_RESULTS_V3.md)
 use all 96 training deformations, 12 validation deformations for selection and 12

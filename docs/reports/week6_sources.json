@@ -1,0 +1,32 @@
+{
+  "source_commit": "c88712ca9f1dd25de0edd7512e45dab8cf66b3e1",
+  "sources": {
+    "docs/figures/worm_uncertainty/posterior_comparison_v1/summary.json": "7c6a8a1061eada0bcb4dd42bd1b2544dbe67b9765619707e17e763e60a462b92",
+    "docs/figures/worm_uncertainty/completion_matched_v2/summary.json": "f6dd93aa6ac88d97d548a9d8b851ea1026886d836144c2e745c4ad1ab6ebbabf",
+    "docs/figures/worm_uncertainty/acquisition_diversity_v3/summary.json": "427df2cd6feba6e43d898aecdba0fd056c0ae23fca186c34b2c48f84e7f1b4ef",
+    "output/worm_uncertainty/acquisition_diversity_v3/risk_sensitivity.json": "e5da3df28e7f5da9efde0472447237e58b43ef6a79fe4f8fccea6cd450137d9e",
+    "experiments/worm_uncertainty/protocols/acquisition_diversity_v3.json": "5826e7a7dade0fb424e3b0739cb835e86cb62a05b37a9e19315c8a3bc19ab408",
+    "output/worm_uncertainty/acquisition_diversity_v3/audit/inputs.npz": "7abc3324a02d94c26e4ee025cbbb7dd6c349e08be5325dc47803abc93d05bed4",
+    "output/worm_uncertainty/acquisition_diversity_v3/audit/clean.npy": "f86a15f190ea223559e0a57ae3467c2950f590b0f2f7b16251f13160974016a3",
+    "output/worm_uncertainty/acquisition_diversity_v3/audit/ensemble.npz": "d63713770db2d2fb7edd0eb5b48c5f260a166defc86cb1c2904ad5ce5554fcb8",
+    "output/worm_uncertainty/acquisition_diversity_v3/audit/B_2026102901.npy": "4eab3b4d56d51729926d2dd21f2480f402443f254b4c1ed65f0abdb07131bd44",
+    "output/worm_uncertainty/acquisition_diversity_v3/audit/B_2026102902.npy": "735cfee42c56a187afa2ef535191f8c6fcfc9aecd492facd9b9af3115467388d",
+    "output/worm_uncertainty/acquisition_diversity_v3/audit/B_2026102903.npy": "aa37cb2800adf35d5229be231aaf547622b41dd8e4cec565e4a161d90600b266",
+    "output/worm_uncertainty/acquisition_diversity_v3/refinement/worm_153_gt/inputs.npz": "294a19d46f937a3fe36505b73051bf623d9bd5dab357e3b30151b9bc1df819c7",
+    "output/worm_uncertainty/acquisition_diversity_v3/refinement/worm_153_gt/fits.json": "8b2d783affc3a98d3a11f2ebbe518cec69d1dbfcdf389efee0ef6428994fb74b",
+    "docs/figures/worm_uncertainty/worm_staged_v1/summary.json": "0efa694b8eea579f9db579a3b9902821fb9987271f6d7a3014ad212d356b5968",
+    "docs/figures/worm_uncertainty/scaled_acceptance_v1/summary.json": "a365d3bd032f4aca7935444cc088b32024ee2805358e79884c41cf4a475e1669",
+    "docs/figures/worm_uncertainty/nonlinear_posterior_v1/summary.json": "6126655c4bb7af9d9785e3ca1d5c36383522afb57df8fef9de9321a110ec81be",
+    "docs/figures/worm_uncertainty/completion_matched_v2/sampler_summary.json": "63d0ef7b3331d88b33ed751282ee288a43832263598e012b45a0f3fb84aff403",
+    "docs/figures/worm_uncertainty/acquisition_diversity_v3/descriptive_summary.json": "0e340ae663c032cbe4b83b5b778afc5351385e6e4d2b50fef8b90cfa8d579133"
+  },
+  "generator_sha256": "b215f6c351597971c3e0a0768cd73bfa1b98c781b4d430d288951b35cdca43e5",
+  "figures": {
+    "gaussian_density.pdf": "96ce00a3390bd3834caffb9b9d259e78ee91d62a1286b653b7b0742b818c2c69",
+    "pilot_generalization.pdf": "ca7d16e14d60a9f020769bfbd2c2f892ff2ebe2e77dc5d05cda5f2a0c122757d",
+    "projection_fourier_fbp.pdf": "3aef4f58c860162c169d6e9ac74fc6af833146472f51963c527086649a63dd1c",
+    "phantom_coverage.pdf": "3deb4c7ddaabf54b2ac002686130433788dd707e3205be2f5a1d62fd73bd1b34",
+    "disagreement_risk_failure.pdf": "ae298d8973bbc332052462a4ef8e9cc2e9146c0366bfccb3aa00ef60c6f19e7c"
+  },
+  "note": "All figures derive from saved results; no training, optimization or sampling rerun. Labels and compact layouts adapted for the report."
+}

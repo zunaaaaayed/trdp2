@@ -3,6 +3,10 @@
 
 ## Completed acquisition diversity experiment — v3, 29 October
 
+The [Week 6 report](../../Reports/Week6/TRDP2_Week6.pdf) summarizes the full weekly
+story, including earlier inference diagnostics. Its [TeX source](../../Reports/Week6/TRDP2_Week6.tex)
+and figures form a self-contained eight-page A4 report for XeLaTeX.
+
 The [frozen protocol](notes/ACQUISITION_DIVERSITY_V3.md) and
 [results with plots](notes/ACQUISITION_DIVERSITY_RESULTS_V3.md) cover nine completed
 training runs, the frozen development audit, seed-disagreement analysis and the
