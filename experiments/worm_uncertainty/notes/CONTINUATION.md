@@ -1,4 +1,31 @@
-# Current continuation — 29 October 2026
+# Current continuation — 10 November 2026
+
+Active work: [ICECREAM alternative reconstruction pilot](ICECREAM_PILOT_V1.md).
+Starting HEAD `36128bc` on `experiment/worm-uncertainty`; new work is not committed
+or pushed. Preserve existing dirty files and all ignored run artifacts.
+
+All five phantom and three worm acquisitions are complete. The original AMP
+failure and one frozen FP32 amendment are preserved. No training remains running.
+Final reports, arrays, checkpoints and provenance are under
+`output/worm_uncertainty/icecream_pilot_v1`; compact reports/figures are under
+`docs/results/worm_uncertainty/icecream_pilot_v1` and
+`docs/figures/worm_uncertainty/icecream_pilot_v1`. Do not restart these experiments.
+
+The isolated environment is
+`output/worm_uncertainty/alternative_reconstruction_sources/env/bin/python`.
+GPU access works outside the tool sandbox; do not diagnose a broken driver from
+sandbox-only CUDA failures. The old Gaussian environment remains unchanged.
+
+Latest interpretation and exact verification/reproduction commands:
+[ICECREAM_RESULTS_V1.md](ICECREAM_RESULTS_V1.md).
+Sampler work remains paused. No reserved outcomes, new Gaussian optimization,
+unrolled training or DeepDeWedge training is authorized by this continuation alone.
+The smallest proposed follow-up is a frozen known-volume Fourier-versus-CT input
+control, not an automatic extension of the current training budget.
+
+---
+
+# Historical continuation — 29 October 2026
 
 Week 6 began24 October. NEXT_WEEK.md remains the completed Weeks 4–5 summary and
 then-next-week plan. Root README is cumulative; this is the active handoff.

@@ -1,6 +1,39 @@
 # Worm uncertainty development
 
 
+## Alternative reconstruction pilot — 10 November
+
+The [ICECREAM protocol](notes/ICECREAM_PILOT_V1.md) and
+[results note](notes/ICECREAM_RESULTS_V1.md) document the new dense-grid voxel study.
+Core modules are `core/voxel_parallel.py` and `core/icecream_adapter.py`; data guards
+and contiguous slabs are in `data/alternative_reconstruction.py`. The
+`studies/icecream_pilot.py` runner preserves separate prepare/train/evaluate stages;
+`studies/run_icecream_pilot.py` supplies persistent bounded orchestration.
+`studies/verify_icecream_pilot.py` regenerates metrics and verifies provenance,
+inputs, masks, noise, checkpoints and common support. Plotting and compact result
+export use `plots/plot_icecream_pilot.py` and `studies/summarize_icecream_pilot.py`.
+
+This is per-scan self-supervised learning with two independent acquired noisy
+observations. The original 100-angle/310-detector grid and 64 contiguous axial
+planes replace the old sparse diagnostic input for this separately labeled study.
+No reserved outcomes, surrogate voxel targets, sampler or new Gaussian fits are used.
+The five completed phantom runs improve over FBP but lose to nonnegative SART on
+limited-angle volume and withheld error. The failed first worm AMP run is preserved;
+a frozen FP32 amendment keeps the same scientific configuration.
+
+The conditional unrolled model is deferred: the Fourier/discrete-CT mismatch needs
+a controlled diagnosis before broadening the method comparison. DeepDeWedge remains
+a future comparator with a feasibility note, not an implemented result.
+
+All eight acquisitions are now complete. SART has the lowest withheld error in all three worm acquisitions.
+The [full tables and interpretation](notes/ICECREAM_RESULTS_V1.md) include runtime,
+shared measurement information, the preserved AMP failure and FP32 amendment.
+
+![Completed comparison](../../docs/figures/worm_uncertainty/icecream_pilot_v1/comparison.png)
+
+*Errors are relative L2; lower is better for the indicated target. Worm voxel
+accuracy is unavailable. Training/inference completed within the declared cap.*
+
 ## Completed acquisition diversity experiment — v3, 29 October
 
 The [Week 6 report](../../Reports/Week6/TRDP2_Week6.pdf) summarizes the full weekly

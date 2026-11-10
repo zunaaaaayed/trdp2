@@ -1,8 +1,8 @@
 # TRDP2 — Limited-angle CT reconstruction generalization
 
 TRDP2 is [Md Zunayedul Islam](https://github.com/zunaaaaayed)'s research project
-on Gaussian-based CT reconstruction across limited-angle acquisition configurations
-and reconstruction uncertainty. This repository is maintained for TRDP2 research and
+on CT reconstruction across limited-angle acquisition configurations, including
+Gaussian and voxel representations, restoration and reconstruction uncertainty. This repository is maintained for TRDP2 research and
 experiments; it is not the official R²-Gaussian project or an upstream contribution.
 
 The reconstruction implementation originates from
@@ -38,6 +38,60 @@ original data convention and do not establish performance on the new dataset.
 The worm experiment files are organized into `core`, `data`, `studies`, `plots`,
 `tests`, `protocols` and `notes`; see the [directory guide](experiments/worm_uncertainty/README.md#file-organization)
 for current module commands and preserved historical provenance.
+
+## Alternative voxel reconstruction — ICECREAM pilot (10 November)
+
+We tested a direct voxel reconstruction method after the Week 6 Gaussian comparison
+failed numerical acceptance. The [frozen protocol](experiments/worm_uncertainty/notes/ICECREAM_PILOT_V1.md)
+and [results, method adaptations and reproduction commands](experiments/worm_uncertainty/notes/ICECREAM_RESULTS_V1.md)
+document an ICECREAM pilot on known 3D phantoms and contiguous worm slabs.
+It uses the original network and equivariant loss with explicit parallel-beam
+adapters. This is per-acquisition self-supervised training, not zero-shot inference.
+All methods receive the same two independently noisy acquired observations.
+
+Five phantom acquisitions completed at 2000 updates each. ICECREAM reduced
+limited-angle volume and withheld-projection errors relative to FBP, but
+**five-sweep nonnegative SART was better in every limited-angle phantom case**.
+The full-angle N2N control reduced volume error to 25.50%, versus SART's 30.13%.
+The discrete projector passes geometry/adjoint tests, but the idealized Fourier
+wedge differs substantially from finite-angle CT-FBP. This mismatch and the short
+training schedule limit conclusions about the original method.
+
+The first worm AMP attempt failed after six updates; its artifacts are preserved.
+An acquired-only precision diagnosis supports one documented FP32 attempt for the
+three already planned worm acquisitions, without changing their data, seeds,
+4000-update budget or final-checkpoint rule. Reserved deformations remain sealed.
+No posterior sampler, Gaussian sweep or new learned model family was launched.
+
+The three planned FP32 worm runs are now complete. All use the same two noisy
+observations as their matched classical baselines:
+
+| Worm: start/acquired span | Method | Withheld error (%) | Acquired residual (%) | Train + inference (s) | GPU peak (GiB) |
+|---|---|---:|---:|---:|---:|
+| worm_004, 0°/120° | FBP | 81.58 | 24.22 | 1.9 | 0.00 |
+| worm_004, 0°/120° | SART | 18.25 | 6.77 | 10.7 | 0.00 |
+| worm_004, 0°/120° | ICECREAM | 71.09 | 16.27 | 564.7 | 1.34 |
+| worm_012, 0°/90° | FBP | 85.40 | 31.48 | 2.2 | 0.00 |
+| worm_012, 0°/90° | SART | 24.29 | 7.09 | 10.4 | 0.00 |
+| worm_012, 0°/90° | ICECREAM | 84.28 | 29.02 | 563.7 | 1.34 |
+| worm_013, 36°/120° | FBP | 77.01 | 24.68 | 2.2 | 0.00 |
+| worm_013, 36°/120° | SART | 21.95 | 5.58 | 12.6 | 0.00 |
+| worm_013, 36°/120° | ICECREAM | 73.15 | 21.18 | 564.7 | 1.34 |
+
+SART has the lowest withheld error in all three worm acquisitions.
+This is a bounded negative result for the adapted ICECREAM pilot, not a general
+rejection of the original method. No calibrated uncertainty or physical worm-density
+claim follows. The next proposed control isolates Fourier-versus-CT input mismatch.
+
+![Matched voxel reconstruction comparison](docs/figures/worm_uncertainty/icecream_pilot_v1/comparison.png)
+
+*Volume truth exists only for phantoms. Withheld projection error is the worm
+accuracy measure; acquired noisy residual alone does not establish correctness.*
+
+![Worm measured and withheld projections](docs/figures/worm_uncertainty/icecream_pilot_v1/worm004_120_sinograms.png)
+
+*Common scales reveal the missing-ray defect. Lower absolute error is better;
+SART retains more of the withheld projection structure in this example.*
 
 ## Week 6 — acquisition diversity and empirical error risk (28–29 October)
 

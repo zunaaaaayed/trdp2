@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "date": "2026-11-10",
+  "starting_commit": "36128bc27c645f7b3314c36466731b6bea69479e",
+  "question": "Does per-acquisition self-supervised ICECREAM improve finite-angle reconstruction against matched FBP/SART?",
+  "regime": "Per-acquisition self-supervised reconstruction; new random model for every acquisition",
+  "manifest_sha256": "9770a98ed544a2fd4cd6445a03e07d1552de6c8a6779728515780c5572189840",
+  "case_selection": "First three train-role files in existing manifest order; prior intake and supervised training exposure; not pristine tests",
+  "reserved": "All 24 reserved files forbidden before IO",
+  "cases": [
+    {
+      "id": "phantom_base_full",
+      "kind": "phantom",
+      "phantom_seed": 1101,
+      "object_rotation": 0,
+      "start": 0,
+      "span": 180,
+      "noise_seeds": [
+        2026112112,
+        2026112122
+      ]
+    },
+    {
+      "id": "phantom_base_120",
+      "kind": "phantom",
+      "phantom_seed": 1101,
+      "object_rotation": 0,
+      "start": 0,
+      "span": 120,
+      "noise_seeds": [
+        2026112112,
+        2026112122
+      ]
+    },
+    {
+      "id": "phantom_base_90",
+      "kind": "phantom",
+      "phantom_seed": 1101,
+      "object_rotation": 0,
+      "start": 0,
+      "span": 90,
+      "noise_seeds": [
+        2026112112,
+        2026112122
+      ]
+    },
+    {
+      "id": "phantom_independent_90",
+      "kind": "phantom",
+      "phantom_seed": 1102,
+      "object_rotation": 27,
+      "start": 0,
+      "span": 90,
+      "noise_seeds": [
+        2026112113,
+        2026112123
+      ]
+    },
+    {
+      "id": "phantom_rotated_120",
+      "kind": "phantom",
+      "phantom_seed": 1103,
+      "object_rotation": -23,
+      "start": 36,
+      "span": 120,
+      "noise_seeds": [
+        2026112114,
+        2026112124
+      ]
+    },
+    {
+      "id": "worm004_120",
+      "kind": "worm",
+      "file": "worm_004_gt.tiff",
+      "start": 0,
+      "span": 120,
+      "noise_seeds": [
+        2026111031,
+        2026111041
+      ]
+    },
+    {
+      "id": "worm012_90",
+      "kind": "worm",
+      "file": "worm_012_gt.tiff",
+      "start": 0,
+      "span": 90,
+      "noise_seeds": [
+        2026111031,
+        2026111041
+      ]
+    },
+    {
+      "id": "worm013_rotated120",
+      "kind": "worm",
+      "file": "worm_013_gt.tiff",
+      "start": 36,
+      "span": 120,
+      "noise_seeds": [
+        2026111031,
+        2026111041
+      ]
+    }
+  ],
+  "angles_deg": [
+    0.0,
+    1.8,
+    3.6,
+    5.4,
+    7.2,
+    9.0,
+    10.8,
+    12.6,
+    14.4,
+    16.2,
+    18.0,
+    19.8,
+    21.6,
+    23.4,
+    25.2,
+    27.0,
+    28.8,
+    30.6,
+    32.4,
+    34.2,
+    36.0,
+    37.8,
+    39.6,
+    41.4,
+    43.2,
+    45.0,
+    46.8,
+    48.6,
+    50.4,
+    52.2,
+    54.0,
+    55.8,
+    57.6,
+    59.4,
+    61.2,
+    63.0,
+    64.8,
+    66.6,
+    68.4,
+    70.2,
+    72.0,
+    73.8,
+    75.6,
+    77.4,
+    79.2,
+    81.0,
+    82.8,
+    84.6,
+    86.4,
+    88.2,
+    90.0,
+    91.8,
+    93.6,
+    95.4,
+    97.2,
+    99.0,
+    100.8,
+    102.6,
+    104.4,
+    106.2,
+    108.0,
+    109.8,
+    111.6,
+    113.4,
+    115.2,
+    117.0,
+    118.8,
+    120.6,
+    122.4,
+    124.2,
+    126.0,
+    127.8,
+    129.6,
+    131.4,
+    133.2,
+    135.0,
+    136.8,
+    138.6,
+    140.4,
+    142.2,
+    144.0,
+    145.8,
+    147.6,
+    149.4,
+    151.2,
+    153.0,
+    154.8,
+    156.6,
+    158.4,
+    160.2,
+    162.0,
+    163.8,
+    165.6,
+    167.4,
+    169.2,
+    171.0,
+    172.8,
+    174.6,
+    176.4,
+    178.2
+  ],
+  "angle_endpoint": "[0,180); modular start <= theta < start+span",
+  "geometry": {
+    "axes": "z,y,x volume; z,angle,detector TIFF; upstream computational x,y,z",
+    "slab": [
+      224,
+      288
+    ],
+    "spacing_um": [
+      1,
+      1,
+      1
+    ],
+    "detectors": 310,
+    "detector_centres": "j-(D-1)/2, centre 154.5",
+    "sampling": "all original angle/detector point samples, no averaging/resampling",
+    "support": "310x310 circular x-y support, 64 contiguous z; unknown simulator scaling",
+    "phantom_shape": [
+      64,
+      64,
+      64
+    ]
+  },
+  "normalization": {
+    "projection_scale": 6180.275452553537,
+    "provenance": "original worm004 development scale; no new clean-data normalization",
+    "network_volume_gain": 64
+  },
+  "noise": {
+    "sigma_each": 0.05,
+    "sigma_pair_average": 0.035355339059327376,
+    "construction": "two independent Gaussian full-grid draws from clean acquired signal, mask afterward; independent full fields never observed outside acquired mask"
+  },
+  "baselines": {
+    "fbp": "ramp; original 1.8deg quadrature, no pi/span renormalization; same pair average",
+    "sart": {
+      "sweeps": 5,
+      "relaxation": 0.5,
+      "initialization": "zero",
+      "constraint": "nonnegative circular support",
+      "angle_order": "ascending original indices"
+    },
+    "tv": "omitted: no verified matching regularized voxel baseline available",
+    "historical_cnn": "omitted: 25x62 input and spaced slices do not match this new dense acquisition"
+  },
+  "training": {
+    "official_commit": "39c891a55af3e1cd96ef0d585668b0c2af4c177d",
+    "architecture": "official default unet3d_bf, 4 levels, f_maps64, bias-free cr, no dropout layer unless included by cr",
+    "batch_size": 1,
+    "learning_rate": 0.0001,
+    "eq_weight": 2,
+    "full_angle_control": "same network N2N with eq_weight=0; no wedge-changing symmetries",
+    "patch_candidates": [
+      32,
+      48
+    ],
+    "seed": 2026111001,
+    "checkpoint": "fixed final update from training-only profile; no withheld or truth selection",
+    "patch_roi_worm_xy": [
+      91,
+      219
+    ],
+    "patch_roi_phantom": "entire volume",
+    "pair_normalization": "fixed gain only, no per-observation random affine standardization",
+    "precision": "AMP only if loss relative difference<=0.02 and full gradient relative difference<=0.05, all finite; otherwise FP32",
+    "budget_freeze": "largest passing patch with >=3GiB free headroom; phantom min(2000,floor(240/step_seconds/25)*25), worm min(4000,floor(600/step_seconds/25)*25); at least100 else technical stop",
+    "inference": "original two-pass expression and central-half overlap; streaming FP32 accumulation"
+  },
+  "caps": {
+    "total_gpu_seconds": 10800,
+    "smoke_gpu_seconds": 900,
+    "phantom_gpu_seconds": 1800,
+    "initial_worm_gpu_seconds": 1800,
+    "additional_gpu_seconds": 4500,
+    "unrolled_gpu_seconds": 1800,
+    "phantom_case_train_seconds": 270,
+    "phantom_case_inference_seconds": 90,
+    "worm_case_train_seconds": 900,
+    "worm_case_inference_seconds": 300,
+    "preprocessing_cpu_seconds": 1800,
+    "cpu_threads": 2
+  },
+  "progression": {
+    "geometry": "adjoint relative error<1e-11, 180deg reversal<1e-11, smooth analytic projection<0.06, full-angle scale error<0.06, shift error<0.5px; finite loss and nonzero finite gradients",
+    "phantoms": "run first three acquisitions before independent objects; settings already frozen, no tuning on truth",
+    "worm": "proceed after geometry and loss pass; absence of benefit is reportable, not grounds to tune",
+    "extra_cases": "up to two, same settings, only after initial worm finite completed training/inference",
+    "stop": "operator convention/scale failure or nonfinite training blocks dependent stages; preserve failure",
+    "unrolled": "secondary, skip for unresolved operator/model mismatch or primary budget; do not copy unlicensed official code",
+    "reliability_seeds": "optional, no automatic extension; otherwise noise/seed sensitivity untested"
+  },
+  "evaluation": {
+    "metrics": [
+      "volume_relative_l2",
+      "volume_rmse",
+      "foreground_relative_l2 (truth>10%maximum)",
+      "withheld_clean_projection_relative_l2",
+      "acquired_clean_relative_l2",
+      "acquired_noisy_residual",
+      "negative_voxel_fraction",
+      "runtime",
+      "memory"
+    ],
+    "unit": "case; voxels/slices are not independent specimens",
+    "selection": "none: save final output then open truth/withheld evaluation",
+    "plots": "fixed central orthogonal planes, common method scales, signed/absolute errors, FFT slice, sinograms, learning curves",
+    "rotational_assumption": "measure axis gradient-energy ratios on known volumes and acquired-only FBP; diagnostic, not invariance proof",
+    "fourier_model": "ideal continuous wedge differs from sampled CT+FBP and noncommuting cropping; quantify on known smooth/mixed phantoms",
+    "claim": "deterministic restoration; no calibration, physical worm density or independent-organism claim"
+  }
+}
