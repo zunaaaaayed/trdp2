@@ -1,0 +1,681 @@
+[
+  {
+    "name": "python",
+    "version": "3.9.23",
+    "build": "hc30ae73_0_cpython",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/python-3.9.23-hc30ae73_0_cpython.conda"
+  },
+  {
+    "name": "nsight-compute",
+    "version": "2022.3.0.22",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/nsight-compute-2022.3.0.22-0.tar.bz2"
+  },
+  {
+    "name": "libcufile-dev",
+    "version": "1.4.0.31",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcufile-dev-1.4.0.31-0.tar.bz2"
+  },
+  {
+    "name": "ld_impl_linux-64",
+    "version": "2.40",
+    "build": "hf3520f5_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.40-hf3520f5_7.conda"
+  },
+  {
+    "name": "icu",
+    "version": "78.3",
+    "build": "py310h44b86e0_2",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/icu-78.3-py310h44b86e0_2.conda"
+  },
+  {
+    "name": "gcc_impl_linux-64",
+    "version": "11.4.0",
+    "build": "h00c12a0_13",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/gcc_impl_linux-64-11.4.0-h00c12a0_13.conda"
+  },
+  {
+    "name": "libcurand",
+    "version": "10.3.0.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcurand-10.3.0.86-0.tar.bz2"
+  },
+  {
+    "name": "binutils_impl_linux-64",
+    "version": "2.40",
+    "build": "ha1999f0_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/binutils_impl_linux-64-2.40-ha1999f0_7.conda"
+  },
+  {
+    "name": "libstdcxx",
+    "version": "16.2.0",
+    "build": "h934c35e_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-16.2.0-h934c35e_7.conda"
+  },
+  {
+    "name": "cuda-cudart",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-cudart-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "ncurses",
+    "version": "6.6",
+    "build": "hdb14827_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda"
+  },
+  {
+    "name": "cuda-cupti",
+    "version": "11.8.87",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-cupti-11.8.87-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvdisasm",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvdisasm-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "cuda-command-line-tools",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-command-line-tools-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvprune",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvprune-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "libcufft-dev",
+    "version": "10.9.0.58",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcufft-dev-10.9.0.58-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvcc",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvcc-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "cuda-cudart-dev",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-cudart-dev-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "bzip2",
+    "version": "1.0.8",
+    "build": "hda65f42_10",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-hda65f42_10.conda"
+  },
+  {
+    "name": "libgcc-ng",
+    "version": "16.2.0",
+    "build": "h69a702a_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libgcc-ng-16.2.0-h69a702a_7.conda"
+  },
+  {
+    "name": "liblapack",
+    "version": "3.11.0",
+    "build": "11_h47877c9_openblas",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/liblapack-3.11.0-11_h47877c9_openblas.conda"
+  },
+  {
+    "name": "libstdcxx-devel_linux-64",
+    "version": "11.4.0",
+    "build": "h8f596e0_113",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/libstdcxx-devel_linux-64-11.4.0-h8f596e0_113.conda"
+  },
+  {
+    "name": "cuda-documentation",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-documentation-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "cuda-memcheck",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-memcheck-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "ca-certificates",
+    "version": "2026.7.22",
+    "build": "hbd8a1cb_0",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.7.22-hbd8a1cb_0.conda"
+  },
+  {
+    "name": "cuda-nvprof",
+    "version": "11.8.87",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvprof-11.8.87-0.tar.bz2"
+  },
+  {
+    "name": "libcusolver-dev",
+    "version": "11.4.1.48",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcusolver-dev-11.4.1.48-0.tar.bz2"
+  },
+  {
+    "name": "python_abi",
+    "version": "3.9",
+    "build": "9_cp39",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/python_abi-3.9-9_cp39.conda"
+  },
+  {
+    "name": "gcc_linux-64",
+    "version": "11.4.0",
+    "build": "ha077dfb_4",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/gcc_linux-64-11.4.0-ha077dfb_4.conda"
+  },
+  {
+    "name": "cuda-cccl",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-cccl-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "libnvjpeg-dev",
+    "version": "11.9.0.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libnvjpeg-dev-11.9.0.86-0.tar.bz2"
+  },
+  {
+    "name": "libcufile",
+    "version": "1.4.0.31",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcufile-1.4.0.31-0.tar.bz2"
+  },
+  {
+    "name": "cuda-libraries",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-libraries-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "_openmp_mutex",
+    "version": "4.5",
+    "build": "20_gnu",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda"
+  },
+  {
+    "name": "libstdcxx-ng",
+    "version": "16.2.0",
+    "build": "hdf11a46_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-ng-16.2.0-hdf11a46_7.conda"
+  },
+  {
+    "name": "libnsl",
+    "version": "2.0.1",
+    "build": "hb9d3cd8_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libnsl-2.0.1-hb9d3cd8_1.conda"
+  },
+  {
+    "name": "libcublas",
+    "version": "11.11.3.6",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcublas-11.11.3.6-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvml-dev",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvml-dev-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvrtc-dev",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvrtc-dev-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "cuda-libraries-dev",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-libraries-dev-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "cuda-visual-tools",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-visual-tools-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "libcublas-dev",
+    "version": "11.11.3.6",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcublas-dev-11.11.3.6-0.tar.bz2"
+  },
+  {
+    "name": "cuda-profiler-api",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-profiler-api-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "libxcrypt",
+    "version": "4.4.38",
+    "build": "h280c20c_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libxcrypt-4.4.38-h280c20c_0.conda"
+  },
+  {
+    "name": "libopenblas",
+    "version": "0.3.34",
+    "build": "pthreads_hf13c14d_2",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.34-pthreads_hf13c14d_2.conda"
+  },
+  {
+    "name": "cuda-tools",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-tools-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "libgomp",
+    "version": "16.2.0",
+    "build": "he0feb66_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libgomp-16.2.0-he0feb66_7.conda"
+  },
+  {
+    "name": "cuda-nvtx",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvtx-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "pip",
+    "version": "24.3.1",
+    "build": "pyh8b19718_2",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/pip-24.3.1-pyh8b19718_2.conda"
+  },
+  {
+    "name": "libnvjpeg",
+    "version": "11.9.0.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libnvjpeg-11.9.0.86-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvvp",
+    "version": "11.8.87",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvvp-11.8.87-0.tar.bz2"
+  },
+  {
+    "name": "libsanitizer",
+    "version": "11.4.0",
+    "build": "h5763a12_13",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libsanitizer-11.4.0-h5763a12_13.conda"
+  },
+  {
+    "name": "libgfortran5",
+    "version": "16.2.0",
+    "build": "h6b99dfc_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-16.2.0-h6b99dfc_7.conda"
+  },
+  {
+    "name": "libblas",
+    "version": "3.11.0",
+    "build": "11_h4a7cf45_openblas",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libblas-3.11.0-11_h4a7cf45_openblas.conda"
+  },
+  {
+    "name": "cuda-driver-dev",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-driver-dev-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nsight-compute",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nsight-compute-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "libcusparse-dev",
+    "version": "11.7.5.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcusparse-dev-11.7.5.86-0.tar.bz2"
+  },
+  {
+    "name": "libcusparse",
+    "version": "11.7.5.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcusparse-11.7.5.86-0.tar.bz2"
+  },
+  {
+    "name": "readline",
+    "version": "8.3",
+    "build": "hd6e31c0_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/readline-8.3-hd6e31c0_1.conda"
+  },
+  {
+    "name": "libgcc-devel_linux-64",
+    "version": "11.4.0",
+    "build": "h8f596e0_113",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/libgcc-devel_linux-64-11.4.0-h8f596e0_113.conda"
+  },
+  {
+    "name": "cuda-sanitizer-api",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-sanitizer-api-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "libcufft",
+    "version": "10.9.0.58",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcufft-10.9.0.58-0.tar.bz2"
+  },
+  {
+    "name": "cuda-nvrtc",
+    "version": "11.8.89",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nvrtc-11.8.89-0.tar.bz2"
+  },
+  {
+    "name": "ninja",
+    "version": "1.13.2",
+    "build": "h171cf75_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/ninja-1.13.2-h171cf75_1.conda"
+  },
+  {
+    "name": "gxx_linux-64",
+    "version": "11.4.0",
+    "build": "h35bfe5d_4",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/gxx_linux-64-11.4.0-h35bfe5d_4.conda"
+  },
+  {
+    "name": "libffi",
+    "version": "3.7.0",
+    "build": "h81df57d_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libffi-3.7.0-h81df57d_1.conda"
+  },
+  {
+    "name": "libnpp",
+    "version": "11.8.0.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libnpp-11.8.0.86-0.tar.bz2"
+  },
+  {
+    "name": "libcusolver",
+    "version": "11.4.1.48",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcusolver-11.4.1.48-0.tar.bz2"
+  },
+  {
+    "name": "numpy",
+    "version": "1.24.4",
+    "build": "py39h6183b62_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/numpy-1.24.4-py39h6183b62_0.conda"
+  },
+  {
+    "name": "gds-tools",
+    "version": "1.4.0.31",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/gds-tools-1.4.0.31-0.tar.bz2"
+  },
+  {
+    "name": "libexpat",
+    "version": "2.8.5",
+    "build": "hd2095e1_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.8.5-hd2095e1_0.conda"
+  },
+  {
+    "name": "libnpp-dev",
+    "version": "11.8.0.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libnpp-dev-11.8.0.86-0.tar.bz2"
+  },
+  {
+    "name": "setuptools",
+    "version": "72.1.0",
+    "build": "pyhd8ed1ab_0",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/setuptools-72.1.0-pyhd8ed1ab_0.conda"
+  },
+  {
+    "name": "liblzma",
+    "version": "5.8.3",
+    "build": "hb03c661_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/liblzma-5.8.3-hb03c661_1.conda"
+  },
+  {
+    "name": "libgfortran",
+    "version": "16.2.0",
+    "build": "h69a702a_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libgfortran-16.2.0-h69a702a_7.conda"
+  },
+  {
+    "name": "gxx_impl_linux-64",
+    "version": "11.4.0",
+    "build": "h634f3ee_13",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/gxx_impl_linux-64-11.4.0-h634f3ee_13.conda"
+  },
+  {
+    "name": "libcurand-dev",
+    "version": "10.3.0.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/libcurand-dev-10.3.0.86-0.tar.bz2"
+  },
+  {
+    "name": "libuuid",
+    "version": "2.42.4",
+    "build": "hcfc3c73_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libuuid-2.42.4-hcfc3c73_0.conda"
+  },
+  {
+    "name": "binutils_linux-64",
+    "version": "2.40",
+    "build": "hb3c18ed_4",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/binutils_linux-64-2.40-hb3c18ed_4.conda"
+  },
+  {
+    "name": "libsqlite",
+    "version": "3.53.4",
+    "build": "h13e7031_1",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libsqlite-3.53.4-h13e7031_1.conda"
+  },
+  {
+    "name": "wheel",
+    "version": "0.45.1",
+    "build": "pyhd8ed1ab_1",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/wheel-0.45.1-pyhd8ed1ab_1.conda"
+  },
+  {
+    "name": "cuda-nsight",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-nsight-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "cuda-compiler",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-compiler-11.8.0-0.tar.bz2"
+  },
+  {
+    "name": "libgcc",
+    "version": "16.2.0",
+    "build": "ha9f2e26_7",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libgcc-16.2.0-ha9f2e26_7.conda"
+  },
+  {
+    "name": "tk",
+    "version": "8.6.13",
+    "build": "noxft_h1df4ec4_4",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/tk-8.6.13-noxft_h1df4ec4_4.conda"
+  },
+  {
+    "name": "libevent",
+    "version": "2.1.12",
+    "build": "h5348a74_2",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libevent-2.1.12-h5348a74_2.conda"
+  },
+  {
+    "name": "libzlib",
+    "version": "1.3.2",
+    "build": "h25fd6f3_3",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libzlib-1.3.2-h25fd6f3_3.conda"
+  },
+  {
+    "name": "kernel-headers_linux-64",
+    "version": "6.12.0",
+    "build": "he073ed8_6",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/kernel-headers_linux-64-6.12.0-he073ed8_6.conda"
+  },
+  {
+    "name": "libcblas",
+    "version": "3.11.0",
+    "build": "11_h0358290_openblas",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libcblas-3.11.0-11_h0358290_openblas.conda"
+  },
+  {
+    "name": "tmux",
+    "version": "3.7_",
+    "build": "hb764a82_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/tmux-3.7_-hb764a82_0.conda"
+  },
+  {
+    "name": "cuda-cuobjdump",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-cuobjdump-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "cuda-gdb",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-gdb-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "tzdata",
+    "version": "2026c",
+    "build": "h151e31d_0",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/tzdata-2026c-h151e31d_0.conda"
+  },
+  {
+    "name": "openssl",
+    "version": "3.6.4",
+    "build": "h781a0a9_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/openssl-3.6.4-h781a0a9_0.conda"
+  },
+  {
+    "name": "cuda-cuxxfilt",
+    "version": "11.8.86",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-cuxxfilt-11.8.86-0.tar.bz2"
+  },
+  {
+    "name": "sysroot_linux-64",
+    "version": "2.39",
+    "build": "hc4b9eeb_6",
+    "channel": "https://conda.anaconda.org/conda-forge/noarch",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/sysroot_linux-64-2.39-hc4b9eeb_6.conda"
+  },
+  {
+    "name": "cuda-toolkit",
+    "version": "11.8.0",
+    "build": "0",
+    "channel": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64",
+    "url": "https://conda.anaconda.org/nvidia/label/cuda-11.8.0/linux-64/cuda-toolkit-11.8.0-0.tar.bz2"
+  }
+]

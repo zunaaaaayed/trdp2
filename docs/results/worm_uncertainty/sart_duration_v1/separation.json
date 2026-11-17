@@ -1,0 +1,1010 @@
+[
+  {
+    "object": 0,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1884375625823831,
+    "projected_distance_to_zero": 0.005047358661868165
+  },
+  {
+    "object": 1,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.10908227093384801,
+    "projected_distance_to_zero": 0.0020959393593685044
+  },
+  {
+    "object": 2,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.21505724571776105,
+    "projected_distance_to_zero": 0.004405351858057576
+  },
+  {
+    "object": 3,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1773932593861155,
+    "projected_distance_to_zero": 0.002753577636979645
+  },
+  {
+    "object": 4,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.11175139196403751,
+    "projected_distance_to_zero": 0.002376320007795479
+  },
+  {
+    "object": 5,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.15743923644317726,
+    "projected_distance_to_zero": 0.004250587572528941
+  },
+  {
+    "object": 6,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.20769380361910922,
+    "projected_distance_to_zero": 0.006769597015355789
+  },
+  {
+    "object": 7,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.11869752868474254,
+    "projected_distance_to_zero": 0.0018763053316538311
+  },
+  {
+    "object": 8,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.16973458621698706,
+    "projected_distance_to_zero": 0.003617030729380766
+  },
+  {
+    "object": 9,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.06576046530455328,
+    "projected_distance_to_zero": 0.0016554189268112556
+  },
+  {
+    "object": 10,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.18037460730829288,
+    "projected_distance_to_zero": 0.005100671330568667
+  },
+  {
+    "object": 11,
+    "mask_index": 0,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.12641491189606582,
+    "projected_distance_to_zero": 0.0033172379353687454
+  },
+  {
+    "object": 0,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04752172405331075,
+    "projected_distance_to_zero": 0.0016720811942640811
+  },
+  {
+    "object": 1,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06991904714433764,
+    "projected_distance_to_zero": 0.0028435982899297227
+  },
+  {
+    "object": 2,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.07711712843691135,
+    "projected_distance_to_zero": 0.0017189544826671007
+  },
+  {
+    "object": 3,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.11431107111321295,
+    "projected_distance_to_zero": 0.002778186146056176
+  },
+  {
+    "object": 4,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.10345362342932601,
+    "projected_distance_to_zero": 0.002932552308968121
+  },
+  {
+    "object": 5,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.024039325546090357,
+    "projected_distance_to_zero": 0.0007845800089101152
+  },
+  {
+    "object": 6,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05495235665807811,
+    "projected_distance_to_zero": 0.0020683304597850396
+  },
+  {
+    "object": 7,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03234677844909442,
+    "projected_distance_to_zero": 0.0005380241073323246
+  },
+  {
+    "object": 8,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.08540305110060833,
+    "projected_distance_to_zero": 0.0027397207405536923
+  },
+  {
+    "object": 9,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.02404848114773296,
+    "projected_distance_to_zero": 0.0004567938898433568
+  },
+  {
+    "object": 10,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.08126131420045168,
+    "projected_distance_to_zero": 0.0023812230497716746
+  },
+  {
+    "object": 11,
+    "mask_index": 0,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.0379139264577752,
+    "projected_distance_to_zero": 0.0007908008829146408
+  },
+  {
+    "object": 0,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.10034841592096745,
+    "projected_distance_to_zero": 0.0025768601807442462
+  },
+  {
+    "object": 1,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08878747005174775,
+    "projected_distance_to_zero": 0.0021050153988564765
+  },
+  {
+    "object": 2,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.10186042677473003,
+    "projected_distance_to_zero": 0.0030342951724569253
+  },
+  {
+    "object": 3,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.0606629366482689,
+    "projected_distance_to_zero": 0.001138739105752539
+  },
+  {
+    "object": 4,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08965715467616589,
+    "projected_distance_to_zero": 0.001123292749758838
+  },
+  {
+    "object": 5,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.0947199860809915,
+    "projected_distance_to_zero": 0.0024109486660396123
+  },
+  {
+    "object": 6,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08844867062672686,
+    "projected_distance_to_zero": 0.0033606307246625833
+  },
+  {
+    "object": 7,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.07805122155152308,
+    "projected_distance_to_zero": 0.0012684770298173648
+  },
+  {
+    "object": 8,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.09787904673622246,
+    "projected_distance_to_zero": 0.0019043123236103616
+  },
+  {
+    "object": 9,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.047832813176494036,
+    "projected_distance_to_zero": 0.0011929793633810525
+  },
+  {
+    "object": 10,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.13262806010744743,
+    "projected_distance_to_zero": 0.003796085848115228
+  },
+  {
+    "object": 11,
+    "mask_index": 1,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.05877240119472022,
+    "projected_distance_to_zero": 0.001115100165569603
+  },
+  {
+    "object": 0,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.02622981987518418,
+    "projected_distance_to_zero": 0.0010659612876620732
+  },
+  {
+    "object": 1,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03315976651258675,
+    "projected_distance_to_zero": 0.0010156457577128982
+  },
+  {
+    "object": 2,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05250175598861338,
+    "projected_distance_to_zero": 0.0015411961898465444
+  },
+  {
+    "object": 3,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03606475802704979,
+    "projected_distance_to_zero": 0.0006023095057376738
+  },
+  {
+    "object": 4,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.033841905719813305,
+    "projected_distance_to_zero": 0.0007128603168864721
+  },
+  {
+    "object": 5,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.017858114378883412,
+    "projected_distance_to_zero": 0.0005899080786450275
+  },
+  {
+    "object": 6,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.017930506967513915,
+    "projected_distance_to_zero": 0.000981782688312538
+  },
+  {
+    "object": 7,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.021894444972739097,
+    "projected_distance_to_zero": 0.0005073744339464528
+  },
+  {
+    "object": 8,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04009374625420712,
+    "projected_distance_to_zero": 0.0015584201130622243
+  },
+  {
+    "object": 9,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.016205597262691437,
+    "projected_distance_to_zero": 0.0005131023241816192
+  },
+  {
+    "object": 10,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06701428183955689,
+    "projected_distance_to_zero": 0.00209290939638257
+  },
+  {
+    "object": 11,
+    "mask_index": 1,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.033052204768795515,
+    "projected_distance_to_zero": 0.0005676135291773932
+  },
+  {
+    "object": 0,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.16796923427918373,
+    "projected_distance_to_zero": 0.0035889989304886626
+  },
+  {
+    "object": 1,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.14295293411436585,
+    "projected_distance_to_zero": 0.003923157496311545
+  },
+  {
+    "object": 2,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.20012815202446788,
+    "projected_distance_to_zero": 0.003706131197679641
+  },
+  {
+    "object": 3,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1285154411815478,
+    "projected_distance_to_zero": 0.0020695103621932776
+  },
+  {
+    "object": 4,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.09609906375023529,
+    "projected_distance_to_zero": 0.0015932685600315328
+  },
+  {
+    "object": 5,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1245021353355506,
+    "projected_distance_to_zero": 0.0034132203822138216
+  },
+  {
+    "object": 6,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.2011703364354741,
+    "projected_distance_to_zero": 0.006525119088737649
+  },
+  {
+    "object": 7,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1139623663399661,
+    "projected_distance_to_zero": 0.0018392268919837028
+  },
+  {
+    "object": 8,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.17510072802941867,
+    "projected_distance_to_zero": 0.0034086277351725535
+  },
+  {
+    "object": 9,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.09444344447194898,
+    "projected_distance_to_zero": 0.0024965934613984907
+  },
+  {
+    "object": 10,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1592589924012426,
+    "projected_distance_to_zero": 0.0059139962574035225
+  },
+  {
+    "object": 11,
+    "mask_index": 2,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1351405624149026,
+    "projected_distance_to_zero": 0.0031238611366126035
+  },
+  {
+    "object": 0,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.10210741799182421,
+    "projected_distance_to_zero": 0.0038303297861362394
+  },
+  {
+    "object": 1,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06961345944722444,
+    "projected_distance_to_zero": 0.0035282843488329847
+  },
+  {
+    "object": 2,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.0775902576753714,
+    "projected_distance_to_zero": 0.0018261492266753588
+  },
+  {
+    "object": 3,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06551080769850082,
+    "projected_distance_to_zero": 0.001694379730057248
+  },
+  {
+    "object": 4,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.07184435049385193,
+    "projected_distance_to_zero": 0.001877964505402582
+  },
+  {
+    "object": 5,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04011083231168029,
+    "projected_distance_to_zero": 0.0015588023394757548
+  },
+  {
+    "object": 6,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06522067019332278,
+    "projected_distance_to_zero": 0.0025204990065883837
+  },
+  {
+    "object": 7,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03649337431565728,
+    "projected_distance_to_zero": 0.0007675275085278062
+  },
+  {
+    "object": 8,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.11741745852460167,
+    "projected_distance_to_zero": 0.00401791901823365
+  },
+  {
+    "object": 9,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.031684137125446814,
+    "projected_distance_to_zero": 0.0010750555569658063
+  },
+  {
+    "object": 10,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.09663626032289802,
+    "projected_distance_to_zero": 0.002675854316613028
+  },
+  {
+    "object": 11,
+    "mask_index": 2,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04924755429547789,
+    "projected_distance_to_zero": 0.001177595316222603
+  },
+  {
+    "object": 0,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.10700051090716983,
+    "projected_distance_to_zero": 0.0028181324573604703
+  },
+  {
+    "object": 1,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.06245812119897809,
+    "projected_distance_to_zero": 0.0013436762048012832
+  },
+  {
+    "object": 2,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.12266981481175876,
+    "projected_distance_to_zero": 0.0037244920255117466
+  },
+  {
+    "object": 3,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.06907146072040153,
+    "projected_distance_to_zero": 0.0008456188326048208
+  },
+  {
+    "object": 4,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08491567168492113,
+    "projected_distance_to_zero": 0.0009306629973008197
+  },
+  {
+    "object": 5,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.06276915233657715,
+    "projected_distance_to_zero": 0.0015176501898501909
+  },
+  {
+    "object": 6,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.09412301962321243,
+    "projected_distance_to_zero": 0.004106527874709375
+  },
+  {
+    "object": 7,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.07534679097266447,
+    "projected_distance_to_zero": 0.0013747897096765343
+  },
+  {
+    "object": 8,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.11541061278323464,
+    "projected_distance_to_zero": 0.0021898986754666735
+  },
+  {
+    "object": 9,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.04439443281599934,
+    "projected_distance_to_zero": 0.0008746735451510407
+  },
+  {
+    "object": 10,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1544193676296723,
+    "projected_distance_to_zero": 0.0044538947533559105
+  },
+  {
+    "object": 11,
+    "mask_index": 3,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08464472451190508,
+    "projected_distance_to_zero": 0.0010566358026044454
+  },
+  {
+    "object": 0,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.061896961462832044,
+    "projected_distance_to_zero": 0.002936795421023207
+  },
+  {
+    "object": 1,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03027744431242825,
+    "projected_distance_to_zero": 0.0005530814404748006
+  },
+  {
+    "object": 2,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04945465263747807,
+    "projected_distance_to_zero": 0.0019091158195779926
+  },
+  {
+    "object": 3,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.022851387696331764,
+    "projected_distance_to_zero": 0.0003902932137640609
+  },
+  {
+    "object": 4,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.029562707057415843,
+    "projected_distance_to_zero": 0.0004842544855072915
+  },
+  {
+    "object": 5,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.02757051374698032,
+    "projected_distance_to_zero": 0.0007040092802856484
+  },
+  {
+    "object": 6,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03305431849476491,
+    "projected_distance_to_zero": 0.0014986818292766898
+  },
+  {
+    "object": 7,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.025629334229234295,
+    "projected_distance_to_zero": 0.0007322054110442729
+  },
+  {
+    "object": 8,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05834119071789034,
+    "projected_distance_to_zero": 0.0026236086847650384
+  },
+  {
+    "object": 9,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.018472789858270597,
+    "projected_distance_to_zero": 0.0006724974242838624
+  },
+  {
+    "object": 10,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.043236499372751466,
+    "projected_distance_to_zero": 0.0014581393169823356
+  },
+  {
+    "object": 11,
+    "mask_index": 3,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.030890185566010534,
+    "projected_distance_to_zero": 0.0007777283471279336
+  },
+  {
+    "object": 0,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.15739932815346785,
+    "projected_distance_to_zero": 0.003918812712740293
+  },
+  {
+    "object": 1,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.07739625634603349,
+    "projected_distance_to_zero": 0.0018247149434164477
+  },
+  {
+    "object": 2,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1729168295537763,
+    "projected_distance_to_zero": 0.0054881577517176166
+  },
+  {
+    "object": 3,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.12993406396522098,
+    "projected_distance_to_zero": 0.0021362646973413025
+  },
+  {
+    "object": 4,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.15884326983287542,
+    "projected_distance_to_zero": 0.004216506798934773
+  },
+  {
+    "object": 5,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.10628689283016036,
+    "projected_distance_to_zero": 0.00230880367876315
+  },
+  {
+    "object": 6,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.18057165926353935,
+    "projected_distance_to_zero": 0.006199616223725
+  },
+  {
+    "object": 7,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.1283514334856783,
+    "projected_distance_to_zero": 0.0021613704007024245
+  },
+  {
+    "object": 8,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.18312772988697737,
+    "projected_distance_to_zero": 0.00232655342384067
+  },
+  {
+    "object": 9,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.09600273058667164,
+    "projected_distance_to_zero": 0.002585450370246268
+  },
+  {
+    "object": 10,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.11494491098222241,
+    "projected_distance_to_zero": 0.0029854254820182156
+  },
+  {
+    "object": 11,
+    "mask_index": 4,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.11048997775846774,
+    "projected_distance_to_zero": 0.0029858646895144576
+  },
+  {
+    "object": 0,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06675002192590007,
+    "projected_distance_to_zero": 0.002784846496892387
+  },
+  {
+    "object": 1,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04290528506249425,
+    "projected_distance_to_zero": 0.0009103395448064575
+  },
+  {
+    "object": 2,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04451543808055209,
+    "projected_distance_to_zero": 0.0016856343262684845
+  },
+  {
+    "object": 3,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.11667983235779622,
+    "projected_distance_to_zero": 0.003338773143195268
+  },
+  {
+    "object": 4,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.16296455510949986,
+    "projected_distance_to_zero": 0.005733734527356288
+  },
+  {
+    "object": 5,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.02596260989452215,
+    "projected_distance_to_zero": 0.0007700993078054294
+  },
+  {
+    "object": 6,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05798005048622059,
+    "projected_distance_to_zero": 0.002247941293431602
+  },
+  {
+    "object": 7,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.07556207762828242,
+    "projected_distance_to_zero": 0.0032306571204457736
+  },
+  {
+    "object": 8,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05623926470268468,
+    "projected_distance_to_zero": 0.0017374831657107207
+  },
+  {
+    "object": 9,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05569062314654569,
+    "projected_distance_to_zero": 0.0027611814750533943
+  },
+  {
+    "object": 10,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03401135688638791,
+    "projected_distance_to_zero": 0.0013435110339971214
+  },
+  {
+    "object": 11,
+    "mask_index": 4,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.06380030423203746,
+    "projected_distance_to_zero": 0.003081750800228064
+  },
+  {
+    "object": 0,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08181096866871455,
+    "projected_distance_to_zero": 0.0016583439366820172
+  },
+  {
+    "object": 1,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.03871922284038104,
+    "projected_distance_to_zero": 0.0008922002169465444
+  },
+  {
+    "object": 2,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.06010322878427759,
+    "projected_distance_to_zero": 0.0024428187386128274
+  },
+  {
+    "object": 3,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08148539150403362,
+    "projected_distance_to_zero": 0.0016542809895448098
+  },
+  {
+    "object": 4,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.08521698025289273,
+    "projected_distance_to_zero": 0.0015994673134802008
+  },
+  {
+    "object": 5,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.04565807721549073,
+    "projected_distance_to_zero": 0.0008990660888387424
+  },
+  {
+    "object": 6,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.05662080689930824,
+    "projected_distance_to_zero": 0.002319992049995411
+  },
+  {
+    "object": 7,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.09335104370729316,
+    "projected_distance_to_zero": 0.002213676686288094
+  },
+  {
+    "object": 8,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.12570648167195492,
+    "projected_distance_to_zero": 0.0023471688389950763
+  },
+  {
+    "object": 9,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.06604296921871775,
+    "projected_distance_to_zero": 0.0018876343338127739
+  },
+  {
+    "object": 10,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.053351304824689645,
+    "projected_distance_to_zero": 0.0015695126687936625
+  },
+  {
+    "object": 11,
+    "mask_index": 5,
+    "arm": "interpolation",
+    "relative_density_distance_to_zero": 0.07207705950802172,
+    "projected_distance_to_zero": 0.001218160329286587
+  },
+  {
+    "object": 0,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.026745858882112238,
+    "projected_distance_to_zero": 0.0008708930141714738
+  },
+  {
+    "object": 1,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.02748186465689206,
+    "projected_distance_to_zero": 0.0005574745483128904
+  },
+  {
+    "object": 2,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.019231610607252855,
+    "projected_distance_to_zero": 0.000799282426589248
+  },
+  {
+    "object": 3,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.05314104022943301,
+    "projected_distance_to_zero": 0.0012847163898364355
+  },
+  {
+    "object": 4,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.07462839995045725,
+    "projected_distance_to_zero": 0.0024989724677275038
+  },
+  {
+    "object": 5,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.017988300215641777,
+    "projected_distance_to_zero": 0.0005205770763978327
+  },
+  {
+    "object": 6,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.02578747190022598,
+    "projected_distance_to_zero": 0.0012548055697349275
+  },
+  {
+    "object": 7,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.04935154670571207,
+    "projected_distance_to_zero": 0.0018789649477010486
+  },
+  {
+    "object": 8,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03138405330772987,
+    "projected_distance_to_zero": 0.0009451802002785199
+  },
+  {
+    "object": 9,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.03893363375250288,
+    "projected_distance_to_zero": 0.0018140902373673074
+  },
+  {
+    "object": 10,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.019966735714317882,
+    "projected_distance_to_zero": 0.0007215878320585211
+  },
+  {
+    "object": 11,
+    "mask_index": 5,
+    "arm": "learned",
+    "relative_density_distance_to_zero": 0.034072791395772996,
+    "projected_distance_to_zero": 0.0013366241166657706
+  }
+]

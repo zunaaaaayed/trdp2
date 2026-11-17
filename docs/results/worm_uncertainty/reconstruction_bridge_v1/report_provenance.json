@@ -1,0 +1,11 @@
+{
+  "python": "3.11.18",
+  "sources": {
+    "experiments/worm_uncertainty/studies/reconstruction_bridge.py": "e3eedc865df55d0e7e7061ddc65e01cd04e66c4133bbc47be4057dac75cf0e98",
+    "experiments/worm_uncertainty/core/voxel_parallel.py": "fcfbc8f5afdb968bfe76305c866feed44ab62dbae711c71d9088b93197b60c6e",
+    "experiments/worm_uncertainty/core/completion_model.py": "864ace6e7f9c1099b851253c219a1790f9fd8a3c9f523a7aac86a8a5705e9005",
+    "experiments/worm_uncertainty/data/acquisition_diversity.py": "e6326d13c1a35b6704173b3f24042fb5149e49eba0d98a8c7a38af7bc7908248",
+    "experiments/worm_uncertainty/data/matched_completion.py": "a002fcd6de87d4032d9f880a9ae3dc427046e54d03de8e08812822d870a80bba",
+    "experiments/worm_uncertainty/data/completion_data.py": "356e891223d0cdd408ce7d9c58203a13d87ea5cababca39a5451788057987276"
+  }
+}

@@ -1,4 +1,83 @@
-# Current continuation — 10 November 2026
+# Storage handoff — completed17 November2026
+
+See [cleanup inventory](../../../docs/maintenance/cleanup_20261116/README.md).
+User authorized pruning obsolete outputs and retired Gaussian environment, then
+commit/push. Cleanup finished:49GiB→24.9GiB, approximately24GiB reclaimed.
+Current108 tests, both artifact verifiers and dependency checks pass. Raw worm data, active Python3.11/PyTorch2.8 environment, V3 checkpoints
+and profile caches, and all Week8 artifacts remain. Historical raw arrays/checkpoints
+were deleted after retaining compact reports; old verification/resume needs regeneration.
+Use the active environment's Python directly. `conda activate trdp2-r2` is obsolete.
+
+# Latest — Week 8 longer SART control complete
+
+Read [SART_DURATION_RESULTS_V1.md](SART_DURATION_RESULTS_V1.md).
+Fixed100-sweep endpoint:90° density error zero43.47%, interpolation45.14%,
+learned43.44%. The earlier4.74-point learned gain shrinks to0.03 points versus
+zero start, failing the2-point gate.120° learned is slightly worse than zero.
+Projection errors improve while density/edges deteriorate later in the schedule.
+0/216 cases meet the frozen stability diagnostic; do not call this convergence.
+
+Parent inputs and five-sweep results are verified unchanged. The complete1512-row
+schedule was independently replayed. CPU run6.08s, artifacts4.18MB, no training.
+Outputs: `output/worm_uncertainty/sart_duration_v1_20261116`.
+Compact exports: `docs/results/worm_uncertainty/sart_duration_v1`.
+No run remains active; do not automatically extend sweeps or train again.
+All Week8 changes remain uncommitted and reserved24 worm outcomes sealed.
+The smallest proposed follow-up is noise-informed acquired-only stopping, developed
+on selection phantoms and frozen before fresh-object/noise evaluation. This is not
+launched or validated. Exact reproduction commands are in the results note.
+
+---
+
+# Historical — Week 8 known-density phantom pilot complete
+
+Read [PHANTOM_DENSITY_RESULTS_V1.md](PHANTOM_DENSITY_RESULTS_V1.md).
+New results are first in both READMEs. Starting HEAD26cf9d6; all Week8 changes
+remain uncommitted. Preserve user changes, historical outputs and failed runs.
+
+The frozen phantom protocol trained one small CNN on128 synthetic slices, selected
+on16 and evaluated12 disjoint objects at six acquisition masks. No worm data used.
+The advancement gate passed versus interpolation, so the predeclared measured-only
+SART initialization comparison ran. At90°: density errors zero-start46.10%,
+interpolation-start44.94%, learned-start41.37%;11/12 object wins versus zero start.
+Density remains inaccurate; no3D, real-organism or uncertainty claim follows.
+
+Run: `output/worm_uncertainty/phantom_density_v1_20261116`.
+Exports: `docs/results/worm_uncertainty/phantom_density_v1`.
+All training and evaluation are complete.107 experiment tests and independent
+regeneration of432 metric rows pass. No automatic second seed, training extension,
+SART sweep or worm transfer is running. Exact verification/reproduction commands
+are in the results note. The smallest proposed follow-up is a frozen longer-SART
+convergence control to distinguish an early-budget advantage from persistent gain.
+Keep24 reserved deformations sealed. User waived the unknown-quota stop; keep
+new artifacts within the250MiB cumulative cap and use fresh destinations.
+
+---
+
+# Historical — Week 8 paired ablation complete
+
+Read [results](BRIDGE_ABLATION_RESULTS_V1.md). Both training arms and frozen evaluation
+completed. Gate failed (0.12-point gain;1/3 wins). No training remains active.
+No second seed or tuning sweep is pending. Earlier status below is historical.
+
+---
+
+# Current continuation — Week 8, starting 16 November 2026
+
+Read [bridge results](RECONSTRUCTION_BRIDGE_RESULTS_V1.md). User explicitly waived
+the unknown-quota stop. Primary and additional bridge runs completed, using under
+2 MiB of run artifacts. Initial gate passed; additional SART competitiveness failed.
+A new paired training run is active in tmux `trdp2-bridge-ablation`, with log
+`/tmp/trdp2-bridge-ablation.log` and outputs
+`output/worm_uncertainty/bridge_ablation_v1_20261116`. Check its status before launching
+anything. Stage3 evaluation and disagreement remain pending. New files remain
+uncommitted; preserve them and historical outputs. Next scientific work needs a
+prospective selection/evaluation split and training-only lambda choice if pursuing
+the auxiliary-loss ablation. Do not silently treat the mixed validation as success.
+
+---
+
+# Historical continuation — 10 November 2026
 
 Active work: [ICECREAM alternative reconstruction pilot](ICECREAM_PILOT_V1.md).
 Starting HEAD `36128bc` on `experiment/worm-uncertainty`; new work is not committed

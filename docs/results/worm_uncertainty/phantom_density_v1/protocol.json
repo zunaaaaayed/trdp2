@@ -1,0 +1,170 @@
+{
+  "run_id": "phantom_density_v1_20261116",
+  "date": "2026-11-16",
+  "question": "Does supervised completion improve known density on held-out objects and masks, and does that benefit survive acquired-only SART refinement?",
+  "geometry": {
+    "size": 62,
+    "spacing_um": 5.0,
+    "angles": "0:7.2:172.8 degrees",
+    "detectors": 62,
+    "detector_spacing_um": 5.0,
+    "origin": "symmetric pixel centres",
+    "support": "fixed circular, radius155um",
+    "projector": "existing pixel-driven exact-transpose ParallelProjector",
+    "fbp_step_degrees": 7.2
+  },
+  "density_scale": "fixed synthetic model intensity per assumed micrometre; no case normalization or worm physical-unit claim",
+  "families": [
+    "smooth",
+    "elongated",
+    "shell",
+    "heterogeneous"
+  ],
+  "splits": {
+    "train": {
+      "count": 128,
+      "seed_base": 810000
+    },
+    "selection": {
+      "count": 16,
+      "seed_base": 820000
+    },
+    "evaluation": {
+      "count": 12,
+      "seed_base": 830000
+    }
+  },
+  "split_rule": "family=index mod4; independent objects and seeds in each split; shared generator classes, not exclusive anatomical families",
+  "noise": {
+    "sd": 0.05,
+    "training_banks": 8,
+    "training_seed": 840001,
+    "selection_seed": 840002,
+    "evaluation_seed": 840003,
+    "generation": "full sparse-grid noise before mask; identical observations for all arms",
+    "sampling": "V3 point-grid geometry; synthetic generation directly on sparse grid, not original100x310 noise field"
+  },
+  "training_masks": "exact V3 B inventory; counts13/15/17/20 balanced",
+  "selection_masks": [
+    {
+      "start": 7.2,
+      "span": 90
+    },
+    {
+      "start": 43.2,
+      "span": 90
+    },
+    {
+      "start": 7.2,
+      "span": 120
+    },
+    {
+      "start": 43.2,
+      "span": 120
+    }
+  ],
+  "evaluation_masks": [
+    {
+      "start": 0,
+      "span": 90
+    },
+    {
+      "start": 0,
+      "span": 120
+    },
+    {
+      "start": 21.6,
+      "span": 90
+    },
+    {
+      "start": 21.6,
+      "span": 120
+    },
+    {
+      "start": 100.8,
+      "span": 90
+    },
+    {
+      "start": 100.8,
+      "span": 120
+    }
+  ],
+  "training": {
+    "seed": 850001,
+    "architecture": "unchanged5809-parameter CompletionCNN",
+    "loss": "per-sample missing-ray MSE, then batch mean",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "batch": 64,
+    "updates": 2000,
+    "selection_frequency": 200,
+    "selection_rule": "mean per-object missing-ray L2 equally over fixed masks; first checkpoint wins ties",
+    "gpu_cap_seconds": 600,
+    "seeds": 1,
+    "auxiliary_loss": false
+  },
+  "baselines": [
+    "acquired_fbp",
+    "sart_zero",
+    "interpolation_fbp",
+    "learned_fbp"
+  ],
+  "sart": {
+    "sweeps": 5,
+    "relaxation": 0.5,
+    "ordering": "increasing stored acquired-angle index",
+    "constraints": "nonnegative and same circular support"
+  },
+  "metrics": {
+    "density": "relativeL2 over full common grid; RMSE; foregroundL2",
+    "boundaries": "symmetric mean nearest-boundary distance in micrometres; fixed foreground threshold0.004 model units",
+    "interior": "signed bias and MAE in one-pixel-eroded true foreground; no target-based inference or postprocessing",
+    "projection": "raw missing-rayL2 separate from reconstructed withheldL2 and acquiredL2/RMSE",
+    "aggregation": "masks within independent object, then objects equally; narrow90 primary; separately by family, span and orientation"
+  },
+  "gate": {
+    "density_gain_absolute": 0.02,
+    "comparator": "interpolation_fbp",
+    "object_win_fraction_strictly_above": 0.5,
+    "acquired_residual_degradation_max": 0.01,
+    "scope": "all primary90 masks; familiar and new orientations also reported"
+  },
+  "conditional_refinement": {
+    "if": "primary gate passes",
+    "arms": [
+      "sart_zero",
+      "sart_interpolation_init",
+      "sart_learned_init"
+    ],
+    "initialization": "FBP clamped nonnegative inside identical support for both filled arms",
+    "schedule": "same five measured-only SART sweeps for all arms; no pseudo-rays in likelihood",
+    "budget_seconds": 120,
+    "decision": "report paired density/projection changes without tuning"
+  },
+  "calibration_gates": {
+    "analytic_projection_l2_max": 0.06,
+    "full_fbp_density_l2_max": 0.15,
+    "full_fbp_scale_error_max": 0.1,
+    "centroid_error_um_max": 2.5,
+    "adjoint_relative_max": 1e-10,
+    "reversal_max_abs": 1e-10
+  },
+  "budget": {
+    "run_artifact_cap_bytes": 20971520,
+    "overall_week8_artifact_ceiling_bytes": 262144000,
+    "cpu_evaluation_seconds": 180,
+    "training_seconds": 600
+  },
+  "stopping": "No automatic second seed, objective change or parameter sweep. Failure and partial runs retained. Reserved worm files never accessed.",
+  "plots": {
+    "fixed_example": "evaluation index1 elongated; start21.6 span90",
+    "panels": [
+      "truth",
+      "reconstructions",
+      "absolute voxel errors",
+      "sinograms",
+      "Fourier XY magnitude"
+    ],
+    "scales": "common per-panel intensity/error ranges; physical coordinates"
+  }
+}

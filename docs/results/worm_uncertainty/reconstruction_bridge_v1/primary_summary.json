@@ -1,0 +1,30 @@
+{
+  "primary_narrow": {
+    "acquired_fbp": {
+      "raw_error": null,
+      "withheld_error": 0.8488115567762432,
+      "acquired_error": 0.32514032771927176,
+      "acquired_rmse": 0.3343155519524011
+    },
+    "sart": {
+      "raw_error": null,
+      "withheld_error": 0.3679856665289083,
+      "acquired_error": 0.15548281182665932,
+      "acquired_rmse": 0.1598899472627159
+    },
+    "interpolation_fbp": {
+      "raw_error": 0.6770494527902828,
+      "withheld_error": 0.6786281236850614,
+      "acquired_error": 0.13898900015070184,
+      "acquired_rmse": 0.1428702556754892
+    },
+    "learned_fbp": {
+      "raw_error": 0.38054113511431703,
+      "withheld_error": 0.3684443096943919,
+      "acquired_error": 0.1356520805716994,
+      "acquired_rmse": 0.13944232819601818
+    }
+  },
+  "seconds": 3.983375373000399,
+  "bytes": 911179
+}

@@ -74,10 +74,18 @@ class ParallelProjector:
             / self.spacing**2
         )
 
-    def sart(self, observed, mask, sweeps=5, relaxation=0.5):
+    def sart(self, observed, mask, sweeps=5, relaxation=0.5, initial=None):
         """Sequential angle-block SART; explicit row/column normalization and positivity."""
         ids = np.flatnonzero(mask)
         x = np.zeros((self.size * self.size, len(observed)))
+        if initial is not None:
+            initial = np.asarray(initial)
+            if (
+                initial.shape != (len(observed), self.size, self.size)
+                or not np.isfinite(initial).all()
+            ):
+                raise ValueError("finite initial volume must match reconstruction grid")
+            x = np.maximum(initial * self.support[None], 0).reshape(len(observed), -1).T.copy()
         history = []
         for _ in range(sweeps):
             for i in ids:

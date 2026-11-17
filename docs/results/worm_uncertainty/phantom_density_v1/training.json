@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "seconds": 5.7953681680000955,
+  "updates": 2000,
+  "best_update": 2000,
+  "best_selection": 0.2893104644030107,
+  "checkpoint_sha256": "4f8d2d360dcfba2655ab902adb054f9b2408a3e3f5d902724e2b65c0aed32362",
+  "parameters": 5809,
+  "peak_allocated": 103165952,
+  "peak_reserved": 132120576
+}
