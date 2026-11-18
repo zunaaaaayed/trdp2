@@ -1,0 +1,1287 @@
+{
+  "reports": {
+    "factorial": {
+      "protocol": {
+        "angles_deg": {
+          "count": 36,
+          "step": 5.0
+        },
+        "detector_shape": [
+          12,
+          24
+        ],
+        "voxel_shape": [
+          24,
+          24,
+          24
+        ],
+        "noise_fraction_full_projection_rms": 0.05,
+        "initialization_position_sd": 0.08,
+        "initialization_density_fraction": 0.6,
+        "position_prior_sd": 0.3,
+        "density_prior_sd": 3.0,
+        "position_bounds": [
+          -0.75,
+          0.75
+        ],
+        "density_bounds": [
+          0.001,
+          3.0
+        ],
+        "foreground_fraction_of_peak": 0.05,
+        "noise_seed": 20261018,
+        "noise_repeats": 10,
+        "initialization_seeds": [
+          81,
+          193
+        ],
+        "budget_nfev": 150,
+        "phantoms": [
+          {
+            "name": "separated",
+            "centres": [
+              [
+                -0.32,
+                0.12,
+                -0.22
+              ],
+              [
+                0.26,
+                -0.24,
+                0.2
+              ],
+              [
+                0.08,
+                0.31,
+                0.04
+              ]
+            ],
+            "scales": [
+              [
+                0.12,
+                0.18,
+                0.1
+              ],
+              [
+                0.18,
+                0.09,
+                0.14
+              ],
+              [
+                0.08,
+                0.13,
+                0.17
+              ]
+            ],
+            "densities": [
+              0.7,
+              0.9,
+              0.45
+            ],
+            "extra": {
+              "centre": [
+                -0.22,
+                -0.28,
+                0.25
+              ],
+              "scale": [
+                0.09,
+                0.08,
+                0.11
+              ],
+              "density": 0.4
+            }
+          },
+          {
+            "name": "overlapping",
+            "centres": [
+              [
+                -0.12,
+                -0.04,
+                -0.1
+              ],
+              [
+                0.1,
+                0.08,
+                0.06
+              ],
+              [
+                0.02,
+                0.2,
+                0.16
+              ]
+            ],
+            "scales": [
+              [
+                0.19,
+                0.11,
+                0.16
+              ],
+              [
+                0.14,
+                0.2,
+                0.11
+              ],
+              [
+                0.1,
+                0.09,
+                0.18
+              ]
+            ],
+            "densities": [
+              0.65,
+              0.55,
+              0.6
+            ],
+            "extra": {
+              "centre": [
+                0.25,
+                -0.19,
+                -0.18
+              ],
+              "scale": [
+                0.09,
+                0.11,
+                0.08
+              ],
+              "density": 0.35
+            }
+          },
+          {
+            "name": "validation",
+            "centres": [
+              [
+                -0.18,
+                0.04,
+                -0.14
+              ],
+              [
+                0.12,
+                -0.05,
+                0.08
+              ],
+              [
+                0.03,
+                0.23,
+                0.19
+              ]
+            ],
+            "scales": [
+              [
+                0.16,
+                0.12,
+                0.19
+              ],
+              [
+                0.13,
+                0.18,
+                0.1
+              ],
+              [
+                0.11,
+                0.08,
+                0.16
+              ]
+            ],
+            "densities": [
+              0.72,
+              0.5,
+              0.58
+            ],
+            "extra": {
+              "centre": [
+                0.22,
+                -0.23,
+                -0.12
+              ],
+              "scale": [
+                0.1,
+                0.08,
+                0.12
+              ],
+              "density": 0.38
+            }
+          }
+        ],
+        "log_width_prior_sd": 0.35,
+        "rotation_prior_sd": 0.5,
+        "initialization_log_width_sd": 0.1,
+        "initialization_rotation_sd": 0.15,
+        "width_bounds": [
+          0.04,
+          0.35
+        ],
+        "rotation_bound": 1.4,
+        "truth_rotations": [
+          [
+            0.2,
+            -0.25,
+            0.3
+          ],
+          [
+            -0.3,
+            0.15,
+            -0.2
+          ],
+          [
+            0.15,
+            0.35,
+            -0.25
+          ],
+          [
+            -0.2,
+            -0.3,
+            0.25
+          ]
+        ],
+        "kind": "rotation_bounds_and_prior_initialization_factorial",
+        "shared_prior_seed": 907,
+        "variants": [
+          {
+            "name": "bounded_start_prior",
+            "bounded": true,
+            "shared_prior": false
+          },
+          {
+            "name": "unbounded_start_prior",
+            "bounded": false,
+            "shared_prior": false
+          },
+          {
+            "name": "bounded_shared_prior",
+            "bounded": true,
+            "shared_prior": true
+          },
+          {
+            "name": "unbounded_shared_prior",
+            "bounded": false,
+            "shared_prior": true
+          }
+        ],
+        "cases": [
+          {
+            "name": "overlap_90_0",
+            "phantom": "overlapping",
+            "span": 90,
+            "start": 0,
+            "noise_seed": 20261018
+          },
+          {
+            "name": "overlap_90_120",
+            "phantom": "overlapping",
+            "span": 90,
+            "start": 120,
+            "noise_seed": 20261018
+          },
+          {
+            "name": "validation_90_60",
+            "phantom": "validation",
+            "span": 90,
+            "start": 60,
+            "noise_seed": 20261019
+          }
+        ],
+        "selection": "For shared-prior variants only, choose the lowest measured-data-plus-prior objective across the two starts for each noise draw; no truth/withheld values used.",
+        "parent_report_sha256": "86dcf6603fda675e10b9c4390e8571deeb3060cb55009cf18449146956201ad6",
+        "limitations": [
+          "development diagnosis prompted by earlier failure",
+          "validation case fixed before this run, only one new phantom/window",
+          "same analytic synthesis and inference; truth-perturbed starts and prior reference",
+          "unbounded Euler angles retain periodicity and coordinate singularities",
+          "untruncated local Gaussian covariance is not valid at active bounds",
+          "ten paired noise draws; no prior/bound selection by reported coverage"
+        ]
+      },
+      "protocol_sha256": "6628f34d2e2adf172bbbea0493becfa1b4446483f396f2d5b9ba484d4451af6f",
+      "code_sha256": "3b79e075e22ad6251329adb23588318de62b90e32c3970d327d65f65ee51da22",
+      "dependencies_sha256": {
+        "shape_gaussian.py": "7156e095a89facba0633505ffc042440b95b90aa31aea8f1ba5778a0e203681c",
+        "stress_3d.py": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f",
+        "diagnose_3d.py": "7d9572014ebf0b7f9a52b96e497c47e6ea6e9b69d6a59008fe8c88eecda21970",
+        "prepare.py": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509"
+      },
+      "draws_sha256": "2426216ef0dc6d8adfed980ffe67bc01aa13356263fcae43a03e44081858bae2",
+      "rows": [
+        {
+          "case": "overlap_90_0",
+          "variant": "bounded_start_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 18,
+          "max_nfev": 42,
+          "paired_mean_difference_rmse": 0.006773392585630607,
+          "paired_max_difference_rmse": 0.00949725681821559,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.005714106972071172,
+              "coverage95": 0.8547457627118643,
+              "mean_width95": 0.012535706716029929
+            },
+            "withheld_latent": {
+              "rmse": 0.00211063995714255,
+              "coverage95": 0.8209417596034696,
+              "mean_width95": 0.0048142248741152764
+            },
+            "withheld_predictive": {
+              "rmse": 0.0037668263934031677,
+              "coverage95": 0.9263940520446097,
+              "mean_width95": 0.01347219543218848
+            }
+          },
+          "selected_metrics": null,
+          "selected_seeds": []
+        },
+        {
+          "case": "overlap_90_0",
+          "variant": "unbounded_start_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 47,
+          "paired_mean_difference_rmse": 0.002677469382215378,
+          "paired_max_difference_rmse": 0.004384671004614173,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.004660930573097581,
+              "coverage95": 0.911186440677966,
+              "mean_width95": 0.01298101976633631
+            },
+            "withheld_latent": {
+              "rmse": 0.0016298090803285232,
+              "coverage95": 0.8993804213135068,
+              "mean_width95": 0.004836816174782861
+            },
+            "withheld_predictive": {
+              "rmse": 0.003516430189086562,
+              "coverage95": 0.946530359355638,
+              "mean_width95": 0.01348246266098461
+            }
+          },
+          "selected_metrics": null,
+          "selected_seeds": []
+        },
+        {
+          "case": "overlap_90_0",
+          "variant": "bounded_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 18,
+          "max_nfev": 43,
+          "paired_mean_difference_rmse": 0.006998479401095781,
+          "paired_max_difference_rmse": 0.009615362663039471,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.005822192354716853,
+              "coverage95": 0.8502542372881357,
+              "mean_width95": 0.012529819347471011
+            },
+            "withheld_latent": {
+              "rmse": 0.0021502696610421835,
+              "coverage95": 0.8161090458488228,
+              "mean_width95": 0.00481628225526576
+            },
+            "withheld_predictive": {
+              "rmse": 0.0037867338514223662,
+              "coverage95": 0.925836431226766,
+              "mean_width95": 0.013473749717329425
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.006149284819866764,
+              "coverage95": 0.8184745762711862,
+              "mean_width95": 0.012560626373372708
+            },
+            "withheld_latent": {
+              "rmse": 0.0021688499602790113,
+              "coverage95": 0.7957868649318465,
+              "mean_width95": 0.0048238025244359915
+            },
+            "withheld_predictive": {
+              "rmse": 0.003797802310204358,
+              "coverage95": 0.9258983890954152,
+              "mean_width95": 0.013482251670247658
+            }
+          },
+          "selected_seeds": [
+            81,
+            193,
+            193,
+            193,
+            193,
+            193,
+            193,
+            193,
+            193,
+            81
+          ]
+        },
+        {
+          "case": "overlap_90_0",
+          "variant": "unbounded_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 50,
+          "paired_mean_difference_rmse": 0.002563105760334117,
+          "paired_max_difference_rmse": 0.0051752520826232554,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.004828719987401435,
+              "coverage95": 0.9066949152542373,
+              "mean_width95": 0.013167814615291502
+            },
+            "withheld_latent": {
+              "rmse": 0.0016514599925072071,
+              "coverage95": 0.8970260223048326,
+              "mean_width95": 0.004829489812258952
+            },
+            "withheld_predictive": {
+              "rmse": 0.003522687110339263,
+              "coverage95": 0.9460966542750928,
+              "mean_width95": 0.013478304873395085
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.004425470929068865,
+              "coverage95": 0.9355932203389831,
+              "mean_width95": 0.013257974449258183
+            },
+            "withheld_latent": {
+              "rmse": 0.0015362752209970442,
+              "coverage95": 0.9304832713754646,
+              "mean_width95": 0.004842019779366508
+            },
+            "withheld_predictive": {
+              "rmse": 0.003465592726668399,
+              "coverage95": 0.9505576208178438,
+              "mean_width95": 0.01348224490852613
+            }
+          },
+          "selected_seeds": [
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81
+          ]
+        },
+        {
+          "case": "overlap_90_120",
+          "variant": "bounded_start_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 20,
+          "paired_mean_difference_rmse": 0.0012433119068549778,
+          "paired_max_difference_rmse": 0.0019396836582902576,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.0043345161795729495,
+              "coverage95": 0.9658474576271185,
+              "mean_width95": 0.016664863110663973
+            },
+            "withheld_latent": {
+              "rmse": 0.0016547024689510803,
+              "coverage95": 0.964845758354756,
+              "mean_width95": 0.006403359328221887
+            },
+            "withheld_predictive": {
+              "rmse": 0.0035537149552620404,
+              "coverage95": 0.9565552699228792,
+              "mean_width95": 0.014343772094716822
+            }
+          },
+          "selected_metrics": null,
+          "selected_seeds": []
+        },
+        {
+          "case": "overlap_90_120",
+          "variant": "unbounded_start_prior",
+          "fits": 20,
+          "converged": 19,
+          "active_bounds": 0,
+          "max_nfev": 150,
+          "paired_mean_difference_rmse": 0.008936444463403286,
+          "paired_max_difference_rmse": 0.04169275622707334,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.006983094605650544,
+              "coverage95": 0.8959322033898305,
+              "mean_width95": 0.016829963272287453
+            },
+            "withheld_latent": {
+              "rmse": 0.0026792764601971495,
+              "coverage95": 0.8968508997429305,
+              "mean_width95": 0.0064348463475503
+            },
+            "withheld_predictive": {
+              "rmse": 0.004385401839333931,
+              "coverage95": 0.9273778920308482,
+              "mean_width95": 0.014366542662564378
+            }
+          },
+          "selected_metrics": null,
+          "selected_seeds": []
+        },
+        {
+          "case": "overlap_90_120",
+          "variant": "bounded_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 24,
+          "paired_mean_difference_rmse": 0.0011965832571110145,
+          "paired_max_difference_rmse": 0.002513896607035536,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.0043545178387452595,
+              "coverage95": 0.965593220338983,
+              "mean_width95": 0.016622432156085123
+            },
+            "withheld_latent": {
+              "rmse": 0.0016528514704337235,
+              "coverage95": 0.9658740359897173,
+              "mean_width95": 0.006398957066708136
+            },
+            "withheld_predictive": {
+              "rmse": 0.003555821028558309,
+              "coverage95": 0.9564910025706942,
+              "mean_width95": 0.014340577722076007
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.004343421325773015,
+              "coverage95": 0.9701694915254236,
+              "mean_width95": 0.01673039320427705
+            },
+            "withheld_latent": {
+              "rmse": 0.0016321347645556847,
+              "coverage95": 0.9696658097686376,
+              "mean_width95": 0.006406929277836156
+            },
+            "withheld_predictive": {
+              "rmse": 0.0035465149037973605,
+              "coverage95": 0.9577120822622108,
+              "mean_width95": 0.014344882138832704
+            }
+          },
+          "selected_seeds": [
+            193,
+            81,
+            81,
+            81,
+            81,
+            81,
+            193,
+            81,
+            193,
+            193
+          ]
+        },
+        {
+          "case": "overlap_90_120",
+          "variant": "unbounded_shared_prior",
+          "fits": 20,
+          "converged": 19,
+          "active_bounds": 0,
+          "max_nfev": 150,
+          "paired_mean_difference_rmse": 0.008813243503608006,
+          "paired_max_difference_rmse": 0.04186811984604993,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.006914563091219174,
+              "coverage95": 0.8976271186440676,
+              "mean_width95": 0.016747466332315164
+            },
+            "withheld_latent": {
+              "rmse": 0.002656193192922017,
+              "coverage95": 0.8991002570694088,
+              "mean_width95": 0.006431956742699757
+            },
+            "withheld_predictive": {
+              "rmse": 0.004372814823234621,
+              "coverage95": 0.9277634961439587,
+              "mean_width95": 0.014364342024889325
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.0050086100965536446,
+              "coverage95": 0.9330508474576271,
+              "mean_width95": 0.016681897665697065
+            },
+            "withheld_latent": {
+              "rmse": 0.0019155148230124888,
+              "coverage95": 0.93573264781491,
+              "mean_width95": 0.006367744447686405
+            },
+            "withheld_predictive": {
+              "rmse": 0.0037097124494993835,
+              "coverage95": 0.9505141388174808,
+              "mean_width95": 0.014326814183563682
+            }
+          },
+          "selected_seeds": [
+            193,
+            81,
+            193,
+            193,
+            193,
+            81,
+            193,
+            193,
+            193,
+            193
+          ]
+        },
+        {
+          "case": "validation_90_60",
+          "variant": "bounded_start_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 10,
+          "max_nfev": 18,
+          "paired_mean_difference_rmse": 0.0010330457410985283,
+          "paired_max_difference_rmse": 0.0016948962459353678,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.0031012656534625056,
+              "coverage95": 0.951512968299712,
+              "mean_width95": 0.010472703074083859
+            },
+            "withheld_latent": {
+              "rmse": 0.0012200816584965665,
+              "coverage95": 0.9608004385964914,
+              "mean_width95": 0.004286326701702355
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031177434008188417,
+              "coverage95": 0.9493421052631577,
+              "mean_width95": 0.012120182600126424
+            }
+          },
+          "selected_metrics": null,
+          "selected_seeds": []
+        },
+        {
+          "case": "validation_90_60",
+          "variant": "unbounded_start_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 56,
+          "paired_mean_difference_rmse": 0.0022141875153272703,
+          "paired_max_difference_rmse": 0.0038477131969132275,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.003542888431057216,
+              "coverage95": 0.9250720461095101,
+              "mean_width95": 0.010473546691214409
+            },
+            "withheld_latent": {
+              "rmse": 0.001404424263718024,
+              "coverage95": 0.9126644736842107,
+              "mean_width95": 0.004277329095203184
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031908152585809584,
+              "coverage95": 0.9425438596491229,
+              "mean_width95": 0.012122148040844508
+            }
+          },
+          "selected_metrics": null,
+          "selected_seeds": []
+        },
+        {
+          "case": "validation_90_60",
+          "variant": "bounded_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 10,
+          "max_nfev": 18,
+          "paired_mean_difference_rmse": 0.0010191669008514457,
+          "paired_max_difference_rmse": 0.0016790618547406057,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.0031072138172499155,
+              "coverage95": 0.9512247838616716,
+              "mean_width95": 0.010473648190059427
+            },
+            "withheld_latent": {
+              "rmse": 0.0012219529539106784,
+              "coverage95": 0.9606907894736842,
+              "mean_width95": 0.0042865969170982786
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031188152417234534,
+              "coverage95": 0.9493969298245611,
+              "mean_width95": 0.012120355794873371
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.0030690213381992584,
+              "coverage95": 0.9590778097982711,
+              "mean_width95": 0.010477080673752545
+            },
+            "withheld_latent": {
+              "rmse": 0.0012221129417666079,
+              "coverage95": 0.9655701754385964,
+              "mean_width95": 0.004287093512891819
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031164285110817707,
+              "coverage95": 0.949890350877193,
+              "mean_width95": 0.01212108559577756
+            }
+          },
+          "selected_seeds": [
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81
+          ]
+        },
+        {
+          "case": "validation_90_60",
+          "variant": "unbounded_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 40,
+          "paired_mean_difference_rmse": 0.0018318838715480484,
+          "paired_max_difference_rmse": 0.003777853487954253,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.0033954041663219773,
+              "coverage95": 0.9378242074927954,
+              "mean_width95": 0.010495113878746812
+            },
+            "withheld_latent": {
+              "rmse": 0.001344030529837084,
+              "coverage95": 0.9327302631578946,
+              "mean_width95": 0.004288995279246593
+            },
+            "withheld_predictive": {
+              "rmse": 0.003166932791555937,
+              "coverage95": 0.9444627192982455,
+              "mean_width95": 0.012125734096293911
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.0035129347543782163,
+              "coverage95": 0.9311239193083573,
+              "mean_width95": 0.010488400809751977
+            },
+            "withheld_latent": {
+              "rmse": 0.0013883555914635803,
+              "coverage95": 0.9234649122807017,
+              "mean_width95": 0.004285124125208135
+            },
+            "withheld_predictive": {
+              "rmse": 0.003193188319168764,
+              "coverage95": 0.9426535087719298,
+              "mean_width95": 0.012124729851836621
+            }
+          },
+          "selected_seeds": [
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            81,
+            193,
+            81,
+            81
+          ]
+        }
+      ]
+    },
+    "cholesky": {
+      "protocol": {
+        "angles_deg": {
+          "count": 36,
+          "step": 5.0
+        },
+        "detector_shape": [
+          12,
+          24
+        ],
+        "voxel_shape": [
+          24,
+          24,
+          24
+        ],
+        "noise_fraction_full_projection_rms": 0.05,
+        "initialization_position_sd": 0.08,
+        "initialization_density_fraction": 0.6,
+        "position_prior_sd": 0.3,
+        "density_prior_sd": 3.0,
+        "position_bounds": [
+          -0.75,
+          0.75
+        ],
+        "density_bounds": [
+          0.001,
+          3.0
+        ],
+        "foreground_fraction_of_peak": 0.05,
+        "noise_seed": 20261018,
+        "noise_repeats": 10,
+        "initialization_seeds": [
+          81,
+          193
+        ],
+        "budget_nfev": 150,
+        "phantoms": [
+          {
+            "name": "separated",
+            "centres": [
+              [
+                -0.32,
+                0.12,
+                -0.22
+              ],
+              [
+                0.26,
+                -0.24,
+                0.2
+              ],
+              [
+                0.08,
+                0.31,
+                0.04
+              ]
+            ],
+            "scales": [
+              [
+                0.12,
+                0.18,
+                0.1
+              ],
+              [
+                0.18,
+                0.09,
+                0.14
+              ],
+              [
+                0.08,
+                0.13,
+                0.17
+              ]
+            ],
+            "densities": [
+              0.7,
+              0.9,
+              0.45
+            ],
+            "extra": {
+              "centre": [
+                -0.22,
+                -0.28,
+                0.25
+              ],
+              "scale": [
+                0.09,
+                0.08,
+                0.11
+              ],
+              "density": 0.4
+            }
+          },
+          {
+            "name": "overlapping",
+            "centres": [
+              [
+                -0.12,
+                -0.04,
+                -0.1
+              ],
+              [
+                0.1,
+                0.08,
+                0.06
+              ],
+              [
+                0.02,
+                0.2,
+                0.16
+              ]
+            ],
+            "scales": [
+              [
+                0.19,
+                0.11,
+                0.16
+              ],
+              [
+                0.14,
+                0.2,
+                0.11
+              ],
+              [
+                0.1,
+                0.09,
+                0.18
+              ]
+            ],
+            "densities": [
+              0.65,
+              0.55,
+              0.6
+            ],
+            "extra": {
+              "centre": [
+                0.25,
+                -0.19,
+                -0.18
+              ],
+              "scale": [
+                0.09,
+                0.11,
+                0.08
+              ],
+              "density": 0.35
+            }
+          },
+          {
+            "name": "validation",
+            "centres": [
+              [
+                -0.18,
+                0.04,
+                -0.14
+              ],
+              [
+                0.12,
+                -0.05,
+                0.08
+              ],
+              [
+                0.03,
+                0.23,
+                0.19
+              ]
+            ],
+            "scales": [
+              [
+                0.16,
+                0.12,
+                0.19
+              ],
+              [
+                0.13,
+                0.18,
+                0.1
+              ],
+              [
+                0.11,
+                0.08,
+                0.16
+              ]
+            ],
+            "densities": [
+              0.72,
+              0.5,
+              0.58
+            ],
+            "extra": {
+              "centre": [
+                0.22,
+                -0.23,
+                -0.12
+              ],
+              "scale": [
+                0.1,
+                0.08,
+                0.12
+              ],
+              "density": 0.38
+            }
+          }
+        ],
+        "log_width_prior_sd": 0.35,
+        "rotation_prior_sd": 0.5,
+        "initialization_log_width_sd": 0.1,
+        "initialization_rotation_sd": 0.15,
+        "width_bounds": [
+          0.04,
+          0.35
+        ],
+        "rotation_bound": 1.4,
+        "truth_rotations": [
+          [
+            0.2,
+            -0.25,
+            0.3
+          ],
+          [
+            -0.3,
+            0.15,
+            -0.2
+          ],
+          [
+            0.15,
+            0.35,
+            -0.25
+          ],
+          [
+            -0.2,
+            -0.3,
+            0.25
+          ]
+        ],
+        "kind": "cholesky_shared_prior_followup",
+        "shared_prior_seed": 907,
+        "variants": [
+          {
+            "name": "cholesky_shared_prior",
+            "bounded": false,
+            "shared_prior": true
+          }
+        ],
+        "cases": [
+          {
+            "name": "overlap_90_0",
+            "phantom": "overlapping",
+            "span": 90,
+            "start": 0,
+            "noise_seed": 20261018
+          },
+          {
+            "name": "overlap_90_120",
+            "phantom": "overlapping",
+            "span": 90,
+            "start": 120,
+            "noise_seed": 20261018
+          },
+          {
+            "name": "validation_90_60",
+            "phantom": "validation",
+            "span": 90,
+            "start": 60,
+            "noise_seed": 20261019
+          }
+        ],
+        "selection": "For shared-prior variants only, choose the lowest measured-data-plus-prior objective across the two starts for each noise draw; no truth/withheld values used.",
+        "parent_report_sha256": "86dcf6603fda675e10b9c4390e8571deeb3060cb55009cf18449146956201ad6",
+        "limitations": [
+          "development diagnosis prompted by earlier failure",
+          "validation case fixed before this run, only one new phantom/window",
+          "same analytic synthesis and inference; truth-perturbed starts and prior reference",
+          "unbounded Euler angles retain periodicity and coordinate singularities",
+          "untruncated local Gaussian covariance is not valid at active bounds",
+          "ten paired noise draws; no prior/bound selection by reported coverage",
+          "adaptive follow-up motivated by factorial failures; cases already examined",
+          "shape prior now Gaussian on log Cholesky diagonals (SD .35) and raw lower entries (SD .1), not equivalent to Euler prior",
+          "no width or rotation bounds; x_scale=jac used; performance cannot be attributed solely to reparameterization"
+        ],
+        "cholesky_log_diagonal_prior_sd": 0.35,
+        "cholesky_off_diagonal_prior_sd": 0.1
+      },
+      "protocol_sha256": "528a38b4c2da8b0546ec475524bed61d86afbff6b9577f148a742aa5fcf50675",
+      "code_sha256": "1a09e74df971e69ae23924802c6963bc71e5d26b27f9a68fa03fa9277d2edb0c",
+      "dependencies_sha256": {
+        "cholesky_gaussian.py": "e12ef25db08bf430dba800d77add3a0a8bf61221f9e78f06e1b7b97e9cedeb84",
+        "rotation_sensitivity.py": "3b79e075e22ad6251329adb23588318de62b90e32c3970d327d65f65ee51da22",
+        "shape_gaussian.py": "7156e095a89facba0633505ffc042440b95b90aa31aea8f1ba5778a0e203681c",
+        "stress_3d.py": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f",
+        "diagnose_3d.py": "7d9572014ebf0b7f9a52b96e497c47e6ea6e9b69d6a59008fe8c88eecda21970",
+        "prepare.py": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509"
+      },
+      "draws_sha256": "216e9b14ec2fd88a0861d7b5c693e8cbaaf5b85207e05d4fdecf1bb0170e3f0f",
+      "rows": [
+        {
+          "case": "overlap_90_0",
+          "variant": "cholesky_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 15,
+          "paired_mean_difference_rmse": 3.991902961231323e-08,
+          "paired_max_difference_rmse": 9.314442290291972e-08,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.0035896139624811544,
+              "coverage95": 0.9735593220338981,
+              "mean_width95": 0.013410699333521906
+            },
+            "withheld_latent": {
+              "rmse": 0.001227428158762125,
+              "coverage95": 0.9680297397769518,
+              "mean_width95": 0.0050150239059710885
+            },
+            "withheld_predictive": {
+              "rmse": 0.0033437087716336063,
+              "coverage95": 0.9571251548946715,
+              "mean_width95": 0.013571501941338628
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.0035896163642445203,
+              "coverage95": 0.9735593220338984,
+              "mean_width95": 0.013410703725757173
+            },
+            "withheld_latent": {
+              "rmse": 0.0012274275540209126,
+              "coverage95": 0.9680297397769518,
+              "mean_width95": 0.005015023933397841
+            },
+            "withheld_predictive": {
+              "rmse": 0.003343708613092235,
+              "coverage95": 0.9571251548946715,
+              "mean_width95": 0.013571501953805182
+            }
+          },
+          "selected_seeds": [
+            81,
+            193,
+            193,
+            81,
+            81,
+            81,
+            193,
+            81,
+            193,
+            81
+          ]
+        },
+        {
+          "case": "overlap_90_120",
+          "variant": "cholesky_shared_prior",
+          "fits": 20,
+          "converged": 18,
+          "active_bounds": 0,
+          "max_nfev": 150,
+          "paired_mean_difference_rmse": 0.06534575537323614,
+          "paired_max_difference_rmse": 0.14230480491119601,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.03687403536730138,
+              "coverage95": 0.7047457627118644,
+              "mean_width95": 0.03184144388450362
+            },
+            "withheld_latent": {
+              "rmse": 0.012743911205287145,
+              "coverage95": 0.6893316195372751,
+              "mean_width95": 0.008877459254085205
+            },
+            "withheld_predictive": {
+              "rmse": 0.014013556294837673,
+              "coverage95": 0.7616966580976864,
+              "mean_width95": 0.01657720033225021
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.006917271490934074,
+              "coverage95": 0.9086440677966101,
+              "mean_width95": 0.018317829238173385
+            },
+            "withheld_latent": {
+              "rmse": 0.0025574949242318902,
+              "coverage95": 0.8939588688946015,
+              "mean_width95": 0.006497197429898072
+            },
+            "withheld_predictive": {
+              "rmse": 0.004315762572985206,
+              "coverage95": 0.9146529562982005,
+              "mean_width95": 0.014400555538959279
+            }
+          },
+          "selected_seeds": [
+            193,
+            193,
+            81,
+            193,
+            81,
+            81,
+            193,
+            193,
+            81,
+            81
+          ]
+        },
+        {
+          "case": "validation_90_60",
+          "variant": "cholesky_shared_prior",
+          "fits": 20,
+          "converged": 20,
+          "active_bounds": 0,
+          "max_nfev": 90,
+          "paired_mean_difference_rmse": 0.01791148065282546,
+          "paired_max_difference_rmse": 0.039086963578133876,
+          "metrics": {
+            "voxel": {
+              "rmse": 0.011227777184697921,
+              "coverage95": 0.7629682997118157,
+              "mean_width95": 0.011239676917903469
+            },
+            "withheld_latent": {
+              "rmse": 0.003546656656601547,
+              "coverage95": 0.7702302631578947,
+              "mean_width95": 0.004296669544578672
+            },
+            "withheld_predictive": {
+              "rmse": 0.005067960809943081,
+              "coverage95": 0.8430372807017544,
+              "mean_width95": 0.012129320048129817
+            }
+          },
+          "selected_metrics": {
+            "voxel": {
+              "rmse": 0.003078008559890174,
+              "coverage95": 0.9587896253602306,
+              "mean_width95": 0.010491348856282992
+            },
+            "withheld_latent": {
+              "rmse": 0.0012256201447998591,
+              "coverage95": 0.9656798245614034,
+              "mean_width95": 0.004292818385330005
+            },
+            "withheld_predictive": {
+              "rmse": 0.003118189649044564,
+              "coverage95": 0.9494517543859649,
+              "mean_width95": 0.01212385531378675
+            }
+          },
+          "selected_seeds": [
+            81,
+            81,
+            81,
+            81,
+            81,
+            193,
+            81,
+            81,
+            81,
+            193
+          ]
+        }
+      ]
+    }
+  },
+  "source_report_sha256": {
+    "factorial": "996b8400cb6543a6b9d89332b84f19dac3d7d9a90c0907c5bcd8d01330f3e7cd",
+    "cholesky": "3b6e9793b66180093e2cb24b33d5e20c2a6c96d58dda494032be73a8ab228732"
+  },
+  "plot_code_sha256": "99f5a62ad9e6bc2ca1c32ea9c282d32afb4812a04feb65864f99a10afec36be4"
+}

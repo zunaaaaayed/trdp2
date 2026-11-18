@@ -1,0 +1,55 @@
+{
+  "week_start": "2026-10-24",
+  "execution_date": "2026-10-27",
+  "components": 16,
+  "parent_report_sha256": "0b29bee61931391fbacb12aee7065c164f7c970d9f03edec1a0c2f27bbd34a0e",
+  "seeds": [
+    0,
+    81,
+    193,
+    421
+  ],
+  "arms": [
+    {
+      "name": "joint_450",
+      "stages": [
+        {
+          "kind": "joint",
+          "budget": 450
+        }
+      ]
+    },
+    {
+      "name": "staged_450",
+      "stages": [
+        {
+          "kind": "density"
+        },
+        {
+          "kind": "centre",
+          "budget": 50
+        },
+        {
+          "kind": "density"
+        },
+        {
+          "kind": "geometry",
+          "budget": 50
+        },
+        {
+          "kind": "density"
+        },
+        {
+          "kind": "joint",
+          "budget": 350
+        }
+      ]
+    }
+  ],
+  "selection": "Lowest acquired objective among converged candidates, otherwise provisional unfinished candidate; no withheld tuning.",
+  "limitations": [
+    "One development worm/window/noise draw; no independent validation.",
+    "Equal nonlinear evaluation caps are not equal runtime or total work; density solves and projection calls are recorded.",
+    "Solver termination and pairwise stability do not prove global optimality or calibration."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "pages": 8,
+  "page_size": "A4",
+  "body_font": "Times New Roman,11pt",
+  "bibliography_entries": 9,
+  "figures": [
+    "disagreement_risk_failure.pdf",
+    "gaussian_density.pdf",
+    "phantom_coverage.pdf",
+    "pilot_generalization.pdf",
+    "projection_fourier_fbp.pdf"
+  ],
+  "tables_checked": [
+    "staged fitting",
+    "primary selection/audit",
+    "Gaussian stages"
+  ],
+  "tex_sha256": "67e0945c80648b8cd1a4be505d38a23475dd39d576c57d9ce44087a097519cb4",
+  "pdf_sha256": "c8a0cd446e6b8b5eb38e0133da8a8888bdd28c9691c6c68a65906ec8c9532001",
+  "sources_manifest_sha256": "d7ba5d29092853eee32140d338302a6984316832e9092b40923f09a7f9f5df3d",
+  "report_folder_structure": "figures/ plus TeX and PDF only",
+  "visual_review": "All8 rendered pages reviewed; detailed acquisition-plot page inspected",
+  "verification": "passed"
+}

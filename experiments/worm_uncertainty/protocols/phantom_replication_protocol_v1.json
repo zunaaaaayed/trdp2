@@ -1,0 +1,39 @@
+{
+  "week_start": "2026-10-24",
+  "base_protocol_sha256": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550",
+  "offsets_degrees": [
+    0,
+    28.8,
+    57.6
+  ],
+  "noise_seeds": [
+    20261028,
+    20261029,
+    20261030,
+    20261031,
+    20261032
+  ],
+  "density_prior_sds": [
+    10.0,
+    100.0
+  ],
+  "start_seeds": [
+    0,
+    81
+  ],
+  "relative_noise_sd": 0.05,
+  "additional_nfev": 300,
+  "gtol": 1e-06,
+  "xtol": 1e-14,
+  "projected_gradient_tolerance": 1e-06,
+  "expected_fits": 144,
+  "primary_series": "Exact start seed 0; seed 81 is a paired initialization diagnostic, not an independent sample. Retain all fits including failed stationarity checks.",
+  "comparison": "Tau 100 weakens only the zero-mean density penalty by 100x relative to tau 10. Same geometry prior, bounds, observations and starts.",
+  "limitations": [
+    "Same two oracle phantoms; not independent anatomy validation.",
+    "Five fresh noise seeds per offset; overlapping windows share standardized ray noise.",
+    "Noise sigma is 5% of acquired clean RMS for each shape/offset; differing absolute noise is retained and documented.",
+    "Do not select a winning prior using ground truth or withheld metrics; compare declared arms only.",
+    "No automatic retries, budget extensions or stopping threshold changes."
+  ]
+}

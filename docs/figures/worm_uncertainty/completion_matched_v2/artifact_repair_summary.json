@@ -1,0 +1,23 @@
+{
+  "repair": {
+    "reason": "mask model key collided with metadata; original outputs retained; recovered exact geometry from frozen protocol/identities",
+    "training_report_sha256": "ec398b1f17a975c7161b3c8a55381a4f01ba649ad41f9c32a19ce48acba4cec9",
+    "metrics_exactly_reproduced": true,
+    "measured_arrays_preserved": true,
+    "artifacts_sha256": {
+      "train_completion_executed.py": "6fe3240aa22d641f2b82d47e4a16f22c070c1cbb7a3268426330caa7e9f66036",
+      "shifts.npz": "bf7d9b67ec7f00b1732080cae82539e30d06d035e4c17d797643e8970d734364",
+      "familiar.npz": "66dd04122e9cfc1ec99c51db4afe9b128814ef65f3b9723c00354b3941157b5f"
+    }
+  },
+  "source_archive_manifest": {
+    "note": "Additional source archive manifest; original repair.json remains unchanged. Archives preserve pre-artifact-fix execution sources.",
+    "files": {
+      "matched_completion_executed.py": "48ba3634b3ae5432e483edd74f8440567d1ccba91151c9f008519301f83862f8",
+      "train_completion_executed.py": "6fe3240aa22d641f2b82d47e4a16f22c070c1cbb7a3268426330caa7e9f66036",
+      "repair.json": "b94704e3224f689e148cc91ba393ed4518780481bb250d6f94935a11a5416611",
+      "shifts.npz": "bf7d9b67ec7f00b1732080cae82539e30d06d035e4c17d797643e8970d734364",
+      "familiar.npz": "66dd04122e9cfc1ec99c51db4afe9b128814ef65f3b9723c00354b3941157b5f"
+    }
+  }
+}

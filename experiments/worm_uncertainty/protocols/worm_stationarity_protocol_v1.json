@@ -1,0 +1,16 @@
+{
+  "week_start": "2026-10-24",
+  "parent_report_sha256": "15a9fb4d6769476afa30726b79ccb744d95f85230caf37aeadeb96096c8a8552",
+  "additional_nfev": 600,
+  "gtol": 1e-06,
+  "xtol": 1e-14,
+  "ftol": null,
+  "projected_gradient_tolerance": 1e-06,
+  "selection": "Acquired objective among candidates passing the projected-gradient check; otherwise provisional lowest objective.",
+  "rationale": "Disable objective-change stopping; retain a tiny step safeguard. Audit all eight saved candidates without changing priors, noise, bounds or component count.",
+  "limitations": [
+    "Projected-gradient norm depends on the frozen parameter units; it is a stationarity diagnostic, not a global-optimality certificate.",
+    "A step-tolerance exit is not accepted unless the projected-gradient check passes.",
+    "Additional 600 evaluations per candidate; no automatic budget extension or withheld tuning."
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "version": 2,
+  "kind": "matched_sparse_supervised_completion",
+  "base_commit": "8ba48b5586d1e6ae173bd58c0cd4e0ccf9abf9d5",
+  "manifest_sha256": "9770a98ed544a2fd4cd6445a03e07d1552de6c8a6779728515780c5572189840",
+  "sampling_protocol_sha256": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550",
+  "sampling": {
+    "source_shape": [
+      510,
+      100,
+      310
+    ],
+    "angle_indices": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68,
+      72,
+      76,
+      80,
+      84,
+      88,
+      92,
+      96
+    ],
+    "detector_indices": [
+      2,
+      7,
+      12,
+      17,
+      22,
+      27,
+      32,
+      37,
+      42,
+      47,
+      52,
+      57,
+      62,
+      67,
+      72,
+      77,
+      82,
+      87,
+      92,
+      97,
+      102,
+      107,
+      112,
+      117,
+      122,
+      127,
+      132,
+      137,
+      142,
+      147,
+      152,
+      157,
+      162,
+      167,
+      172,
+      177,
+      182,
+      187,
+      192,
+      197,
+      202,
+      207,
+      212,
+      217,
+      222,
+      227,
+      232,
+      237,
+      242,
+      247,
+      252,
+      257,
+      262,
+      267,
+      272,
+      277,
+      282,
+      287,
+      292,
+      297,
+      302,
+      307
+    ],
+    "z_indices": [
+      224,
+      232,
+      240,
+      248,
+      256,
+      264,
+      272,
+      280
+    ]
+  },
+  "normalization": {
+    "value": 6180.275452553537,
+    "provenance": "slab_protocol_v1.json: RMS of full-angle worm_004 development slab, frozen before this split; never recompute from reserved clean targets"
+  },
+  "noise_sd": 0.05,
+  "seeds": {
+    "training": 2026102803,
+    "validation": 2026102804,
+    "reserved": 2026102805
+  },
+  "subsets": {
+    "train": [
+      "worm_004_gt.tiff",
+      "worm_012_gt.tiff",
+      "worm_082_gt.tiff",
+      "worm_087_gt.tiff",
+      "worm_332_gt.tiff",
+      "worm_333_gt.tiff",
+      "worm_1670_gt.tiff",
+      "worm_1803_gt.tiff",
+      "worm_2700_gt.tiff",
+      "worm_2779_gt.tiff",
+      "worm_4831_gt.tiff",
+      "worm_5053_gt.tiff",
+      "worm_6710_gt.tiff",
+      "worm_6720_gt.tiff",
+      "worm_8621_gt.tiff",
+      "worm_8654_gt.tiff"
+    ],
+    "validation": [
+      "worm_153_gt.tiff",
+      "worm_204_gt.tiff",
+      "worm_3579_gt.tiff",
+      "worm_4047_gt.tiff"
+    ],
+    "reserved": [
+      "worm_1038_gt.tiff",
+      "worm_1044_gt.tiff",
+      "worm_5839_gt.tiff",
+      "worm_5988_gt.tiff"
+    ]
+  },
+  "familiar_masks": [
+    [
+      0,
+      120
+    ],
+    [
+      0,
+      144
+    ],
+    [
+      36,
+      120
+    ],
+    [
+      36,
+      144
+    ],
+    [
+      72,
+      120
+    ],
+    [
+      72,
+      144
+    ],
+    [
+      108,
+      120
+    ],
+    [
+      108,
+      144
+    ]
+  ],
+  "shift_masks": [
+    [
+      18,
+      120
+    ],
+    [
+      90,
+      120
+    ],
+    [
+      0,
+      90
+    ],
+    [
+      18,
+      90
+    ],
+    [
+      90,
+      90
+    ]
+  ],
+  "model": {
+    "channels": [
+      7,
+      16,
+      16,
+      16,
+      1
+    ],
+    "dilations": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "kernel": 3,
+    "receptive_field": 31,
+    "parameters": 5809,
+    "padding": "zero; no ordinary angular circular padding",
+    "activation": "ReLU after first three convolutions; linear output"
+  },
+  "arms": [
+    "mask",
+    "geometry"
+  ],
+  "training": {
+    "epochs": 20,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "max_seconds_per_arm": 1200,
+    "selection": "lowest mean across four files of mean across eight familiar masks of missing-ray relative L2, pooled over eight slices per file/mask; first epoch wins exact ties",
+    "loss": "mean squared error on missing clean rays only"
+  },
+  "integration_gate": {
+    "minimum_mean_relative_improvement": 0.05,
+    "minimum_files_improved": 3,
+    "require_mean_mse_not_worse": true,
+    "selection": "choose learned arm by familiar validation relative L2 only, mask arm wins exact tie"
+  },
+  "integration": {
+    "file": "worm_153_gt.tiff",
+    "start": 0,
+    "span": 120,
+    "components": 16,
+    "seeds": [
+      0,
+      81,
+      193,
+      421
+    ],
+    "budget_nfev": 450,
+    "cpu_seconds_cap": 600,
+    "prior": "baseline acquired-only multiscale initializer shared by all arms",
+    "selection": "existing converged-candidate acquired-objective rule; failures retained"
+  },
+  "reserved_policy": "No reserved files opened in first training/validation phase. Evaluate unseen masks on validation only after checkpoint selection.json is saved. Reserved grid requires separately recorded assessment budget and frozen adapter.",
+  "input_contract": "Same 25x62 point-sampled grid for all arms. Noise is generated at100x310 per file/z/epoch before sparse selection; no extra acquired pixels enter model or initializer. Coordinates use historical pixel centres, spacing2/310. Completion preserves measured float64 values; neural tensors are float32. Acquired arrays for Gaussian arms are shared float64 copies.",
+  "limitations": [
+    "One synthetic organism, provisional numeric-ID grouping; no genealogical independence.",
+    "Fixed development scale differs from historical per-case acquired-RMS scaling; old reconstruction errors are not paired controls.",
+    "No physical density, voxel truth, Bayesian calibration or test-time adaptation claim."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-17",
+  "removed": [
+    {
+      "path": "data/downloads/synthetic/cone_ntrain_25_angle_360.zip",
+      "bytes": 1775436861,
+      "sha256": "d36f774ede0920deddf5e452e7778fd693bb8c9351d1f0a22448a4c89e7d6fe6",
+      "reason": "unused broad upstream download; retained extracted chest experiment inputs"
+    },
+    {
+      "path": "data/downloads/synthetic/cone_ntrain_50_angle_360.zip",
+      "bytes": 2055417966,
+      "sha256": "ed7c41fe7a0974e4111ff754efa6a94adafcafaa3b9ee07481d534a424235f0e",
+      "reason": "unused broad upstream download; retained extracted chest experiment inputs"
+    },
+    {
+      "path": "data/downloads/synthetic/cone_ntrain_75_angle_360.zip",
+      "bytes": 2335627125,
+      "sha256": "650ff8c931a88b4918988d1e90355c160f752f591a24bb8a96b55c81d53f7fab",
+      "reason": "unused broad upstream download; retained extracted chest experiment inputs"
+    },
+    {
+      "path": "output/workstation_transfer_20261007/session_artifacts.tar",
+      "bytes": 1315358720,
+      "sha256": "b74a6be65e93eff2ba3785399d6a579befa7d9e17642b003d9f6691cb54ee911",
+      "reason": "obsolete transfer archive: every member matches retained files",
+      "verified_members": 655
+    },
+    {
+      "path": "r2_gaussian/submodules/xray-gaussian-rasterization-voxelization/xray_gaussian_rasterization_voxelization/__pycache__/rasterization.cpython-39.pyc",
+      "bytes": 4466,
+      "reason": "regenerable Python bytecode"
+    },
+    {
+      "path": "r2_gaussian/submodules/xray-gaussian-rasterization-voxelization/xray_gaussian_rasterization_voxelization/__pycache__/__init__.cpython-39.pyc",
+      "bytes": 452,
+      "reason": "regenerable Python bytecode"
+    },
+    {
+      "path": "r2_gaussian/submodules/xray-gaussian-rasterization-voxelization/xray_gaussian_rasterization_voxelization/__pycache__/voxelization.cpython-39.pyc",
+      "bytes": 4286,
+      "reason": "regenerable Python bytecode"
+    },
+    {
+      "path": "experiments/limited_angle_generalization/__pycache__/benchmark.cpython-39.pyc",
+      "bytes": 16868,
+      "reason": "regenerable Python bytecode"
+    },
+    {
+      "path": "output/worm_uncertainty/sart_20261017/arrays.npz",
+      "bytes": 1799268,
+      "sha256": "f79fd5aae3bc7529d2724e02f6c862a8983f56d224b8ef783d9c165d7967abd0",
+      "reason": "superseded SART diagnostic; accepted v2 retained, first-attempt report preserved"
+    },
+    {
+      "path": "output/worm_uncertainty/sart_20261017/comparison.png",
+      "bytes": 271270,
+      "sha256": "0f3d6c8a79a919165b3543f5c3b1c6c4d93cf6a00cbc6f75e935bb2b1fab85b6",
+      "reason": "superseded SART diagnostic; accepted v2 retained, first-attempt report preserved"
+    }
+  ],
+  "archive_unmatched_members": [],
+  "archive_verified_members": 655,
+  "total_removed_bytes": 7483937282
+}

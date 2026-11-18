@@ -1,0 +1,170 @@
+{
+  "kind": "known_target_noise_variability_diagnostic",
+  "shape": [
+    64,
+    64
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "noise_fraction": 0.05,
+  "signal_scale": 15.995775479397532,
+  "sigma": 0.7997887739698766,
+  "reconstruction": "nonnegative circular-support SART, zero init, 10 sweeps, relaxation 0.15",
+  "metrics": [
+    {
+      "span": 180,
+      "measured_views": 100,
+      "clean_foreground_rmse": 0.03551612602691497,
+      "regions": {
+        "foreground": {
+          "rmse": 0.1119318115132735,
+          "mean_bias_rmse": 0.046036427678365625,
+          "mean_noise_std": 0.10328359217569055,
+          "squared_bias_fraction_of_mse": 0.1691594120773928,
+          "bias_variance_identity_error": 0.0,
+          "fraction_bias_exceeding_two_noise_std": 0.004284949116229245
+        },
+        "boundary": {
+          "rmse": 0.12304129243602555,
+          "mean_bias_rmse": 0.06759964793373703,
+          "mean_noise_std": 0.1040623127567242,
+          "squared_bias_fraction_of_mse": 0.30184716378741727,
+          "bias_variance_identity_error": 3.469446951953614e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.013806706114398421
+        },
+        "interior": {
+          "rmse": 0.10749687331500275,
+          "mean_bias_rmse": 0.034725681863700605,
+          "mean_noise_std": 0.1029932897237905,
+          "squared_bias_fraction_of_mse": 0.10435419194430093,
+          "bias_variance_identity_error": 1.734723475976807e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.0007352941176470588
+        },
+        "texture": {
+          "rmse": 0.11095522023597185,
+          "mean_bias_rmse": 0.03492860390483415,
+          "mean_noise_std": 0.10685384969799643,
+          "squared_bias_fraction_of_mse": 0.0990984758248854,
+          "bias_variance_identity_error": 1.734723475976807e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.0
+        }
+      }
+    },
+    {
+      "span": 120,
+      "measured_views": 67,
+      "clean_foreground_rmse": 0.08787988619533199,
+      "regions": {
+        "foreground": {
+          "rmse": 0.12717941394052223,
+          "mean_bias_rmse": 0.09181470633240517,
+          "mean_noise_std": 0.0888889290905591,
+          "squared_bias_fraction_of_mse": 0.5211837426107102,
+          "bias_variance_identity_error": 8.673617379884035e-19,
+          "fraction_bias_exceeding_two_noise_std": 0.07552222817354044
+        },
+        "boundary": {
+          "rmse": 0.1604517046999529,
+          "mean_bias_rmse": 0.13390663441805226,
+          "mean_noise_std": 0.08919190037274889,
+          "squared_bias_fraction_of_mse": 0.6964910150914294,
+          "bias_variance_identity_error": 6.938893903907228e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.17751479289940827
+        },
+        "interior": {
+          "rmse": 0.11228049304229783,
+          "mean_bias_rmse": 0.069914276608846,
+          "mean_noise_std": 0.08877598317874276,
+          "squared_bias_fraction_of_mse": 0.38772438414967275,
+          "bias_variance_identity_error": 0.0,
+          "fraction_bias_exceeding_two_noise_std": 0.0375
+        },
+        "texture": {
+          "rmse": 0.11718973159638398,
+          "mean_bias_rmse": 0.07634417451228272,
+          "mean_noise_std": 0.08983625830095208,
+          "squared_bias_fraction_of_mse": 0.42439737395839344,
+          "bias_variance_identity_error": 3.469446951953614e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.017857142857142856
+        }
+      }
+    },
+    {
+      "span": 90,
+      "measured_views": 50,
+      "clean_foreground_rmse": 0.12737094968030818,
+      "regions": {
+        "foreground": {
+          "rmse": 0.15101850847264103,
+          "mean_bias_rmse": 0.12796770750572448,
+          "mean_noise_std": 0.08075581327972554,
+          "squared_bias_fraction_of_mse": 0.718026422851423,
+          "bias_variance_identity_error": 2.6020852139652106e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.18639528655597215
+        },
+        "boundary": {
+          "rmse": 0.19008237292419772,
+          "mean_bias_rmse": 0.171683538184738,
+          "mean_noise_std": 0.08195250604434988,
+          "squared_bias_fraction_of_mse": 0.8157810638518864,
+          "bias_variance_identity_error": 8.673617379884035e-19,
+          "fraction_bias_exceeding_two_noise_std": 0.32938856015779094
+        },
+        "interior": {
+          "rmse": 0.13356351743537964,
+          "mean_bias_rmse": 0.10720222225902806,
+          "mean_noise_std": 0.08030969325644279,
+          "squared_bias_fraction_of_mse": 0.644216554567688,
+          "bias_variance_identity_error": 1.734723475976807e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.13308823529411765
+        },
+        "texture": {
+          "rmse": 0.15110437784488231,
+          "mean_bias_rmse": 0.12652553574096564,
+          "mean_noise_std": 0.08354936396434343,
+          "squared_bias_fraction_of_mse": 0.7011360146424265,
+          "bias_variance_identity_error": 7.806255641895632e-18,
+          "fraction_bias_exceeding_two_noise_std": 0.24107142857142858
+        }
+      }
+    }
+  ],
+  "numpy_version": "1.24.4",
+  "skimage_version": "0.21.0",
+  "limitations": [
+    "one development phantom; matched numerical projection model",
+    "noise response is not posterior uncertainty",
+    "bias-exceeds-2std is descriptive, not confidence interval coverage",
+    "20 noise draws; spatial pixels are correlated",
+    "arbitrary density units, no physical calibration"
+  ],
+  "code_sha256": {
+    "phantom_variability.py": "5aa92506d393d4f3501c8066d8899d3a5da9b6bc51aa067e1e5173c146bb80f5",
+    "compare_sart.py": "21e5f4df9d8b8c3ce90cd68d2025cb5b1b50961a22c65de7c7c33f1790910ff3",
+    "prepare.py": "736d4ef42e78c83aef70d9c5f7ab0200e6575b28c95b63e67d67fe2ac6e46e9a"
+  },
+  "artifacts": {
+    "arrays.npz": "99d3c8be478511a2891b00ff56f2ccc5db0d0ba872b845c79915626c095c4627",
+    "comparison.png": "43c22c2db2ea4f24a8f20d2d0541c0da6a1018366fc4179430ee95f6180f91ef"
+  }
+}

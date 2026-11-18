@@ -1,0 +1,55 @@
+{
+  "kind": "short_full_angle_worm_3d_gaussian_pilot",
+  "status": "completed",
+  "source": "/autofs/unitytravail/travail/mdzislam/trdp2/worm_data/worm_004_gt.tiff",
+  "source_sha256": "ba884c78bf659acc12df3390c9d6e69e16ddfb3187d5ba3607492790c69fd01d",
+  "z_range": [
+    252,
+    260
+  ],
+  "native_spacing_um": 1,
+  "projection_axes": [
+    "angle",
+    "z",
+    "detector"
+  ],
+  "volume_axes": [
+    "x",
+    "y",
+    "z"
+  ],
+  "angles": 100,
+  "steps": 300,
+  "gaussians": 1500,
+  "source_rms": 6180.275452553537,
+  "scene_spacing": 0.0064516129032258064,
+  "observed_detector_rows": [
+    151,
+    159
+  ],
+  "relative_projection_l2_before": 0.3837533086575415,
+  "relative_projection_l2_after": 0.06853033810179529,
+  "elapsed_seconds": 2.448599033999926,
+  "gpu": "NVIDIA RTX 4000 Ada Generation",
+  "torch": "2.1.2+cu118",
+  "seed": 0,
+  "code_sha256": {
+    "fit_gaussian_slab.py": "c82a7b04af50dc452d8927a14a8b193c9688df330474a20522b0d3a39afa12ee",
+    "native_parallel.py": "0c89d3b147dd2bb93b7745082861b31de73d21af9a25f0695f419d2f042f753e"
+  },
+  "limitations": [
+    "integration pilot, not converged reconstruction",
+    "all 100 angles used; no held-out score",
+    "no density calibration or posterior inference",
+    "square image with loss on observed slab rows only",
+    "assumed symmetric pixel centres and skimage angle convention; simulator convention unresolved",
+    "FBP initialization is not ground truth",
+    "fixed Gaussian count; no densification",
+    "normalization derived from this full-angle development slab; not transferable test normalization"
+  ],
+  "artifacts": {
+    "arrays.npz": "aae1f96e7a5b93d29e1a768db56f363ad6195ffe82e69dcb9cd5dff1e9943595",
+    "gaussians.npz": "abc015f7d6828a1bee1c1224acfcf8b08d21d8549dce6f12da7af5676ce4fe14",
+    "diagnostic.png": "376cb678b407276b6704068328dc76e444a2ba1abd455160e814be8a171b268b"
+  }
+}

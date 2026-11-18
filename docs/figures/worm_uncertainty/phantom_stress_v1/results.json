@@ -1,0 +1,1079 @@
+{
+  "report": {
+    "protocol": {
+      "angles_deg": {
+        "count": 36,
+        "step": 5.0
+      },
+      "detector_shape": [
+        12,
+        24
+      ],
+      "voxel_shape": [
+        24,
+        24,
+        24
+      ],
+      "noise_fraction_full_projection_rms": 0.05,
+      "initialization_position_sd": 0.08,
+      "initialization_density_fraction": 0.6,
+      "position_prior_sd": 0.3,
+      "density_prior_sd": 3.0,
+      "position_bounds": [
+        -0.75,
+        0.75
+      ],
+      "density_bounds": [
+        0.001,
+        3.0
+      ],
+      "foreground_fraction_of_peak": 0.05,
+      "kind": "separate_phantom_joint_uncertainty_stress_test",
+      "noise_seed": 20261018,
+      "noise_repeats": 10,
+      "initialization_seeds": [
+        81,
+        193
+      ],
+      "budget_nfev": 150,
+      "acquisitions": [
+        {
+          "span": 180,
+          "start": 0
+        },
+        {
+          "span": 120,
+          "start": 0
+        },
+        {
+          "span": 120,
+          "start": 60
+        },
+        {
+          "span": 90,
+          "start": 0
+        },
+        {
+          "span": 90,
+          "start": 120
+        }
+      ],
+      "conditions": [
+        "matched",
+        "omitted_component"
+      ],
+      "phantoms": [
+        {
+          "name": "separated",
+          "centres": [
+            [
+              -0.32,
+              0.12,
+              -0.22
+            ],
+            [
+              0.26,
+              -0.24,
+              0.2
+            ],
+            [
+              0.08,
+              0.31,
+              0.04
+            ]
+          ],
+          "scales": [
+            [
+              0.12,
+              0.18,
+              0.1
+            ],
+            [
+              0.18,
+              0.09,
+              0.14
+            ],
+            [
+              0.08,
+              0.13,
+              0.17
+            ]
+          ],
+          "densities": [
+            0.7,
+            0.9,
+            0.45
+          ],
+          "extra": {
+            "centre": [
+              -0.22,
+              -0.28,
+              0.25
+            ],
+            "scale": [
+              0.09,
+              0.08,
+              0.11
+            ],
+            "density": 0.4
+          }
+        },
+        {
+          "name": "overlapping",
+          "centres": [
+            [
+              -0.12,
+              -0.04,
+              -0.1
+            ],
+            [
+              0.1,
+              0.08,
+              0.06
+            ],
+            [
+              0.02,
+              0.2,
+              0.16
+            ]
+          ],
+          "scales": [
+            [
+              0.19,
+              0.11,
+              0.16
+            ],
+            [
+              0.14,
+              0.2,
+              0.11
+            ],
+            [
+              0.1,
+              0.09,
+              0.18
+            ]
+          ],
+          "densities": [
+            0.65,
+            0.55,
+            0.6
+          ],
+          "extra": {
+            "centre": [
+              0.25,
+              -0.19,
+              -0.18
+            ],
+            "scale": [
+              0.09,
+              0.11,
+              0.08
+            ],
+            "density": 0.35
+          }
+        }
+      ],
+      "limitations": [
+        "development stress test with two manually specified new phantoms",
+        "same analytic forward model for synthesis and inference",
+        "oracle widths, rotations and component identities; truth-perturbed starts",
+        "two initializations share ten noise draws; not twenty independent noise draws",
+        "full clean projection RMS defines known noise for each phantom/condition",
+        "joint covariance is local Gauss-Newton with linear propagation",
+        "scanner geometry exact; no tuning on reported coverage"
+      ]
+    },
+    "protocol_sha256": "b04c1a6e816fe24d9576065af90215ae4f62924959afede6453fe1fd540044bc",
+    "code_sha256": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f",
+    "dependencies_sha256": {
+      "diagnose_3d.py": "7d9572014ebf0b7f9a52b96e497c47e6ea6e9b69d6a59008fe8c88eecda21970",
+      "prepare.py": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509"
+    },
+    "draws_sha256": "15bf7abd4eb052959c8f5700966ace9151a601d920a7d78cc84eb10a8055bdb5",
+    "rows": [
+      {
+        "phantom": "separated",
+        "condition": "matched",
+        "span": 180,
+        "start": 0,
+        "sigma": 0.002424192516210816,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 7,
+        "measured_clean_relative_l2": 0.0017929525607735877,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0005582321712138686,
+              "coverage95": 0.45355960264900663,
+              "mean_width95": 0.0006471379571733281
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0005582321712138686,
+              "coverage95": 0.9110099337748345,
+              "mean_width95": 0.0018269476691272362
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "matched",
+        "span": 120,
+        "start": 0,
+        "sigma": 0.002424192516210816,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 7,
+        "measured_clean_relative_l2": 0.0021192789334964724,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0006938828976627411,
+              "coverage95": 0.4197847682119205,
+              "mean_width95": 0.0007887175229563496
+            },
+            "withheld_latent": {
+              "rmse": 0.0002893943490744072,
+              "coverage95": 0.4433389544688027,
+              "mean_width95": 0.00038715196037408155
+            },
+            "withheld_predictive": {
+              "rmse": 0.0024410529853635685,
+              "coverage95": 0.9501686340640809,
+              "mean_width95": 0.00951474640272284
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0006938828976627411,
+              "coverage95": 0.9479304635761588,
+              "mean_width95": 0.0024004601502480337
+            },
+            "withheld_latent": {
+              "rmse": 0.0002893943490744072,
+              "coverage95": 0.9475548060708263,
+              "mean_width95": 0.001018250706258431
+            },
+            "withheld_predictive": {
+              "rmse": 0.0024410529853635685,
+              "coverage95": 0.9516020236087689,
+              "mean_width95": 0.009569151633577215
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "matched",
+        "span": 120,
+        "start": 60,
+        "sigma": 0.002424192516210816,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 7,
+        "measured_clean_relative_l2": 0.002091890148465739,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0006902919347342424,
+              "coverage95": 0.41349337748344367,
+              "mean_width95": 0.0007970232226213342
+            },
+            "withheld_latent": {
+              "rmse": 0.0002572865941663703,
+              "coverage95": 0.47906976744186053,
+              "mean_width95": 0.0003722079579583301
+            },
+            "withheld_predictive": {
+              "rmse": 0.002434839169521536,
+              "coverage95": 0.950232558139535,
+              "mean_width95": 0.009514046567006525
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0006902919347342424,
+              "coverage95": 0.9329470198675498,
+              "mean_width95": 0.002420009458475419
+            },
+            "withheld_latent": {
+              "rmse": 0.0002572865941663703,
+              "coverage95": 0.9410852713178294,
+              "mean_width95": 0.0009790747501729614
+            },
+            "withheld_predictive": {
+              "rmse": 0.002434839169521536,
+              "coverage95": 0.9513178294573645,
+              "mean_width95": 0.009566759641089507
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "matched",
+        "span": 90,
+        "start": 0,
+        "sigma": 0.002424192516210816,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 7,
+        "measured_clean_relative_l2": 0.0026323998160058585,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0009997470111542946,
+              "coverage95": 0.3582781456953643,
+              "mean_width95": 0.0009122056694513467
+            },
+            "withheld_latent": {
+              "rmse": 0.0004093161049253696,
+              "coverage95": 0.4045302013422819,
+              "mean_width95": 0.000448338141058075
+            },
+            "withheld_predictive": {
+              "rmse": 0.0024395274286021377,
+              "coverage95": 0.949944071588367,
+              "mean_width95": 0.009518505283692354
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0009997470111542946,
+              "coverage95": 0.9273178807947021,
+              "mean_width95": 0.003099963883248047
+            },
+            "withheld_latent": {
+              "rmse": 0.0004093161049253696,
+              "coverage95": 0.9185682326621922,
+              "mean_width95": 0.0013123348179147128
+            },
+            "withheld_predictive": {
+              "rmse": 0.0024395274286021377,
+              "coverage95": 0.9520134228187919,
+              "mean_width95": 0.009611783332610025
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "matched",
+        "span": 90,
+        "start": 120,
+        "sigma": 0.002424192516210816,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 7,
+        "measured_clean_relative_l2": 0.002818960345477696,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0011493731125664596,
+              "coverage95": 0.304635761589404,
+              "mean_width95": 0.0009490667933083737
+            },
+            "withheld_latent": {
+              "rmse": 0.00045800565021203237,
+              "coverage95": 0.39289529914529914,
+              "mean_width95": 0.0004577706096509259
+            },
+            "withheld_predictive": {
+              "rmse": 0.002445996408940758,
+              "coverage95": 0.9479700854700855,
+              "mean_width95": 0.009519413808616192
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0011493731125664596,
+              "coverage95": 0.8971854304635762,
+              "mean_width95": 0.0034829718682505215
+            },
+            "withheld_latent": {
+              "rmse": 0.00045800565021203237,
+              "coverage95": 0.8916132478632479,
+              "mean_width95": 0.0014085703828136168
+            },
+            "withheld_predictive": {
+              "rmse": 0.002445996408940758,
+              "coverage95": 0.951068376068376,
+              "mean_width95": 0.009644404068139961
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "omitted_component",
+        "span": 180,
+        "start": 0,
+        "sigma": 0.002532967641922181,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 9,
+        "measured_clean_relative_l2": 0.13123822411003877,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.04363544439176754,
+              "coverage95": 0.10211480362537764,
+              "mean_width95": 0.0006211975162663081
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.04363544439176754,
+              "coverage95": 0.2872356495468278,
+              "mean_width95": 0.0017632527368314373
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "omitted_component",
+        "span": 120,
+        "start": 0,
+        "sigma": 0.002532967641922181,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 9,
+        "measured_clean_relative_l2": 0.11947875677602215,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.046466935951274824,
+              "coverage95": 0.05347432024169184,
+              "mean_width95": 0.0007558616472006644
+            },
+            "withheld_latent": {
+              "rmse": 0.018621735286519506,
+              "coverage95": 0.057878315132605294,
+              "mean_width95": 0.0003727667700210028
+            },
+            "withheld_predictive": {
+              "rmse": 0.018836811487667627,
+              "coverage95": 0.4644305772230889,
+              "mean_width95": 0.009940658848178964
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.046466935951274824,
+              "coverage95": 0.17658610271903324,
+              "mean_width95": 0.002315948658480685
+            },
+            "withheld_latent": {
+              "rmse": 0.018621735286519506,
+              "coverage95": 0.14976599063962556,
+              "mean_width95": 0.0009856754814583863
+            },
+            "withheld_predictive": {
+              "rmse": 0.018836811487667627,
+              "coverage95": 0.466770670826833,
+              "mean_width95": 0.009993156681877752
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "omitted_component",
+        "span": 120,
+        "start": 60,
+        "sigma": 0.002532967641922181,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 10,
+        "measured_clean_relative_l2": 0.1239178306292277,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.04503683712222703,
+              "coverage95": 0.11404833836858005,
+              "mean_width95": 0.0007625267499664889
+            },
+            "withheld_latent": {
+              "rmse": 0.01677359281911504,
+              "coverage95": 0.09201807228915662,
+              "mean_width95": 0.0003759419659183146
+            },
+            "withheld_predictive": {
+              "rmse": 0.016932447254066167,
+              "coverage95": 0.5224397590361445,
+              "mean_width95": 0.009940548711723727
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.04503683712222703,
+              "coverage95": 0.29290030211480367,
+              "mean_width95": 0.0023320037092961683
+            },
+            "withheld_latent": {
+              "rmse": 0.01677359281911504,
+              "coverage95": 0.22575301204819276,
+              "mean_width95": 0.0009962440800410596
+            },
+            "withheld_predictive": {
+              "rmse": 0.016932447254066167,
+              "coverage95": 0.5237951807228916,
+              "mean_width95": 0.009994308597726143
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "omitted_component",
+        "span": 90,
+        "start": 0,
+        "sigma": 0.002532967641922181,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 10,
+        "measured_clean_relative_l2": 0.12159295554088398,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.047578790788278875,
+              "coverage95": 0.03904833836858006,
+              "mean_width95": 0.0008714262433915865
+            },
+            "withheld_latent": {
+              "rmse": 0.019236177344990467,
+              "coverage95": 0.04653887113951012,
+              "mean_width95": 0.0004404811233884213
+            },
+            "withheld_predictive": {
+              "rmse": 0.019436778982408854,
+              "coverage95": 0.4361022364217253,
+              "mean_width95": 0.009944674510019019
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.047578790788278875,
+              "coverage95": 0.1329305135951662,
+              "mean_width95": 0.0029840812227163887
+            },
+            "withheld_latent": {
+              "rmse": 0.019236177344990467,
+              "coverage95": 0.1303514376996805,
+              "mean_width95": 0.0012977588962589074
+            },
+            "withheld_predictive": {
+              "rmse": 0.019436778982408854,
+              "coverage95": 0.4386581469648562,
+              "mean_width95": 0.01003719449750333
+            }
+          }
+        }
+      },
+      {
+        "phantom": "separated",
+        "condition": "omitted_component",
+        "span": 90,
+        "start": 120,
+        "sigma": 0.002532967641922181,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 9,
+        "measured_clean_relative_l2": 0.14163205439044718,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.04442514945486831,
+              "coverage95": 0.07507552870090635,
+              "mean_width95": 0.0009112032772018591
+            },
+            "withheld_latent": {
+              "rmse": 0.017744261750473188,
+              "coverage95": 0.05492957746478873,
+              "mean_width95": 0.00048226786402430516
+            },
+            "withheld_predictive": {
+              "rmse": 0.01793034803469082,
+              "coverage95": 0.5956663055254605,
+              "mean_width95": 0.00994681594103862
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.04442514945486831,
+              "coverage95": 0.22084592145015103,
+              "mean_width95": 0.003337705825637134
+            },
+            "withheld_latent": {
+              "rmse": 0.017744261750473188,
+              "coverage95": 0.15135427952329358,
+              "mean_width95": 0.0014701961610548702
+            },
+            "withheld_predictive": {
+              "rmse": 0.01793034803469082,
+              "coverage95": 0.5991332611050921,
+              "mean_width95": 0.010076779989322607
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "matched",
+        "span": 180,
+        "start": 0,
+        "sigma": 0.0030976570289671505,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 9,
+        "measured_clean_relative_l2": 0.0016927741540218686,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0007617305474451701,
+              "coverage95": 0.45095419847328244,
+              "mean_width95": 0.0009351288704023415
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0007617305474451701,
+              "coverage95": 0.9439885496183205,
+              "mean_width95": 0.0025870486092224518
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "matched",
+        "span": 120,
+        "start": 0,
+        "sigma": 0.0030976570289671505,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 8,
+        "measured_clean_relative_l2": 0.0019669490205916854,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.0009841717840174623,
+              "coverage95": 0.3937022900763359,
+              "mean_width95": 0.0011313400021730766
+            },
+            "withheld_latent": {
+              "rmse": 0.000368418634960057,
+              "coverage95": 0.48169556840077077,
+              "mean_width95": 0.0005256024919141623
+            },
+            "withheld_predictive": {
+              "rmse": 0.0030980983224342448,
+              "coverage95": 0.9529865125240846,
+              "mean_width95": 0.012159089252026713
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.0009841717840174623,
+              "coverage95": 0.9509541984732826,
+              "mean_width95": 0.003323979507247295
+            },
+            "withheld_latent": {
+              "rmse": 0.000368418634960057,
+              "coverage95": 0.9682080924855493,
+              "mean_width95": 0.0013369107608375706
+            },
+            "withheld_predictive": {
+              "rmse": 0.0030980983224342448,
+              "coverage95": 0.9539499036608863,
+              "mean_width95": 0.01223104013755336
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "matched",
+        "span": 120,
+        "start": 60,
+        "sigma": 0.0030976570289671505,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 10,
+        "measured_clean_relative_l2": 0.002039428263774311,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.000983522900435804,
+              "coverage95": 0.4442748091603053,
+              "mean_width95": 0.001152397633202873
+            },
+            "withheld_latent": {
+              "rmse": 0.0003948779549863895,
+              "coverage95": 0.5104294478527608,
+              "mean_width95": 0.0005631952830912814
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031245416000899922,
+              "coverage95": 0.9480572597137016,
+              "mean_width95": 0.01216176462052555
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.000983522900435804,
+              "coverage95": 0.9480916030534351,
+              "mean_width95": 0.003340517477286858
+            },
+            "withheld_latent": {
+              "rmse": 0.0003948779549863895,
+              "coverage95": 0.931799591002045,
+              "mean_width95": 0.0013987591560617825
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031245416000899922,
+              "coverage95": 0.9494887525562374,
+              "mean_width95": 0.012240444957547832
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "matched",
+        "span": 90,
+        "start": 0,
+        "sigma": 0.0030976570289671505,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 8,
+        "measured_clean_relative_l2": 0.002347529360122543,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.001328912782480403,
+              "coverage95": 0.39637404580152674,
+              "mean_width95": 0.0013302360831692985
+            },
+            "withheld_latent": {
+              "rmse": 0.0005140374011252002,
+              "coverage95": 0.45184210526315793,
+              "mean_width95": 0.0006386277693220775
+            },
+            "withheld_predictive": {
+              "rmse": 0.0030952189186293734,
+              "coverage95": 0.951842105263158,
+              "mean_width95": 0.01216700953043169
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.001328912782480403,
+              "coverage95": 0.967175572519084,
+              "mean_width95": 0.004562347312524014
+            },
+            "withheld_latent": {
+              "rmse": 0.0005140374011252002,
+              "coverage95": 0.9644078947368421,
+              "mean_width95": 0.0019203259415239502
+            },
+            "withheld_predictive": {
+              "rmse": 0.0030952189186293734,
+              "coverage95": 0.954342105263158,
+              "mean_width95": 0.012323097962012346
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "matched",
+        "span": 90,
+        "start": 120,
+        "sigma": 0.0030976570289671505,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 9,
+        "measured_clean_relative_l2": 0.0027029273128507,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.001564474206805503,
+              "coverage95": 0.320706106870229,
+              "mean_width95": 0.0013761138117478102
+            },
+            "withheld_latent": {
+              "rmse": 0.0006618809907221946,
+              "coverage95": 0.38191340782122907,
+              "mean_width95": 0.0006921659308829145
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031382375408045226,
+              "coverage95": 0.9476256983240224,
+              "mean_width95": 0.012171401286029851
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.001564474206805503,
+              "coverage95": 0.9104961832061068,
+              "mean_width95": 0.004848292836814925
+            },
+            "withheld_latent": {
+              "rmse": 0.0006618809907221946,
+              "coverage95": 0.9094972067039107,
+              "mean_width95": 0.002130583699100959
+            },
+            "withheld_predictive": {
+              "rmse": 0.0031382375408045226,
+              "coverage95": 0.9523743016759779,
+              "mean_width95": 0.012367729456459529
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "omitted_component",
+        "span": 180,
+        "start": 0,
+        "sigma": 0.0031928073541198122,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 13,
+        "measured_clean_relative_l2": 0.07954862054959322,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.03976973107858412,
+              "coverage95": 0.029695885509839003,
+              "mean_width95": 0.0009135714606656813
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.03976973107858412,
+              "coverage95": 0.09016100178890876,
+              "mean_width95": 0.0025336943915435766
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "omitted_component",
+        "span": 120,
+        "start": 0,
+        "sigma": 0.0031928073541198122,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 13,
+        "measured_clean_relative_l2": 0.08174794467582801,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.039811966672330494,
+              "coverage95": 0.03810375670840788,
+              "mean_width95": 0.0011035096854712105
+            },
+            "withheld_latent": {
+              "rmse": 0.013055197748275984,
+              "coverage95": 0.0376425855513308,
+              "mean_width95": 0.0005367390564735656
+            },
+            "withheld_predictive": {
+              "rmse": 0.013398529556452848,
+              "coverage95": 0.6503802281368821,
+              "mean_width95": 0.012532399012995571
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.039811966672330494,
+              "coverage95": 0.110912343470483,
+              "mean_width95": 0.0032519693244744395
+            },
+            "withheld_latent": {
+              "rmse": 0.013055197748275984,
+              "coverage95": 0.09049429657794675,
+              "mean_width95": 0.0013710492228789805
+            },
+            "withheld_predictive": {
+              "rmse": 0.013398529556452848,
+              "coverage95": 0.653231939163498,
+              "mean_width95": 0.012606797441024867
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "omitted_component",
+        "span": 120,
+        "start": 60,
+        "sigma": 0.0031928073541198122,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 12,
+        "measured_clean_relative_l2": 0.06738194005712729,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.04175957909634932,
+              "coverage95": 0.030590339892665474,
+              "mean_width95": 0.0011231043829019152
+            },
+            "withheld_latent": {
+              "rmse": 0.016980900266966144,
+              "coverage95": 0.036042065009560226,
+              "mean_width95": 0.0005424101731260837
+            },
+            "withheld_predictive": {
+              "rmse": 0.01727007473382296,
+              "coverage95": 0.48833652007648176,
+              "mean_width95": 0.012534056657403123
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.04175957909634932,
+              "coverage95": 0.09892665474060823,
+              "mean_width95": 0.0032642802305130484
+            },
+            "withheld_latent": {
+              "rmse": 0.016980900266966144,
+              "coverage95": 0.09063097514340344,
+              "mean_width95": 0.001362187191753379
+            },
+            "withheld_predictive": {
+              "rmse": 0.01727007473382296,
+              "coverage95": 0.4902485659655831,
+              "mean_width95": 0.012609656609822276
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "omitted_component",
+        "span": 90,
+        "start": 0,
+        "sigma": 0.0031928073541198122,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 13,
+        "measured_clean_relative_l2": 0.08704326915374838,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.040543699373363586,
+              "coverage95": 0.019856887298747763,
+              "mean_width95": 0.0013052504588027315
+            },
+            "withheld_latent": {
+              "rmse": 0.014041627559807656,
+              "coverage95": 0.03146944083224967,
+              "mean_width95": 0.0006550543798424103
+            },
+            "withheld_predictive": {
+              "rmse": 0.014366794241006134,
+              "coverage95": 0.5944083224967491,
+              "mean_width95": 0.012540572905012698
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.040543699373363586,
+              "coverage95": 0.08855098389982109,
+              "mean_width95": 0.004460624187347636
+            },
+            "withheld_latent": {
+              "rmse": 0.014041627559807656,
+              "coverage95": 0.09700910273081925,
+              "mean_width95": 0.00196930088350221
+            },
+            "withheld_predictive": {
+              "rmse": 0.014366794241006134,
+              "coverage95": 0.6,
+              "mean_width95": 0.012701229397686531
+            }
+          }
+        }
+      },
+      {
+        "phantom": "overlapping",
+        "condition": "omitted_component",
+        "span": 90,
+        "start": 120,
+        "sigma": 0.0031928073541198122,
+        "fits": 20,
+        "converged": 20,
+        "active_bounds": 0,
+        "max_nfev": 15,
+        "measured_clean_relative_l2": 0.07822256340574459,
+        "methods": {
+          "density": {
+            "voxel": {
+              "rmse": 0.041523594467964844,
+              "coverage95": 0.031663685152057246,
+              "mean_width95": 0.001338930608033653
+            },
+            "withheld_latent": {
+              "rmse": 0.014775068323366919,
+              "coverage95": 0.031739707835325356,
+              "mean_width95": 0.0006819979743291798
+            },
+            "withheld_predictive": {
+              "rmse": 0.01509407629570802,
+              "coverage95": 0.5460823373173971,
+              "mean_width95": 0.012543841637579826
+            }
+          },
+          "joint": {
+            "voxel": {
+              "rmse": 0.041523594467964844,
+              "coverage95": 0.12021466905187835,
+              "mean_width95": 0.0047748428910387945
+            },
+            "withheld_latent": {
+              "rmse": 0.014775068323366919,
+              "coverage95": 0.10849933598937582,
+              "mean_width95": 0.002121449674683621
+            },
+            "withheld_predictive": {
+              "rmse": 0.01509407629570802,
+              "coverage95": 0.5522576361221779,
+              "mean_width95": 0.012738811950680645
+            }
+          }
+        }
+      }
+    ]
+  },
+  "source_report_sha256": "dad47abb6d8087361b4941da6b39b550f1038789ec4e843a1a091f51d22a75f4",
+  "plot_code_sha256": "255bf7679d9ffbdc57dd64970f9eabf7371ffe7dcd2a78c1ddf09e9fb598cbb0"
+}

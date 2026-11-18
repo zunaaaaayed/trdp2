@@ -1,0 +1,19 @@
+{
+  "run_id": "sart_duration_v1_20261116",
+  "date": "2026-11-16",
+  "question": "Does the learned initialization advantage survive a longer identical measured-only SART schedule?",
+  "parent": "output/worm_uncertainty/phantom_density_v1_20261116",
+  "exposure": "same previously evaluated12 synthetic objects and six masks; development diagnostic, not fresh validation",
+  "arms": {"zero": "all-zero density", "interpolation": "full-grid FBP of saved interpolation completion, clamped nonnegative inside fixed support", "learned": "full-grid FBP of saved learned completion, clamped nonnegative inside fixed support"},
+  "measurement_contract": "parent saved acquired noisy arrays; recompute initial FBP from parent filled arrays; predictions never enter SART updates",
+  "schedule": {"reported_sweeps": [0, 1, 5, 10, 20, 50, 100], "terminal_sweeps": 100, "internal_diagnostic_sweep": 99, "relaxation": 0.5, "ordering": "increasing stored acquired-angle indices", "constraints": "nonnegative, identical fixed circular support", "adaptation": "none; do not select iteration count by truth or withheld errors"},
+  "geometry": "unchanged parent62x62 at5um,25 angles at7.2deg,62 detector point samples at5um",
+  "primary": {"span_degrees": 90, "endpoint": 100, "aggregation": "masks within object, then12 objects equally", "gain_rule": "at least0.02 absolute densityL2 improvement, majority of objects improving, acquiredL2 at most0.01 worse", "comparisons": ["learned versus zero", "learned versus interpolation"], "interpretation": "persistent at fixed100-sweep budget, not proof of asymptotic convergence"},
+  "secondary": ["120deg control", "shape-class means", "familiar versus held orientations", "boundary distance", "interior bias/MAE", "density and withheld error curves", "remaining iterate separation"],
+  "stability_diagnostics": {"terminal_one_sweep_relative_change_max": 0.0001, "acquired_residual_relative_change_50_to_100_max": 0.001, "criterion": "both per object/mask/arm; stable is not a proof of optimality or uniqueness", "denominator_floor": 1e-12},
+  "historical_parity": {"sweep5_metric_relative_tolerance": 0.000002, "absolute_tolerance": 0.000000002},
+  "budget": {"cpu_threads": 1, "blas_threads": 1, "wall_seconds": 120, "artifact_cap_bytes": 15728640, "cumulative_week8_ceiling_bytes": 262144000, "new_training": false, "new_gpu_work": false},
+  "saved_arrays": "only5- and100-sweep reconstructions; parent truth, observations and completions referenced by hash",
+  "plots": {"fixed_example": "parent evaluation object1 elongated, start21.6/span90", "contents": ["density/acquired/withheld curves", "5 versus100 density/error planes at common scales"], "show": "all planned sweeps; no outcome-selected stopping"},
+  "stopping": "single bounded diagnostic; no automatic extension if not stable. Preserve parent and failures. No reserved worm data or sampler work."
+}

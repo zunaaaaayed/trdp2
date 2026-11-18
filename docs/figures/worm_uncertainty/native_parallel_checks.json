@@ -1,0 +1,30 @@
+{
+  "kind": "native_parallel_gaussian_correctness",
+  "projection_checks": [
+    {
+      "angle_deg": 0,
+      "relative_l2": 4.025674205787956e-05
+    },
+    {
+      "angle_deg": 37,
+      "relative_l2": 4.464463925023062e-05
+    },
+    {
+      "angle_deg": 90,
+      "relative_l2": 0.00021210515486919833
+    },
+    {
+      "angle_deg": 145,
+      "relative_l2": 7.856576987025705e-05
+    }
+  ],
+  "voxel_relative_l2": 0.0010832338360730466,
+  "density_gradient_relative_error": 2.0170454545454544e-05,
+  "finite_gradients": true,
+  "gpu": "NVIDIA RTX 4000 Ada Generation",
+  "torch": "2.1.2+cu118",
+  "code_sha256": "0c89d3b147dd2bb93b7745082861b31de73d21af9a25f0695f419d2f042f753e",
+  "arrays_sha256": "f9f2e81fad001dc04b827f7c524bc9a652aaa885d9f881a00fae2434d735fa40",
+  "convention": "pixel centres -1+(2*i+1)/N; detector u=x*cos(theta)-y*sin(theta), v=z",
+  "limitation": "analytic axis-aligned Gaussian phantom; does not establish worm simulator calibration"
+}

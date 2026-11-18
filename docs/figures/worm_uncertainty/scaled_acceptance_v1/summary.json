@@ -1,0 +1,4252 @@
+{
+  "multistart": [
+    {
+      "case": "27101_moderate_14.4_None",
+      "relative_objective_gap": 0.0,
+      "acquired_prediction_disagreement": 2.300880182948847e-13,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_14.4_20261101",
+      "relative_objective_gap": 5.573609077842462e-16,
+      "acquired_prediction_disagreement": 1.6823361188634502e-09,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_14.4_20261102",
+      "relative_objective_gap": 5.583086263942511e-16,
+      "acquired_prediction_disagreement": 2.9678968206399434e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_14.4_20261103",
+      "relative_objective_gap": 5.476080425565802e-16,
+      "acquired_prediction_disagreement": 7.187561945731851e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_72.0_None",
+      "relative_objective_gap": 2.7755575615628914e-17,
+      "acquired_prediction_disagreement": 6.168243280555373e-15,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_72.0_20261101",
+      "relative_objective_gap": 3.718319868727465e-16,
+      "acquired_prediction_disagreement": 5.522897652472357e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_72.0_20261102",
+      "relative_objective_gap": 3.720705053548446e-16,
+      "acquired_prediction_disagreement": 4.682902078142415e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_moderate_72.0_20261103",
+      "relative_objective_gap": 1.8280186718683653e-16,
+      "acquired_prediction_disagreement": 2.711998174213636e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_14.4_None",
+      "relative_objective_gap": 1.8013368574543165e-14,
+      "acquired_prediction_disagreement": 3.0954555103795617e-12,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_14.4_20261101",
+      "relative_objective_gap": 3.713106779139874e-16,
+      "acquired_prediction_disagreement": 1.3702340298278936e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_14.4_20261102",
+      "relative_objective_gap": 0.0,
+      "acquired_prediction_disagreement": 8.776712884417281e-11,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_14.4_20261103",
+      "relative_objective_gap": 0.0,
+      "acquired_prediction_disagreement": 2.2469715929702172e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_72.0_None",
+      "relative_objective_gap": 2.2065682614424986e-14,
+      "acquired_prediction_disagreement": 1.5822506196892109e-12,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_72.0_20261101",
+      "relative_objective_gap": 3.712930115131469e-16,
+      "acquired_prediction_disagreement": 5.083013738459477e-11,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_72.0_20261102",
+      "relative_objective_gap": 3.7228600032052697e-16,
+      "acquired_prediction_disagreement": 1.7444666963811777e-10,
+      "passed": true
+    },
+    {
+      "case": "27101_elongated_72.0_20261103",
+      "relative_objective_gap": 5.4825775321972895e-16,
+      "acquired_prediction_disagreement": 4.456031637012345e-12,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_14.4_None",
+      "relative_objective_gap": 1.6653345369377348e-16,
+      "acquired_prediction_disagreement": 1.2818140212777455e-15,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_14.4_20261101",
+      "relative_objective_gap": 3.713656806711303e-16,
+      "acquired_prediction_disagreement": 2.7762594293344018e-11,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_14.4_20261102",
+      "relative_objective_gap": 3.7241522424703756e-16,
+      "acquired_prediction_disagreement": 4.771060438630447e-10,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_14.4_20261103",
+      "relative_objective_gap": 3.649307718649083e-16,
+      "acquired_prediction_disagreement": 2.0145956022065854e-10,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_72.0_None",
+      "relative_objective_gap": 5.551115123125783e-17,
+      "acquired_prediction_disagreement": 1.3285374642621464e-14,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_72.0_20261101",
+      "relative_objective_gap": 3.717872457912209e-16,
+      "acquired_prediction_disagreement": 2.2912281262236875e-11,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_72.0_20261102",
+      "relative_objective_gap": 0.0,
+      "acquired_prediction_disagreement": 1.5664722045101255e-10,
+      "passed": true
+    },
+    {
+      "case": "27102_moderate_72.0_20261103",
+      "relative_objective_gap": 0.0,
+      "acquired_prediction_disagreement": 2.8644295549421103e-10,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_14.4_None",
+      "relative_objective_gap": 9.664491429361988e-14,
+      "acquired_prediction_disagreement": 6.119430859050318e-12,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_14.4_20261101",
+      "relative_objective_gap": 1.8560365458679405e-16,
+      "acquired_prediction_disagreement": 1.7877477042670807e-10,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_14.4_20261102",
+      "relative_objective_gap": 1.8604540042357803e-16,
+      "acquired_prediction_disagreement": 4.833149978103616e-10,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_14.4_20261103",
+      "relative_objective_gap": 0.0,
+      "acquired_prediction_disagreement": 3.5205475096885276e-12,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_72.0_None",
+      "relative_objective_gap": 3.108624468950438e-14,
+      "acquired_prediction_disagreement": 9.564454129346388e-13,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_72.0_20261101",
+      "relative_objective_gap": 1.8560950652223497e-16,
+      "acquired_prediction_disagreement": 2.5749875683006267e-11,
+      "passed": true
+    },
+    {
+      "case": "27102_elongated_72.0_20261102",
+      "relative_objective_gap": 0.0013944935387620587,
+      "acquired_prediction_disagreement": 0.0006788139266016946,
+      "passed": false
+    },
+    {
+      "case": "27102_elongated_72.0_20261103",
+      "relative_objective_gap": 3.6528921271412565e-16,
+      "acquired_prediction_disagreement": 2.5351040622541326e-10,
+      "passed": true
+    }
+  ],
+  "counts": {
+    "initial": {
+      "scaled": 0,
+      "original": 0
+    },
+    "partial": {
+      "scaled": 8,
+      "original": 2
+    },
+    "final": {
+      "scaled": 32,
+      "original": 9
+    },
+    "polish": {
+      "scaled": 32,
+      "original": 9
+    },
+    "oracle": {
+      "scaled": 32,
+      "original": 7
+    }
+  },
+  "decision": {
+    "initial_controls_accepted": 0,
+    "accepted_checkpoints_unstable": 0,
+    "cases_without_accepted_final_or_oracle": 0,
+    "numerical_rule_validation_passed": true,
+    "note": "Local numerical validation only. No automatic posterior launch or worm gate replacement; independent-start disagreement and active bounds must be assessed separately."
+  },
+  "cases": [
+    {
+      "case": "27101_moderate_14.4_None",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.49954122766204795,
+            "relative_predicted_decrease": 0.9944007095763369,
+            "prior_scaled_correction_inf": 0.6745920628208213,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.6146083076383775e-09,
+            "active_indices": [],
+            "objective": 399111.59368150204
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 399111.59368150204,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.018459320168045523,
+            "relative_predicted_decrease": 0.27210456846303555,
+            "prior_scaled_correction_inf": 0.023174097922656865,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.654673897899528e-10,
+            "active_indices": [],
+            "objective": 0.4455989868036941
+          },
+          "truth_density_error": 0.000496125428100923,
+          "objective": 0.44559898680369414,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.934801927626886e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.184610753020974e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.304512053934559e-15,
+            "active_indices": [],
+            "objective": 0.17256654187988388
+          },
+          "truth_density_error": 8.963668802388204e-07,
+          "objective": 0.17256654187988388,
+          "converged": true,
+          "nfev": 14,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.934801927626886e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.184610753020974e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.304512053934559e-15,
+            "active_indices": [],
+            "objective": 0.17256654187988388
+          },
+          "truth_density_error": 8.963668802388204e-07,
+          "objective": 0.17256654187988388,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.6134510447088566e-12,
+            "relative_predicted_decrease": 2.7755575615628914e-17,
+            "prior_scaled_correction_inf": 1.6019564248287937e-12,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.0531133177191805e-16,
+            "active_indices": [],
+            "objective": 0.17256654187988388
+          },
+          "truth_density_error": 8.96543730764412e-07,
+          "objective": 0.17256654187988388,
+          "converged": true,
+          "nfev": 3,
+          "status": 1
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999995676233299,
+          "acquired_prediction_change": 0.21933080385359596,
+          "density_change": 0.3388048507358685
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.2730324449238103,
+          "acquired_prediction_change": 0.0001850586784138064,
+          "density_change": 0.0004962746483909801
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_moderate_14.4_20261101",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.48623348039827147,
+            "relative_predicted_decrease": 0.9475525402834017,
+            "prior_scaled_correction_inf": 0.6688642258766658,
+            "step_solver_success": true,
+            "step_solver_optimality": 5.412099227108946e-09,
+            "active_indices": [],
+            "objective": 419500.3953320878
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 419500.39533208794,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 3.4988500389001174e-05,
+            "relative_predicted_decrease": 3.2993489170136223e-07,
+            "prior_scaled_correction_inf": 0.0035160392306367375,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.1837865677175614e-11,
+            "active_indices": [],
+            "objective": 19581.46404681663
+          },
+          "truth_density_error": 0.008077601164650854,
+          "objective": 19581.46404681663,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.0398977981853632e-09,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.196996308142751e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.084422020715465e-12,
+            "active_indices": [],
+            "objective": 19581.45300262055
+          },
+          "truth_density_error": 0.008180536879521083,
+          "objective": 19581.453002620554,
+          "converged": false,
+          "nfev": 29,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.0398977981853632e-09,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.196996308142751e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.084422020715465e-12,
+            "active_indices": [],
+            "objective": 19581.45300262055
+          },
+          "truth_density_error": 0.008180536879521083,
+          "objective": 19581.453002620554,
+          "converged": false,
+          "nfev": 14,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.0727471488944826e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.95323619953442e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.885176011081853e-12,
+            "active_indices": [],
+            "objective": 19581.45300262054
+          },
+          "truth_density_error": 0.008180540961620885,
+          "objective": 19581.453002620543,
+          "converged": false,
+          "nfev": 48,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9533219677013193,
+          "acquired_prediction_change": 0.21955903917556155,
+          "density_change": 0.3399041573057178
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": true,
+          "objective_gain": 5.640127851873211e-07,
+          "acquired_prediction_change": 5.0573916375338626e-05,
+          "density_change": 0.0002260593251701017
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 5.573609077842462e-16,
+      "oracle_density_disagreement": 2.5157719945106706e-08
+    },
+    {
+      "case": "27101_moderate_14.4_20261102",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.48839365607540725,
+            "relative_predicted_decrease": 0.9478720519814502,
+            "prior_scaled_correction_inf": 0.6572553884057836,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.1823142454534548e-09,
+            "active_indices": [],
+            "objective": 419650.1283833623
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 419650.1283833624,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.00019674981540857868,
+            "relative_predicted_decrease": 1.552155016295968e-05,
+            "prior_scaled_correction_inf": 0.02134137066375257,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.6648044881838473e-11,
+            "active_indices": [],
+            "objective": 19548.68397006195
+          },
+          "truth_density_error": 0.01052608729441651,
+          "objective": 19548.68397006194,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.9676911716085234e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.3268974093801015e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.668360308381693e-12,
+            "active_indices": [],
+            "objective": 19548.213846812807
+          },
+          "truth_density_error": 0.010404470802730085,
+          "objective": 19548.21384681281,
+          "converged": false,
+          "nfev": 36,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.9676911716085234e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.3268974093801015e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.668360308381693e-12,
+            "active_indices": [],
+            "objective": 19548.213846812807
+          },
+          "truth_density_error": 0.010404470802730085,
+          "objective": 19548.21384681281,
+          "converged": false,
+          "nfev": 15,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.461924126848731e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.3241488321577014e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 7.47454875771325e-12,
+            "active_indices": [],
+            "objective": 19548.213846812807
+          },
+          "truth_density_error": 0.01040447040803195,
+          "objective": 19548.21384681282,
+          "converged": false,
+          "nfev": 26,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9534178294616059,
+          "acquired_prediction_change": 0.2195591678837716,
+          "density_change": 0.3426565694602613
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 2.4048843893937454e-05,
+          "acquired_prediction_change": 0.0003032642175326781,
+          "density_change": 0.0008878724531753949
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 5.583086263942511e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_moderate_14.4_20261103",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.49160162561460546,
+            "relative_predicted_decrease": 0.9468929482378112,
+            "prior_scaled_correction_inf": 0.7110583187608864,
+            "step_solver_success": true,
+            "step_solver_optimality": 5.369331715354697e-09,
+            "active_indices": [],
+            "objective": 418902.19343183795
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 418902.19343183795,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.0004118348404019264,
+            "relative_predicted_decrease": 1.4517919786241825e-06,
+            "prior_scaled_correction_inf": 0.005924323126664367,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1056239257456468e-11,
+            "active_indices": [],
+            "objective": 19930.23034006393
+          },
+          "truth_density_error": 0.008003861580168197,
+          "objective": 19930.23034006392,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.545111315453241e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.475750277286445e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.846068405039432e-12,
+            "active_indices": [],
+            "objective": 19930.19746445285
+          },
+          "truth_density_error": 0.007923263124909664,
+          "objective": 19930.197464452856,
+          "converged": false,
+          "nfev": 26,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.290538090976837e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.4743937411512726e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 7.0596111421961094e-12,
+            "active_indices": [],
+            "objective": 19930.197464452838
+          },
+          "truth_density_error": 0.007923263116945979,
+          "objective": 19930.197464452845,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.505004226992887e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.0473045630263146e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.3469059201298705e-11,
+            "active_indices": [],
+            "objective": 19930.19746445284
+          },
+          "truth_density_error": 0.007923261327518106,
+          "objective": 19930.197464452845,
+          "converged": false,
+          "nfev": 28,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 5.476080425565799e-16,
+      "polish_acquired_prediction_change": 1.3411047081974509e-11,
+      "polish_density_change": 3.5595721250470684e-08,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9524227903865207,
+          "acquired_prediction_change": 0.21930762704335272,
+          "density_change": 0.34121098611265577
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 1.649534928336336e-06,
+          "acquired_prediction_change": 6.862463154905711e-05,
+          "density_change": 0.00019032959372158054
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 5.476080425565799e-16,
+          "acquired_prediction_change": 1.3411047081974509e-11,
+          "density_change": 3.5595721250470684e-08
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0,
+      "oracle_density_disagreement": 2.5169975879010643e-08
+    },
+    {
+      "case": "27101_moderate_72.0_None",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.5926433568398625,
+            "relative_predicted_decrease": 0.996014308791391,
+            "prior_scaled_correction_inf": 0.8175926380705986,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.9062519091006536e-08,
+            "active_indices": [],
+            "objective": 587915.7107777409
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 587915.7107777409,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.5885065439153944,
+            "relative_predicted_decrease": 0.9744832064222064,
+            "prior_scaled_correction_inf": 0.03652205126775841,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.205465892719417e-10,
+            "active_indices": [],
+            "objective": 7.1288519759520925
+          },
+          "truth_density_error": 0.0016364234061878613,
+          "objective": 7.128851975952092,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.542990412702583e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.2785889437261557e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.915134717478395e-15,
+            "active_indices": [],
+            "objective": 0.17256647097333247
+          },
+          "truth_density_error": 1.2813374489987268e-06,
+          "objective": 0.17256647097333247,
+          "converged": true,
+          "nfev": 17,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.542990412702583e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.2785889437261557e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.915134717478395e-15,
+            "active_indices": [],
+            "objective": 0.17256647097333247
+          },
+          "truth_density_error": 1.2813374489987268e-06,
+          "objective": 0.17256647097333247,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 8.00059537748022e-13,
+            "relative_predicted_decrease": 2.7755575615628914e-17,
+            "prior_scaled_correction_inf": 1.019281382178436e-12,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.3877787807814457e-15,
+            "active_indices": [],
+            "objective": 0.1725664709733325
+          },
+          "truth_density_error": 1.2815848830937238e-06,
+          "objective": 0.1725664709733325,
+          "converged": true,
+          "nfev": 3,
+          "status": 1
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999997064775311,
+          "acquired_prediction_change": 0.26860990171393695,
+          "density_change": 0.3388045777988932
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9757932312866848,
+          "acquired_prediction_change": 0.000937935442399191,
+          "density_change": 0.001636037364049894
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 2.7755575615628914e-17,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_moderate_72.0_20261101",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.5818891185981295,
+            "relative_predicted_decrease": 0.963730103820749,
+            "prior_scaled_correction_inf": 0.7692000597385935,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.7439049732059786e-08,
+            "active_indices": [],
+            "objective": 607445.4090389248
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 607445.4090389246,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.0006959517333932322,
+            "relative_predicted_decrease": 3.491390574840793e-05,
+            "prior_scaled_correction_inf": 0.03262897448391591,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.910330587635457e-10,
+            "active_indices": [],
+            "objective": 19568.629857142318
+          },
+          "truth_density_error": 0.008987226130350462,
+          "objective": 19568.629857142314,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.2059549670609953e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.3795075806491013e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.3832991136174542e-11,
+            "active_indices": [],
+            "objective": 19567.863634802095
+          },
+          "truth_density_error": 0.009181900312145778,
+          "objective": 19567.863634802095,
+          "converged": false,
+          "nfev": 36,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.2059549670609953e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.3795075806491013e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.3832991136174542e-11,
+            "active_indices": [],
+            "objective": 19567.863634802095
+          },
+          "truth_density_error": 0.009181900312145778,
+          "objective": 19567.863634802095,
+          "converged": false,
+          "nfev": 12,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.4599709912750904e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 4.760978731150399e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.118034022785992e-12,
+            "active_indices": [],
+            "objective": 19567.86363480211
+          },
+          "truth_density_error": 0.009181900086404534,
+          "objective": 19567.863634802103,
+          "converged": false,
+          "nfev": 28,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9677866301339547,
+          "acquired_prediction_change": 0.2686013161987901,
+          "density_change": 0.33889331545245943
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 3.915564583786417e-05,
+          "acquired_prediction_change": 0.00032938600143974164,
+          "density_change": 0.0010543997142267367
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.718319868727465e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_moderate_72.0_20261102",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.5840086692306881,
+            "relative_predicted_decrease": 0.9637433707582105,
+            "prior_scaled_correction_inf": 0.8114221152909862,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.8473023388754228e-08,
+            "active_indices": [],
+            "objective": 607081.5757866355
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 607081.5757866354,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.0004602300113286785,
+            "relative_predicted_decrease": 0.00010037318316019473,
+            "prior_scaled_correction_inf": 0.05442352680259955,
+            "step_solver_success": true,
+            "step_solver_optimality": 4.02542083000057e-10,
+            "active_indices": [],
+            "objective": 19557.99520711572
+          },
+          "truth_density_error": 0.005510010973507914,
+          "objective": 19557.995207115717,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.9197269108129987e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 4.793353552976104e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 4.22745172201644e-12,
+            "active_indices": [],
+            "objective": 19555.31951462889
+          },
+          "truth_density_error": 0.005298653629207963,
+          "objective": 19555.3195146289,
+          "converged": false,
+          "nfev": 44,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.069766799162703e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.5439264883145676e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 7.327333184647955e-12,
+            "active_indices": [],
+            "objective": 19555.31951462888
+          },
+          "truth_density_error": 0.005298653153471313,
+          "objective": 19555.31951462889,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.0527702382968967e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.739627208395959e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.6342593944784767e-11,
+            "active_indices": [],
+            "objective": 19555.319514628893
+          },
+          "truth_density_error": 0.005298652390108385,
+          "objective": 19555.319514628893,
+          "converged": false,
+          "nfev": 38,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 5.581057580322666e-16,
+      "polish_acquired_prediction_change": 4.079843715065812e-10,
+      "polish_density_change": 1.7810893899453714e-08,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9677879871592384,
+          "acquired_prediction_change": 0.26852990037462177,
+          "density_change": 0.3391732599351766
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.00013680811650134103,
+          "acquired_prediction_change": 0.000690243331055065,
+          "density_change": 0.0025264635337619956
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 5.581057580322666e-16,
+          "acquired_prediction_change": 4.079843715065812e-10,
+          "density_change": 1.7810893899453714e-08
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.8603525267742232e-16,
+      "oracle_density_disagreement": 2.5188407715656586e-08
+    },
+    {
+      "case": "27101_moderate_72.0_20261103",
+      "phantom_seed": 27101,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.584605467438363,
+            "relative_predicted_decrease": 0.9631667738208646,
+            "prior_scaled_correction_inf": 0.8679136716013028,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.396037407896955e-08,
+            "active_indices": [],
+            "objective": 606057.1912102966
+          },
+          "truth_density_error": 0.36921981634601364,
+          "objective": 606057.1912102967,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.0007369790325931838,
+            "relative_predicted_decrease": 4.75399019683841e-05,
+            "prior_scaled_correction_inf": 0.03559250997249968,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.614750579560848e-11,
+            "active_indices": [],
+            "objective": 19902.134519142382
+          },
+          "truth_density_error": 0.006880559717959258,
+          "objective": 19902.134519142386,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.5290521412227346e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.528348471656285e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.2722906889427463e-11,
+            "active_indices": [],
+            "objective": 19901.212515370196
+          },
+          "truth_density_error": 0.0067525419235875545,
+          "objective": 19901.212515370207,
+          "converged": false,
+          "nfev": 28,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.5290521412227346e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.528348471656285e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.2722906889427463e-11,
+            "active_indices": [],
+            "objective": 19901.212515370196
+          },
+          "truth_density_error": 0.0067525419235875545,
+          "objective": 19901.212515370207,
+          "converged": false,
+          "nfev": 13,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.3647987832078266e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 8.627506727471749e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.2079421624354723e-11,
+            "active_indices": [],
+            "objective": 19901.2125153702
+          },
+          "truth_density_error": 0.006752541749495533,
+          "objective": 19901.212515370204,
+          "converged": true,
+          "nfev": 15,
+          "status": 1
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9671628143284177,
+          "acquired_prediction_change": 0.2682064154501273,
+          "density_change": 0.33770180740390154
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 4.632687872208187e-05,
+          "acquired_prediction_change": 0.0003394231276618057,
+          "density_change": 0.0009183810927431718
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.8280186718683653e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_elongated_14.4_None",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.41311938558037753,
+            "relative_predicted_decrease": 0.634254543002219,
+            "prior_scaled_correction_inf": 8.309604798308802,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0490958371120462e-08,
+            "active_indices": [],
+            "objective": 845662.2022218506
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 845662.2022218505,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.7748148307709397,
+            "relative_predicted_decrease": 0.9953394155028372,
+            "prior_scaled_correction_inf": 0.9037597374421578,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.9084391637576096e-09,
+            "active_indices": [],
+            "objective": 46.949887098584874
+          },
+          "truth_density_error": 0.24774137186410677,
+          "objective": 46.94988709858485,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.9366061879322385e-10,
+            "relative_predicted_decrease": 1.3877787807814457e-16,
+            "prior_scaled_correction_inf": 8.303830765773013e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.8957058145474548e-14,
+            "active_indices": [],
+            "objective": 0.17193903727617646
+          },
+          "truth_density_error": 0.004935962055505554,
+          "objective": 0.1719390372761765,
+          "converged": false,
+          "nfev": 78,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.7673239942312192e-10,
+            "relative_predicted_decrease": 1.942890293094024e-16,
+            "prior_scaled_correction_inf": 8.303832117126322e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.575673587391975e-15,
+            "active_indices": [],
+            "objective": 0.1719390372761761
+          },
+          "truth_density_error": 0.004935962055482344,
+          "objective": 0.17193903727617607,
+          "converged": false,
+          "nfev": 13,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.143673584259977e-10,
+            "relative_predicted_decrease": 5.551115123125783e-17,
+            "prior_scaled_correction_inf": 2.9501836399447778e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1934897514720433e-14,
+            "active_indices": [],
+            "objective": 0.1719390372761585
+          },
+          "truth_density_error": 0.004935965294270397,
+          "objective": 0.17193903727615847,
+          "converged": false,
+          "nfev": 24,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 4.163336342344337e-16,
+      "polish_acquired_prediction_change": 6.816767196741827e-15,
+      "polish_density_change": 1.516149360409937e-08,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999997966811844,
+          "acquired_prediction_change": 0.33630639395432466,
+          "density_change": 0.9360112140568738
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9963378178755757,
+          "acquired_prediction_change": 0.0024119470977009634,
+          "density_change": 0.23267236097984906
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 4.163336342344337e-16,
+          "acquired_prediction_change": 6.816767196741827e-15,
+          "density_change": 1.516149360409937e-08
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.759703494030873e-14,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_elongated_14.4_20261101",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.40847098383852765,
+            "relative_predicted_decrease": 0.6201466939838379,
+            "prior_scaled_correction_inf": 8.054145315700366,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.489219721151347e-08,
+            "active_indices": [],
+            "objective": 864787.8167387842
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 864787.8167387841,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.029293754581949192,
+            "relative_predicted_decrease": 0.0011358441583802197,
+            "prior_scaled_correction_inf": 0.9345681094358863,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.444895186974442e-09,
+            "active_indices": [],
+            "objective": 19617.468351741583
+          },
+          "truth_density_error": 0.2513147421606821,
+          "objective": 19617.468351741583,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.7115098504519756e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 4.421575960491698e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.505779414136327e-12,
+            "active_indices": [],
+            "objective": 19595.33632337089
+          },
+          "truth_density_error": 0.10006811802279998,
+          "objective": 19595.336323370888,
+          "converged": false,
+          "nfev": 54,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.7115098504519756e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 4.421575960491698e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.505779414136327e-12,
+            "active_indices": [],
+            "objective": 19595.33632337089
+          },
+          "truth_density_error": 0.10006811802279998,
+          "objective": 19595.336323370888,
+          "converged": false,
+          "nfev": 15,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.7276599068107255e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 4.289796633280411e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.2536850857735047e-11,
+            "active_indices": [],
+            "objective": 19595.33632337089
+          },
+          "truth_density_error": 0.10006816048940331,
+          "objective": 19595.336323370895,
+          "converged": false,
+          "nfev": 41,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9773408737448832,
+          "acquired_prediction_change": 0.33611788810873594,
+          "density_change": 0.9411573200807573
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.001128179639384032,
+          "acquired_prediction_change": 0.0016387463120071063,
+          "density_change": 0.20182939601425243
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.713106779139874e-16,
+      "oracle_density_disagreement": 6.232249502659493e-07
+    },
+    {
+      "case": "27101_elongated_14.4_20261102",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.407682323784917,
+            "relative_predicted_decrease": 0.6192519701305321,
+            "prior_scaled_correction_inf": 8.20714049404066,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.3678442045694794e-08,
+            "active_indices": [],
+            "objective": 866321.1272565888
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 866321.1272565887,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.0510691287674381,
+            "relative_predicted_decrease": 0.05869526274110435,
+            "prior_scaled_correction_inf": 1.6303473088623586,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0095576555291252e-08,
+            "active_indices": [],
+            "objective": 20767.06928620932
+          },
+          "truth_density_error": 0.3731342497436909,
+          "objective": 20767.06928620932,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.694645408237613e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.108221793861332e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.85455597732232e-12,
+            "active_indices": [],
+            "objective": 19548.24129543162
+          },
+          "truth_density_error": 0.09113060912078826,
+          "objective": 19548.24129543163,
+          "converged": false,
+          "nfev": 95,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.694645408237613e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.108221793861332e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.85455597732232e-12,
+            "active_indices": [],
+            "objective": 19548.24129543162
+          },
+          "truth_density_error": 0.09113060912078826,
+          "objective": 19548.24129543163,
+          "converged": false,
+          "nfev": 13,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.2863720197848548e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.047478562942237e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 7.879752406125817e-12,
+            "active_indices": [],
+            "objective": 19548.241295431635
+          },
+          "truth_density_error": 0.09113062939255097,
+          "objective": 19548.24129543163,
+          "converged": false,
+          "nfev": 30,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9774353404524073,
+          "acquired_prediction_change": 0.3365542263160155,
+          "density_change": 0.955144100219076
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.05869041866138856,
+          "acquired_prediction_change": 0.012412650542500007,
+          "density_change": 0.3673151587591449
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0,
+      "oracle_density_disagreement": 2.5994270657708657e-07
+    },
+    {
+      "case": "27101_elongated_14.4_20261103",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4085867129092569,
+            "relative_predicted_decrease": 0.618785666513774,
+            "prior_scaled_correction_inf": 7.921885418949318,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.9952183516469546e-08,
+            "active_indices": [],
+            "objective": 865584.0093034627
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 865584.0093034627,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.09330858797851622,
+            "relative_predicted_decrease": 0.06644926100345791,
+            "prior_scaled_correction_inf": 1.8688881748029724,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.2794421442446913e-08,
+            "active_indices": [],
+            "objective": 21347.132494510835
+          },
+          "truth_density_error": 0.3866843918648024,
+          "objective": 21347.13249451084,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.119931575601084e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.4808077320617066e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.722966793328624e-12,
+            "active_indices": [],
+            "objective": 19929.321168814
+          },
+          "truth_density_error": 0.14227329666049165,
+          "objective": 19929.321168814004,
+          "converged": false,
+          "nfev": 108,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.119931575601084e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.4808077320617066e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.722966793328624e-12,
+            "active_indices": [],
+            "objective": 19929.321168814
+          },
+          "truth_density_error": 0.14227329666049165,
+          "objective": 19929.321168814004,
+          "converged": false,
+          "nfev": 13,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 8.849870958068685e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.645491346803184e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 7.100552350952638e-12,
+            "active_indices": [],
+            "objective": 19929.321168814
+          },
+          "truth_density_error": 0.1422732114366738,
+          "objective": 19929.321168814004,
+          "converged": false,
+          "nfev": 51,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9769758672126451,
+          "acquired_prediction_change": 0.33610588760153215,
+          "density_change": 0.9128520113931731
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.06641694504221626,
+          "acquired_prediction_change": 0.0134170672250583,
+          "density_change": 0.41307072533640915
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0,
+      "oracle_density_disagreement": 1.7014606442103037e-07
+    },
+    {
+      "case": "27101_elongated_72.0_None",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.47874056977444096,
+            "relative_predicted_decrease": 0.5894938967847829,
+            "prior_scaled_correction_inf": 4.157566166369187,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.0041241645159e-08,
+            "active_indices": [],
+            "objective": 1079092.2253091212
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 1079092.225309121,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.32860266132648763,
+            "relative_predicted_decrease": 0.9974533820570056,
+            "prior_scaled_correction_inf": 0.5530743130627841,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.689506143060654e-08,
+            "active_indices": [],
+            "objective": 1658.079966202383
+          },
+          "truth_density_error": 0.608557273336084,
+          "objective": 1658.0799662023833,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 7.612785303446329e-11,
+            "relative_predicted_decrease": 2.7755575615628914e-17,
+            "prior_scaled_correction_inf": 7.192105223372492e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.103828801926284e-15,
+            "active_indices": [],
+            "objective": 0.1706871294797838
+          },
+          "truth_density_error": 0.012216970395829892,
+          "objective": 0.1706871294797838,
+          "converged": true,
+          "nfev": 35,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 7.612785303446329e-11,
+            "relative_predicted_decrease": 2.7755575615628914e-17,
+            "prior_scaled_correction_inf": 7.192105223372492e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.103828801926284e-15,
+            "active_indices": [],
+            "objective": 0.1706871294797838
+          },
+          "truth_density_error": 0.012216970395829892,
+          "objective": 0.1706871294797838,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.510447216651001e-10,
+            "relative_predicted_decrease": 6.938893903907228e-16,
+            "prior_scaled_correction_inf": 2.200214687446554e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.887379141862766e-15,
+            "active_indices": [],
+            "objective": 0.17068712947976178
+          },
+          "truth_density_error": 0.012216963393459323,
+          "objective": 0.17068712947976172,
+          "converged": true,
+          "nfev": 24,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999998418234091,
+          "acquired_prediction_change": 0.3838403352878524,
+          "density_change": 0.9341595631748278
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.999897057359742,
+          "acquired_prediction_change": 0.014541150264371352,
+          "density_change": 0.6320267768560144
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 2.2065682614424986e-14,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27101_elongated_72.0_20261101",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4739187659508132,
+            "relative_predicted_decrease": 0.578503801770428,
+            "prior_scaled_correction_inf": 4.455143108436952,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.836783396549137e-08,
+            "active_indices": [],
+            "objective": 1097929.421248401
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 1097929.4212484008,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.24957767109928253,
+            "relative_predicted_decrease": 0.10550725919175312,
+            "prior_scaled_correction_inf": 0.5742030658663446,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.737147549364892e-08,
+            "active_indices": [],
+            "objective": 21908.33251743331
+          },
+          "truth_density_error": 0.4258874462609402,
+          "objective": 21908.332517433308,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.833551046083475e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.1012276273530953e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.241032276944054e-11,
+            "active_indices": [],
+            "objective": 19596.268684216247
+          },
+          "truth_density_error": 0.18515788948939055,
+          "objective": 19596.268684216255,
+          "converged": false,
+          "nfev": 66,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.833551046083475e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.1012276273530953e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.241032276944054e-11,
+            "active_indices": [],
+            "objective": 19596.268684216247
+          },
+          "truth_density_error": 0.18515788948939055,
+          "objective": 19596.268684216255,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.5675581727787285e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.0983269386046265e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1272732747258374e-11,
+            "active_indices": [],
+            "objective": 19596.268684216255
+          },
+          "truth_density_error": 0.18515790038778907,
+          "objective": 19596.268684216262,
+          "converged": false,
+          "nfev": 50,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9821516134780919,
+          "acquired_prediction_change": 0.38397658012322233,
+          "density_change": 0.9441955783696426
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.10553353758791338,
+          "acquired_prediction_change": 0.01726903310300087,
+          "density_change": 0.47064884300615
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.712930115131469e-16,
+      "oracle_density_disagreement": 2.9787473992347417e-07
+    },
+    {
+      "case": "27101_elongated_72.0_20261102",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4752949640226737,
+            "relative_predicted_decrease": 0.5810524640125093,
+            "prior_scaled_correction_inf": 4.080376842297067,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.2944648514489074e-08,
+            "active_indices": [],
+            "objective": 1098188.6984481802
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 1098188.69844818,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.034000988934931656,
+            "relative_predicted_decrease": 0.003253317895807012,
+            "prior_scaled_correction_inf": 0.18808864951162876,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.10689604405044e-08,
+            "active_indices": [],
+            "objective": 19607.735881871988
+          },
+          "truth_density_error": 0.21389279063905106,
+          "objective": 19607.735881871995,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.693667883423219e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.602424752129785e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.312963626709518e-11,
+            "active_indices": [],
+            "objective": 19544.000064249118
+          },
+          "truth_density_error": 0.15385125766100846,
+          "objective": 19544.000064249118,
+          "converged": true,
+          "nfev": 22,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.693667883423219e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.602424752129785e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.312963626709518e-11,
+            "active_indices": [],
+            "objective": 19544.000064249118
+          },
+          "truth_density_error": 0.15385125766100846,
+          "objective": 19544.000064249118,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.511782693160758e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.2118713280538168e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.9679817471524075e-12,
+            "active_indices": [],
+            "objective": 19544.000064249125
+          },
+          "truth_density_error": 0.15385133714444835,
+          "objective": 19544.000064249125,
+          "converged": false,
+          "nfev": 31,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9822034226978785,
+          "acquired_prediction_change": 0.3834705424906666,
+          "density_change": 0.9531001771250216
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.00325054447932477,
+          "acquired_prediction_change": 0.0028410475570377915,
+          "density_change": 0.09204291675984984
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.7228600032052697e-16,
+      "oracle_density_disagreement": 3.374775176389435e-07
+    },
+    {
+      "case": "27101_elongated_72.0_20261103",
+      "phantom_seed": 27101,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.47473015595161167,
+            "relative_predicted_decrease": 0.5784135376158932,
+            "prior_scaled_correction_inf": 4.13137096127026,
+            "step_solver_success": true,
+            "step_solver_optimality": 4.150350940701486e-08,
+            "active_indices": [],
+            "objective": 1098522.1585715553
+          },
+          "truth_density_error": 0.9848048856017068,
+          "objective": 1098522.1585715548,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.032945189688124175,
+            "relative_predicted_decrease": 0.002165802201167128,
+            "prior_scaled_correction_inf": 0.47933554436358455,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.0999033757599096e-09,
+            "active_indices": [],
+            "objective": 19949.849415818262
+          },
+          "truth_density_error": 0.20647990715532163,
+          "objective": 19949.84941581827,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.185380609604502e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 6.510313918261821e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.6341986683147958e-11,
+            "active_indices": [],
+            "objective": 19906.5792634602
+          },
+          "truth_density_error": 0.19978494898035856,
+          "objective": 19906.579263460215,
+          "converged": false,
+          "nfev": 59,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.185380609604502e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 6.510313918261821e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.6341986683147958e-11,
+            "active_indices": [],
+            "objective": 19906.5792634602
+          },
+          "truth_density_error": 0.19978494898035856,
+          "objective": 19906.579263460215,
+          "converged": false,
+          "nfev": 15,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 7.35912294634278e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.8869777757826288e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.311287189942334e-11,
+            "active_indices": [],
+            "objective": 19906.5792634602
+          },
+          "truth_density_error": 0.19978494482135256,
+          "objective": 19906.579263460204,
+          "converged": false,
+          "nfev": 59,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9818787640211597,
+          "acquired_prediction_change": 0.38375700067794444,
+          "density_change": 0.9130184339146539
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.002168946314138366,
+          "acquired_prediction_change": 0.002335146633707454,
+          "density_change": 0.13721044804371085
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 5.4825775321972895e-16,
+      "oracle_density_disagreement": 2.020266623028863e-07
+    },
+    {
+      "case": "27102_moderate_14.4_None",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4998437484642078,
+            "relative_predicted_decrease": 0.9883243038248841,
+            "prior_scaled_correction_inf": 0.5542972593391868,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.6815797355149726e-09,
+            "active_indices": [],
+            "objective": 464289.8507996926
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 464289.8507996927,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.302238141463939e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.841227337769725e-14,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.881784197001252e-16,
+            "active_indices": [],
+            "objective": 0.27681159480509093
+          },
+          "truth_density_error": 1.897540978905964e-06,
+          "objective": 0.27681159480509093,
+          "converged": true,
+          "nfev": 8,
+          "status": 1
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.302238141463939e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.841227337769725e-14,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.881784197001252e-16,
+            "active_indices": [],
+            "objective": 0.27681159480509093
+          },
+          "truth_density_error": 1.897540978905964e-06,
+          "objective": 0.27681159480509093,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.302238141463939e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.841227337769725e-14,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.881784197001252e-16,
+            "active_indices": [],
+            "objective": 0.27681159480509093
+          },
+          "truth_density_error": 1.897540978905964e-06,
+          "objective": 0.27681159480509093,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.5878626263743563e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.3176700128736376e-15,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.3877787807814457e-15,
+            "active_indices": [],
+            "objective": 0.27681159480509077
+          },
+          "truth_density_error": 1.897363014921619e-06,
+          "objective": 0.27681159480509077,
+          "converged": true,
+          "nfev": 3,
+          "status": 1
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.999999403795723,
+          "acquired_prediction_change": 0.2599852510259262,
+          "density_change": 0.36500124988075383
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.6653345369377348e-16,
+      "oracle_density_disagreement": 2.5987628637589266e-08
+    },
+    {
+      "case": "27102_moderate_14.4_20261101",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.48927823713182583,
+            "relative_predicted_decrease": 0.9488990564844294,
+            "prior_scaled_correction_inf": 0.5566197286866605,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.619699094434495e-09,
+            "active_indices": [],
+            "objective": 484203.4710069665
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 484203.4710069666,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.1046958160154664e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.5412663914992246e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1088074902687595e-11,
+            "active_indices": [],
+            "objective": 19592.434069390445
+          },
+          "truth_density_error": 0.007888266169614407,
+          "objective": 19592.43406939044,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.6000407362988814e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.5008868533931538e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.090361904498155e-11,
+            "active_indices": [],
+            "objective": 19592.434069390438
+          },
+          "truth_density_error": 0.007888266166853314,
+          "objective": 19592.434069390445,
+          "converged": false,
+          "nfev": 11,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.6000407362988814e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.5008868533931538e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.090361904498155e-11,
+            "active_indices": [],
+            "objective": 19592.434069390438
+          },
+          "truth_density_error": 0.007888266166853314,
+          "objective": 19592.434069390445,
+          "converged": false,
+          "nfev": 9,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.9239419265625855e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.59393871540471e-10,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.700808841113517e-12,
+            "active_indices": [],
+            "objective": 19592.43406939045
+          },
+          "truth_density_error": 0.007888266268521476,
+          "objective": 19592.434069390452,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9595367748425154,
+          "acquired_prediction_change": 0.2599898586243882,
+          "density_change": 0.3651552686516591
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 1.3062237822916713e-11,
+          "density_change": 3.671674980274207e-08
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.713656806711303e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_moderate_14.4_20261102",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4905286090614576,
+            "relative_predicted_decrease": 0.9482653068021677,
+            "prior_scaled_correction_inf": 0.5435087243402301,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.8195014378784578e-09,
+            "active_indices": [],
+            "objective": 483196.4709748828
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 483196.47097488283,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.869111061113182e-10,
+            "relative_predicted_decrease": 1.8620761212351868e-16,
+            "prior_scaled_correction_inf": 2.8292101277210744e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 5.311279194231133e-12,
+            "active_indices": [],
+            "objective": 19537.218514345706
+          },
+          "truth_density_error": 0.007099053678825376,
+          "objective": 19537.21851434571,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.1557576555375416e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.8590948368497072e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.673095657802833e-12,
+            "active_indices": [],
+            "objective": 19537.2185143457
+          },
+          "truth_density_error": 0.007099053733859976,
+          "objective": 19537.218514345703,
+          "converged": false,
+          "nfev": 11,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.1557576555375416e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.8590948368497072e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.673095657802833e-12,
+            "active_indices": [],
+            "objective": 19537.2185143457
+          },
+          "truth_density_error": 0.007099053733859976,
+          "objective": 19537.218514345703,
+          "converged": false,
+          "nfev": 9,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.846866067174242e-09,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.5675170408837734e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.139311281572191e-12,
+            "active_indices": [],
+            "objective": 19537.2185143457
+          },
+          "truth_density_error": 0.007099052603985756,
+          "objective": 19537.218514345695,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9595667193617371,
+          "acquired_prediction_change": 0.25985151599843376,
+          "density_change": 0.3650379942694034
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 3.7241522424703726e-16,
+          "acquired_prediction_change": 6.921704339371142e-11,
+          "density_change": 0.0
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.7241522424703756e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_moderate_14.4_20261103",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 14.4,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4898062596662169,
+            "relative_predicted_decrease": 0.9478704131475381,
+            "prior_scaled_correction_inf": 0.5681700317114345,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.0691508669217623e-09,
+            "active_indices": [],
+            "objective": 484679.6222642568
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 484679.6222642568,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.062222556877287e-11,
+            "relative_predicted_decrease": 7.29861543729816e-16,
+            "prior_scaled_correction_inf": 1.235749171994893e-10,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.494982495221848e-12,
+            "active_indices": [],
+            "objective": 19937.91199629742
+          },
+          "truth_density_error": 0.005923583088531143,
+          "objective": 19937.911996297422,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.983207973146598e-13,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.523102352969898e-12,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.337419726307417e-12,
+            "active_indices": [],
+            "objective": 19937.91199629741
+          },
+          "truth_density_error": 0.005923583088588149,
+          "objective": 19937.91199629741,
+          "converged": true,
+          "nfev": 2,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.983207973146598e-13,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.523102352969898e-12,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.337419726307417e-12,
+            "active_indices": [],
+            "objective": 19937.91199629741
+          },
+          "truth_density_error": 0.005923583088588149,
+          "objective": 19937.91199629741,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.733372822504205e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 8.805921032770893e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.369984681254266e-11,
+            "active_indices": [],
+            "objective": 19937.911996297407
+          },
+          "truth_density_error": 0.005923583283433695,
+          "objective": 19937.911996297404,
+          "converged": false,
+          "nfev": 18,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.95886372960523,
+          "acquired_prediction_change": 0.26008884076901584,
+          "density_change": 0.3646272222720226
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 5.473961577973619e-16,
+          "acquired_prediction_change": 3.594459789458586e-12,
+          "density_change": 0.0
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.649307718649083e-16,
+      "oracle_density_disagreement": 4.853996552016847e-08
+    },
+    {
+      "case": "27102_moderate_72.0_None",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4905619437972438,
+            "relative_predicted_decrease": 0.9817220862425634,
+            "prior_scaled_correction_inf": 0.5063101063141915,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.5100503203701052e-09,
+            "active_indices": [],
+            "objective": 340946.23716066766
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 340946.2371606678,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.5200734093769062e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.661466823775408e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.992007221626409e-16,
+            "active_indices": [],
+            "objective": 0.2768116162472545
+          },
+          "truth_density_error": 2.675841326185646e-06,
+          "objective": 0.2768116162472545,
+          "converged": true,
+          "nfev": 8,
+          "status": 1
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.5200734093769062e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.661466823775408e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.992007221626409e-16,
+            "active_indices": [],
+            "objective": 0.2768116162472545
+          },
+          "truth_density_error": 2.675841326185646e-06,
+          "objective": 0.2768116162472545,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.5200734093769062e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.661466823775408e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.992007221626409e-16,
+            "active_indices": [],
+            "objective": 0.2768116162472545
+          },
+          "truth_density_error": 2.675841326185646e-06,
+          "objective": 0.2768116162472545,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.0058077806694435e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 4.80745790696192e-15,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.71445146547012e-16,
+            "active_indices": [],
+            "objective": 0.2768116162472544
+          },
+          "truth_density_error": 2.675588924041408e-06,
+          "objective": 0.2768116162472544,
+          "converged": true,
+          "nfev": 3,
+          "status": 1
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999991881077246,
+          "acquired_prediction_change": 0.22276635027270464,
+          "density_change": 0.36500181567602397
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 5.551115123125783e-17,
+      "oracle_density_disagreement": 1.8376030024484538e-08
+    },
+    {
+      "case": "27102_moderate_72.0_20261101",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4760342269835547,
+            "relative_predicted_decrease": 0.9284748529205951,
+            "prior_scaled_correction_inf": 0.4902409676320445,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.3920546382273358e-09,
+            "active_indices": [],
+            "objective": 360290.1307365394
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 360290.13073653943,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.3144576020855025e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.3525975200571735e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.749479001897043e-12,
+            "active_indices": [],
+            "objective": 19570.218442268146
+          },
+          "truth_density_error": 0.008822130033684612,
+          "objective": 19570.218442268142,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.6179628217413992e-13,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.7367324146306405e-12,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.797423734994368e-12,
+            "active_indices": [],
+            "objective": 19570.21844226814
+          },
+          "truth_density_error": 0.008822129959103324,
+          "objective": 19570.21844226813,
+          "converged": true,
+          "nfev": 3,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.6179628217413992e-13,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.7367324146306405e-12,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.797423734994368e-12,
+            "active_indices": [],
+            "objective": 19570.21844226814
+          },
+          "truth_density_error": 0.008822129959103324,
+          "objective": 19570.21844226813,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 8.4714759653544e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.45848831531609e-10,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.3298364066070008e-12,
+            "active_indices": [],
+            "objective": 19570.218442268135
+          },
+          "truth_density_error": 0.008822129895162836,
+          "objective": 19570.21844226814,
+          "converged": false,
+          "nfev": 15,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9456820579507387,
+          "acquired_prediction_change": 0.22267112503148898,
+          "density_change": 0.36447341197502026
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 5.57680868686831e-16,
+          "acquired_prediction_change": 3.789028420483582e-11,
+          "density_change": 0.0
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.717872457912209e-16,
+      "oracle_density_disagreement": 3.187025928144682e-08
+    },
+    {
+      "case": "27102_moderate_72.0_20261102",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4787821636090322,
+            "relative_predicted_decrease": 0.9280003179612605,
+            "prior_scaled_correction_inf": 0.4982073050470246,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.8406184349183405e-09,
+            "active_indices": [],
+            "objective": 358917.54932201916
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 358917.5493220192,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.83392796072928e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.854099061274943e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.386041860930504e-12,
+            "active_indices": [],
+            "objective": 19540.69064240464
+          },
+          "truth_density_error": 0.007921924521168239,
+          "objective": 19540.690642404636,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.605467876682699e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.832067984813974e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1161710444795858e-11,
+            "active_indices": [],
+            "objective": 19540.690642404636
+          },
+          "truth_density_error": 0.007921924521040362,
+          "objective": 19540.690642404636,
+          "converged": false,
+          "nfev": 14,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.605467876682699e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 5.832067984813974e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1161710444795858e-11,
+            "active_indices": [],
+            "objective": 19540.690642404636
+          },
+          "truth_density_error": 0.007921924521040362,
+          "objective": 19540.690642404636,
+          "converged": false,
+          "nfev": 12,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.4747182356355233e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.1129840195845108e-10,
+            "step_solver_success": true,
+            "step_solver_optimality": 5.89256421434925e-12,
+            "active_indices": [],
+            "objective": 19540.690642404636
+          },
+          "truth_density_error": 0.007921923858827713,
+          "objective": 19540.690642404636,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9455566029598824,
+          "acquired_prediction_change": 0.22230507915107806,
+          "density_change": 0.3640218813088786
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 2.7132135358032623e-11,
+          "density_change": 0.0
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_moderate_72.0_20261103",
+      "phantom_seed": 27102,
+      "shape": "moderate",
+      "offset": 72.0,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.479772897639244,
+            "relative_predicted_decrease": 0.9274394858895705,
+            "prior_scaled_correction_inf": 0.5041215783218271,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.410606909058032e-09,
+            "active_indices": [],
+            "objective": 360580.7255220544
+          },
+          "truth_density_error": 0.36480844501139276,
+          "objective": 360580.7255220545,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.116062608684702e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 3.973724249206337e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.742864269045242e-11,
+            "active_indices": [],
+            "objective": 19910.664042796703
+          },
+          "truth_density_error": 0.008043098382673721,
+          "objective": 19910.66404279671,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.4189039180446617e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.8070093069246916e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.903210111892708e-12,
+            "active_indices": [],
+            "objective": 19910.664042796696
+          },
+          "truth_density_error": 0.008043098671457817,
+          "objective": 19910.664042796696,
+          "converged": false,
+          "nfev": 14,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.4189039180446617e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.8070093069246916e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.903210111892708e-12,
+            "active_indices": [],
+            "objective": 19910.664042796696
+          },
+          "truth_density_error": 0.008043098671457817,
+          "objective": 19910.664042796696,
+          "converged": false,
+          "nfev": 12,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 9.013511006037673e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.777296537637523e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0434847430573768e-11,
+            "active_indices": [],
+            "objective": 19910.664042796692
+          },
+          "truth_density_error": 0.008043100745551611,
+          "objective": 19910.664042796696,
+          "converged": false,
+          "nfev": 17,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9447816740232864,
+          "acquired_prediction_change": 0.22268562813357642,
+          "density_change": 0.36463243130724177
+        },
+        "partial": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 7.308603669414758e-16,
+          "acquired_prediction_change": 5.7810560920662354e-11,
+          "density_change": 4.11053329384658e-08
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_elongated_14.4_None",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.3819394387599198,
+            "relative_predicted_decrease": 0.5049166845752048,
+            "prior_scaled_correction_inf": 8.159670588198436,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.2394604337329085e-07,
+            "active_indices": [],
+            "objective": 1786980.8580107808
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 1786980.8580107805,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.46162589118004377,
+            "relative_predicted_decrease": 0.5061592165934625,
+            "prior_scaled_correction_inf": 42.27454846211042,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.578337173515411e-07,
+            "active_indices": [],
+            "objective": 67242.61879952803
+          },
+          "truth_density_error": 2.2478099202555395,
+          "objective": 67242.61879952803,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.394228184937756e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 6.253472656576471e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.295386103412511e-14,
+            "active_indices": [],
+            "objective": 0.2757705231157109
+          },
+          "truth_density_error": 0.004468243857678609,
+          "objective": 0.27577052311571093,
+          "converged": false,
+          "nfev": 167,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.394228184937756e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 6.253472656576471e-13,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.295386103412511e-14,
+            "active_indices": [],
+            "objective": 0.2757705231157109
+          },
+          "truth_density_error": 0.004468243857678609,
+          "objective": 0.27577052311571093,
+          "converged": false,
+          "nfev": 7,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.648789620727826e-10,
+            "relative_predicted_decrease": 6.661338147750939e-16,
+            "prior_scaled_correction_inf": 1.8544516275887825e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.5654144647214707e-14,
+            "active_indices": [],
+            "objective": 0.27577052311561423
+          },
+          "truth_density_error": 0.004468240098121893,
+          "objective": 0.2757705231156143,
+          "converged": false,
+          "nfev": 23,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999998456779646,
+          "acquired_prediction_change": 0.5206635628851468,
+          "density_change": 0.9907884612768695
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999958988729463,
+          "acquired_prediction_change": 0.0955225297141831,
+          "density_change": 0.9497804969548899
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 9.664491429361988e-14,
+      "oracle_density_disagreement": 2.9432448975973565e-07
+    },
+    {
+      "case": "27102_elongated_14.4_20261101",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.3789494521355239,
+            "relative_predicted_decrease": 0.4985157125587755,
+            "prior_scaled_correction_inf": 8.55318455658228,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.663824569918321e-08,
+            "active_indices": [],
+            "objective": 1806040.7923399599
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 1806040.7923399594,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.40438399585310414,
+            "relative_predicted_decrease": 0.38994427019755223,
+            "prior_scaled_correction_inf": 41.690891958790246,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.4343187240938027e-06,
+            "active_indices": [],
+            "objective": 86100.45162611372
+          },
+          "truth_density_error": 2.2484557578455107,
+          "objective": 86100.4516261137,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.272210619463859e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.826917160766738e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.323628674673401e-12,
+            "active_indices": [],
+            "objective": 19600.792964938526
+          },
+          "truth_density_error": 0.11653184967541047,
+          "objective": 19600.79296493853,
+          "converged": false,
+          "nfev": 133,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.272210619463859e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.826917160766738e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.323628674673401e-12,
+            "active_indices": [],
+            "objective": 19600.792964938526
+          },
+          "truth_density_error": 0.11653184967541047,
+          "objective": 19600.79296493853,
+          "converged": false,
+          "nfev": 17,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 4.9511552086029126e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.4490829116271167e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.311592150333608e-11,
+            "active_indices": [],
+            "objective": 19600.792964938526
+          },
+          "truth_density_error": 0.11653163273571476,
+          "objective": 19600.792964938526,
+          "converged": false,
+          "nfev": 50,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9891470928851263,
+          "acquired_prediction_change": 0.5207429859524748,
+          "density_change": 1.0234594277922282
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.7723497078731496,
+          "acquired_prediction_change": 0.0949684883408957,
+          "density_change": 0.9531300371627585
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.8560365458679405e-16,
+      "oracle_density_disagreement": 6.064876148927118e-07
+    },
+    {
+      "case": "27102_elongated_14.4_20261102",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.37874999249409425,
+            "relative_predicted_decrease": 0.4985851313928189,
+            "prior_scaled_correction_inf": 8.481419523436422,
+            "step_solver_success": true,
+            "step_solver_optimality": 7.123536719180756e-08,
+            "active_indices": [],
+            "objective": 1805387.1487584712
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 1805387.1487584715,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.42491849868917075,
+            "relative_predicted_decrease": 0.4031271829848177,
+            "prior_scaled_correction_inf": 36.4060257188817,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.967605433536253e-07,
+            "active_indices": [],
+            "objective": 89023.24702099802
+          },
+          "truth_density_error": 2.4606212253223534,
+          "objective": 89023.24702099805,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.1482699312977764e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.457840659146213e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.0015350488122863e-11,
+            "active_indices": [],
+            "objective": 19554.252880259122
+          },
+          "truth_density_error": 0.11230641604093909,
+          "objective": 19554.252880259126,
+          "converged": false,
+          "nfev": 128,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.510617124016274e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.445612009451143e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.5097867400726273e-11,
+            "active_indices": [],
+            "objective": 19554.252880259115
+          },
+          "truth_density_error": 0.11230641620122779,
+          "objective": 19554.252880259122,
+          "converged": false,
+          "nfev": 17,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.301243929455385e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 8.812446760047517e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.297126378003611e-11,
+            "active_indices": [],
+            "objective": 19554.252880259126
+          },
+          "truth_density_error": 0.11230632449874221,
+          "objective": 19554.25288025913,
+          "converged": false,
+          "nfev": 32,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 1.8604540042357803e-16,
+      "polish_acquired_prediction_change": 1.0826844844625647e-12,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9891689420223766,
+          "acquired_prediction_change": 0.5206666169387807,
+          "density_change": 0.9804074954162404
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.7803466674761163,
+          "acquired_prediction_change": 0.09734702170179997,
+          "density_change": 0.9563167044262916
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 1.8604540042357803e-16,
+          "acquired_prediction_change": 1.0826844844625647e-12,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.720908008471561e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_elongated_14.4_20261103",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 14.4,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.3790042136190332,
+            "relative_predicted_decrease": 0.499347320892072,
+            "prior_scaled_correction_inf": 8.436938145947327,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1722622324239484e-07,
+            "active_indices": [],
+            "objective": 1812281.4153580873
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 1812281.4153580866,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.4202747978243584,
+            "relative_predicted_decrease": 0.39111739252569505,
+            "prior_scaled_correction_inf": 38.209959503708596,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.627499634844549e-07,
+            "active_indices": [],
+            "objective": 89490.67016435177
+          },
+          "truth_density_error": 2.3964354672172896,
+          "objective": 89490.67016435177,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 8.724002443354622e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.3839253289148178e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0508927061891882e-11,
+            "active_indices": [],
+            "objective": 19928.507685977715
+          },
+          "truth_density_error": 0.12978483279342404,
+          "objective": 19928.507685977715,
+          "converged": false,
+          "nfev": 147,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 7.080716339371622e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.3097017731392846e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.1863364891145922e-11,
+            "active_indices": [],
+            "objective": 19928.507685977707
+          },
+          "truth_density_error": 0.12978483283871445,
+          "objective": 19928.50768597772,
+          "converged": false,
+          "nfev": 17,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.953599018662064e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 6.246321411495037e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.608422998214072e-12,
+            "active_indices": [],
+            "objective": 19928.507685977707
+          },
+          "truth_density_error": 0.1297848333327656,
+          "objective": 19928.507685977715,
+          "converged": false,
+          "nfev": 41,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 4.2335333215565434e-13,
+      "polish_density_change": 6.437192494698309e-07,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9890036351324388,
+          "acquired_prediction_change": 0.5213698061406916,
+          "density_change": 1.0060844050770599
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.7773118957609935,
+          "acquired_prediction_change": 0.09708173436957779,
+          "density_change": 0.9567260213476757
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 4.2335333215565434e-13,
+          "density_change": 6.437192494698309e-07
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.8255149178337633e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_elongated_72.0_None",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": null,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.3656724393651803,
+            "relative_predicted_decrease": 0.6179834371273405,
+            "prior_scaled_correction_inf": 15.909975328894259,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.192122749462456e-08,
+            "active_indices": [],
+            "objective": 876531.2453726202
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 876531.2453726202,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.713505797422633,
+            "relative_predicted_decrease": 0.9675938521767444,
+            "prior_scaled_correction_inf": 1.8162180957621745,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0468279076913944e-08,
+            "active_indices": [],
+            "objective": 33242.29148139028
+          },
+          "truth_density_error": 1.219873611664627,
+          "objective": 33242.29148139026,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.823859686522575e-11,
+            "relative_predicted_decrease": 1.1102230246251565e-16,
+            "prior_scaled_correction_inf": 7.029892950693918e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.716803354699796e-15,
+            "active_indices": [],
+            "objective": 0.27205282483513377
+          },
+          "truth_density_error": 0.017820799123129408,
+          "objective": 0.27205282483513377,
+          "converged": true,
+          "nfev": 65,
+          "status": 1
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 2.823859686522575e-11,
+            "relative_predicted_decrease": 1.1102230246251565e-16,
+            "prior_scaled_correction_inf": 7.029892950693918e-09,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.716803354699796e-15,
+            "active_indices": [],
+            "objective": 0.27205282483513377
+          },
+          "truth_density_error": 0.017820799123129408,
+          "objective": 0.27205282483513377,
+          "converged": true,
+          "nfev": 1,
+          "status": 1
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.9188948696630404e-10,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 2.7440434419777833e-11,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.382980046890351e-15,
+            "active_indices": [],
+            "objective": 0.27205282483516485
+          },
+          "truth_density_error": 0.017820801371884624,
+          "objective": 0.27205282483516485,
+          "converged": true,
+          "nfev": 27,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999996896256393,
+          "acquired_prediction_change": 0.36047963327244786,
+          "density_change": 0.9871121130459807
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9999918160628312,
+          "acquired_prediction_change": 0.0661917240250201,
+          "density_change": 1.1433347260499584
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 3.108624468950438e-14,
+      "oracle_density_disagreement": 4.100843447429634e-07
+    },
+    {
+      "case": "27102_elongated_72.0_20261101",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": 20261101,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.3631831831183833,
+            "relative_predicted_decrease": 0.6049899658305888,
+            "prior_scaled_correction_inf": 15.901784203047256,
+            "step_solver_success": true,
+            "step_solver_optimality": 3.2870574939725117e-07,
+            "active_indices": [],
+            "objective": 895523.5892601203
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 895523.5892601201,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.5247766890154575,
+            "relative_predicted_decrease": 0.7504224879001368,
+            "prior_scaled_correction_inf": 3.970733635611497,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.658215118855889e-08,
+            "active_indices": [],
+            "objective": 139784.27992173712
+          },
+          "truth_density_error": 1.1794869371289043,
+          "objective": 139784.27992173712,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.152935805410036e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.8604146587920961e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0629941371576024e-11,
+            "active_indices": [],
+            "objective": 19600.174987027964
+          },
+          "truth_density_error": 0.6575977745374745,
+          "objective": 19600.174987027964,
+          "converged": false,
+          "nfev": 94,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.152935805410036e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.8604146587920961e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0629941371576024e-11,
+            "active_indices": [],
+            "objective": 19600.174987027964
+          },
+          "truth_density_error": 0.6575977745374745,
+          "objective": 19600.174987027964,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 5.662387753066881e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.8681660910132127e-06,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.0430656338655808e-11,
+            "active_indices": [],
+            "objective": 19600.17498702795
+          },
+          "truth_density_error": 0.6575977781865656,
+          "objective": 19600.17498702796,
+          "converged": false,
+          "nfev": 66,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9781131672888465,
+          "acquired_prediction_change": 0.3600885552719167,
+          "density_change": 1.069487692678053
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.8597826951785869,
+          "acquired_prediction_change": 0.12889871027753397,
+          "density_change": 1.2205469110635396
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 1.8560950652223497e-16,
+      "oracle_density_disagreement": 0.0
+    },
+    {
+      "case": "27102_elongated_72.0_20261102",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": 20261102,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.36289513132624757,
+            "relative_predicted_decrease": 0.6050139078247853,
+            "prior_scaled_correction_inf": 16.47020502815225,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.4005341381361234e-08,
+            "active_indices": [],
+            "objective": 899181.9504066491
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 899181.950406649,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.5711789940052027,
+            "relative_predicted_decrease": 0.6119865013015166,
+            "prior_scaled_correction_inf": 3.2910983546849604,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.4096119632656112e-08,
+            "active_indices": [],
+            "objective": 57086.143752103104
+          },
+          "truth_density_error": 1.022883207407013,
+          "objective": 57086.143752103126,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.802997889373603e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.15491945057604e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.3030057028083917e-11,
+            "active_indices": [],
+            "objective": 19564.75450744401
+          },
+          "truth_density_error": 0.7579154012858283,
+          "objective": 19564.754507444013,
+          "converged": false,
+          "nfev": 116,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 6.802997889373603e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 7.15491945057604e-08,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.3030057028083917e-11,
+            "active_indices": [],
+            "objective": 19564.75450744401
+          },
+          "truth_density_error": 0.7579154012858283,
+          "objective": 19564.754507444013,
+          "converged": false,
+          "nfev": 16,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 9.912431454372938e-12,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.0670229198061243e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 9.354433894159797e-12,
+            "active_indices": [],
+            "objective": 19537.509576575965
+          },
+          "truth_density_error": 0.4143005378276865,
+          "objective": 19537.509576575976,
+          "converged": false,
+          "nfev": 54,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 0.0,
+      "polish_acquired_prediction_change": 0.0,
+      "polish_density_change": 0.0,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9782416067197568,
+          "acquired_prediction_change": 0.3603834715702706,
+          "density_change": 1.13524681084036
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.6572766485610928,
+          "acquired_prediction_change": 0.07109993849960577,
+          "density_change": 0.966389227102311
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 0.0,
+          "acquired_prediction_change": 0.0,
+          "density_change": 0.0
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 0.0013944935387620587,
+      "oracle_density_disagreement": 0.7296184493721098
+    },
+    {
+      "case": "27102_elongated_72.0_20261103",
+      "phantom_seed": 27102,
+      "shape": "elongated",
+      "offset": 72.0,
+      "noise_seed": 20261103,
+      "stages": {
+        "initial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.36046826808723603,
+            "relative_predicted_decrease": 0.6043052218468552,
+            "prior_scaled_correction_inf": 15.349490524698703,
+            "step_solver_success": true,
+            "step_solver_optimality": 2.3491167000511126e-07,
+            "active_indices": [],
+            "objective": 899456.3108342134
+          },
+          "truth_density_error": 1.0303519119078974,
+          "objective": 899456.3108342133,
+          "converged": false,
+          "nfev": 0,
+          "status": null
+        },
+        "partial": {
+          "assessment": {
+            "accepted": false,
+            "normalized_gradient": 0.6241002048664646,
+            "relative_predicted_decrease": 0.6488809760502604,
+            "prior_scaled_correction_inf": 4.04229245167054,
+            "step_solver_success": true,
+            "step_solver_optimality": 1.054531988120555e-08,
+            "active_indices": [],
+            "objective": 71136.03585401342
+          },
+          "truth_density_error": 1.1970107899148101,
+          "objective": 71136.03585401342,
+          "converged": false,
+          "nfev": 10,
+          "status": 0
+        },
+        "final": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 3.389652908717933e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.9153587877679286e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 4.995975855237589e-12,
+            "active_indices": [],
+            "objective": 19918.34787598168
+          },
+          "truth_density_error": 0.6898343873305867,
+          "objective": 19918.347875981683,
+          "converged": false,
+          "nfev": 88,
+          "status": 3
+        },
+        "polish": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.783137715049866e-11,
+            "relative_predicted_decrease": 0.0,
+            "prior_scaled_correction_inf": 1.7022991539870555e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 6.14922002206697e-12,
+            "active_indices": [],
+            "objective": 19918.347875981675
+          },
+          "truth_density_error": 0.6898343768372289,
+          "objective": 19918.34787598167,
+          "converged": false,
+          "nfev": 18,
+          "status": 3
+        },
+        "oracle": {
+          "assessment": {
+            "accepted": true,
+            "normalized_gradient": 1.3263057299965028e-10,
+            "relative_predicted_decrease": 1.8264460635706288e-16,
+            "prior_scaled_correction_inf": 2.1834145249326192e-07,
+            "step_solver_success": true,
+            "step_solver_optimality": 8.896633429955614e-12,
+            "active_indices": [],
+            "objective": 19918.34787598168
+          },
+          "truth_density_error": 0.6898342672009827,
+          "objective": 19918.34787598169,
+          "converged": false,
+          "nfev": 66,
+          "status": 3
+        }
+      },
+      "polish_relative_objective_gain": 5.479338190711885e-16,
+      "polish_acquired_prediction_change": 2.0693887734338762e-11,
+      "polish_density_change": 5.802031283278051e-07,
+      "polish_stable": true,
+      "checkpoint_checks": {
+        "initial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.9778551246613544,
+          "acquired_prediction_change": 0.36075248094718787,
+          "density_change": 1.052927866778246
+        },
+        "partial": {
+          "accepted": false,
+          "stable_after_polishing": false,
+          "objective_gain": 0.7199963754396093,
+          "acquired_prediction_change": 0.08354156455776567,
+          "density_change": 1.1435361312437353
+        },
+        "final": {
+          "accepted": true,
+          "stable_after_polishing": true,
+          "objective_gain": 5.479338190711885e-16,
+          "acquired_prediction_change": 2.0693887734338762e-11,
+          "density_change": 5.802031283278051e-07
+        }
+      },
+      "accepted_final_unstable": false,
+      "oracle_objective_relative_gap": 9.132230317853146e-16,
+      "oracle_density_disagreement": 0.0
+    }
+  ],
+  "protocol": {
+    "phantom_seeds": [
+      27101,
+      27102
+    ],
+    "shapes": [
+      "moderate",
+      "elongated"
+    ],
+    "offsets_degrees": [
+      14.4,
+      72.0
+    ],
+    "noise_seeds": [
+      null,
+      20261101,
+      20261102,
+      20261103
+    ],
+    "relative_noise_sd": 0.05,
+    "start_seed": 193,
+    "thresholds": {
+      "bound_tolerance": 1e-08,
+      "normalized_gradient": 1e-06,
+      "relative_predicted_decrease": 1e-08,
+      "prior_scaled_correction_inf": 0.001
+    },
+    "budgets": {
+      "partial": 10,
+      "final": 300,
+      "polish": 300,
+      "oracle": 600
+    },
+    "old_rule": {
+      "gtol": 1e-06,
+      "xtol": 1e-14,
+      "projected_gradient_tolerance": 1e-06
+    },
+    "validation": {
+      "max_relative_objective_gain": 1e-06,
+      "max_acquired_prediction_change": 0.0001,
+      "max_density_change": 0.001,
+      "require_initial_rejections": true
+    },
+    "base_protocol_sha256": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550",
+    "expected_cases": 32,
+    "expected_fits": 128,
+    "decision": "Accept for further exploratory known-phantom posterior comparisons only if no accepted initial/partial/final checkpoint changes beyond frozen polish limits, all deliberately perturbed initial controls are rejected, and at least one final fit per case is accepted. Multistart agreement and active bounds remain separate requirements. No automatic worm adoption.",
+    "limitations": [
+      "Fresh synthetic five-component phantoms and noise seeds, still oracle geometry priors.",
+      "Numerical acceptance is neither low error nor global optimality.",
+      "Thresholds are fixed before fresh-case outcomes. A failure is reported without retuning.",
+      "Density change relative to polishing is evaluation-only; no truth/withheld input enters the rule."
+    ]
+  },
+  "report_sha256": "9777a7fbdc15b93de40d36e8e0d3297d5ba126022e242a47f56e5ef71902a4b5",
+  "plot_code_sha256": "999d6ba15505ff15408f8adcf577026ce346946180fed967292e5ed0a768f78f"
+}

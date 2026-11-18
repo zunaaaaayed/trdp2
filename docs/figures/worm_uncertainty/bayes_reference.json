@@ -1,0 +1,119 @@
+{
+  "kind": "exact_linear_gaussian_development_reference",
+  "shape": [
+    24,
+    24
+  ],
+  "unknowns": 377,
+  "sigma": 0.2982996709967218,
+  "noise_draws": 50,
+  "prior_predictive_draws": 200,
+  "noise_seed": 1701,
+  "prior": "zero-mean independent Gaussian; no positivity constraint",
+  "prior_scales": [
+    0.3,
+    1.0,
+    3.0
+  ],
+  "operator_max_error": 5.329070518200751e-15,
+  "rows": [
+    {
+      "tau": 0.3,
+      "span": 180,
+      "foreground_rmse": 0.07430829373388156,
+      "mean_posterior_sd": 0.10665046936798042,
+      "foreground_95_coverage": 0.991006711409396,
+      "mean_95_interval_width": 0.41806215779105627,
+      "prior_predictive_95_coverage": 0.950026525198939
+    },
+    {
+      "tau": 0.3,
+      "span": 120,
+      "foreground_rmse": 0.10616969788205824,
+      "mean_posterior_sd": 0.16568683829633507,
+      "foreground_95_coverage": 0.9980536912751677,
+      "mean_95_interval_width": 0.6494804715462391,
+      "prior_predictive_95_coverage": 0.9506763925729443
+    },
+    {
+      "tau": 0.3,
+      "span": 90,
+      "foreground_rmse": 0.1336994925301963,
+      "mean_posterior_sd": 0.1943345212359028,
+      "foreground_95_coverage": 0.9948993288590604,
+      "mean_95_interval_width": 0.7617773251503868,
+      "prior_predictive_95_coverage": 0.9511405835543767
+    },
+    {
+      "tau": 1.0,
+      "span": 180,
+      "foreground_rmse": 0.15142092304926882,
+      "mean_posterior_sd": 0.16727480388997806,
+      "foreground_95_coverage": 0.9678523489932885,
+      "mean_95_interval_width": 0.6557051822906971,
+      "prior_predictive_95_coverage": 0.9502519893899204
+    },
+    {
+      "tau": 1.0,
+      "span": 120,
+      "foreground_rmse": 0.25461185057057095,
+      "mean_posterior_sd": 0.34615467911003844,
+      "foreground_95_coverage": 0.9879865771812081,
+      "mean_95_interval_width": 1.3569014082713522,
+      "prior_predictive_95_coverage": 0.9487665782493369
+    },
+    {
+      "tau": 1.0,
+      "span": 90,
+      "foreground_rmse": 0.3012604481719579,
+      "mean_posterior_sd": 0.4531663075531492,
+      "foreground_95_coverage": 0.9928187919463087,
+      "mean_95_interval_width": 1.776379283622299,
+      "prior_predictive_95_coverage": 0.9491246684350133
+    },
+    {
+      "tau": 3.0,
+      "span": 180,
+      "foreground_rmse": 0.21547238643443922,
+      "mean_posterior_sd": 0.19344924832781998,
+      "foreground_95_coverage": 0.9535570469798658,
+      "mean_95_interval_width": 0.758307119117724,
+      "prior_predictive_95_coverage": 0.949893899204244
+    },
+    {
+      "tau": 3.0,
+      "span": 120,
+      "foreground_rmse": 0.4765130167963488,
+      "mean_posterior_sd": 0.4957875474301051,
+      "foreground_95_coverage": 0.9620805369127516,
+      "mean_95_interval_width": 1.9434514738928463,
+      "prior_predictive_95_coverage": 0.9484615384615385
+    },
+    {
+      "tau": 3.0,
+      "span": 90,
+      "foreground_rmse": 0.6304732966184006,
+      "mean_posterior_sd": 0.7398178896720505,
+      "foreground_95_coverage": 0.9751677852348993,
+      "mean_95_interval_width": 2.9000328377512132,
+      "prior_predictive_95_coverage": 0.9484482758620689
+    }
+  ],
+  "code_sha256": {
+    "bayes_linear.py": "2ab3ee0b70d9d8a49ade9093629d39f31514a0f5bbb965142fea86d56474fcbf",
+    "phantom_variability.py": "5aa92506d393d4f3501c8066d8899d3a5da9b6bc51aa067e1e5173c146bb80f5"
+  },
+  "limitations": [
+    "single resized development phantom, matched projection operator",
+    "prior scales are sensitivity probes, not selected using these results",
+    "coverage is fixed-truth repeated-noise coverage; not a universal posterior guarantee",
+    "pixels correlated; no pixel-independent significance test",
+    "coarser grid and different prior than SART; not a performance comparison",
+    "Gaussian prior allows negative densities; not a final worm model"
+  ],
+  "artifacts": {
+    "arrays.npz": "11416a27eaba2276666fa74fa6165eb8ee635fdfbedd093c73f3908e6265fc45",
+    "posterior.png": "5503953e1d16018066e9c1f95000ebaa9dfcad709cf2b346db72119840d88c4d",
+    "coverage.png": "8f2fb94cc7211280c5853ea71a42fd317f4eb40ebbca2a1f3fd35c541502dabb"
+  }
+}

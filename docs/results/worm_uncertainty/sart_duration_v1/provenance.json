@@ -1,0 +1,21 @@
+{
+  "head": "26cf9d678d241324904378a2f8beee4eb4ad04d2",
+  "dirty": " M README.md\n M experiments/worm_uncertainty/README.md\n M experiments/worm_uncertainty/core/voxel_parallel.py\n M experiments/worm_uncertainty/notes/CONTINUATION.md\n?? docs/results/worm_uncertainty/bridge_ablation_v1/\n?? docs/results/worm_uncertainty/phantom_density_v1/\n?? docs/results/worm_uncertainty/reconstruction_bridge_v1/\n?? experiments/worm_uncertainty/core/differentiable_fbp.py\n?? experiments/worm_uncertainty/data/phantom_density.py\n?? experiments/worm_uncertainty/notes/BRIDGE_ABLATION_RESULTS_V1.md\n?? experiments/worm_uncertainty/notes/PHANTOM_DENSITY_RESULTS_V1.md\n?? experiments/worm_uncertainty/notes/RECONSTRUCTION_BRIDGE_RESULTS_V1.md\n?? experiments/worm_uncertainty/notes/RECONSTRUCTION_BRIDGE_V1.md\n?? experiments/worm_uncertainty/plots/plot_phantom_density.py\n?? experiments/worm_uncertainty/plots/plot_reconstruction_bridge.py\n?? experiments/worm_uncertainty/protocols/phantom_density_v1.json\n?? experiments/worm_uncertainty/protocols/sart_duration_v1.json\n?? experiments/worm_uncertainty/studies/bridge_loss_scale.py\n?? experiments/worm_uncertainty/studies/evaluate_bridge_ablation.py\n?? experiments/worm_uncertainty/studies/phantom_density.py\n?? experiments/worm_uncertainty/studies/reconstruction_bridge.py\n?? experiments/worm_uncertainty/studies/sart_duration.py\n?? experiments/worm_uncertainty/studies/train_bridge_ablation.py\n?? experiments/worm_uncertainty/studies/verify_phantom_density.py\n?? experiments/worm_uncertainty/tests/test_differentiable_fbp.py\n?? experiments/worm_uncertainty/tests/test_phantom_density.py\n?? experiments/worm_uncertainty/tests/test_sart_duration.py\n",
+  "sources": {
+    "experiments/worm_uncertainty/protocols/sart_duration_v1.json": "ee222fa51b0d19b23708b188bcbf91c26e3bca2a1ed78dee02963c20df1d54e9",
+    "/autofs/unitytravail/travail/mdzislam/trdp2/r2_gaussian/experiments/worm_uncertainty/studies/sart_duration.py": "69fb64a61e387d6347014a75ee15f145376887507371846edb53326e74b0bfed",
+    "experiments/worm_uncertainty/core/voxel_parallel.py": "007f5dc4a5da51ebb8f95076fbc293e591159169faa97219520001e6ea3a30a8",
+    "experiments/worm_uncertainty/data/phantom_density.py": "034455512e956c6132f7a47ce277f51a0bad4d7c1da3abc2d931e397d500f6ee"
+  },
+  "parent_files": {
+    "output/worm_uncertainty/phantom_density_v1_20261116/protocol.json": "2f6b62c63e1d61edb753d57bde4a4b4a2c817ef790743b065c4aaa718119d3d3",
+    "output/worm_uncertainty/phantom_density_v1_20261116/masks.json": "e422f8ea5cadb02af78bedde9d05c512e26a20f97689b2cc3ca739f5aaefd43a",
+    "output/worm_uncertainty/phantom_density_v1_20261116/evaluation_arrays.npz": "0d8044a9fb463ac86bb58e220a8625766838fb8f02f2a1ea0f1ac2a9a10b0ae3",
+    "output/worm_uncertainty/phantom_density_v1_20261116/metrics.csv": "fbe197ae758523f425b7ee49ce8210c272372389710d9dfcccad707127f3ce60",
+    "output/worm_uncertainty/phantom_density_v1_20261116/best.pt": "4f8d2d360dcfba2655ab902adb054f9b2408a3e3f5d902724e2b65c0aed32362"
+  },
+  "host": "liet",
+  "python": "3.11.18",
+  "numpy": "2.2.6",
+  "reserved_access": false
+}

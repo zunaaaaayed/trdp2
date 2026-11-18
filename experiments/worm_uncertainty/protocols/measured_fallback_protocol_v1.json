@@ -1,0 +1,19 @@
+{
+  "kind": "measured_only_extra_start_fallback",
+  "trigger": "only draws failing the unchanged measured-data stability audit",
+  "extra_seeds": [
+    907,
+    202,
+    1123,
+    151
+  ],
+  "maximum_total_starts": 8,
+  "budget_nfev": 300,
+  "parent_report_sha256": "965d4d74b4f2bee867c877bff4a686b3f04bb40c8a72e72a729b2b0e02417809",
+  "parent_audit_sha256": "82a2971d970bdc6500b5c4f274bcee675b597fba1a1e11d1ef3733d36d8af61d",
+  "limitations": [
+    "adaptive follow-up on the same four development cases",
+    "prior, initializer, noise and agreement thresholds unchanged",
+    "seed list fixed before fallback results; no tuning from evaluation metrics"
+  ]
+}

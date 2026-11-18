@@ -1,0 +1,17 @@
+{
+  "full_unittest_discovery": {
+    "tests": 107,
+    "seconds": 4.639,
+    "status": "passed"
+  },
+  "targeted_tests": 14,
+  "artifact_verification": {
+    "rows": 432,
+    "status": "passed"
+  },
+  "ruff_files": 146,
+  "documentation_links": "passed",
+  "git_diff_check": "passed",
+  "verification_source_sha256": "e0c8503b6c904a550c3ae94d66cd57787f74361e3a2b5ab3efe206ecfac30852",
+  "week8_ignored_run_bytes": 9397156
+}

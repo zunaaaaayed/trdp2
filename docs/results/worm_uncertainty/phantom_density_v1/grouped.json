@@ -1,0 +1,254 @@
+[
+  {
+    "group": "family",
+    "value": "elongated",
+    "method": "acquired_fbp",
+    "density_l2": 0.6991259823939711,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "elongated",
+    "method": "sart_zero",
+    "density_l2": 0.44112232422799763,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "elongated",
+    "method": "interpolation_fbp",
+    "density_l2": 0.547991833520587,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "elongated",
+    "method": "learned_fbp",
+    "density_l2": 0.4834141662965686,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "elongated",
+    "method": "sart_interpolation_init",
+    "density_l2": 0.40947417844605827,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "elongated",
+    "method": "sart_learned_init",
+    "density_l2": 0.36292040329284364,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "heterogeneous",
+    "method": "acquired_fbp",
+    "density_l2": 0.6910048159473797,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "heterogeneous",
+    "method": "sart_zero",
+    "density_l2": 0.37807084728095597,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "heterogeneous",
+    "method": "interpolation_fbp",
+    "density_l2": 0.5413257672536136,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "heterogeneous",
+    "method": "learned_fbp",
+    "density_l2": 0.48072926446539227,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "heterogeneous",
+    "method": "sart_interpolation_init",
+    "density_l2": 0.38619809089083273,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "heterogeneous",
+    "method": "sart_learned_init",
+    "density_l2": 0.34541326194217814,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "shell",
+    "method": "acquired_fbp",
+    "density_l2": 0.7804875058893662,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "shell",
+    "method": "sart_zero",
+    "density_l2": 0.5991893214810751,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "shell",
+    "method": "interpolation_fbp",
+    "density_l2": 0.7324759980424164,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "shell",
+    "method": "learned_fbp",
+    "density_l2": 0.6817269967970905,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "shell",
+    "method": "sart_interpolation_init",
+    "density_l2": 0.5800962456994284,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "shell",
+    "method": "sart_learned_init",
+    "density_l2": 0.5645859893483106,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "smooth",
+    "method": "acquired_fbp",
+    "density_l2": 0.8254014329087639,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "smooth",
+    "method": "sart_zero",
+    "density_l2": 0.42580409880376496,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "smooth",
+    "method": "interpolation_fbp",
+    "density_l2": 0.6790473212258871,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "smooth",
+    "method": "learned_fbp",
+    "density_l2": 0.6019204198827118,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "smooth",
+    "method": "sart_interpolation_init",
+    "density_l2": 0.4216856447224096,
+    "objects": 3
+  },
+  {
+    "group": "family",
+    "value": "smooth",
+    "method": "sart_learned_init",
+    "density_l2": 0.3816834139249697,
+    "objects": 3
+  },
+  {
+    "group": "orientation",
+    "value": "familiar",
+    "method": "acquired_fbp",
+    "density_l2": 0.7529543340694644,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "familiar",
+    "method": "sart_zero",
+    "density_l2": 0.462401279467134,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "familiar",
+    "method": "interpolation_fbp",
+    "density_l2": 0.628433282032432,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "familiar",
+    "method": "learned_fbp",
+    "density_l2": 0.6086087509575081,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "familiar",
+    "method": "sart_interpolation_init",
+    "density_l2": 0.4514940746023272,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "familiar",
+    "method": "sart_learned_init",
+    "density_l2": 0.4399307928328429,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "held",
+    "method": "acquired_fbp",
+    "density_l2": 0.7470302343925731,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "held",
+    "method": "sart_zero",
+    "density_l2": 0.46036933218910575,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "held",
+    "method": "interpolation_fbp",
+    "density_l2": 0.6235987039997232,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "held",
+    "method": "learned_fbp",
+    "density_l2": 0.5386171923119072,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "held",
+    "method": "sart_interpolation_init",
+    "density_l2": 0.4482982726083598,
+    "objects": 12
+  },
+  {
+    "group": "orientation",
+    "value": "held",
+    "method": "sart_learned_init",
+    "density_l2": 0.40051075427419186,
+    "objects": 12
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "host": "liet",
+  "python": "3.9.23",
+  "numpy": "1.24.4",
+  "scipy": "1.10.1",
+  "torch": "2.1.2+cu118",
+  "torch_cuda_build": "11.8",
+  "run_cpu_threads": 1,
+  "total_wall_seconds": 100.62,
+  "peak_rss_kib": 556852,
+  "gpu_used": false,
+  "available_gpu_readonly": "RTX 4000 Ada Generation, 20475 MiB; outside-sandbox nvidia-smi succeeded",
+  "tests_passed": 68,
+  "style_files_checked": 86
+}

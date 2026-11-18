@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "deleted_artifact_files": 1172,
+  "artifact_apparent_bytes": 5925771205,
+  "retired_environment_apparent_bytes": 15136106402,
+  "conda_cache_apparent_bytes": 4578071430,
+  "seconds": 211.81731677100015,
+  "note": "Apparent-byte sums may double-count Conda hardlinks. Measure final allocated project usage separately. Current environment, raw worm data, Week8 artifacts, V3 checkpoints/profile cache and historical compact reports retained."
+}

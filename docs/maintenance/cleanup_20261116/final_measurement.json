@@ -1,0 +1,14 @@
+{
+  "measured_date": "2026-11-17",
+  "project_allocated_bytes": 26762878976,
+  "project_GiB": 24.92487335205078,
+  "before_project_GiB_rounded": 49,
+  "approximate_GiB_reclaimed": 24.07512664794922,
+  "filesystem_available_GiB_rounded": 75,
+  "tests_passed": 108,
+  "phantom_metric_rows_verified": 432,
+  "sart_duration_metric_rows_replayed": 1512,
+  "ruff_files": 150,
+  "pip_check": "No broken requirements found",
+  "note": "Before usage was measured only as rounded49GiB, so reclaimed size is approximate. No archive of deleted raw artifacts was created."
+}

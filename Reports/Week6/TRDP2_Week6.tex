@@ -1,0 +1,221 @@
+% Overleaf: select XeLaTeX (or LuaLaTeX). All figures are in figures/.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX\errmessage{Select XeLaTeX or LuaLaTeX for Times New Roman}\fi
+\IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{}
+\usepackage{fontspec}
+\ifdefined\LocalTimesPath
+\setmainfont{Times}[Path=\LocalTimesPath,Extension=.TTF,UprightFont=*,BoldFont=*bd,ItalicFont=*i,BoldItalicFont=*bi]
+\else\setmainfont{Times New Roman}\fi
+\usepackage{amsmath,amssymb,booktabs,graphicx,tabularx,array,enumitem}
+\usepackage{caption,microtype,float}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\graphicspath{{figures/}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{nosep,leftmargin=*}
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+\renewcommand{\arraystretch}{1.1}
+\newcommand{\Rtwo}{R\textsuperscript{2}-Gaussian}
+\newcommand{\degree}{\ensuremath{^{\circ}}}
+\newcommand{\fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{#1}\caption{#3}\end{figure}}
+\title{\vspace{-1.1cm}\LARGE\bfseries Uncertainty-Aware 3D Gaussian Reconstruction for Limited-Angle CT}
+\author{\normalsize Md Zunayedul Islam \qquad Biswarup Mukherjee}
+\date{\small TRDP2 Week 6 | 24--30 October 2026}
+\begin{document}\raggedbottom
+\maketitle\vspace{-1.2em}
+\begin{abstract}
+This week, we investigated why better fitting and local uncertainty estimates did not reliably recover missing CT views. Staged Gaussian fitting reduced acquired-view error but increased withheld-view error. Controlled phantoms then showed that numerical acceptance does not establish a valid nonlinear posterior: importance correction failed on four cases, and two bounded sampling approaches failed mixing checks. We therefore developed supervised projection completion while keeping posterior work separate. With identical architectures and training budgets, broader acquisition training reduced narrow-span development-audit error from 65.89\% to 41.05\%, compared with 73.13\% for interpolation. Three-model disagreement ranked unreliable predictions better than angular distance, but sometimes remained small at large errors. Finally, we completed a balanced Gaussian initialization comparison. All 12 fits failed numerical acceptance, so an accepted reconstruction benefit remains unproven. The main progress is improved acquisition transfer in projection completion and a useful empirical error-risk signal, with clear limits.
+\end{abstract}
+\section{Introduction}
+Our TRDP2 objective is to reconstruct density from limited-angle CT measurements and identify where the reconstruction is unreliable. Missing projection directions leave some structures weakly constrained \cite{kak}. At the end of Weeks 4--5, Gaussian models could improve their measured-view fit without improving missing views, while density-only uncertainty omitted important shape uncertainty. This week, we tested optimization and posterior assumptions before introducing learned information for missing-view restoration.
+
+Following \Rtwo{} \cite{r2}, we represent the object by anisotropic 3D Gaussians:
+\begin{equation}
+f_\eta(x)=\sum_{k=1}^{K}a_k\exp\!\left[-\tfrac12(x-c_k)^\top\Sigma_k^{-1}(x-c_k)\right],\qquad y_A=F_A(\eta)+\epsilon,\quad\epsilon\sim\mathcal N(0,\sigma^2I).
+\label{eq:model}
+\end{equation}
+The parameters $\eta$ contain amplitudes $a_k$, centres $c_k$ and shapes $\Sigma_k$; $F_A$ integrates this field along acquired parallel rays. Geometry here means Gaussian centres and shapes; acquisition angles remain known. Gaussian noise and priors give the standard maximum a posteriori objective \cite{laplace}:
+\begin{equation}
+\widehat\eta=\arg\min_{\eta\in\mathcal B}\Phi_A(\eta),\qquad
+\Phi_A(\eta)=\frac{\|F_A(\eta)-y_A\|_2^2}{\sigma^2}+\|D^{-1}(\eta-\eta_0)\|_2^2.
+\label{eq:map}
+\end{equation}
+Here $\eta_0$ is the prior reference, $D$ contains prior standard deviations, and $\mathcal B$ is the parameter-bound set. We distinguish accurate restoration, valid uncertainty under this model, and transfer across acquisitions.
+
+We used the same dataset, tools and CREMI resources as Weeks 4--5: the 144 synthetic parallel-beam worm stacks provided by Ms. Anna-Louise Brun; the extended \Rtwo{} codebase; Python, SciPy and PyTorch/CUDA; an Intel Core Ultra 9 285 CPU and RTX 4000 Ada GPU with 20\,GiB VRAM. Each TIFF has shape $(510,100,310)$: axial planes, angles and detector samples, with 100 angles in $[0,180\degree{})$ at 1.8\degree{} steps and 1\,$\mu$m source spacing. The files deform one organism. Clean projections are available, but matching deformed voxel-density truth and physical projection scaling remain unresolved. The final completion workflow took 24.8 minutes, with peak GPU allocation 420\,MiB.
+
+\newpage
+\section{Experiments and results}
+\subsection{From better optimization to a clearer numerical diagnosis}
+The final Weeks 4--5 sparse model on worm004 used 16 Gaussians and still failed independent-start agreement. We first held its data, noise, bounds and shared prior fixed. Re-solving amplitudes at each saved geometry changed the conditional objective by at most 0.00138\%. The main unresolved error therefore could not be explained by a poor amplitude solve alone.
+
+We next compared direct joint fitting with staged amplitude, centre and full-shape fitting. Both used four starts and the same final 450-evaluation setting. Candidates were selected using the acquired-data objective, never withheld error.
+\begin{table}[H]\centering\small
+\caption{Paired worm optimization controls. Lower clean-projection errors are better; both settings fail independent-start agreement.}
+\begin{tabular}{lrrrr}\toprule
+Method & Solver terminations & Acquired error & Withheld error & Stability\\\midrule
+Joint fitting &2/4&11.20\%&19.84\%&Fail\\
+Staged fitting &3/4&10.71\%&24.40\%&Fail\\\bottomrule
+\end{tabular}\end{table}
+Staging reduced the selected acquired objective by 6.73\%, but increased withheld error by 4.56 percentage points. Additional continuation did not produce a passing setting. Derivative checks agreed with finite differences, while elongated phantom structures could change density substantially with little change in measured projections. These results motivated checks beyond solver termination.
+
+We validated a scale-aware local numerical rule on 32 fresh phantom cases. It checks a normalized gradient, feasible predicted objective decrease and correction size measured in prior units. Deliberately perturbed controls were rejected, and accepted solutions remained stable under a declared polishing comparison. One case failed independent-start agreement and was excluded, leaving 31 cases, including 23 noisy cases, for the controlled posterior comparison. Local adequacy, agreement between starts and density accuracy remained separate requirements.
+
+The joint local covariance uses Gauss--Newton curvature, a common Laplace approximation \cite{laplace}:
+\begin{equation}
+C_\eta\approx\left(J_A^\top J_A/\sigma^2+D^{-2}\right)^{-1},\label{eq:covariance}
+\end{equation}
+where $J_A$ is the acquired-projection Jacobian. We compared density-only uncertainty, joint linear propagation, and nonlinear propagation of draws from this same joint Gaussian.
+\fig{phantom_coverage.pdf}{.91}{Mean nominal 95\% coverage on the 23 noisy eligible phantom cases. The dashed line is the target. Near-target density coverage alone is insufficient: nonlinear joint propagation gives only 55.7\% withheld coverage for elongated cases.}
+Density-only density coverage was 22.8\% for moderate and 3.8\% for elongated cases; joint linear coverage rose to 93.3\% and 94.7\%. Yet nonlinear propagation gave 95.4\% elongated density coverage with only 55.7\% withheld coverage. Intervals were broad and some draws violated bounds. With truth-based geometry priors, this remains a phantom diagnosis, not validated worm uncertainty.
+
+\newpage
+\subsection{Checking the actual bounded nonlinear posterior}
+The preceding result raised a specific question: did the Gaussian approximation describe the posterior of the implemented nonlinear model? We audited four declared noisy phantom cases: moderate and elongated shapes at starts 14.4\degree{} and 72\degree{}, each with 120\degree{} acquisition. The five-component model has 50 coordinates: centres, log Cholesky diagonals, raw Cholesky off-diagonals and amplitudes. This parameterization keeps shape covariances positive definite.
+
+Using the likelihood and priors in Eq.~\eqref{eq:map}, the target is \cite{laplace}
+\begin{equation}
+\pi(\eta\mid y_A)\propto\exp[-\Phi_A(\eta)/2]\,\mathbf1_{\mathcal B}(\eta).\label{eq:target}
+\end{equation}
+Centres are bounded to $[-0.95,0.95]$, amplitudes to $[0.001,100]$, and shape coordinates are unbounded. The prior is defined in these coordinates; no new prior or measure was introduced. The phantom geometry reference comes from truth and the simulated noise scale is fixed. Withheld projections and density truth are otherwise evaluation-only.
+
+For each joint Gaussian draw, we evaluated the exact nonlinear likelihood, prior, bounds and proposal density. We retained invalid draws in the accounting instead of clipping them. We then tested ordinary self-normalized importance weighting, following the standard density-ratio construction \cite{psis}:
+\begin{equation}
+r_s=\frac{\pi(\eta^{(s)}\mid y_A)}{q(\eta^{(s)})},\qquad
+\bar w_s=\frac{r_s}{\sum_t r_t},\qquad\mathrm{ESS}=\frac{1}{\sum_s\bar w_s^2}.\label{eq:importance}
+\end{equation}
+Unknown target constants cancel. Invalid draws have zero weight. This is an unsmoothed diagnostic, not Pareto-smoothed importance sampling. Our prospective screens required at least 20\% effective draws, no weight above 2\%, and stable batch summaries.
+\begin{table}[H]\centering\small
+\caption{Joint-proposal audit, 2,048 draws per case. More effective draws and less concentration are better; every case fails the declared adequacy screens.}
+\begin{tabular}{lrrr}\toprule
+Shape / start & Valid draws & ESS & Largest weight\\\midrule
+Moderate /14.4\degree{} &100.00\%&11.10&28.40\%\\
+Moderate /72\degree{} &100.00\%&94.64&4.57\%\\
+Elongated /14.4\degree{} &93.41\%&3.93&44.39\%\\
+Elongated /72\degree{} &84.81\%&1.01&99.42\%\\\bottomrule
+\end{tabular}\end{table}
+The density-only conditional control gave nearly uniform weights and ESS close to 2,048, supporting the implementation. Joint correction failed even for moderate cases with no bound violations. Restricting draws to valid bounds also failed to repair elongated-case predictions. Bounds are therefore only part of the problem; nonlinear curvature and joint density--shape coupling remain important, and additional modes are not ruled out.
+
+We then tested bounded random-walk sampling and a bounded Metropolis-adjusted Langevin method \cite{mala}. Both targeted the same posterior and rejected invalid proposals. The latest feasibility run used a separate tuning case, then four evaluation chains with 200 warmup and 500 retained iterations each. Rank/folded $\widehat R$ and bulk/tail ESS followed modern convergence diagnostics \cite{rhat}.
+\begin{table}[H]\centering\small
+\caption{Latest bounded Langevin feasibility. Desired: $\widehat R\leq1.01$ and bulk/tail ESS$\geq400$. Both cases fail.}
+\begin{tabular}{lrrr}\toprule
+Case & Maximum $\widehat R$ & Minimum bulk ESS & Minimum tail ESS\\\midrule
+Moderate /14.4\degree{} &2.44&4.91&10.92\\
+Elongated /72\degree{} &5.95&4.13&0\\\bottomrule
+\end{tabular}\end{table}
+This run completed in 168 seconds. Moderate acceptance exceeded 94\%, yet mixing failed; two elongated chains accepted no moves. We paused sampler expansion and did not report weighted or unconverged-chain intervals as calibrated uncertainty. These failures concern posterior validity; the earlier worm prediction errors separately motivated learned restoration.
+
+\newpage
+\subsection{A matched-input completion pilot and its transfer failure}
+Missing-wedge learning suggests predicting unobserved information from visible structure. Ding et al. separate sinogram completion from reconstruction cleanup \cite{ding}; DeepDeWedge also shows the value and limits of learned wedge filling \cite{ddw}. We used the simpler control supported by our data: supervised clean-projection targets and a deterministic network. This is not self-supervised learning, and we did not use a GAN or a learned probabilistic output.
+
+We first removed an information imbalance. Completion and Gaussian reconstruction now receive the same 25 angles, 62 detector point samples and eight axial planes $z=224,232,\ldots,280$. Angles are $0,7.2,\ldots,172.8$ degrees; TIFF detector indices are $2,7,\ldots,307$. We use point samples, not averages. The fixed development normalization is 6180.27545 and normalized noise SD is 0.05. A full-grid noise field is generated before masking and shared across methods.
+
+Inputs contain measured values, an acquired/missing mask and, for the geometry arm, angle, acquisition-start and span channels. Missing values are zero-filled only alongside the mask. A four-layer dilated CNN has 5,809 parameters and a 31-row receptive field. On the 25-angle grid, connectivity and gradient tests confirm access to measured values across the missing region. This establishes computational access, not useful restoration.
+
+The pilot minimized pooled missing-ray MSE. For the controlled diversity comparison below, we used this per-sample normalization of supervised sinogram MSE \cite{ding}:
+\begin{equation}
+\mathcal L(\psi)=\frac1B\sum_{b=1}^{B}\frac{\sum_j(1-m_{bj})[g_\psi(x_b)_j-p^{\mathrm{clean}}_{bj}]^2}{\sum_j(1-m_{bj})},\qquad
+\widetilde p=m\odot y^{0}+(1-m)\odot g_\psi(x).\label{eq:completion}
+\end{equation}
+We measure missing-ray relative error as $E_W=\|\widehat p_W-p_W^{\rm clean}\|_2/\|p_W^{\rm clean}\|_2$. Here $m=1$ denotes acquired rays, $y^0$ is the zero-filled noisy measurement and $g_\psi$ is the network. The second expression restores measured entries exactly. Interpolation respects the parallel-beam relation $p(\theta+\pi,u)=p(\theta,-u)$ \cite{kak}; ordinary circular angular padding would be incorrect.
+
+The first pilot used 16 training and four validation deformations. Both learned arms completed 20 epochs. Selection used familiar validation acquisitions before evaluating different masks on the same files.
+\fig{pilot_generalization.pdf}{1}{Initial matched-input pilot. Lower error is better. Geometry completion improves familiar masks from 39.29\% to 27.49\%, but its unseen-mask mean is 50.91\%, versus 50.90\% for interpolation.}
+The mask-only model was nearly tied on familiar masks. New 120\degree{} orientations improved, but several unseen 90\degree{} acquisitions worsened. Angular access and a good familiar score were insufficient. These masks then became historical development challenges, rather than untouched tests.
+
+This result motivated a controlled comparison of acquisition diversity. We kept the architecture fixed, expanded to all 96 training deformations, and split the 24 validation files into 12 for selection and 12 for a later audit. Existing numeric-ID groups stayed whole. The 24 reserved files were never opened for these experiments. Both validation groups have prior exposure, so the audit is a frozen development assessment, not an independent-organism test.
+
+\newpage
+\subsection{Broader acquisition training improves development-audit restoration}
+Three paired seeds compare A (starts 0/36/72/108\degree{}, spans 120/144\degree{}), B (ten starts, spans 90/108/120/144\degree{}, with geometry) and C (the B masks with geometry channels zeroed). Broad training balances 13/15/17/20 measured angles. Boolean-mask hashes enforce acquisition separation, with familiar masks intentionally recurring.
+
+All arms share initialization, example/noise schedules, batch 256 and 1,000 Adam updates. Selection averages relative L2 equally over masks and then deformations. The frozen audit tests new orientations, held counts 16/18 and 10-angle/72\degree{} extrapolation.
+\begin{table}[H]\centering\small
+\caption{Missing clean-ray relative L2, averaged over deformations and three seeds. Lower is better. A/B isolates mask-family diversity; B/C isolates explicit geometry channels.}
+\begin{tabular}{lrrrr}\toprule
+Evaluation & Interpolation & A & B & C\\\midrule
+Narrow selection &63.79\%&62.65\%&\textbf{41.99\%}&43.79\%\\
+Narrow audit &73.13\%&65.89\%&\textbf{41.05\%}&42.80\%\\
+Familiar audit &47.40\%&\textbf{28.80\%}&31.40\%&32.45\%\\
+Audit held orientations &59.92\%&44.22\%&\textbf{34.99\%}&37.46\%\\
+Audit held counts 16/18 &56.64\%&40.33\%&\textbf{34.24\%}&35.72\%\\
+Audit 72\degree{} extrapolation &84.46\%&88.35\%&49.42\%&\textbf{48.78\%}\\\bottomrule
+\end{tabular}\end{table}
+B reduces narrow audit error by 43.9\% versus interpolation and 37.7\% versus A, improving all 12 deformations in every seed. Its seed SD is 1.84 points; narrow MSE is 0.17898 versus 0.58626 for interpolation. Geometry helps modestly, but C wins under severe extrapolation and A remains best on familiar masks.
+
+B and C passed the progression rule against interpolation. However, B loses 2.8 points to A on familiar selection masks and would fail a two-point retention rule relative to A. Larger capacity was not tested because training loss was still falling, rather than showing the declared plateau.
+\fig{projection_fourier_fbp.pdf}{.90}{Fixed audit example: worm3579, $z=256$, start 57.6\degree{}, acquired span 90\degree{} (13/25 angles). Rows show sinograms, detector-Fourier magnitudes mapped into frequency directions, and FBP surrogates in a common central window. Scales are shared across methods within each row.}
+The learned pattern is closer to the clean sinogram here, but Fourier magnitude agreement does not prove correct phase or morphology. Clean 25-angle FBP still has streaks and is a surrogate, not voxel truth.
+
+\newpage
+\subsection{Using independent seeds as an empirical error-risk score}
+Once completion passed the selection rule, we used the three B models as a small ensemble. Ensemble learning motivates comparing independently trained predictions \cite{ensembles}. Here, we use only their sample mean and between-model standard deviation:
+\begin{equation}
+\bar p_j=\frac13\sum_{s=1}^{3}\widetilde p^{(s)}_j,\qquad
+s_j=\sqrt{\frac12\sum_{s=1}^{3}(\widetilde p^{(s)}_j-\bar p_j)^2}.\label{eq:ensemble}
+\end{equation}
+This adapts the ensemble idea to a diagnostic score. We do not implement the original method's learned observation-variance model \cite{ensembles}. Thus $s_j$ measures variation between our three models; it is neither total predictive uncertainty nor a Bayesian posterior standard deviation. All measured entries are restored exactly after averaging.
+
+The ensemble-mean narrow audit error is 38.95\%, compared with 41.05\% averaged over individual B models. These are different summaries. For the risk analysis, we compared $s_j$ with absolute clean-target error at missing rays. Within each audit deformation, we pooled its masks and slices and retained the lowest-score fractions. We compared disagreement with random ranking and angular distance to the nearest measured row. These diagnostics and retention fractions were fixed before audit.
+\begin{table}[H]\centering\small
+\caption{Mean absolute clean-ray error among retained missing rays. At a fixed retained fraction, lower error means a better ranking. The all-ray error is 0.2136 for every ranking.}
+\begin{tabular}{lrrr}\toprule
+Missing rays retained & Disagreement & Angular distance & Random\\\midrule
+25\%&\textbf{0.0924}&0.1821&0.2135\\
+50\%&\textbf{0.1222}&0.1878&0.2135\\
+75\%&\textbf{0.1618}&0.1955&0.2135\\\bottomrule
+\end{tabular}\end{table}
+At 50\% retention, disagreement beats angular distance in all 12 audit deformations. The mean within-deformation Spearman association between disagreement and absolute error is 0.458. This supports a useful empirical ranking in this development set. It does not estimate a population-level organism effect, and reducing retained error by discarding rays is not itself improved reconstruction.
+\fig{disagreement_risk_failure.pdf}{.94}{Left: lower error at the same retained fraction indicates a more useful risk score. Right: an outcome-selected extrapolation failure, worm4577 at $z=280$ and a missing 86.4\degree{} view. All models miss a strong peak despite agreeing with each other.}
+A post-audit sensitivity calculation averaged over tied angular-distance scores; its 50\% geometry error was 0.1886, leaving the advantage intact. No model or threshold changed. Nevertheless, about 0.69\% of missing rays combine top-decile error with bottom-quartile disagreement. One displayed ray has error 3.688 but model SD 0.030. The models can share a strong bias, so disagreement is a warning signal, not a confidence interval. These errors use clean targets; we made no noisy-prediction coverage claim.
+
+\newpage
+\subsection{Does the completion benefit survive Gaussian reconstruction?}
+The final experiment tested the intended use of completion: initialization followed by refinement using actual acquired measurements. We compared acquired-only dictionary initialization, interpolation initialization and the selected B ensemble initialization on two predeclared selection files, worm153 and worm327, at start 7.2\degree{}/span 90\degree{}. Each arm used 16 Gaussians and the same two perturbation seeds. The shared geometry prior remained centred on the acquired-only initializer; completion predictions never entered the likelihood as independent observations.
+
+We recorded error before Gaussian conversion, after the initialized scene was projected, and after measured-data refinement. All arms shared bounds, noise, objective and the 450-evaluation per-fit cap. Starts were aligned by component-centre matching and selected by acquired objective among numerically accepted fits, or marked provisional if none passed. Different initial scenes are not identical starts.
+\begin{table}[H]\centering\small
+\caption{Balanced Gaussian comparison: withheld clean-projection relative L2. Lower is better. Every row has two completed starts and zero numerically accepted fits.}
+\begin{tabular}{llrrr}\toprule
+File & Initializer & Completion & Gaussian init. & Refined\\\midrule
+worm153 & Acquired only &100.00\%&35.24\%&\textbf{25.96\%}\\
+& Interpolation &51.95\%&43.68\%&26.31\%\\
+& Learned ensemble &47.84\%&39.56\%&27.13\%\\\midrule
+worm327 & Acquired only &100.00\%&36.66\%&\textbf{19.06\%}\\
+& Interpolation &32.12\%&32.68\%&25.38\%\\
+& Learned ensemble &42.75\%&36.90\%&25.22\%\\\bottomrule
+\end{tabular}\end{table}
+The 100\% acquired-only completion error is the zero-fill baseline before a scene exists. In worm153, learned completion beats interpolation and keeps that advantage after conversion, but refinement reverses it. In worm327, learned completion is already worse; its final advantage over interpolation is negligible. Both completion-based results remain worse than acquired-only initialization in this comparison.
+\fig{gaussian_density.pdf}{.98}{Refined Gaussian slices for worm153 at source $z=256$, with the same normalized density scale and fixed spatial window. These are fitted model values, not verified physical densities or voxel truth. All selected fits fail acceptance.}
+All 12 fits were finite and feasible, but none passed the full scale-aware stationarity rule. Only two reported successful optimizer termination; those also failed the numerical check. No arm had accepted candidates for independent-start agreement. We preserved the thresholds and all failed fits. The earlier pilot's missing twelfth start was also completed separately without changing its selected results. The balanced experiment used 7.8 CPU minutes; including the historical repair gave 8.6 minutes on one thread. \textbf{Improved projection completion is established within the development audit, but an accepted Gaussian reconstruction benefit is not.}
+
+\newpage
+\section{Limitations}
+\begin{itemize}
+\item \textbf{Data and generalization.} The 144 files deform one synthetic organism. Numeric grouping is provisional, slices are correlated, and the development-audit group has prior exposure. The 24 reserved files remain unevaluated; independent-organism transfer is unknown.
+\item \textbf{Density and acquisition assumptions.} Matching deformed voxel truth and projection path-length scaling are unavailable. Noise is controlled additive Gaussian noise; angles and detector alignment are fixed. We have not recovered calibrated physical densities or tested scanner mismatch.
+\item \textbf{Posterior inference.} The local Gaussian, importance correction and bounded sampling studies do not establish a calibrated nonlinear posterior. Phantom geometry priors use truth and their noise scales are known. Their success or failure cannot be transferred directly to the worm.
+\item \textbf{Restoration trade-offs.} Broader training helps new masks but reduces familiar-mask accuracy relative to restricted training. Geometry channels help modestly and nonuniformly. Only one compact architecture and three seeds were used; larger capacity was not tested.
+\item \textbf{Disagreement and reconstruction.} Models can agree on an incorrect completion. Our risk score has no coverage guarantee. All balanced Gaussian fits fail numerical acceptance, so neither the best error nor visual appearance establishes reliable 3D reconstruction.
+\end{itemize}
+\section{Proposed next step}
+We propose one selection-case diagnostic using the saved learned and interpolation Gaussian states. Along paired feasible paths from initialization to refinement, we will separate acquired-data and prior penalties and track their withheld-error difference. This should show where the relative completion advantage disappears before changing the prior, representation or optimizer. The paths are diagnostic interpolations, not recorded optimization trajectories. We will freeze this analysis first and keep sampler work paused. A larger training or reconstruction study is justified only after this comparison identifies a specific failure to address.
+
+\begin{thebibliography}{9}\small\raggedright
+\bibitem{kak} A. C. Kak and M. Slaney. \emph{Principles of Computerized Tomographic Imaging}. IEEE Press, 1988. \url{https://www.slaney.org/pct/}.
+\bibitem{r2} R. Zha, T. J. Lin, Y. Cai, J. Cao, Y. Zhang and H. Li. R$^2$-Gaussian: Rectifying Radiative Gaussian Splatting for Tomographic Reconstruction. \emph{NeurIPS 37}, 2024. \href{https://doi.org/10.52202/079017-1427}{doi:10.52202/079017-1427}.
+\bibitem{laplace} E. Daxberger et al. Laplace Redux---Effortless Bayesian Deep Learning. \emph{NeurIPS 34}, 2021. \href{https://proceedings.neurips.cc/paper_files/paper/2021/hash/a7c9585703d275249f30a088cebba0ad-Abstract.html}{Official proceedings}.
+\bibitem{psis} A. Vehtari, D. Simpson, A. Gelman, Y. Yao and J. Gabry. Pareto Smoothed Importance Sampling. \emph{Journal of Machine Learning Research} 25(72):1--58, 2024. \url{https://jmlr.org/papers/v25/19-556.html}.
+\bibitem{mala} G. O. Roberts and R. L. Tweedie. Exponential convergence of Langevin distributions and their discrete approximations. \emph{Bernoulli} 2(4):341--363, 1996. \href{https://doi.org/10.2307/3318418}{doi:10.2307/3318418}.
+\bibitem{rhat} A. Vehtari, A. Gelman, D. Simpson, B. Carpenter and P.-C. B\"urkner. Rank-normalization, folding, and localization: An improved $\widehat R$ for assessing convergence of MCMC. \emph{Bayesian Analysis} 16(2):667--718, 2021. \href{https://doi.org/10.1214/20-BA1221}{doi:10.1214/20-BA1221}.
+\bibitem{ding} G. Ding, Y. Liu, R. Zhang and H. L. Xin. A joint deep learning model to recover information and reduce artifacts in missing-wedge sinograms for electron tomography and beyond. \emph{Scientific Reports} 9:12803, 2019. \href{https://doi.org/10.1038/s41598-019-49267-x}{doi:10.1038/s41598-019-49267-x}.
+\bibitem{ddw} S. Wiedemann and R. Heckel. A deep learning method for simultaneous denoising and missing wedge reconstruction in cryogenic electron tomography. \emph{Nature Communications} 15:8255, 2024. \href{https://doi.org/10.1038/s41467-024-51438-y}{doi:10.1038/s41467-024-51438-y}.
+\bibitem{ensembles} B. Lakshminarayanan, A. Pritzel and C. Blundell. Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles. \emph{NeurIPS 30}, 2017. \href{https://proceedings.neurips.cc/paper_files/paper/2017/hash/9ef2ed4b7fd2c810847ffa5fa85bce38-Abstract.html}{Official proceedings}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,9 @@
+{
+  "analytic_projection_l2": 0.008467343954984075,
+  "full_fbp_density_l2": 0.0536411412373457,
+  "scale_error": 0.015581192745950156,
+  "centroid_error_um": 0.10271444540226354,
+  "adjoint_relative": 7.874607259456191e-16,
+  "reversal_max_abs": 3.885780586188048e-15,
+  "passed": true
+}

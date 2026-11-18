@@ -1,0 +1,311 @@
+{
+  "kind": "fixed_geometry_density_audit",
+  "week_start": "2026-10-24",
+  "audit": [
+    {
+      "seed": 0,
+      "before": 52686.958100688484,
+      "after": 52686.95810068847,
+      "improvement": 1.4551915228366852e-11,
+      "solver": {
+        "success": true,
+        "iterations": 0,
+        "kkt_absolute": 2.7724308959697908e-11,
+        "kkt_relative": 6.184080653574634e-16,
+        "active_indices": [],
+        "augmented_condition": 19.893114592921204
+      }
+    },
+    {
+      "seed": 81,
+      "before": 59759.43583335745,
+      "after": 59759.43583309574,
+      "improvement": 2.6170891942456365e-07,
+      "solver": {
+        "success": true,
+        "iterations": 3,
+        "kkt_absolute": 2.0402526890173078e-11,
+        "kkt_relative": 3.367984408039238e-16,
+        "active_indices": [
+          13
+        ],
+        "augmented_condition": 32.32649544538396
+      }
+    },
+    {
+      "seed": 193,
+      "before": 55910.5687288632,
+      "after": 55909.79803874676,
+      "improvement": 0.7706901164419833,
+      "solver": {
+        "success": true,
+        "iterations": 0,
+        "kkt_absolute": 7.08690051087757e-11,
+        "kkt_relative": 1.9315240298332852e-15,
+        "active_indices": [],
+        "augmented_condition": 20.00964933903467
+      }
+    },
+    {
+      "seed": 421,
+      "before": 50045.3336285592,
+      "after": 50045.33362855917,
+      "improvement": 2.9103830456733704e-11,
+      "solver": {
+        "success": true,
+        "iterations": 0,
+        "kkt_absolute": 1.7595513934764995e-10,
+        "kkt_relative": 3.2214432689282693e-15,
+        "active_indices": [],
+        "augmented_condition": 31.798896634124173
+      }
+    }
+  ],
+  "provenance": {
+    "protocol": {
+      "week_start": "2026-10-24",
+      "execution_date": "2026-10-27",
+      "components": 16,
+      "parent_report_sha256": "0b29bee61931391fbacb12aee7065c164f7c970d9f03edec1a0c2f27bbd34a0e",
+      "seeds": [
+        0,
+        81,
+        193,
+        421
+      ],
+      "arms": [
+        {
+          "name": "joint_450",
+          "stages": [
+            {
+              "kind": "joint",
+              "budget": 450
+            }
+          ]
+        },
+        {
+          "name": "staged_450",
+          "stages": [
+            {
+              "kind": "density"
+            },
+            {
+              "kind": "centre",
+              "budget": 50
+            },
+            {
+              "kind": "density"
+            },
+            {
+              "kind": "geometry",
+              "budget": 50
+            },
+            {
+              "kind": "density"
+            },
+            {
+              "kind": "joint",
+              "budget": 350
+            }
+          ]
+        }
+      ],
+      "selection": "Lowest acquired objective among converged candidates, otherwise provisional unfinished candidate; no withheld tuning.",
+      "limitations": [
+        "One development worm/window/noise draw; no independent validation.",
+        "Equal nonlinear evaluation caps are not equal runtime or total work; density solves and projection calls are recorded.",
+        "Solver termination and pairwise stability do not prove global optimality or calibration."
+      ]
+    },
+    "configuration": {
+      "kind": "small_worm_full_shape_diagnostic",
+      "date": "2026-10-19",
+      "source_name": "worm_004_gt.tiff",
+      "source_sha256": "ba884c78bf659acc12df3390c9d6e69e16ddfb3187d5ba3607492790c69fd01d",
+      "source_shape": [
+        510,
+        100,
+        310
+      ],
+      "z_indices": [
+        224,
+        232,
+        240,
+        248,
+        256,
+        264,
+        272,
+        280
+      ],
+      "angle_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96
+      ],
+      "detector_indices": [
+        2,
+        7,
+        12,
+        17,
+        22,
+        27,
+        32,
+        37,
+        42,
+        47,
+        52,
+        57,
+        62,
+        67,
+        72,
+        77,
+        82,
+        87,
+        92,
+        97,
+        102,
+        107,
+        112,
+        117,
+        122,
+        127,
+        132,
+        137,
+        142,
+        147,
+        152,
+        157,
+        162,
+        167,
+        172,
+        177,
+        182,
+        187,
+        192,
+        197,
+        202,
+        207,
+        212,
+        217,
+        222,
+        227,
+        232,
+        237,
+        242,
+        247,
+        252,
+        257,
+        262,
+        267,
+        272,
+        277,
+        282,
+        287,
+        292,
+        297,
+        302,
+        307
+      ],
+      "span": 120,
+      "start": 0,
+      "noise_sigma": 0.05,
+      "noise_seed": 20261019,
+      "components": 16,
+      "initialization_seeds": [
+        0,
+        81,
+        193,
+        421
+      ],
+      "budget_nfev": 150,
+      "initialization_extent": 0.8,
+      "initialization_grid_xy": 11,
+      "initialization_grid_z": 3,
+      "initialization_width": 0.16,
+      "initialization_width_z": 0.12,
+      "minimum_centre_distance": 0.1,
+      "start_centre_sd": 0.04,
+      "start_log_diagonal_sd": 0.1,
+      "start_off_diagonal_sd": 0.01,
+      "start_density_fraction_sd": 0.1,
+      "position_prior_sd": 0.3,
+      "cholesky_log_diagonal_prior_sd": 0.5,
+      "cholesky_off_diagonal_prior_sd": 0.1,
+      "density_prior_sd": 10.0,
+      "position_bounds": [
+        -0.95,
+        0.95
+      ],
+      "density_bounds": [
+        0.001,
+        100.0
+      ],
+      "foreground_threshold": 0.05,
+      "query_width": 64,
+      "query_chunk": 1024,
+      "stability_gate": {
+        "minimum_converged": 2,
+        "relative_objective_gap": 1e-05,
+        "relative_prediction_disagreement": 0.0001
+      },
+      "normalization": "RMS of acquired sampled noiseless synthetic projections, frozen before adding controlled noise",
+      "sampling": "point subsampling only; no bin averaging, no pixel integration approximation",
+      "limitations": [
+        "one development worm, one noise draw, one acquisition window",
+        "eight sampled axial planes spanning z=224..280; not the previous contiguous eight-slice pilot",
+        "sixteen components intentionally small; representation bias may dominate",
+        "shared prior reference estimated from the same acquired noisy data; local Gaussian approximation",
+        "all covariance parameters learned but acquisition geometry exact",
+        "no voxel ground truth or calibrated physical-density claim",
+        "dense covariance limited to 160 parameters; no large-model scalability claim",
+        "diagnostic outputs retained even when the optimizer stability gate fails; no automatic retry or interval tuning"
+      ]
+    },
+    "source_sha256": {
+      "worm_staged.py": "debe1310d05d545d7ffd90d26091c973a3cd7e64d804da1470fcc8cb203ea482",
+      "staged_density.py": "d6a69d2e8be93bac973888b3c7f0791f47abb9bf86d7ae5a1fc4fec0805bfb37",
+      "cholesky_gaussian.py": "e12ef25db08bf430dba800d77add3a0a8bf61221f9e78f06e1b7b97e9cedeb84",
+      "measured_initializer.py": "b63a972932a00a2325e2243e23ee5e107fcd09cb3a4a7a710c5a25d826be6ffd",
+      "worm_fit_controls.py": "ddcdd0c2ed71f4506cc4f13336380375e83eab25071b3050147647d949f8966d",
+      "prepare.py": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509",
+      "shape_gaussian.py": "7156e095a89facba0633505ffc042440b95b90aa31aea8f1ba5778a0e203681c",
+      "rotation_sensitivity.py": "3b79e075e22ad6251329adb23588318de62b90e32c3970d327d65f65ee51da22",
+      "stress_3d.py": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f",
+      "diagnose_3d.py": "7d9572014ebf0b7f9a52b96e497c47e6ea6e9b69d6a59008fe8c88eecda21970"
+    },
+    "python": "3.9.23",
+    "numpy": "1.24.4",
+    "scipy": "1.10.1",
+    "host": "liet",
+    "parent_report_sha256": "0b29bee61931391fbacb12aee7065c164f7c970d9f03edec1a0c2f27bbd34a0e",
+    "input_sha256": "c4287a021bd8406ed5f358b072ae7d88dbe6d60cdb20d5f878a7bf39933c5061",
+    "references_sha256": "47abbe66aa9feb8bb7d6858645e2ee57b1e44e69950fd5877a01c07d0f879a8c"
+  },
+  "artifacts_sha256": {
+    "density_audit.json": "77ae78940d3b21834c2c24bfe9dbea43cf0a976f80c379f67333bb196847112f",
+    "provenance.json": "8c5c02bbbb6b703e2e2431d1966215c8d899c1d140ecfa3198425b008d3d1eb1"
+  },
+  "interpretation": "Conditional densities are nearly optimal at the saved geometries. Joint/staged fits are still running; no calibration or transfer result."
+}

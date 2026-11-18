@@ -1,0 +1,132 @@
+{
+  "groups": [
+    {
+      "shape": "moderate",
+      "mode": "density",
+      "radius": 0.001,
+      "median_density_change": 0.002147243858863789,
+      "median_acquired_sigma_rms": 0.02762070121564727,
+      "median_withheld_change": 0.0017156075594390373,
+      "median_linearization_relative_error": 8.269963872778196e-14
+    },
+    {
+      "shape": "moderate",
+      "mode": "density",
+      "radius": 0.01,
+      "median_density_change": 0.02147243858864139,
+      "median_acquired_sigma_rms": 0.2762070121564715,
+      "median_withheld_change": 0.017156075594390176,
+      "median_linearization_relative_error": 8.20105009566606e-15
+    },
+    {
+      "shape": "moderate",
+      "mode": "density",
+      "radius": 0.1,
+      "median_density_change": 0.21472438588648696,
+      "median_acquired_sigma_rms": 2.762070121564715,
+      "median_withheld_change": 0.1715607559439018,
+      "median_linearization_relative_error": 8.495970985808172e-16
+    },
+    {
+      "shape": "moderate",
+      "mode": "joint",
+      "radius": 0.001,
+      "median_density_change": 0.00013979811202545007,
+      "median_acquired_sigma_rms": 0.0006965355158322177,
+      "median_withheld_change": 0.00010939199422429265,
+      "median_linearization_relative_error": 0.0008819801439478591
+    },
+    {
+      "shape": "moderate",
+      "mode": "joint",
+      "radius": 0.01,
+      "median_density_change": 0.0013979767094365024,
+      "median_acquired_sigma_rms": 0.006958862932703595,
+      "median_withheld_change": 0.001093914497302608,
+      "median_linearization_relative_error": 0.008819607373446663
+    },
+    {
+      "shape": "moderate",
+      "mode": "joint",
+      "radius": 0.1,
+      "median_density_change": 0.014007531428763511,
+      "median_acquired_sigma_rms": 0.06924284507248221,
+      "median_withheld_change": 0.010930047666583554,
+      "median_linearization_relative_error": 0.08805091765384442
+    },
+    {
+      "shape": "elongated",
+      "mode": "density",
+      "radius": 0.001,
+      "median_density_change": 0.0020472801922959763,
+      "median_acquired_sigma_rms": 0.010398595360995844,
+      "median_withheld_change": 0.0016814454857036732,
+      "median_linearization_relative_error": 2.033608958027683e-13
+    },
+    {
+      "shape": "elongated",
+      "mode": "density",
+      "radius": 0.01,
+      "median_density_change": 0.020472801923619076,
+      "median_acquired_sigma_rms": 0.10398595360995687,
+      "median_withheld_change": 0.01681445485703694,
+      "median_linearization_relative_error": 2.042935735096571e-14
+    },
+    {
+      "shape": "elongated",
+      "mode": "density",
+      "radius": 0.1,
+      "median_density_change": 0.20472801923623693,
+      "median_acquired_sigma_rms": 1.0398595360995673,
+      "median_withheld_change": 0.16814454857036937,
+      "median_linearization_relative_error": 2.078729794955881e-15
+    },
+    {
+      "shape": "elongated",
+      "mode": "joint",
+      "radius": 0.001,
+      "median_density_change": 0.00020346556173201152,
+      "median_acquired_sigma_rms": 6.33695952149895e-07,
+      "median_withheld_change": 5.373860388372981e-06,
+      "median_linearization_relative_error": 0.9796098419654414
+    },
+    {
+      "shape": "elongated",
+      "mode": "joint",
+      "radius": 0.01,
+      "median_density_change": 0.002034653691759962,
+      "median_acquired_sigma_rms": 6.213755296799434e-05,
+      "median_withheld_change": 5.569612308988742e-05,
+      "median_linearization_relative_error": 0.9997897626752046
+    },
+    {
+      "shape": "elongated",
+      "mode": "joint",
+      "radius": 0.1,
+      "median_density_change": 0.020344832677416595,
+      "median_acquired_sigma_rms": 0.006216050204587394,
+      "median_withheld_change": 0.0011079303228305273,
+      "median_linearization_relative_error": 0.9999978953544031
+    }
+  ],
+  "protocol": {
+    "primary": "All 30 noisy exact-start fits, density prior SD 10; no stationarity filtering",
+    "modes": [
+      "density",
+      "joint"
+    ],
+    "radii": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "bound_fraction": 0.8,
+    "direction": "Smallest right singular vector of acquired data Jacobian, noise-whitened and scaled by prior SD. No prior curvature in this SVD."
+  },
+  "report_sha256": "31e1786d90817758461f1a4d345bb082ba859a27fb109e932f59e50fcee7a461",
+  "plot_code_sha256": "994c2b2414ea2a1101b43651642a15e1429d1f30049ac4e22eba7b2513b85a18"
+}

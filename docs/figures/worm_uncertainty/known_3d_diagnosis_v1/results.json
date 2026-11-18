@@ -1,0 +1,287 @@
+{
+  "report": {
+    "kind": "known_3d_gaussian_error_diagnosis",
+    "protocol": {
+      "kind": "known_3d_gaussian_error_diagnosis",
+      "angles_deg": {
+        "count": 36,
+        "step": 5.0
+      },
+      "detector_shape": [
+        12,
+        24
+      ],
+      "voxel_shape": [
+        24,
+        24,
+        24
+      ],
+      "spans_deg": [
+        180,
+        120,
+        90
+      ],
+      "noise_fraction_full_projection_rms": 0.05,
+      "noise_repeats": 30,
+      "noise_seed": 20261017,
+      "initialization_seed": 73,
+      "initialization_position_sd": 0.08,
+      "initialization_density_fraction": 0.6,
+      "position_prior_sd": 0.3,
+      "density_prior_sd": 3.0,
+      "optimization_budgets_nfev": [
+        5,
+        150
+      ],
+      "position_bounds": [
+        -0.75,
+        0.75
+      ],
+      "density_bounds": [
+        0.001,
+        3.0
+      ],
+      "foreground_fraction_of_peak": 0.05,
+      "centres": [
+        [
+          -0.25,
+          -0.16,
+          -0.18
+        ],
+        [
+          0.24,
+          0.18,
+          0.16
+        ],
+        [
+          -0.04,
+          0.24,
+          -0.03
+        ]
+      ],
+      "scales": [
+        [
+          0.17,
+          0.1,
+          0.14
+        ],
+        [
+          0.11,
+          0.19,
+          0.12
+        ],
+        [
+          0.09,
+          0.08,
+          0.2
+        ]
+      ],
+      "densities": [
+        0.8,
+        0.65,
+        0.5
+      ],
+      "extra_component": {
+        "centre": [
+          0.18,
+          -0.25,
+          0.25
+        ],
+        "scale": [
+          0.07,
+          0.07,
+          0.08
+        ],
+        "density": 0.45
+      },
+      "representation_control": "oracle fixed centres/scales; ordinary least squares, all 36 clean views, 3 versus 4 basis functions",
+      "optimization_control": "matched 3-component truth; identical initialization; clean data and fixed priors",
+      "uncertainty_control": "noisy matched truth; density-only versus joint centre+density local Gaussian covariance",
+      "limitations": [
+        "single development phantom",
+        "widths, rotations and Gaussian count fixed",
+        "joint covariance is Gauss-Newton/Laplace approximation",
+        "same analytic forward model for synthesis and inference",
+        "spatial pixels are correlated",
+        "no hyperparameter selection or tuning using reported coverage"
+      ]
+    },
+    "protocol_sha256": "4b36904a05a170882c2803ed07d7dbcc0305d82ffb689382b56aad38b3866667",
+    "sigma": 0.002402742403664376,
+    "representation": [
+      {
+        "components": 3,
+        "projection_relative_l2": 0.11283043219570846,
+        "foreground_voxel_rmse": 0.03369441161525873
+      },
+      {
+        "components": 4,
+        "projection_relative_l2": 3.1966726625933466e-16,
+        "foreground_voxel_rmse": 7.507737197495704e-17
+      }
+    ],
+    "optimization": [
+      {
+        "span": 180,
+        "budget_nfev": 5,
+        "used_nfev": 5,
+        "converged": false,
+        "optimality": 29.74401979710666,
+        "objective": 0.7624064709290898,
+        "voxel_rmse": 1.003433383215618e-06,
+        "measured_relative_l2": 3.2386987290266955e-06,
+        "withheld_relative_l2": null
+      },
+      {
+        "span": 180,
+        "budget_nfev": 150,
+        "used_nfev": 7,
+        "converged": true,
+        "optimality": 3.2884026369308613e-10,
+        "objective": 0.762360655879654,
+        "voxel_rmse": 1.3418749789519986e-07,
+        "measured_relative_l2": 4.052244101736494e-07,
+        "withheld_relative_l2": null
+      },
+      {
+        "span": 120,
+        "budget_nfev": 5,
+        "used_nfev": 5,
+        "converged": false,
+        "optimality": 12.825186927461948,
+        "objective": 0.7623723929648853,
+        "voxel_rmse": 5.78859519439037e-07,
+        "measured_relative_l2": 1.9546413595463435e-06,
+        "withheld_relative_l2": 2.1456757708749804e-06
+      },
+      {
+        "span": 120,
+        "budget_nfev": 150,
+        "used_nfev": 7,
+        "converged": true,
+        "optimality": 2.1819195766370517e-05,
+        "objective": 0.762360262790752,
+        "voxel_rmse": 2.181788483459316e-07,
+        "measured_relative_l2": 6.083553398015381e-07,
+        "withheld_relative_l2": 8.270246004419489e-07
+      },
+      {
+        "span": 90,
+        "budget_nfev": 5,
+        "used_nfev": 5,
+        "converged": false,
+        "optimality": 12.670389957149592,
+        "objective": 0.7623731933355968,
+        "voxel_rmse": 6.421718650964865e-07,
+        "measured_relative_l2": 2.360469888359659e-06,
+        "withheld_relative_l2": 2.8611149906063566e-06
+      },
+      {
+        "span": 90,
+        "budget_nfev": 150,
+        "used_nfev": 7,
+        "converged": true,
+        "optimality": 3.0292512105568086e-10,
+        "objective": 0.7623596455168274,
+        "voxel_rmse": 3.9457208437576426e-07,
+        "measured_relative_l2": 8.762661243214033e-07,
+        "withheld_relative_l2": 1.4686507008517413e-06
+      }
+    ],
+    "uncertainty": [
+      {
+        "span": 180,
+        "converged_noise_fits": 30,
+        "bound_active_noise_fits": 0,
+        "max_conditional_map_density_difference": 7.113708005479618e-14,
+        "methods": {
+          "oracle_density": {
+            "rmse": 0.000185136729320094,
+            "coverage95": 0.9691319979455574,
+            "mean_width95": 0.000635294236046229,
+            "coverage_min_across_draws": 0.6024653312788906,
+            "coverage_max_across_draws": 1.0
+          },
+          "learned_density": {
+            "rmse": 0.0005021449953729159,
+            "coverage95": 0.44848484848484843,
+            "mean_width95": 0.000635295559178034,
+            "coverage_min_across_draws": 0.2650231124807396,
+            "coverage_max_across_draws": 0.7057010785824345
+          },
+          "learned_joint": {
+            "rmse": 0.0005021449953729159,
+            "coverage95": 0.9524910118130457,
+            "mean_width95": 0.0017803159866558575,
+            "coverage_min_across_draws": 0.8197226502311248,
+            "coverage_max_across_draws": 1.0
+          }
+        }
+      },
+      {
+        "span": 120,
+        "converged_noise_fits": 30,
+        "bound_active_noise_fits": 0,
+        "max_conditional_map_density_difference": 1.0762711811811373e-13,
+        "methods": {
+          "oracle_density": {
+            "rmse": 0.0002510342443510505,
+            "coverage95": 0.9395993836671803,
+            "mean_width95": 0.0007836667085242267,
+            "coverage_min_across_draws": 0.5839753466872111,
+            "coverage_max_across_draws": 1.0
+          },
+          "learned_density": {
+            "rmse": 0.0006739643374096326,
+            "coverage95": 0.4341037493579866,
+            "mean_width95": 0.0007836686892342961,
+            "coverage_min_across_draws": 0.29892141756548535,
+            "coverage_max_across_draws": 0.6332819722650231
+          },
+          "learned_joint": {
+            "rmse": 0.0006739643374096326,
+            "coverage95": 0.9504879301489472,
+            "mean_width95": 0.002324980534087092,
+            "coverage_min_across_draws": 0.8351309707241911,
+            "coverage_max_across_draws": 1.0
+          }
+        }
+      },
+      {
+        "span": 90,
+        "converged_noise_fits": 30,
+        "bound_active_noise_fits": 0,
+        "max_conditional_map_density_difference": 2.1243322679938883e-13,
+        "methods": {
+          "oracle_density": {
+            "rmse": 0.00030043912944656176,
+            "coverage95": 0.9667693888032871,
+            "mean_width95": 0.000921264776416662,
+            "coverage_min_across_draws": 0.6040061633281972,
+            "coverage_max_across_draws": 1.0
+          },
+          "learned_density": {
+            "rmse": 0.0008467134015163401,
+            "coverage95": 0.409758602978942,
+            "mean_width95": 0.0009212282804543904,
+            "coverage_min_across_draws": 0.25577812018489987,
+            "coverage_max_across_draws": 0.6163328197226502
+          },
+          "learned_joint": {
+            "rmse": 0.0008467134015163401,
+            "coverage95": 0.9663071391884951,
+            "mean_width95": 0.003114562673380995,
+            "coverage_min_across_draws": 0.8690292758089369,
+            "coverage_max_across_draws": 1.0
+          }
+        }
+      }
+    ],
+    "uncertainty_metric": "mean of per-draw foreground voxel RMSE/coverage/width; one fixed truth, correlated voxels",
+    "joint_method": "local Gauss-Newton/Laplace covariance with positions and densities; fixed scales and rotations",
+    "code_sha256": "3a7f10a42257fb1f637b14a270684036a4e9ac680db38bfe841c657be09d14ae",
+    "arrays_sha256": "2d9e3c2f58e01b730ad6b15861be359356c7063ea95a16f26032ced853717958"
+  },
+  "source_report_sha256": "5981a55be517889c46c023dd82fc2a6c51e26080df5dab6a63940bbcb68b20ae",
+  "plot_code_sha256": "0a0a5b88f8a3dfad1271a81dd6957d4e709303fc2fba572afe52afb6589fabbc"
+}

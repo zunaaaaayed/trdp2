@@ -1,0 +1,437 @@
+{
+  "before_commit": "c6d1b17d1466b9940637792110b60100a766029e",
+  "files": {
+    "worm_staged_protocol_v1.json": {
+      "path": "protocols/worm_staged_protocol_v1.json",
+      "sha256_before": "790ecacb6c111e7b9b95f01d00e60e86713373a30ab8969af29044ce5c5ac65e"
+    },
+    "measured_init_study.py": {
+      "path": "studies/measured_init_study.py",
+      "sha256_before": "f79b13b837949c2a5a3552cdb72ebfd8a4243b2991a07791b80d14ae45431e67"
+    },
+    "test_phantom_replication.py": {
+      "path": "tests/test_phantom_replication.py",
+      "sha256_before": "84ed334531e071a3adda54460b0792e88cb1cebe10e4ccdbba9f66ab98b8573f"
+    },
+    "phantom_variability.py": {
+      "path": "studies/phantom_variability.py",
+      "sha256_before": "d845fbb2fdfd1c9e60da6bf7703c3a7412eb1486670a657a7572c02f03f488a7"
+    },
+    "cholesky_sensitivity.py": {
+      "path": "studies/cholesky_sensitivity.py",
+      "sha256_before": "1a09e74df971e69ae23924802c6963bc71e5d26b27f9a68fa03fa9277d2edb0c"
+    },
+    "plot_worm_staged.py": {
+      "path": "plots/plot_worm_staged.py",
+      "sha256_before": "612d681b2d0543b4c076b2054ebd62ca6b607548fd1a60fe3d2488a28a54cd5e"
+    },
+    "audit_nonlinear_posterior.py": {
+      "path": "studies/audit_nonlinear_posterior.py",
+      "sha256_before": "a6f29489d4b48af95ebd31ecc328aa3b9ad4d9c4ac66c087b1723df2b75921ae"
+    },
+    "COMPLETION_PROTOCOL.md": {
+      "path": "notes/COMPLETION_PROTOCOL.md",
+      "sha256_before": "41a3218541aab37f89f168185610077474eabb1ac5981335e2353c47bf68333f"
+    },
+    "run_shape_controls.py": {
+      "path": "studies/run_shape_controls.py",
+      "sha256_before": "55380f32263ffb900975f3ebbc2ee328eab7be9232dc8ccd3ed17bbcceac2a2a"
+    },
+    "test_gaussian_l2.py": {
+      "path": "tests/test_gaussian_l2.py",
+      "sha256_before": "d72a28375b75bdada3f491541cc1fdbf1d64052170a1be68a6a114f2f5c67dc5"
+    },
+    "test_completion_data.py": {
+      "path": "tests/test_completion_data.py",
+      "sha256_before": "dd2fbb7e20415ecc79787fba252d00f460bc1897b80e128c55eb82d6c8c50314"
+    },
+    "worm_stationarity_protocol_v1.json": {
+      "path": "protocols/worm_stationarity_protocol_v1.json",
+      "sha256_before": "853ba48f4a4dc13d08eb90ff19eb5fda38f0eefac4b3f3b8e200c57b2d406c70"
+    },
+    "cholesky_protocol_v1.json": {
+      "path": "protocols/cholesky_protocol_v1.json",
+      "sha256_before": "528a38b4c2da8b0546ec475524bed61d86afbff6b9577f148a742aa5fcf50675"
+    },
+    "plot_worm_stationarity_results.py": {
+      "path": "plots/plot_worm_stationarity_results.py",
+      "sha256_before": "2ffb176ed1e06ebc7e8ba3647a1d846eff2e58cb1e005596b113a862c920cbed"
+    },
+    "plot_phantom_replication.py": {
+      "path": "plots/plot_phantom_replication.py",
+      "sha256_before": "c6dc29f66ce9dd5fe760b72868eca697ee54a78057511348e1136d02518be121"
+    },
+    "stress_3d.py": {
+      "path": "studies/stress_3d.py",
+      "sha256_before": "1d984b0b5276a3d2de8edaa048eaab73772f13b15995cbb77c8dc1bee929d44f"
+    },
+    "test_limited_gaussian.py": {
+      "path": "tests/test_limited_gaussian.py",
+      "sha256_before": "217914eb49d72c47f220fdc2fa086e9fc2c9571838d45953b3e3180f9977202b"
+    },
+    "audit_multistart.py": {
+      "path": "studies/audit_multistart.py",
+      "sha256_before": "78a0a9774de78b95de8c7bb309275fb2d8f11aad357a9006d1034599bb7b20e0"
+    },
+    "native_parallel.py": {
+      "path": "core/native_parallel.py",
+      "sha256_before": "e241cd11654449f3a4c3deac3ae7b70236ca3ea0e02da5f08ac77a5720ed9333"
+    },
+    "measured_initializer.py": {
+      "path": "core/measured_initializer.py",
+      "sha256_before": "b63a972932a00a2325e2243e23ee5e107fcd09cb3a4a7a710c5a25d826be6ffd"
+    },
+    "posterior_comparison_protocol_v1.json": {
+      "path": "protocols/posterior_comparison_protocol_v1.json",
+      "sha256_before": "ff93d7a4089a615a067e4c522de742ff6c391ef994e325f74b2e07ece0d8b5d2"
+    },
+    "test_nonlinear_target.py": {
+      "path": "tests/test_nonlinear_target.py",
+      "sha256_before": "9609e6e6b62a5a4a8ab5c1e028458b144acbfdcbe8d0e843dc31a631a90b6051"
+    },
+    "test_worm_stationarity.py": {
+      "path": "tests/test_worm_stationarity.py",
+      "sha256_before": "957ab39c1b5d973a5396da7a507e63d3399df6ea340eb29c041eb1bf853e23c5"
+    },
+    "plot_diagnose_3d.py": {
+      "path": "plots/plot_diagnose_3d.py",
+      "sha256_before": "44f1a255ee850f85152868d8a332647aa8936c2f09871f7f1bda4b46e20fb595"
+    },
+    "conditioning_phantom_protocol_v1.json": {
+      "path": "protocols/conditioning_phantom_protocol_v1.json",
+      "sha256_before": "202705039cb5d2c7179ca184e79b1ae67cb8a6cfb9963b915ffa9b92858ed5c4"
+    },
+    "test_diagnose_3d.py": {
+      "path": "tests/test_diagnose_3d.py",
+      "sha256_before": "54bfa4f7c881b764707a39a2a98c32fb7031d3fab665dcf0f7455bd00f8ab117"
+    },
+    "test_rotation_sensitivity.py": {
+      "path": "tests/test_rotation_sensitivity.py",
+      "sha256_before": "a057dac5755a6869f91b52da20c793be64f096a39c41e2a790391182c9269f74"
+    },
+    "scaled_acceptance.py": {
+      "path": "core/scaled_acceptance.py",
+      "sha256_before": "7a68233f8184817e166826a17a0b01403963207553e2d443fc7c2e6d8a9aa3f0"
+    },
+    "test_multistart_audit.py": {
+      "path": "tests/test_multistart_audit.py",
+      "sha256_before": "9502e671b5aeb6cbeb6d35077c6f01887a824d9266e89ab2dcfbc38a955fc41f"
+    },
+    "validate_scaled_acceptance.py": {
+      "path": "studies/validate_scaled_acceptance.py",
+      "sha256_before": "c0adc4bdfbb0d7a98b9623f5d7f30c7e1f167107793ec513e3295dfa8ef610c8"
+    },
+    "diagnose_3d.py": {
+      "path": "studies/diagnose_3d.py",
+      "sha256_before": "7d9572014ebf0b7f9a52b96e497c47e6ea6e9b69d6a59008fe8c88eecda21970"
+    },
+    "test_phantom.py": {
+      "path": "tests/test_phantom.py",
+      "sha256_before": "6b3020571f8d7542c3d9c732e5542ec3ccb5b39fed51d74b10cb255d0f0aeb01"
+    },
+    "test_prepare.py": {
+      "path": "tests/test_prepare.py",
+      "sha256_before": "7357d28403ee04ffefa805d22b352ed78c86bef5b40f58bb09c66fdba4eeb1bf"
+    },
+    "plot_measured_init.py": {
+      "path": "plots/plot_measured_init.py",
+      "sha256_before": "895e5934192c1b072f68accdbc3795741900b637e34f1679cd34fa1074078496"
+    },
+    "measured_fallback_protocol_v1.json": {
+      "path": "protocols/measured_fallback_protocol_v1.json",
+      "sha256_before": "95b7a26f7bd027f6ec8db9daabad941bfa405adec298eab10826c438c19d5f80"
+    },
+    "rotation_sensitivity.py": {
+      "path": "studies/rotation_sensitivity.py",
+      "sha256_before": "3b79e075e22ad6251329adb23588318de62b90e32c3970d327d65f65ee51da22"
+    },
+    "test_sart.py": {
+      "path": "tests/test_sart.py",
+      "sha256_before": "494878cf5e365810bf67f3fa8010f3e0010e63febaa41380bedccaa68e11784a"
+    },
+    "test_compare.py": {
+      "path": "tests/test_compare.py",
+      "sha256_before": "15b938c8fe2ea8cdb27e65ab73c8cc26cffa8dd5ccdcac3bbfa395eaec3a2e00"
+    },
+    "CONTINUATION.md": {
+      "path": "notes/CONTINUATION.md",
+      "sha256_before": "89c779271ba706461bf4247a297776e546c91f273cb22d6b3c9fabbba0fe278f"
+    },
+    "compare_noise.py": {
+      "path": "studies/compare_noise.py",
+      "sha256_before": "9c18727f4583ccf98672d96c1ae2a504742c87490161ba6ddefd175f70b8b7c2"
+    },
+    "plot_variability_guide.py": {
+      "path": "plots/plot_variability_guide.py",
+      "sha256_before": "e5ac3309cb7fa9d8246e76c71a3b20796b7378fa4c88f3160aab6264f00db6d1"
+    },
+    "rotation_sensitivity_protocol_v1.json": {
+      "path": "protocols/rotation_sensitivity_protocol_v1.json",
+      "sha256_before": "6628f34d2e2adf172bbbea0493becfa1b4446483f396f2d5b9ba484d4451af6f"
+    },
+    "test_stress_3d.py": {
+      "path": "tests/test_stress_3d.py",
+      "sha256_before": "6acccfc5c88aa15fc9bfe01e1b0eca60ea2ddbb50219650d4a931a88fa3e7a01"
+    },
+    "multistart_protocol_v1.json": {
+      "path": "protocols/multistart_protocol_v1.json",
+      "sha256_before": "9266955925a4cab2a8fb7ca0c142e369f40ef7e624768c2d64a00581803c9e93"
+    },
+    "nonlinear_posterior_protocol_v1.json": {
+      "path": "protocols/nonlinear_posterior_protocol_v1.json",
+      "sha256_before": "3b1f524c37ac151251d7ac6b898385ec7885ec95c834c8cc6d353fbc5c84ff13"
+    },
+    "test_cholesky_gaussian.py": {
+      "path": "tests/test_cholesky_gaussian.py",
+      "sha256_before": "d9b4517bcad788cda48e0fa99df4f8d9fb45e99d144cea8eac0d396c4db3c9ea"
+    },
+    "conditioning_phantom.py": {
+      "path": "studies/conditioning_phantom.py",
+      "sha256_before": "caebb5c7328d4d8ea91fa1892b9284aa3dfd899c664e406dda29ee19df1d9232"
+    },
+    "plot_worm_shape_pilot.py": {
+      "path": "plots/plot_worm_shape_pilot.py",
+      "sha256_before": "0a8b2e1af7666c0cfa369ee81a312b2d30454f32826b7c7835086e24585498e2"
+    },
+    "worm_staged.py": {
+      "path": "studies/worm_staged.py",
+      "sha256_before": "debe1310d05d545d7ffd90d26091c973a3cd7e64d804da1470fcc8cb203ea482"
+    },
+    "phantom_3d_protocol_v1.json": {
+      "path": "protocols/phantom_3d_protocol_v1.json",
+      "sha256_before": "4b36904a05a170882c2803ed07d7dbcc0305d82ffb689382b56aad38b3866667"
+    },
+    "limited_gaussian.py": {
+      "path": "studies/limited_gaussian.py",
+      "sha256_before": "926a0ce070d8a71a5083f14f72b7ca555bf230598ea3aa806de34ef028359c1d"
+    },
+    "test_conditional_density.py": {
+      "path": "tests/test_conditional_density.py",
+      "sha256_before": "2f09158f39db2b84909685673e91fc43709d44d143b60a19ae6390bbe44bf27a"
+    },
+    "posterior_comparison.py": {
+      "path": "studies/posterior_comparison.py",
+      "sha256_before": "f73092975c6ed34d15b9fcc2b35a5d6ac55f3a553026cd3bf0ae1d311ac7d65f"
+    },
+    "bayes_linear.py": {
+      "path": "studies/bayes_linear.py",
+      "sha256_before": "148054be29a75ae42dd7ecf27153fc5ad2d2f6baf612bee34bfe65abd15ad9e6"
+    },
+    "phantom_replication.py": {
+      "path": "studies/phantom_replication.py",
+      "sha256_before": "c8d87bfc0a2c2d8f561ed5419f778dc0945789712fcb75c8180f2ca3872cb114"
+    },
+    "verify_nonlinear_audit.py": {
+      "path": "studies/verify_nonlinear_audit.py",
+      "sha256_before": "f63023633758e864ed32546cdf048f017041fd790586f3ca59912eb954b42a77"
+    },
+    "gaussian_l2.py": {
+      "path": "core/gaussian_l2.py",
+      "sha256_before": "8551346be46e02645f6359ce4adb50c7d61031479099ebc152663dc55614eb79"
+    },
+    "conditional_density.py": {
+      "path": "studies/conditional_density.py",
+      "sha256_before": "5414594d29c261449115593ffd6711f08225cfd113a9080aae8c6a91ff051655"
+    },
+    "test_scaled_acceptance.py": {
+      "path": "tests/test_scaled_acceptance.py",
+      "sha256_before": "5ddb0f302a0f317907dafdc6200ba9e70a1a4f72745485223033a2d9a8d0adec"
+    },
+    "plot_worm_fit_controls.py": {
+      "path": "plots/plot_worm_fit_controls.py",
+      "sha256_before": "34cb004d67e82e6ed5b020049c55e7954a9c5f9b36124e8d737cf48037e41e2f"
+    },
+    "test_shape_gaussian.py": {
+      "path": "tests/test_shape_gaussian.py",
+      "sha256_before": "60a03699cf03b3a4227cad946c107b41a3bb3aa8b7c84dc5007c65281496c3cf"
+    },
+    "worm_numerical_audit.py": {
+      "path": "studies/worm_numerical_audit.py",
+      "sha256_before": "49c312ba51f725a0044905a9b2ac690710ef8aaca3fac2107774e0b4cd12c3b2"
+    },
+    "completion_manifest_v1.json": {
+      "path": "protocols/completion_manifest_v1.json",
+      "sha256_before": "9770a98ed544a2fd4cd6445a03e07d1552de6c8a6779728515780c5572189840"
+    },
+    "check_fbp.py": {
+      "path": "studies/check_fbp.py",
+      "sha256_before": "e192b6ec900bd69c584a48559a9f9274b9d17387b1e66c2db5dbc52703c87aec"
+    },
+    "compare_sart.py": {
+      "path": "studies/compare_sart.py",
+      "sha256_before": "ee7731b99e4465c24531ee5f92c1c1ae18a62c2ac40e37fdbc49e67052dc4922"
+    },
+    "plot_conditioning_phantom.py": {
+      "path": "plots/plot_conditioning_phantom.py",
+      "sha256_before": "6756d50d55f01ef1eafcd761d5ab387e2757d5a12e78d27251be5b499baa00d6"
+    },
+    "worm_fit_controls.py": {
+      "path": "studies/worm_fit_controls.py",
+      "sha256_before": "ddcdd0c2ed71f4506cc4f13336380375e83eab25071b3050147647d949f8966d"
+    },
+    "plot_nonlinear_audit.py": {
+      "path": "plots/plot_nonlinear_audit.py",
+      "sha256_before": "260d80c7a53d47538014d4a6dc05b48b16ff1467ff398a2b8912b4ef132908a1"
+    },
+    "test_native_parallel.py": {
+      "path": "tests/test_native_parallel.py",
+      "sha256_before": "ed0647d1d27f410230dae0597f5e2d2a7de78cf8c2f94f03c79d8bb9dcb4fa8d"
+    },
+    "plot_scaled_acceptance.py": {
+      "path": "plots/plot_scaled_acceptance.py",
+      "sha256_before": "999d6ba15505ff15408f8adcf577026ce346946180fed967292e5ed0a768f78f"
+    },
+    "worm_stationarity.py": {
+      "path": "studies/worm_stationarity.py",
+      "sha256_before": "01600601b9ac1ea20128c80f0df7c1b534b6b8e3af9aa1b766461c4502ee5458"
+    },
+    "posterior_local.py": {
+      "path": "core/posterior_local.py",
+      "sha256_before": "79917f65d53cb153e7288c1f351d4dc7d1a89a79e37818d265d7cf24c7821a33"
+    },
+    "plot_multistart.py": {
+      "path": "plots/plot_multistart.py",
+      "sha256_before": "a3e5362b954b0767836e8841d45178577f8a864b2b24247a7c0472fa05c29a5a"
+    },
+    "NONLINEAR_POSTERIOR.md": {
+      "path": "notes/NONLINEAR_POSTERIOR.md",
+      "sha256_before": "9d05903545ef70d7318f7e49a19915474c1b5774b538a80c2d4ffd5004115eb7"
+    },
+    "prepare.py": {
+      "path": "data/prepare.py",
+      "sha256_before": "3200bd3ac4044fc40dd8a33fdb19952b9f8b923003d580cfbb6e2d0a0fcc0509"
+    },
+    "completion_data.py": {
+      "path": "data/completion_data.py",
+      "sha256_before": "4704becf5d9ce337950cbeb23a75eac77f95aae93a32f5b7a3641452d3276fee"
+    },
+    "slab_protocol_v1.json": {
+      "path": "protocols/slab_protocol_v1.json",
+      "sha256_before": "af52e9b8a748655b1dd02ece555e351dbf084a51b7fda1f7345efae47fd60c2b"
+    },
+    "phantom_replication_protocol_v1.json": {
+      "path": "protocols/phantom_replication_protocol_v1.json",
+      "sha256_before": "72cb7ecec4e4ac1d814cd1653f3795f3df9c6d1ef9cf717e9310b3af3dda145a"
+    },
+    "worm_shape_pilot.py": {
+      "path": "studies/worm_shape_pilot.py",
+      "sha256_before": "78945440da96f562e9450c00348deb2eb84c331266a1f2d36d4b3090964973c9"
+    },
+    "shape_gaussian.py": {
+      "path": "core/shape_gaussian.py",
+      "sha256_before": "7156e095a89facba0633505ffc042440b95b90aa31aea8f1ba5778a0e203681c"
+    },
+    "scaled_acceptance_protocol_v1.json": {
+      "path": "protocols/scaled_acceptance_protocol_v1.json",
+      "sha256_before": "eaa9ab340da4da1552bd01ee9bb9943ece2a270391a2acf4596d87c700e3b681"
+    },
+    "test_conditioning_phantom.py": {
+      "path": "tests/test_conditioning_phantom.py",
+      "sha256_before": "f6709178539f6b69711505646c96f7298f69bb61c11afd3ced76ddba4a1d8b7c"
+    },
+    "test_worm_fit_controls.py": {
+      "path": "tests/test_worm_fit_controls.py",
+      "sha256_before": "b43dd273f1649dfe09ce7f3972118e81fb6028b9da2e59fa526ff923bac16856"
+    },
+    "measured_init_fallback.py": {
+      "path": "studies/measured_init_fallback.py",
+      "sha256_before": "ed868f2e2ec5db8acb0702eb721a8b7ae4982b022a0034f1e1f35daa931e837f"
+    },
+    "cholesky_gaussian.py": {
+      "path": "core/cholesky_gaussian.py",
+      "sha256_before": "e12ef25db08bf430dba800d77add3a0a8bf61221f9e78f06e1b7b97e9cedeb84"
+    },
+    "nonlinear_target.py": {
+      "path": "core/nonlinear_target.py",
+      "sha256_before": "921a03d35fcdcbaba08f4c81b575980a9712e8246afd91f061a6549d8cfe793f"
+    },
+    "plot_stress_3d.py": {
+      "path": "plots/plot_stress_3d.py",
+      "sha256_before": "255bf7679d9ffbdc57dd64970f9eabf7371ffe7dcd2a78c1ddf09e9fb598cbb0"
+    },
+    "plot_conditional_density.py": {
+      "path": "plots/plot_conditional_density.py",
+      "sha256_before": "b1a43a8bd5ec1236c8454eb3fa5e9282657bbe849d0838115ccba4e8736d0d23"
+    },
+    "worm_fit_controls_protocol_v1.json": {
+      "path": "protocols/worm_fit_controls_protocol_v1.json",
+      "sha256_before": "d92c3bbff9d483306354f91c7cfb98bc5acd0c4e323e3742e9fd9be2aebc4ffb"
+    },
+    "plot_rotation_sensitivity.py": {
+      "path": "plots/plot_rotation_sensitivity.py",
+      "sha256_before": "99f5a62ad9e6bc2ca1c32ea9c282d32afb4812a04feb65864f99a10afec36be4"
+    },
+    "measured_init_protocol_v1.json": {
+      "path": "protocols/measured_init_protocol_v1.json",
+      "sha256_before": "025190066e9fca5e31db082239f33a7d5e37e24b37cc24a575ab61c061b68a88"
+    },
+    "test_staged_density.py": {
+      "path": "tests/test_staged_density.py",
+      "sha256_before": "396e68c3a72b87e16adb2d7f594f47f9a961125fc739c47b72d7ebe3a170a5b0"
+    },
+    "plot_gaussian_slab.py": {
+      "path": "plots/plot_gaussian_slab.py",
+      "sha256_before": "63a657342919938e22ce89431cbdfa40b6403f83f19b9fe5109effea82ab920b"
+    },
+    "test_measured_initializer.py": {
+      "path": "tests/test_measured_initializer.py",
+      "sha256_before": "2305258cf28f73b95eff01ff53c1c39407a3052cb51f4ee2a162b21e78cc8232"
+    },
+    "worm_shape_protocol_v1.json": {
+      "path": "protocols/worm_shape_protocol_v1.json",
+      "sha256_before": "1da8ee4525516187d658d96c619966608f2f44852dc08721f3bd88d35e858550"
+    },
+    "test_posterior_local.py": {
+      "path": "tests/test_posterior_local.py",
+      "sha256_before": "c17e777f2cb5a02d39ca880799911dd89addb490234c98b4d8a9080c0873e050"
+    },
+    "plot_posterior_comparison.py": {
+      "path": "plots/plot_posterior_comparison.py",
+      "sha256_before": "218e4e82bf69f09a9c97da7e6c1ef23bd7c7da214642ff64392d659d8007736f"
+    },
+    "phantom_stress_protocol_v1.json": {
+      "path": "protocols/phantom_stress_protocol_v1.json",
+      "sha256_before": "b04c1a6e816fe24d9576065af90215ae4f62924959afede6453fe1fd540044bc"
+    },
+    "plot_phantom_weak_directions.py": {
+      "path": "plots/plot_phantom_weak_directions.py",
+      "sha256_before": "994c2b2414ea2a1101b43651642a15e1429d1f30049ac4e22eba7b2513b85a18"
+    },
+    "shape_protocol_v1.json": {
+      "path": "protocols/shape_protocol_v1.json",
+      "sha256_before": "3db673c4ef70106692f2dcb304466abb83971c285f63749d4ef520009b6dd497"
+    },
+    "plot_worm_stationarity_audit.py": {
+      "path": "plots/plot_worm_stationarity_audit.py",
+      "sha256_before": "668c27f52dc52e254f2c40fa27475f9747a64aa9c8abb83dfc4609ad4cecab29"
+    },
+    "test_worm_shape_pilot.py": {
+      "path": "tests/test_worm_shape_pilot.py",
+      "sha256_before": "74d218a9d94892519c54e93cafd1ec51e22c9731800f7047b02a4b77ee4b3bde"
+    },
+    "fit_gaussian_slab.py": {
+      "path": "studies/fit_gaussian_slab.py",
+      "sha256_before": "1db49d628d12b51bd0b8eb68847bacaaeeddabf6794e25da274f0388cd7030ec"
+    },
+    "phantom_weak_directions.py": {
+      "path": "studies/phantom_weak_directions.py",
+      "sha256_before": "2fc4590042c21d96ba9c08c03f6da5105c4b4c8378a97afc411b924fc2efcf3a"
+    },
+    "plot_shape_controls.py": {
+      "path": "plots/plot_shape_controls.py",
+      "sha256_before": "df8f147f0118917f8f5a9b1c6412e4ccd999f0da4573b9fc548b51d58138fe52"
+    },
+    "test_bayes.py": {
+      "path": "tests/test_bayes.py",
+      "sha256_before": "b618c4b314bfbcc24528d52dfad368184649e28a21bf254321311ab0808b404d"
+    },
+    "staged_density.py": {
+      "path": "core/staged_density.py",
+      "sha256_before": "d6a69d2e8be93bac973888b3c7f0791f47abb9bf86d7ae5a1fc4fec0805bfb37"
+    },
+    "test_phantom_weak_directions.py": {
+      "path": "tests/test_phantom_weak_directions.py",
+      "sha256_before": "315759dab6353591316302045d92614d17e8dc71e682fbe34cb15886bd62d9be"
+    }
+  }
+}

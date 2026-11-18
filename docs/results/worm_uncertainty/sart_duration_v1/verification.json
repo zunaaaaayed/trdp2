@@ -1,0 +1,13 @@
+{
+  "full_suite_tests": 108,
+  "full_suite_seconds": 4.757,
+  "full_suite_status": "passed",
+  "new_targeted_tests": 4,
+  "metric_rows_replayed": 1512,
+  "archived_sources": "verified",
+  "parent_hashes": "verified",
+  "five_sweep_parity": "passed",
+  "ruff_python_files": 150,
+  "documentation_links": "passed",
+  "diff_check": "passed"
+}

@@ -1,0 +1,328 @@
+{
+  "fbp": {
+    "kind": "paired_fbp_development_pilot",
+    "source": "/autofs/unitytravail/travail/mdzislam/trdp2/worm_data/worm_004_gt.tiff",
+    "source_sha256": "ba884c78bf659acc12df3390c9d6e69e16ddfb3187d5ba3607492790c69fd01d",
+    "z": 255,
+    "signal_scale": 6210.11457254214,
+    "scale_policy": "development slice RMS; provisional, freeze before held-out evaluation",
+    "phantom_checks": {
+      "analytic_projection_relative_l2": 0.018757294841719147,
+      "centroid_error_pixels": 0.030138559206919033,
+      "interior_mean_expected_one": 1.0003492889106924,
+      "linearity_max_error": 4.440892098500626e-15,
+      "passed": true,
+      "thresholds": {
+        "projection_relative_l2": 0.06,
+        "centroid_pixels": 0.5,
+        "interior_mean_absolute_error": 0.05,
+        "linearity_max_error": 1e-10
+      }
+    },
+    "results": [
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.0,
+        "seed": 0,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.04281852718546201,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.0,
+        "seed": 0,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.21754447017865197,
+        "withheld_relative_l2": 0.8072212474703754
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.0,
+        "seed": 0,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.27617627607222117,
+        "withheld_relative_l2": 0.8632494279731989
+      },
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 0,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.04441523781607062,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 0,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.2178270575678586,
+        "withheld_relative_l2": 0.8072410272186306
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 0,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.2764075521302038,
+        "withheld_relative_l2": 0.8632667023209318
+      },
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 1,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.04446263331941272,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 1,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.21785233435036855,
+        "withheld_relative_l2": 0.8072297055636927
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 1,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.27636303061334244,
+        "withheld_relative_l2": 0.8632603922052524
+      },
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 2,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.04472707434826159,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 2,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.21791424110433869,
+        "withheld_relative_l2": 0.8072025066948553
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.01,
+        "seed": 2,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.27644240467116304,
+        "withheld_relative_l2": 0.8632308248639131
+      },
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 0,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.07359300460659914,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 0,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.22553186977000272,
+        "withheld_relative_l2": 0.8073613902437026
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 0,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.28236767409507957,
+        "withheld_relative_l2": 0.8633763257853434
+      },
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 1,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.07371134251675997,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 1,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.22570205440387356,
+        "withheld_relative_l2": 0.8073035502874905
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 1,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.28215691092623024,
+        "withheld_relative_l2": 0.8633450498516569
+      },
+      {
+        "span_deg": 180,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 2,
+        "measured_views": 100,
+        "withheld_views": 0,
+        "measured_relative_l2": 0.07477250667625608,
+        "withheld_relative_l2": null
+      },
+      {
+        "span_deg": 120,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 2,
+        "measured_views": 67,
+        "withheld_views": 33,
+        "measured_relative_l2": 0.22605270039613987,
+        "withheld_relative_l2": 0.8071687891555058
+      },
+      {
+        "span_deg": 90,
+        "start_deg": 0,
+        "fraction": 0.05,
+        "seed": 2,
+        "measured_views": 50,
+        "withheld_views": 50,
+        "measured_relative_l2": 0.28271498489695324,
+        "withheld_relative_l2": 0.8631985457988505
+      }
+    ],
+    "reconstruction": "ramp FBP; missing views zero-filled on full grid to preserve angular quadrature",
+    "limitations": [
+      "one slice of one deformation",
+      "3 noise realizations only",
+      "std maps measure noise response, not posterior uncertainty",
+      "no true voxel density target",
+      "simulator units and orientation not independently verified",
+      "projection error uses same numerical forward operator"
+    ],
+    "display_range": [
+      -293.2200727116373,
+      660.5076079048632
+    ],
+    "code_sha256": {
+      "compare_noise.py": "b4672cf2889f282457c62eb404accf9499361b0fd18e46fc92c845c02c0b939d",
+      "prepare.py": "736d4ef42e78c83aef70d9c5f7ab0200e6575b28c95b63e67d67fe2ac6e46e9a",
+      "check_fbp.py": "297cde4d283212379906937f4f608939bc61088ce16169c3674b7d4455d9f838"
+    },
+    "artifacts": {
+      "arrays.npz": "d8618b09625d31038f4d9865f6a0c6fa1cee857ef1526734a9ca1be6600f5490",
+      "comparison.png": "be4962cb59e0586e13fd9a9e588f965aae4d7fa2ca36dd7864714d4de5711785"
+    }
+  },
+  "sart": {
+    "kind": "development_sart_comparison",
+    "input_report_sha256": "2a3677adceec3cf210e9649a64636bcef2bf63f6621be70f381d4abf8a51893e",
+    "input_arrays_sha256": "d8618b09625d31038f4d9865f6a0c6fa1cee857ef1526734a9ca1be6600f5490",
+    "iterations": 10,
+    "relaxation": 0.15,
+    "initialization": "zeros",
+    "constraint": "nonnegative and circular support after each sweep",
+    "seed": 0,
+    "skimage_version": "0.21.0",
+    "selection": "fixed 10 iterations; no withheld data used for fitting or stopping",
+    "code_sha256": "21e5f4df9d8b8c3ce90cd68d2025cb5b1b50961a22c65de7c7c33f1790910ff3",
+    "results": [
+      {
+        "span": 180,
+        "fraction": 0.0,
+        "measured_relative_l2": 0.030755615495851745,
+        "withheld_relative_l2": null
+      },
+      {
+        "span": 180,
+        "fraction": 0.05,
+        "measured_relative_l2": 0.03669434241061576,
+        "withheld_relative_l2": null
+      },
+      {
+        "span": 120,
+        "fraction": 0.0,
+        "measured_relative_l2": 0.02844796043090978,
+        "withheld_relative_l2": 0.14384174733038987
+      },
+      {
+        "span": 120,
+        "fraction": 0.05,
+        "measured_relative_l2": 0.034767588806335424,
+        "withheld_relative_l2": 0.14391902080849125
+      },
+      {
+        "span": 90,
+        "fraction": 0.0,
+        "measured_relative_l2": 0.02895951868843675,
+        "withheld_relative_l2": 0.1948673519502673
+      },
+      {
+        "span": 90,
+        "fraction": 0.05,
+        "measured_relative_l2": 0.035153547924076226,
+        "withheld_relative_l2": 0.1947951025779521
+      }
+    ],
+    "display_range": [
+      -293.2200727116373,
+      681.0467110284527
+    ],
+    "crop": [
+      105,
+      205,
+      105,
+      205
+    ],
+    "limitations": [
+      "one slice, one noise seed",
+      "FBP is unconstrained, SART is nonnegative: not an isolated algorithm ablation",
+      "different forward discretizations in SART and radon evaluation",
+      "no voxel ground truth, density calibration or uncertainty estimates"
+    ],
+    "artifacts": {
+      "arrays.npz": "cf5ea1d9ff3105ef033b41c0768e606862a6cb4e8a2f3d11f08b1395a429f843",
+      "comparison.png": "fce91eae81e5a5c77c1f02d9dacef772bc510783754d02e2e70b2fe1ea3f14da"
+    }
+  }
+}
