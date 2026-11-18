@@ -1,0 +1,9 @@
+{
+  "source_branch": "experiment/worm-uncertainty",
+  "source_head": "b1f01dd2b06522fab379d57e2df6b4d318c1a2f2",
+  "merge_head": "2bf2a2a0a4fa22cfd763207f7dc7194737e9ca58",
+  "upstream_license_sha256": "a387aec8746e80f39c41f2f5cd5c5afdfb4b859fc2b9aa0a805ed5cc9371d71f",
+  "license_scope": "All rights reserved for original TRDP2 contributions only; upstream and previously granted rights preserved",
+  "active_repository": "https://github.com/zunaaaaayed/ipcv-trdp",
+  "archival_intent": "read-only historical record"
+}

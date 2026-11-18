@@ -1,93 +1,46 @@
-This repository is built on Gaussian-Splatting.
+# TRDP2 original contributions — All Rights Reserved
 
-Gaussian-Splatting License  
-===========================  
+Copyright (c) 2026 Md Zunayedul Islam, to the extent of copyright ownership.
+All rights reserved.
 
-**Inria** and **the Max Planck Institut for Informatik (MPII)** hold all the ownership rights on the *Software* named **gaussian-splatting**.  
-The *Software* is in the process of being registered with the Agence pour la Protection des  
-Programmes (APP).  
+Effective date of this notice: 18 November 2026.
 
-The *Software* is still being developed by the *Licensor*.  
+## Scope
 
-*Licensor*'s goal is to allow the research community to use, test and evaluate  
-the *Software*.  
+This notice applies only to original TRDP2 contributions authored by Md Zunayedul
+Islam in `experiments/`, `docs/`, `Reports/`, `scripts/`, `README.md`, `NEXT_WEEK.md`
+and the TRDP2 handoff/protocol documents. It does not claim ownership of upstream
+code, contributions owned by other people, third-party papers, quoted material,
+data, illustrations, submodules or other separately licensed content.
 
-## 1.  Definitions  
+## No additional permission granted
 
-*Licensee* means any person or entity that uses the *Software* and distributes  
-its *Work*.  
+Except as required by applicable law, GitHub's applicable terms, or a separate
+existing license or written authorization, no permission is granted by this notice
+to use, reproduce, modify, redistribute, sublicense or commercially exploit the
+original TRDP2 contributions identified above. Contact the copyright holder for
+written permission. Any separately authorized use of portions derived from the
+upstream Gaussian-Splatting work remains limited to non-commercial research or
+evaluation and must comply with the upstream license and required permissions.
+This notice grants no commercial rights to upstream material.
 
-*Licensor* means the owners of the *Software*, i.e Inria and MPII  
+## Upstream and existing rights remain intact
 
-*Software* means the original work of authorship made available under this  
-License ie gaussian-splatting.  
+This repository originated from R²-Gaussian and includes Gaussian-Splatting-derived
+material. Its complete original root license is preserved without modification at
+[licenses/UPSTREAM_GAUSSIAN_SPLATTING_LICENSE.md](licenses/UPSTREAM_GAUSSIAN_SPLATTING_LICENSE.md).
+That license, all existing attribution notices, submodule licenses and other
+third-party licenses continue to apply to their respective material. In particular,
+this notice does not replace or override the upstream Work's license or its
+redistribution conditions. More restrictive terms for the identified original
+TRDP2 contributions do not relicense the underlying upstream Work.
 
-*Work* means the *Software* and any additions to or derivative works of the  
-*Software* that are made available under this License.  
+This notice does not revoke licenses or permissions previously granted, change the
+licenses of earlier commits or copies obtained under them, override statutory
+exceptions, or remove GitHub users' rights under GitHub's applicable terms.
 
+## Disclaimer
 
-## 2.  Purpose  
-This license is intended to define the rights granted to the *Licensee* by  
-Licensors under the *Software*.  
-
-## 3.  Rights granted  
-
-For the above reasons Licensors have decided to distribute the *Software*.  
-Licensors grant non-exclusive rights to use the *Software* for research purposes  
-to research users (both academic and industrial), free of charge, without right  
-to sublicense.. The *Software* may be used "non-commercially", i.e., for research  
-and/or evaluation purposes only.  
-
-Subject to the terms and conditions of this License, you are granted a  
-non-exclusive, royalty-free, license to reproduce, prepare derivative works of,  
-publicly display, publicly perform and distribute its *Work* and any resulting  
-derivative works in any form.  
-
-## 4.  Limitations  
-
-**4.1 Redistribution.** You may reproduce or distribute the *Work* only if (a) you do  
-so under this License, (b) you include a complete copy of this License with  
-your distribution, and (c) you retain without modification any copyright,  
-patent, trademark, or attribution notices that are present in the *Work*.  
-
-**4.2 Derivative Works.** You may specify that additional or different terms apply  
-to the use, reproduction, and distribution of your derivative works of the *Work*  
-("Your Terms") only if (a) Your Terms provide that the use limitation in  
-Section 2 applies to your derivative works, and (b) you identify the specific  
-derivative works that are subject to Your Terms. Notwithstanding Your Terms,  
-this License (including the redistribution requirements in Section 3.1) will  
-continue to apply to the *Work* itself.  
-
-**4.3** Any other use without of prior consent of Licensors is prohibited. Research  
-users explicitly acknowledge having received from Licensors all information  
-allowing to appreciate the adequacy between of the *Software* and their needs and  
-to undertake all necessary precautions for its execution and use.  
-
-**4.4** The *Software* is provided both as a compiled library file and as source  
-code. In case of using the *Software* for a publication or other results obtained  
-through the use of the *Software*, users are strongly encouraged to cite the  
-corresponding publications as explained in the documentation of the *Software*.  
-
-## 5.  Disclaimer  
-
-THE USER CANNOT USE, EXPLOIT OR DISTRIBUTE THE *SOFTWARE* FOR COMMERCIAL PURPOSES  
-WITHOUT PRIOR AND EXPLICIT CONSENT OF LICENSORS. YOU MUST CONTACT INRIA FOR ANY  
-UNAUTHORIZED USE: stip-sophia.transfert@inria.fr . ANY SUCH ACTION WILL  
-CONSTITUTE A FORGERY. THIS *SOFTWARE* IS PROVIDED "AS IS" WITHOUT ANY WARRANTIES  
-OF ANY NATURE AND ANY EXPRESS OR IMPLIED WARRANTIES, WITH REGARDS TO COMMERCIAL  
-USE, PROFESSIONNAL USE, LEGAL OR NOT, OR OTHER, OR COMMERCIALISATION OR  
-ADAPTATION. UNLESS EXPLICITLY PROVIDED BY LAW, IN NO EVENT, SHALL INRIA OR THE  
-AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR  
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE  
-GOODS OR SERVICES, LOSS OF USE, DATA, OR PROFITS OR BUSINESS INTERRUPTION)  
-HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT  
-LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING FROM, OUT OF OR  
-IN CONNECTION WITH THE *SOFTWARE* OR THE USE OR OTHER DEALINGS IN THE *SOFTWARE*.  
-
-## 6.  Files subject to permissive licenses
-The contents of the file ```utils/loss_utils.py``` are based on publicly available code authored by Evan Su, which falls under the permissive MIT license. 
-
-Title: pytorch-ssim\
-Project code: https://github.com/Po-Hsun-Su/pytorch-ssim\
-Copyright Evan Su, 2017\
-License: https://github.com/Po-Hsun-Su/pytorch-ssim/blob/master/LICENSE.txt (MIT)
+To the extent permitted by applicable law, the original TRDP2 contributions are
+provided AS IS, without warranty of any kind. No liability is accepted for loss
+arising from their use. Third-party disclaimers remain unchanged.

@@ -1,5 +1,14 @@
 # TRDP2 — Limited-angle CT reconstruction generalization
 
+> **Archived —18 November2026.** The completed `experiment/worm-uncertainty`
+> branch has been merged into `main`. This repository is retained as a read-only
+> historical record. Active development has moved to the independent private
+> [ipcv-trdp repository](https://github.com/zunaaaaayed/ipcv-trdp) (access required).
+> Original TRDP2 contributions are subject to the restrictive notice in
+> [LICENSE.md](LICENSE.md); upstream material retains its original terms, preserved
+> in [the upstream license](licenses/UPSTREAM_GAUSSIAN_SPLATTING_LICENSE.md).
+
+
 **Storage cleanup,16–17 November:** obsolete raw outputs and the retired Gaussian
 `trdp2-r2` environment were removed at the user's request. Current Week8 artifacts,
 V3 checkpoints/profile caches, the active environment and raw worm data remain.
